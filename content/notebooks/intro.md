@@ -1,10 +1,12 @@
 # STAT 88
 
-## Insert Book Title Here
+## Theory Meets Data
 -------------------------------
 By [Ani Adhikari](http://statistics.berkeley.edu/people/ani-adhikari)
 
 This is the textbook for the [Probability and Mathematical Statistics in Data Science](https://stat88.github.io/) class at UC Berkeley.
+
+
 
 
 The contents of this book are licensed for free consumption under the following license:  
