@@ -4,7 +4,7 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /notebooks/01/00_Fundamentals.html
+  url: /notebooks/Chapter_01/00_Fundamentals.html
   title: 'Fundamentals'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

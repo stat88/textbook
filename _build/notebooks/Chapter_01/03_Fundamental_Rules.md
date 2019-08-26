@@ -1,16 +1,16 @@
 ---
 redirect_from:
-  - "/notebooks/chapter-01/02-exact-calculation-or-bound"
-interact_link: content/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.ipynb
+  - "/notebooks/chapter-01/03-fundamental-rules"
+interact_link: content/notebooks/Chapter_01/03_Fundamental_Rules.ipynb
 kernel_name: python3
 has_widgets: false
-title: 'Exact Calculation or Bound'
+title: 'Fundamental Rules'
 prev_page:
-  url: /notebooks/Chapter_01/01_Probabilities_as_Proportions.html
-  title: 'Probabilities as Proportions'
+  url: /notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html
+  title: 'Exact Calculation or Bound'
 next_page:
-  url: /notebooks/Chapter_01/03_Fundamental_Rules.html
-  title: 'Fundamental Rules'
+  url: 
+  title: ''
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
