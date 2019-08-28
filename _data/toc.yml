@@ -52,10 +52,10 @@
 #####
 
 # A chapter w/ a collection of sections beneath it
-- title: Fundamentals # Chapter title
+- title: The Basics # Chapter title
   # path in repo after content/ to what should be displayed when chapter is clicked instead of section
   # i.e. the "intro" page to the chapter
-  url: /notebooks/Chapter_01/00_Fundamentals 
+  url: /notebooks/Chapter_01/00_The_Basics
   not_numbered: False # Number this section 
   expand_sections: true
   sections:
