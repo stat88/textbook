@@ -15,22 +15,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ---
 
 
-<div markdown="1" class="cell code_cell">
-<div class="input_area" markdown="1">
-```python
-# HIDDEN
-from datascience import *
-from prob140 import *
-%matplotlib inline
-import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
-import numpy as np
-
-```
-</div>
-
-</div>
-
 
 
 ## Exact Calculation, or Bound?
