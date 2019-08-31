@@ -112,3 +112,72 @@ We have shown that the chance that the randomly selected teen used Facebook or T
 
 Though we don't have an exact value for the chance, we have done much better than just saying that the chance is between 0% and 100%.
 
+We've included an interactive Venn diagram below to illustrate the lower and upper bound. Drag the Twitter disc until it overlaps completely with the Facebook disc.
+
+
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area hidecode" markdown="1">
+```python
+from IPython.display import display, HTML
+
+venn = '''
+<div id="frame-container">
+<iframe src="02_venn.html">
+</iframe>
+</div>
+
+<style>
+#frame-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+#frame-container > :first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+'''
+
+display(HTML(venn))
+
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+<div markdown="0" class="output output_html">
+
+<div id="frame-container">
+<iframe src="02_venn.html">
+</iframe>
+</div>
+
+<style>
+#frame-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 50%;
+}
+#frame-container > :first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+
+</div>
+
+</div>
+</div>
+</div>
+
