@@ -26,8 +26,14 @@
 
 
 
-# Top-level page
-- title: Home
+# Link back to course website
+- title: Course Home
+  url: http://stat88.org/
+  external: true
+  not_numbered: true
+
+# Authors and Liscence
+- title: Authors and License
   url: /notebooks/intro
   not_numbered: true
 
