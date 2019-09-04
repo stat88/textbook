@@ -79,4 +79,26 @@
   - title: Exercises
     url: /notebooks/Chapter_01/04_Exercises
     not_numbered: False
+    
+- title: Intersections and Conditioning 
+  url: /notebooks/Chapter_02/00_Intersections_and_Conditioning
+  not_numbered: False
+  expand_sections: true
+  sections:
+  - title: The Chance of an Intersection
+    url: /notebooks/Chapter_02/01_The_Chance_of_an_Intersection
+    not_numbered: False
+  - title: Symmetry in Simple Random Sampling
+    url: /notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
+    not_numbered: False
+  - title: Bayes Rule
+    url: /notebooks/Chapter_02/03_Bayes_Rule
+    not_numbered: False
+  - title: Use and Interpretation
+    url: /notebooks/Chapter_02/04_Use_and_Interpretation
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_02/05_Exercises
+    not_numbered: False
+ 
   
