@@ -22,7 +22,11 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 **1.** 
 There are 2,598,960 different poker hands. Suppose I play poker two times so that each time all hands are equally likely regardless of which hand I got the other time. The chance that I get the same hand both times is equal to (pick one and explain):
 
-(i) $\frac{1}{2598960} \times \frac{1}{2598960}$ $~~~~~~~~~~$ (ii) $\frac{1}{2598960}$ $~~~~~~~~~~$ (iii) neither (i) nor (ii)
+(i) $\frac{1}{2598960} \times \frac{1}{2598960}$  
+
+(ii) $\frac{1}{2598960}$ 
+
+(iii) Neither (i) nor (ii)
 
 
 
@@ -78,7 +82,13 @@ There are three boxes, each of which contains two coins. One box has two gold co
 **7.**
 In a community, each child born is equally likely to be a boy or a girl regardless of the genders of all others. A family in this community has two children. You see one of them and note that the child is a girl. What is the chance that the other child is a boy? Pick one of the options below and justify your choice.
 
-(i) $1/4$ $~~~~~~~~~~~~~~~~~~~~~~$ (ii) $1/3$ $~~~~~~~~~~~~~~~~~~~~~~$ (iii) $1/2$ $~~~~~~~~~~~~~~~~~~~~~~$ (iv) $2/3$
+(i) $1/4$ 
+
+(ii) $1/3$ 
+
+(iii) $1/2$ 
+
+(iv) $2/3$
 
 
 

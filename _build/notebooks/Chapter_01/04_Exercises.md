@@ -9,8 +9,8 @@ prev_page:
   url: /notebooks/Chapter_01/03_Fundamental_Rules.html
   title: 'Fundamental Rules'
 next_page:
-  url: 
-  title: ''
+  url: /notebooks/Chapter_02/00_Intersections_and_Conditioning.html
+  title: 'Intersections and Conditioning'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -21,7 +21,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 
-**1)** In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked you for advice on what sort of career they should pursue, what would you tell them?" Here adults are defined as people aged 18 or more.
+**1.** In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked you for advice on what sort of career they should pursue, what would you tell them?" Here adults are defined as people aged 18 or more.
 
 The Center's [report](http://pewrsr.ch/2xyIAAW) provides the following summary of the responses.
 
@@ -41,7 +41,7 @@ Assume that the percents in the chart were accurate for the US adult population 
 
 
 
-**2)** Ashley, Francie, and Rohan arrive for a meeting in random order. This means that if you let A, F, and R represent Ashley, Francie, and Rohan respectively, then all six of the possible orderings AFR, ARF, FAR, FRA, RAF, and RFA have the same chance. These orderings are also known as *permutations* of the letters A, F, and R.
+**2.** Ashley, Francie, and Rohan arrive for a meeting in random order. This means that if you let A, F, and R represent Ashley, Francie, and Rohan respectively, then all six of the possible orderings AFR, ARF, FAR, FRA, RAF, and RFA have the same chance. These orderings are also known as *permutations* of the letters A, F, and R.
 
 **a)** For each event below, write the subset of permutations and find the chance of the event. What is the relation between the chances?
 
@@ -59,7 +59,7 @@ $P(\text{Francie arrives before Rohan or Ashley}) ~ = ~ P(\text{Francie arrives 
 
 
 
-**3)** In the grade distribution of a class, an equal proportion of students got A's and B's and the remaining students got C's. You can assume that there was at least one student in each grade category.
+**3.** In the grade distribution of a class, an equal proportion of students got A's and B's and the remaining students got C's. You can assume that there was at least one student in each grade category.
 
 One student is picked at random from this class.
 
@@ -74,7 +74,7 @@ One student is picked at random from this class.
 
 
 
-**4)** The 17th century French writer who called himself the Chevalier de Méré was interested in probability and claimed that two events involving dice have the same chance. In this exercise you will assess his calculations.
+**4.** The 17th century French writer who called himself the Chevalier de Méré was interested in probability and claimed that two events involving dice have the same chance. In this exercise you will assess his calculations.
 
 Note that on a die, the "ace" is the face with one spot.
 
@@ -90,7 +90,7 @@ Is this a good argument? If not, what is the flaw? If it is flawed, is the Cheva
 
 
 
-**5)** Here's a [question from Quora](https://www.quora.com/If-a-student-applies-to-ten-colleges-with-a-20-chance-of-being-accepted-to-each-what-are-the-chances-he-will-be-accepted-by-at-least-one-college): "If a student applies to ten colleges with a 20% chance of being accepted to each, what are the chances that he will be accepted by at least one college?"
+**5.** Here's a [question from Quora](https://www.quora.com/If-a-student-applies-to-ten-colleges-with-a-20-chance-of-being-accepted-to-each-what-are-the-chances-he-will-be-accepted-by-at-least-one-college): "If a student applies to ten colleges with a 20% chance of being accepted to each, what are the chances that he will be accepted by at least one college?"
 
 Without making any further assumptions, what can you say about this chance?
 

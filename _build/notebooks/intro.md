@@ -1,11 +1,11 @@
 ---
-title: 'Home'
+title: 'Authors and License'
 prev_page:
-  url: 
-  title: ''
+  url: http://stat88.org/
+  title: 'Course Home'
 next_page:
-  url: /notebooks/Chapter_01/00_Fundamentals.html
-  title: 'Fundamentals'
+  url: /notebooks/Chapter_01/00_The_Basics.html
+  title: 'The Basics'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # STAT 88

@@ -7,7 +7,7 @@ has_widgets: false
 title: 'The Basics'
 prev_page:
   url: /notebooks/intro.html
-  title: 'Home'
+  title: 'Authors and License'
 next_page:
   url: /notebooks/Chapter_01/01_Probabilities_as_Proportions.html
   title: 'Probabilities as Proportions'
