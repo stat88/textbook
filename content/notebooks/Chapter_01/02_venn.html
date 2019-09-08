@@ -1,0 +1,122 @@
+<div id="venn">
+  <div id="venn__desc">
+    The area of the overlapping region between the discs is
+    <strong>0%</strong>.
+    <br />
+    Thus, the total green area is 51% + 32% = <strong>83%</strong>.
+    <br />
+    (This is the most possible green area.)
+  </div>
+
+  <!--
+    Setting viewbox as 100 30 makes the x-axis span from 0 to 100 and y-axis
+    span from 0 to 30.
+   -->
+  <svg id="venn__diagram" viewBox="0 0 100 30">
+    <g transform="rotate(-90 27 15)">
+      <text x="27" y="15" text-anchor="middle" class="venn__label">
+        Facebook
+      </text>
+    </g>
+    <circle
+      cx="40"
+      cy="50%"
+      r="10"
+      stroke="black"
+      stroke-width="0.5"
+      fill="rgba(145, 195, 145, 0.7)"
+    ></circle>
+    <g id="tw" transform="translate(0 0)">
+      <circle
+        id="tw__circle"
+        cx="60"
+        cy="50%"
+        r="7"
+        stroke="black"
+        stroke-width="0.5"
+        fill="rgba(145, 195, 145, 0.7)"
+      ></circle>
+      <g id="tw__text" transform="rotate(90 70 15)">
+        <text x="70" y="15" text-anchor="middle" class="venn__label">
+          Twitter
+        </text>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script>
+  // The Twitter disc is 32% of the people in the survey
+  const TWITTER_AREA = 32
+
+  // The x-axis range that the Twitter disc can be dragged
+  const DRAG_MIN = 42
+  const DRAG_MAX = 60
+
+  // The x-axis range where the Twitter disc changes its overlap amount with
+  // the Facebook disc. This is smaller than the range above since we give the
+  // user a bit of "slack".
+  const CHANGE_MIN = 43
+  const CHANGE_MAX = 57
+
+  // d3 scales map from one domain to another. In this case, we want to map
+  // from the position of the Twitter disc to a percentage of overlap so that
+  // an x-value of ≥57 gives an overlap of 0 and ≤43 gives an overlap of 32%
+  // (the entire area of the Twitter disc).
+  const overlap = d3
+    .scaleLinear()
+    .domain([CHANGE_MIN, CHANGE_MAX])
+    .range([TWITTER_AREA, 0])
+    .clamp(true)
+
+  const clip = (n, min, max) => d3.min([d3.max([min, n]), max])
+  const nicePercent = n => `${Math.round(n)}%`
+
+  const tw = d3.select("#tw")
+  const desc = d3.select("#venn__desc")
+
+  // Store the current position of the Twitter disc
+  let twitterX = 60
+  const drag = d3.drag().on("drag", function() {
+    // Update Twitter disc location
+    twitterX = clip(d3.event.x, DRAG_MIN, DRAG_MAX)
+    tw.attr("transform", `translate(${twitterX - 60} 0)`)
+
+    // Update text above diagram
+    const percent = nicePercent(overlap(twitterX))
+    const note =
+      overlap(twitterX) === 0
+        ? "(This is the most possible green area.)"
+        : overlap(twitterX) === TWITTER_AREA
+        ? "(This is the least possible green area.)"
+        : "(This is a possible total green area)"
+    desc.html(`
+    The area of the overlapping region between the discs is
+    <strong>${percent}</strong>.
+    <br />
+    Thus, the total green area is 51% + 32% - ${percent}
+    = <strong>${nicePercent(51 + 32 - overlap(twitterX))}</strong>.
+    <br />
+    ${note}
+    `)
+  })
+
+  tw.call(drag)
+</script>
+
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+      "Helvetica Neue", "Lucida Grande", Arial, sans-serif !important;
+  }
+  #venn {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .venn__label {
+    font-size: 3;
+  }
+</style>
