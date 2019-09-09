@@ -83,7 +83,7 @@
 - title: Intersections and Conditioning 
   url: /notebooks/Chapter_02/00_Intersections_and_Conditioning
   not_numbered: False
-  expand_sections: true
+  expand_sections: false
   sections:
   - title: The Chance of an Intersection
     url: /notebooks/Chapter_02/01_The_Chance_of_an_Intersection
