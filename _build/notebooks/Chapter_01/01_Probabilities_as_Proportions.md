@@ -115,7 +115,14 @@ Because all the outcomes (teens!) are equally likely, probabilities are just per
 
 Who were the other 41%? That's right – they used Facebook, but not most often. That's exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often *but only among those who used Facebook*.
 
-In summary, $P(\text{used Facebook but used some other platform more often}) ~ = ~ 0.51 - 0.1 ~ = ~ 0.41$.
+In summary, 
+
+$$
+\begin{align*}
+& P(\text{used Facebook but used some other platform more often}) \\
+&= ~ 0.51 - 0.1 ~ = ~ 0.41
+\end{align*}
+$$
 
 
 

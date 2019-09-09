@@ -45,11 +45,11 @@ Assume that the percents in the chart were accurate for the US adult population 
 
 **a)** For each event below, write the subset of permutations and find the chance of the event. What is the relation between the chances?
 
-- A_1: Ashley arrives first
+- $A_1$: Ashley arrives first
 
-- A_2: Ashley arrives second
+- $A_2$: Ashley arrives second
 
-- A_3: Ashley arrives third
+- $A_3$: Ashley arrives third
 
 **b)** What is the chance that Rohan arrives before Francie?
 

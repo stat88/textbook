@@ -63,7 +63,7 @@
   # i.e. the "intro" page to the chapter
   url: /notebooks/Chapter_01/00_The_Basics
   not_numbered: False # Number this section 
-  expand_sections: true
+  expand_sections: false
   sections:
   - title: Probabilities as Proportions # Section title
     # path in repo after content/ to what should be displayed when this section is clicked on
@@ -97,8 +97,11 @@
   - title: Use and Interpretation
     url: /notebooks/Chapter_02/04_Use_and_Interpretation
     not_numbered: False
+  - title: Independence
+    url: /notebooks/Chapter_02/05_Independence
+    not_numbered: False  
   - title: Exercises
-    url: /notebooks/Chapter_02/05_Exercises
-    not_numbered: False
+    url: /notebooks/Chapter_02/06_Exercises
+    not_numbered: false
  
   

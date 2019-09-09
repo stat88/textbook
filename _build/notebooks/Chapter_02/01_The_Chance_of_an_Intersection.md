@@ -55,7 +55,8 @@ It is illuminating to keep track of the draws in sequence and write the answer $
 
 $$
 \begin{align*}
-P(\text{the first card is blue and the second is red}) ~ = ~ \frac{1}{6} ~ &= ~ \frac{1}{3} \times \frac{1}{2} \\
+P(\text{the first card is blue and the second is red}) ~ &= ~ \frac{1}{6}\\
+&= ~ \frac{1}{3} \times \frac{1}{2} \\
 &= ~ P(\text{the first card is blue}) \times \frac{1}{2}
 \end{align*}
 $$
@@ -117,7 +118,10 @@ For example, consider the randomly picked teen of the previous chapter and recal
 What is the chance that the teen used both platforms? Let's try to calculate it. By the multiplication rule,
 
 $$
-P(\text{used both Facebook and Twitter}) ~ = ~ 0.51 \times P(\text{used Twitter} \mid \text{used Facebook})
+\begin{align*}
+& P(\text{used both Facebook and Twitter}) \\
+&= ~ 0.51 \times P(\text{used Twitter} \mid \text{used Facebook})
+\end{align*}
 $$
 
 But now we are stuck. The conditional probability $P(\text{used Twitter} \mid \text{used Facebook})$ is the proportion of teens who used Twitter *among those who used Facebook*. We don't know that proportion. Though the proportion of Twitter users among all teens is 32%, it need not be 32% among the Facebook users.
@@ -163,7 +167,10 @@ $$
 Sometimes you can avoid using inclusion-exclusion by approaching the problem in a different way. The event "at least one six" is the complement of "no sixes", and so
 
 $$
-P(\text{at least one six in two rolls}) ~ = ~ 1 - P(\text{no sixes in two rolls}) ~ = ~ 1 ~ - ~ \frac{5}{6} \cdot \frac{5}{6} ~ = ~ \frac{11}{36}
+\begin{align*}
+P(\text{at least one six in two rolls}) ~ &= ~ 1 - P(\text{no sixes in two rolls}) \\
+&= ~ 1 ~ - ~ \frac{5}{6} \cdot \frac{5}{6} ~ = ~ \frac{11}{36}
+\end{align*}
 $$
 
 as before. This method has the advantage that it extends immediately to more rolls. For example,
@@ -189,7 +196,10 @@ $$
 Formally, if $H_i$ is the event that Card $i$ is a heart, then we have extended the multiplication rule to say
 
 $$
-P(H_1H_2H_3H_4H_5) ~ = ~ P(H_1)P(H_2 \mid H_1)P(H_3 \mid H_1H_2)P(H_4 \mid H_1H_2H_3)P(H_5 \mid H_1H_2H_3H_4)
+\begin{align*}
+&P(H_1H_2H_3H_4H_5) \\
+&= ~ P(H_1)P(H_2 \mid H_1)P(H_3 \mid H_1H_2)P(H_4 \mid H_1H_2H_3)P(H_5 \mid H_1H_2H_3H_4)
+\end{align*}
 $$
 
 Notice that the answer is a fraction of a fraction of a fraction ... and so on. Each time you impose a new condition – for example, "Card 3 has to be a heart too" – you reduce the chance of getting what you want. 
@@ -209,9 +219,9 @@ This observation leads to one natural way to solve the problem: **Partition** th
 
 $$
 \begin{align*}
-& P(\text{all five cards are hearts}) \\
-&= ~ P(\text{all hearts or all diamonds or all spades or all clubs}) ~~~~~~~~~ \text{(union of mutually exclusive events)} \\
-&= ~ 4 \times \frac{13}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{(addition rule)}
+&P(\text{all five cards are hearts}) \\
+&= ~ P(\text{all hearts or all diamonds or all spades or all clubs}) \\
+&= ~ 4 \times \frac{13}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48} ~~~~~~~~~~~~~~~~~~~~~ \text{(addition rule)}
 \end{align*}
 $$
 

@@ -136,7 +136,7 @@ That's simpler than Answer 1 but it still doesn't get to the heart of the matter
 It doesn't matter which position you are looking at. What matters is that you don't know anything about the cards at the other positions. So every card is equally likely to be at the position you are considering. That means
 
 $$
-P(R_2) ~ = ~  P(R_1) ~ = ~ P(R_{17}) ~ = ~ P(R_{52}) ~ = ~ P(R_i) ~ = ~ \frac{26}{52} ~~~ \text{for every } i = 1, 2, \ldots , 52
+P(R_2) ~ = ~  P(R_1) ~ = ~ P(R_{17}) ~ = ~ P(R_i) ~ = ~ \frac{26}{52} ~~~ \text{for every } i = 1, 2, \ldots , 52
 $$
 
 This symmetry is very powerful and saves a lot of calculation. 
