@@ -9,8 +9,8 @@ prev_page:
   url: /notebooks/Chapter_02/03_Bayes_Rule.html
   title: 'Bayes Rule'
 next_page:
-  url: /notebooks/Chapter_02/05_Exercises.html
-  title: 'Exercises'
+  url: /notebooks/Chapter_02/05_Independence.html
+  title: 'Independence'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -106,7 +106,7 @@ Since the test had a 5% false positive rate, 27 people ignored all else and answ
 
 The authors of the survey scathingly concluded that, "... formal decision analysis was almost entirely unknown and even common-sense reasoning about the interpretation of laboratory data was uncommon."
 
-Ouch. But the Med School members have plenty of company. The base rate fallacy occurs with unfailing regularity in medicine, the law, and other fields. It is hard for people who are not trained in data science to keep track of several different rates at once and combine them appropriately.
+Ouch. But the Med School members have plenty of company. The base rate fallacy occurs with depressing frequency in medicine, the law, and other fields. For some people who are not trained in data science, it is hard to keep track of several different rates at once and combine them appropriately.
 
 
 
