@@ -112,5 +112,8 @@
   - title: Success and Failure
     url: /notebooks/Chapter_03/01_Success_and_Failure
     not_numbered: False
+  - title: Random Variables
+    url: /notebooks/Chapter_03/02_Random_Variables
+    not_numbered: False
  
   
