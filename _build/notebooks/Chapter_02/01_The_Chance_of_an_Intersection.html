@@ -1,0 +1,243 @@
+---
+redirect_from:
+  - "/notebooks/chapter-02/01-the-chance-of-an-intersection"
+interact_link: content/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  The Chance of an Intersection
+prev_page:
+  url: /notebooks/Chapter_02/00_Intersections_and_Conditioning.html
+  title: |-
+    Intersections and Conditioning
+next_page:
+  url: /notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html
+  title: |-
+    Symmetry in Simple Random Sampling
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Chance-of-an-Intersection">The Chance of an Intersection<a class="anchor-link" href="#The-Chance-of-an-Intersection"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The intersection of two events is a subset of each of them, so its chance is less than or equal to the chance of each one and hence is at most equal to the minimum of the two chances.</p>
+<p><img src="../../images/intersection.png" alt="intersection"></p>
+<p>$$
+P(AB) ~ \le ~ \min(P(A), P(B))
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But how do we find it exactly? Let's start out with a simple example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Two-Cards-from-a-Deck-of-Three">Two Cards from a Deck of Three<a class="anchor-link" href="#Two-Cards-from-a-Deck-of-Three"> </a></h3><p>I deal two cards at random without replacement from a deck that contains one red, one blue, and one green card. This means:</p>
+<ul>
+<li>I pick one of the three cards at random.</li>
+<li>Then I pick one card at random from the two cards that remain in the deck.</li>
+</ul>
+<p>That is, I don't replace the card the first card I picked before drawing the second one.</p>
+<p>What is the chance that I draw the blue card followed by the red card?</p>
+<p>We can answer this by listing all possible outcomes and seeing which ones correspond to the event in question.</p>
+<p>The outcome space $\Omega$ is the set of all possible pairs of cards, keeping track of which was first and which was second. If we let R stand for the red card, B for the blue, and G for the green, then $\Omega = \{ RB, RG, BG, BR, GR, GB\}$.</p>
+<p>The event "the blue card followed by the red card" consists of just one outcome, BR.</p>
+<p>The draws are at random, so all six pairs are equally likely. The chance of getting a blue card followed by a red card is therefore $1/6$.</p>
+<p>It is illuminating to keep track of the draws in sequence and write the answer $1/6$ as a product:</p>
+<p>$$
+\begin{align*}
+P(\text{the first card is blue and the second is red}) ~ &amp;= ~ \frac{1}{6}\\
+&amp;= ~ \frac{1}{3} \times \frac{1}{2} \\
+&amp;= ~ P(\text{the first card is blue}) \times \frac{1}{2}
+\end{align*}
+$$</p>
+<p>The factor $1/2$ is the chance of drawing the red card from the reduced deck consisting of just the red and green cards. This probability is known as the <em>conditional probability of drawing a red card second, given that the first card drawn is blue</em>.</p>
+<p>We write</p>
+<p>$$
+\begin{align*}
+&amp; P(\text{the first card is blue and the second is red}) \\
+&amp; = ~ P(\text{the first card is blue})P(\text{the second is red} \mid \text{the first card is blue})
+\end{align*}
+$$</p>
+<p>The vertical bar in the conditional probability is read as "given that".</p>
+<p>That's still quite long, so we will introduce some notation that keeps track of the pair of cards in order. Define the following events:</p>
+<ul>
+<li>$B_1$ is the event that the first card is blue</li>
+<li>$R_2$ is the event that the second card is red</li>
+</ul>
+<p>The event in question is the intersection $B_1 R_2$, and the result is</p>
+<p>$$
+P(B_1 R_2) ~ = ~ P(B_1)P(R_2 \mid B_1)
+$$</p>
+<p>This example motivates one of the fundamental rules of probability.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule"> </a></h3><p>We now have a method of finding the chance of the intersection of any two events $A$ and $B$. The chance is given by</p>
+<p>$$
+P(AB) ~ = ~ P(A)P(B \mid A)
+$$</p>
+<p>where the second factor on the right hand side is the <em>conditional probability that B occurs given that A occured</em>.</p>
+<p>For example, suppose you deal two cards from a standard deck that has 52 cards of which 13 are hearts. You can assume that this means you pick one card at random from all 52 cards and then another at random from the remaining 51. Then</p>
+<p>$$
+P(\text{both cards are hearts}) ~ = ~ \frac{13}{52} \times \frac{12}{51}
+$$</p>
+<p>The second factor on the right hand side is the conditional probability that the second card is a heart given that the first card was a heart. If the first card was a heart then there are only 12 hearts among the 51 cards that remain after the first card is drawn.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In these examples about cards, the conditional probabilities we needed were easy to find. But sometimes it is not possible to find it based on the information given – someone has to go get more data, or summarize the available data in a different way, for us to know the conditional chance that we need.</p>
+<p>For example, consider the randomly picked teen of the previous chapter and recall that we knew the chance that the teen used Facebook as well as the chance that the teen used Twitter. These chances were:</p>
+<ul>
+<li>$P(\text{used Facebook}) ~ = ~ 0.51$. That is, 51% of all teens in the population used Facebook.</li>
+<li>$P(\text{used Twitter}) ~ = ~ 0.32$. That is, 32% of all teens in the population used Twitter.</li>
+</ul>
+<p>What is the chance that the teen used both platforms? Let's try to calculate it. By the multiplication rule,</p>
+<p>$$
+\begin{align*}
+&amp; P(\text{used both Facebook and Twitter}) \\
+&amp;= ~ 0.51 \times P(\text{used Twitter} \mid \text{used Facebook})
+\end{align*}
+$$</p>
+<p>But now we are stuck. The conditional probability $P(\text{used Twitter} \mid \text{used Facebook})$ is the proportion of teens who used Twitter <em>among those who used Facebook</em>. We don't know that proportion. Though the proportion of Twitter users among all teens is 32%, it need not be 32% among the Facebook users.</p>
+<p>To find the proportion of teens who used both platforms, we must request the Pew Research Center to go back to the survey responses and find the proportion who used both platforms. We can't figure it out from the available summary because the summary only provides usage data for individual platforms, not pairs.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Inclusion-Exclusion">Inclusion-Exclusion<a class="anchor-link" href="#Inclusion-Exclusion"> </a></h3><p>If two events are not mutually exclusive, then their intersection helps us find the chance of their union.</p>
+<p>In the figure below, the blue region is the union of the events $A$ and $B$.</p>
+<p><img src="../../images/incl_excl.png" alt="inclusion-exclusion"></p>
+<p>We know that if we try to find $P(A \cup B)$ by just adding $P(A)$ and $P(B)$, our answer will be too big. The figure shows that the answer will be too big because we will have included the intersection $AB$ twice: once as part of $A$ and then again as part of $B$.</p>
+<p>So if we try to find $P(A \cup B)$ by adding $P(A)$ and $P(B)$ then we must fix our error by subtracting $P(AB)$:</p>
+<p>$$
+P(A \cup B) ~ = ~ P(A) + P(B) - P(AB)
+$$</p>
+<p>This is called an <em>inclusion-exclusion</em> formula. Bonferroni developed a sequence of such formulas for an increasing number of events in the union.</p>
+<p>Notice that the inclusion-exclusion formula is true for all events $A$ and $B$. The addition rule is only for mutually exclusive events, which is of course the case when $P(AB) = 0$.</p>
+<p>Suppose I roll a die twice. What is the chance that the face with six spots appears at least once?</p>
+<p>Let $S_i$ be the event that the die shows a six on Roll $i$. Then the probability we want is</p>
+<p>$$
+P(S_1 \cup S_2) ~ = ~ P(S_1) + P(S_2) - P(S_1S_2)
+~ = ~ \frac{1}{6} + \frac{1}{6} - P(S_1)P(S_2 \mid S_1) 
+$$</p>
+<p>by the inclusion-exclusion formula and the multiplication rule. Now $P(S_2 \mid S_1) = 1/6$ because the chance that the second roll is a six is not affected by what appeared on the first roll. So</p>
+<p>$$
+P(S_1 \cup S_2) ~ = ~ \frac{1}{6} ~ + ~ \frac{1}{6} ~ - ~ \frac{1}{6} \cdot \frac{1}{6} ~ = ~ \frac{11}{36}
+$$</p>
+<p>Sometimes you can avoid using inclusion-exclusion by approaching the problem in a different way. The event "at least one six" is the complement of "no sixes", and so</p>
+<p>$$
+\begin{align*}
+P(\text{at least one six in two rolls}) ~ &amp;= ~ 1 - P(\text{no sixes in two rolls}) \\
+&amp;= ~ 1 ~ - ~ \frac{5}{6} \cdot \frac{5}{6} ~ = ~ \frac{11}{36}
+\end{align*}
+$$</p>
+<p>as before. This method has the advantage that it extends immediately to more rolls. For example,</p>
+<p>$$
+P(\text{at least one six in 10 rolls}) ~ = ~ 1 - \big{(}\frac{5}{6}\big{)}^{10}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Intersection-of-Several-Events">Intersection of Several Events<a class="anchor-link" href="#Intersection-of-Several-Events"> </a></h3><p>The standard deck consists of 13 cards in each of four <em>suits</em>: hearts, diamonds, spades, and clubs. Suppose you deal five cards from a well-shuffled deck. This means the five cards are dealt at random without replacement, and is a good model for a 5-card poker hand.</p>
+<p><strong>Question 1:</strong> What is the chance that all five cards are hearts?</p>
+<p><strong>Answer:</strong> By a natural extention of the multiplication rule, the answer is</p>
+<p>$$
+P(\text{all five are hearts}) ~ = ~ \frac{13}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48}
+$$</p>
+<p>Formally, if $H_i$ is the event that Card $i$ is a heart, then we have extended the multiplication rule to say</p>
+<p>$$
+\begin{align*}
+&amp;P(H_1H_2H_3H_4H_5) \\
+&amp;= ~ P(H_1)P(H_2 \mid H_1)P(H_3 \mid H_1H_2)P(H_4 \mid H_1H_2H_3)P(H_5 \mid H_1H_2H_3H_4)
+\end{align*}
+$$</p>
+<p>Notice that the answer is a fraction of a fraction of a fraction ... and so on. Each time you impose a new condition – for example, "Card 3 has to be a heart too" – you reduce the chance of getting what you want.</p>
+<p>The extension can be proved easily by induction; we will leave that to another class.</p>
+<p><strong>Question 2:</strong> What is the chance that all four cards are of the same suit?</p>
+<p><strong>Answer:</strong> This kind of hand is called a flush. Resist the impulse to say that the answer is the same as that in Question 1. Before you calculate, compare the two events:</p>
+<ul>
+<li>all five cards are hearts</li>
+<li>all five cards are of the same suit</li>
+</ul>
+<p>The latter is more likely because it includes the former and also includes other possibilities. For example it includes "all five cards are spades".</p>
+<p>This observation leads to one natural way to solve the problem: <strong>Partition</strong> the event into smaller pieces (that is, make an exhaustive list of distinct ways it can happen), and add up the chances of the pieces.</p>
+<p>$$
+\begin{align*}
+&amp;P(\text{all five cards are hearts}) \\
+&amp;= ~ P(\text{all hearts or all diamonds or all spades or all clubs}) \\
+&amp;= ~ 4 \times \frac{13}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48} ~~~~~~~~~~~~~~~~~~~~~ \text{(addition rule)}
+\end{align*}
+$$</p>
+<p>Partitioning events, informally known as "listing the ways," is a fundamental method of calculating chances.</p>
+<p>Another good way to think about this problem is to take one card at a time. For the event to occur,</p>
+<ul>
+<li>the first card can be any card in the deck,</li>
+<li>the second card must be of the same suit as the first,</li>
+<li>the third card must be of the same suit as the first two, etc</li>
+</ul>
+<p>So</p>
+<p>$$
+P(\text{all five cards are hearts}) ~ = ~ \frac{52}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48}
+$$</p>
+<p>which is the same as the answer we got by partitioning.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -48,6 +48,7 @@
 # Adds a searchbar link
 - title: Search
   search: true
+  not_numbered: True
 
 # Divider for meta-pages and content page
 - divider: true

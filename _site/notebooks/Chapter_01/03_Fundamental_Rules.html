@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Fundamental Rules</title>
+  <meta name="description" content="Fundamental RulesIn 1933, the Russian mathematician Andrey Kolmogorov established the axioms of the modern theory of probability. You will see that the axiom...">
+
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html">
+  <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Fundamental Rules" />
+<meta property="og:description" content="Fundamental RulesIn 1933, the Russian mathematician Andrey Kolmogorov established the axioms of the modern theory of probability. You will see that the axiom..." />
+<meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html",
+  "headline": "Fundamental Rules",
+  "datePublished": "2019-09-10T15:52:20-05:00",
+  "dateModified": "2019-09-10T15:52:20-05:00",
+  "description": "Fundamental RulesIn 1933, the Russian mathematician Andrey Kolmogorov established the axioms of the modern theory of probability. You will see that the axiom...",
+  "author": {
+    "@type": "Person",
+    "name": "Ani Adhikari"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
+
+initFunction(initAnchors);
+</script>
+
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+
+}
+initFunction(initToc);
+</script>
+
+
+  <!-- Google analytics -->
+  <script src="/textbook/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://stat88.github.io/"><img src="/textbook/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Stat 88 Textbook</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="http://stat88.org/"
+        >
+          
+          Course Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/intro.html"
+        >
+          
+          Authors and License
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href=".html"
+        >
+          
+          Search
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_01/00_The_Basics.html"
+        >
+          
+            1.
+          
+          The Basics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html"
+                >
+                  
+                    1.1
+                  
+                  Probabilities as Proportions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html"
+                >
+                  
+                    1.2
+                  
+                  Exact Calculation or Bound
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html"
+                >
+                  
+                    1.3
+                  
+                  Fundamental Rules
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/04_Exercises.html"
+                >
+                  
+                    1.4
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_02/00_Intersections_and_Conditioning.html"
+        >
+          
+            2.
+          
+          Intersections and Conditioning
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html"
+                >
+                  
+                    2.1
+                  
+                  The Chance of an Intersection
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html"
+                >
+                  
+                    2.2
+                  
+                  Symmetry in Simple Random Sampling
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/03_Bayes_Rule.html"
+                >
+                  
+                    2.3
+                  
+                  Bayes Rule
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html"
+                >
+                  
+                    2.4
+                  
+                  Use and Interpretation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/05_Independence.html"
+                >
+                  
+                    2.5
+                  
+                  Independence
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/06_Exercises.html"
+                >
+                  
+                    2.6
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
+        >
+          
+            3.
+          
+          Random Counts
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html"
+                >
+                  
+                    3.1
+                  
+                  Success and Failure
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/02_Random_Variables.html"
+                >
+                  
+                    3.2
+                  
+                  Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
+</div>
+
+  
+  
+  
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <h2 id="fundamental-rules">Fundamental Rules</h2>
+<p>In 1933, the Russian mathematician <a href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a> established the axioms of the modern theory of probability. You will see that the axioms are generalizations of the natural properties of proportions that we have already used in our calculations.</p>
+
+<p>We will start this section with formal defnitions of some familiar terms. We will then state the axioms and list some important consequences.</p>
+
+<h3 id="outcome-space-and-events">Outcome Space and Events</h3>
+
+<p>$\bullet$ An <em>outcome space</em> or <em>sample space</em> is the set of all possible outcomes of an experiment.</p>
+
+<p>The outcome space could be finite, for example when the experiment is one roll of a die and the outcomes are the integers 1 through 6. It could also be infinite, for example if the experiment consists of throwing a dart randomly at the unit interval $(0, 1)$. The possible outcomes consist of all the numbers between 0 and 1.</p>
+
+<p>The outcome space is usually denoted $\Omega$, the upper case Greek letter omega. An individual outcome is often denoted $\omega$, which looks like a w but is really the lower case Greek letter omega.</p>
+
+<p>$\bullet$ An <em>event</em> is a subset of the outcome space.</p>
+
+<p>For example, “the die shows a multiple of 3” is the subset ${3, 6}$ of the outcome space ${1, 2, 3, 4, 5, 6 }$. The event “the dart falls to the right of 0.75” is the subset $(0.75, 1)$ of the outcome space $(0, 1)$.</p>
+
+<p>Events are typically denoted by early letters of the alphabet such as $A$, $B$, etc. It is worth noting that the outcome space $\Omega$ is itself an event and is certain to occur: every outcome is an element of $\Omega$. Also note that the empty set $\phi$ is an event.</p>
+
+<h3 id="motivation-for-the-axioms">Motivation for the Axioms</h3>
+
+<p><em>Probability</em> is a numerical function on events that satisfies three conditions that are reasonable based on our natural sense of what probabilities should be. Before we write the formal axioms, let’s list some conditions that make sense based on our calculations thus far.</p>
+
+<p>First, it is natural to measure probabilities on the percent scale. That is, they should be numbers between 0% and 100%, or between 0 and 1 on the decimal scale.</p>
+
+<p>Next, we have to think about how events might combine with each other, and how their probabilities should be combined.</p>
+
+<p>One way in which we can combine two events is to look at their <em>union</em>. That’s the event that at least one of the two events occurs. An example of such a union is “the teen used Facebook or Twitter”.</p>
+
+<p>In the Venn diagram below, the individual circles represent the event $A$ and the event $B$. The blue region represents their union. That’s the event that at least one of $A$ and $B$ occurs.</p>
+
+<p><img src="../../images/union_AB.png" alt="union" /></p>
+
+<p>It’s a great idea to think of probability as a <em>measure</em> like length, area, or volume. Indeed, advanced classes in probability are based on an area of mathematics called “measure theory”. Area is the natural measure when we use Venn diagrams: think of $P(A)$ as the area of the circle $A$.</p>
+
+<p>As we have seen, the chance that $A$ or $B$ occurs is $P(A \cup B)$ and it depends on the extent of the overlap between $A$ and $B$. The main axiom of probability sets out a simple rule in the case of no overlap.</p>
+
+<p>As you know from set theory, sets $A$ and $B$ that have no elements in common are called disjoint. In the language of probability, events $A$ and $B$ that have no outcomes in common are called <em>mutually exclusive</em>.</p>
+
+<p>The intersection of two events is the set of outcomes that the two events have in common. Saying that events $A$ and $B$ are mutually exclusive is the same as saying that their intersection is empty: $A \cap B = \phi$.</p>
+
+<p>The axiom says that if events are mutually exclusive then the chance of their union is the sum of their chances. As we observed in an earlier section, this is apparent from the Venn diagram.</p>
+
+<p><img src="../../images/mut_excl_AB.png" alt="mutually exclusive union" /></p>
+
+<h3 id="the-axioms">The Axioms</h3>
+<p>Kolmogorov’s set out three axioms of probability. Together they imply all the natural conditions we have discussed above. As you will see, they imply far more. Indeed, even the most advanced probability theory is derived based on just these three axioms.</p>
+
+<ul>
+  <li>$P(A) \ge 0$ for every event $A$</li>
+  <li>$P(\Omega) = 1$</li>
+  <li><strong>Addition Rule:</strong> If events $A_1, A_2, A_3, \ldots $ are mutually exclusive then $P(\bigcup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)$</li>
+</ul>
+
+<p>The second axiom just says that the whole outcome space has chance 100%, that is, with chance 100% the experiment is going to have an outcome.</p>
+
+<p>Notice the generalization in the third axiom. Kolmogorov wrote the addition rule for the union of an infinite list of mutually exclusive events instead of just two. Formally, infinitely many events $A_1, A_2, A_3 \ldots $ are mutually exclusive if no pair of them has an overlap. That is, for all $i \ne j$, the intersection $A_i \cap A_j = \phi$.</p>
+
+<h3 id="complement-and-set-difference">Complement and Set Difference</h3>
+<p>The entire course is going to consist of consequences of the axioms. We will start with the most straightforward of these. You should note that we have already used them in earlier sections.</p>
+
+<p>The consequences can all be formally derived from the axioms but in this course it is enough to have an intuitive sense of why they are true based on diagrams or properties of proportions.</p>
+
+<ul>
+  <li><strong>Complement Rule:</strong> If $A$ is an event, the event “$A$ does not occur” is called the <em>complement</em> of $A$ and is denoted $A^c$. This is standard terminology and notation in set theory. The complement rule says that $P(A^c) = 1 - P(A)$.</li>
+</ul>
+
+<p>We used the complement rule when we found the chance that a randomly sampled teen does not use Facebook most often of all online platforms.</p>
+
+<ul>
+  <li><strong>Difference Rule:</strong> If the event $B$ implies the event $A$, then $B \subseteq A$. The <em>set difference</em> $A \backslash B$ is the set of all outcomes that are in $A$ and not in $B$. This is the blue region in the Venn diagram below.</li>
+</ul>
+
+<p><img src="../../images/set_difference.png" alt="set difference" /></p>
+
+<p>The difference rule says that if $B \subseteq A$ then $P(A \backslash B) = P(A) - P(B)$.</p>
+
+<p>We used the difference rule when we found the chance that a randomly sampled teen used Facebook but used some other platform more often.</p>
+
+<h3 id="booles-and-bonferronis-inequality">Boole’s (and Bonferroni’s) Inequality</h3>
+
+<p>As we have already seen from Venn diagrams, for any two events $A$ and $B$ the chance $P(A \cup B)$ is maximized when $A$ and $B$ are mutually exclusive, and therefore $P(A \cup B)$ is at most the sum $P(A) + P(B)$:</p>
+
+<script type="math/tex; mode=display">P(A \cup B) ~ \le ~ P(A) + P(B) ~~~~~ \text{for all events } A, B</script>
+
+<p>Equality is achieved when $A$ and $B$ are mutually exclusive.</p>
+
+<p>It is no surprise (and can be proved) that an analogous result is true for any $n$ events $A_1, A_2, \ldots, A_n$.</p>
+
+<p><strong>Boole’s Inequality:</strong></p>
+
+<script type="math/tex; mode=display">P(\bigcup_{i=1}^n A_i) ~ \le ~ \sum_{i=1}^n P(A_i) ~~~~~ \text{for all events } A_1, A_2, \ldots, A_n</script>
+
+<p>This inequality is due to the English Mathematician <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a> after whom Booleans are named. He actually showed the inequality for infinite lists of events, but finite lists will be enough for our purposes.</p>
+
+<p>The inequality is also called a Bonferroni inequality because is a special case of a sequence of inequalities due to the Italian mathematician <a href="https://en.wikipedia.org/wiki/Carlo_Emilio_Bonferroni">Carlo Emilio Bonferroni</a>. This is the name most commonly used in data science in situations where multiple quantities are being estimated using data from the same random sample.</p>
+
+<p>The inequality provides an upper bound on the chance of the union of events. The bound is the sum of the chances of the individual events.</p>
+
+<p>In some cases it might be a very crude bound. For example, if $P(A) = 0.7$ and $P(B) = 0.8$, then the inequality says $P(A \cup B) \le 1.5$, which is true but rather silly as we already know $P(A \cup B) \le 1$.</p>
+
+<p>In other cases the bound might be excellent. For example, if the events in the union are mutually exclusive then the bound is in fact equal to the chance of the union, by the third axiom. In general, the closer the events are to being mutually exclusive, the closer the bound will be to the exact chance of the union.</p>
+
+
+            </div>
+            <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
+      〈 <span class="u-margin-right-tiny"></span> Exact Calculation or Bound
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_01/04_Exercises.html">
+      Exercises <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
