@@ -116,5 +116,8 @@
   - title: Random Variables
     url: /notebooks/Chapter_03/02_Random_Variables
     not_numbered: False
+  - title: The Binomial Distribution
+    url: /notebooks/Chapter_03/03_The_Binomial_Distribution
+    not_numbered: False
  
   

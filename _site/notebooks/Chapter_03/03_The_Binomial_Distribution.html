@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Use and Interpretation</title>
-  <meta name="description" content="Use and InterpretationThere are many situations in the law, medicine, and other fields, where Bayes’ Rule might help make decisions.  Given the evidence, is ...">
+  <title>The Binomial Distribution</title>
+  <meta name="description" content="The Binomial Distribution We have just seen how to find the distribution of the number of heads in three tosses of a coin. In this section we will generalize...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Use and Interpretation" />
-<meta property="og:description" content="Use and InterpretationThere are many situations in the law, medicine, and other fields, where Bayes’ Rule might help make decisions.  Given the evidence, is ..." />
+<meta property="og:title"       content="The Binomial Distribution" />
+<meta property="og:description" content="The Binomial Distribution We have just seen how to find the distribution of the number of heads in three tosses of a coin. In this section we will generalize..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html",
-  "headline": "Use and Interpretation",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html",
+  "headline": "The Binomial Distribution",
   "datePublished": "2019-09-10T20:57:21-05:00",
   "dateModified": "2019-09-10T20:57:21-05:00",
-  "description": "Use and InterpretationThere are many situations in the law, medicine, and other fields, where Bayes’ Rule might help make decisions.  Given the evidence, is ...",
+  "description": "The Binomial Distribution We have just seen how to find the distribution of the number of heads in three tosses of a coin. In this section we will generalize...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -713,7 +713,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -776,7 +776,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html"
                 >
                   
@@ -862,7 +862,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
@@ -906,7 +906,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html"
                 >
                   
@@ -972,141 +972,476 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h2 id="use-and-interpretation">Use and Interpretation</h2>
+              <div class="jb_cell tag_remove_input">
 
-<p>There are many situations in the law, medicine, and other fields, where Bayes’ Rule might help make decisions.</p>
+<div class="cell border-box-sizing code_cell rendered">
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Binomial-Distribution">The Binomial Distribution<a class="anchor-link" href="#The-Binomial-Distribution"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have just seen how to find the distribution of the number of heads in three tosses of a coin. In this section we will generalize the method and find the distribution of the number of heads in any fixed number of tosses of any coin, fair or biased.</p>
+<p>The image of tossing coins (possibly biased) and counting heads is a good way to think about counting successes in repeated independent trials. For example:</p>
 <ul>
-  <li>Given the evidence, is the defendant guilty or not?</li>
-  <li>Given the test results, does the patient have the disease, or not?</li>
+<li>Counting the number of times the face with two spots appears in 10 rolls of a die is like counting the number of heads in 10 tosses of a coin that lands heads with chance $1/6$.</li>
+<li>Counting the number of times red pockets win in 20 spins of a roulette wheel is like counting the number of heads in 20 tosses of a coin that lands heads with chance $18/38$.</li>
+<li>Counting the number of college graduates in a sample of size 100 drawn at random with replacement from a population in which 20% of the people are college graduates is like counting the number of heads in 100 tosses of a coin that lands heads with chance $0.2$.</li>
 </ul>
 
-<p>But not all medical or legal professionals have taken data science classes. So the calculations are sometimes misinterpreted or done incorrectly or simply not done at all.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>Here is an example that demonstrates some of the issues that are involved.</p>
+<div class="jb_cell">
 
-<h3 id="harvard-medical-school-survey">Harvard Medical School Survey</h3>
-
-<p>In 1978, <a href="https://www.ncbi.nlm.nih.gov/pubmed/692627">Cascella, Schoenberger, and Grayboys</a> asked 60 physicians, students, and house officers at the Harvard Medical school the following question:</p>
-
-<p>“If a test to detect a disease whose prevalence is 1/1,000 has a false positive rate of 5 per cent, what is the chance that a person found to have a positive result actually has the disease, assuming that you know nothing about the person’s symptoms or signs?”</p>
-
-<p>The answers ranged from about 2% to 95%, with 27 out of the 60 Medical School members surveyed answering 95%.</p>
-
-<p>Let’s see what we think the answer should be. First, some background and terminology:</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Two-Sixes-in-Five-Rolls">Two Sixes in Five Rolls<a class="anchor-link" href="#Two-Sixes-in-Five-Rolls"> </a></h3><p>We will figure out the pieces of the calculation in a particular example. After that, generalization will be straightforward.</p>
+<p>Suppose a die is rolled five times. What is the chance of getting two sixes?</p>
+<p>A natural way to approach the question is to say that we have five independent trials, each of which can be a success (six) or failure (not a six). We want the chance of two successes. As always, it is good to start by listing some of the ways the event can happen.</p>
+<p>If $S$ stands for success and $F$ for failure, then one way in which the event could happen is the sequence $SSFFF$. We know that</p>
+<p>$$
+P(SSFFF) ~ = ~ \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3
+$$</p>
+<p>Another way the event could occur is $SFSFF$. The chance of this is</p>
+<p>$$
+P(SFSFF) ~ = ~ \frac{1}{6} \cdot \frac{5}{6} \cdot \frac{1}{6} \big{(} \frac{5}{6} \big{)}^2 ~ = ~ \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3
+$$</p>
+<p>Every sequence that contains two $S$ entries and three $F$ entries will have the same chance. Write out a few more and check! In each case the probability has two factors of $1/6$ and three factors of $5/6$.</p>
+<p>How many such sequences are there? There are five positions to fill with $S$ and $F$. Pick two of the five positions for the $S$ entries and fill all the others with $F$. Since the only choice involved is in picking two out of five spots, the number of ways you can do this is $\binom{5}{2}$.</p>
+<p>The chance of two sixes in five rolls is the total chance of all sequences that have two $S$ entries and three $F$ entries.</p>
 <ul>
-  <li><em>Prevalence</em> in the population is the percent of people who have the disease. It is also called the <em>base rate</em> of the disease.</li>
-  <li>There is a test for the disease that has two possible results for a tested person. A <em>positive</em> result means that according to the test the person has the disease. A <em>negative</em> result means that according to the test the person doesn’t have the disease.</li>
-  <li>The test can give a wrong result. The <em>false positive rate</em> is the proportion of positive results among people who don’t have the disease.</li>
+<li>Each such sequence has chance $\big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3$.</li>
+<li>There are $\binom{5}{2}$ such sequences, and they are mutually exclusive.</li>
 </ul>
+<p>By the addition rule, the total chance is</p>
+<p>$$
+P(\text{3 sixes in 5 rolls}) ~ = ~ \binom{5}{2} \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3
+$$</p>
 
-<p>The <em>true positive rate</em> is the rate of positive results among those who do have the disease. The question doesn’t provide this rate. We will assume, as the people surveyed also did, that the test is good and the true positive rate is 100%.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>Here are the data in a tree diagram.</p>
+<div class="jb_cell">
 
-<p><img src="../../images/tree_disease_harvard_1.png" alt="Harvard Med School tree diagram" /></p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-Distribution">Binomial Distribution<a class="anchor-link" href="#Binomial-Distribution"> </a></h3><p>To generalize this calculation, let's recall the assumptions and define some notation.</p>
+<ul>
+<li>There are $n$ trials, where $n$ is a fixed number.</li>
+<li>The trials are independent of each other.</li>
+<li>Each trial results in success or failure.</li>
+<li>On each individual trial, the chance of success is $p$.</li>
+</ul>
+<p>In our example above, there are $n = 5$ independent trials, each of which is a success (six) with chance $p = 1/6$.</p>
+<p>Let $X$ be the number of successes. Suppose we want to find $P(X = k)$. In our example above, $k = 3$. Then</p>
+<p>$$
+P(X = k) ~ = ~ \binom{n}{k} p^k (1-p)^{n-k}, ~~~ 0 \le k \le n
+$$</p>
+<p>This is called the <em>binomial formula</em>. The term <em>binomial</em> comes from the fact that the probabilities are the terms in the binomial expansion of $(a + b)^n$ in the case $a = p$ and $b = 1-p$.</p>
+<p>We say that the number of successes $X$ has the <em>binomial distribution</em> with parameters $n$ and $p$. A <em>parameter</em> is a fixed number associated with a distribution.</p>
+<p>The name of the distribution is usually shortened to the <em>binomial $(n, p)$ distribution</em>.</p>
 
-<p>The question asks for a chance but doesn’t say how the person is selected. As a first step, let’s assume that the person was selected at random from the population. Then the answer is a straightforward application of Bayes’ Rule:</p>
+</div>
+</div>
+</div>
+</div>
 
-<script type="math/tex; mode=display">P(\text{disease} \mid \text{test positive}) ~ = ~ 
-\frac{0.001 \times 1}{(0.001 \times 1) + (0.999 \times 0.05)} ~ \approx ~ 0.0196</script>
+<div class="jb_cell">
 
-<p>This calculation explains the answer of approximately 2% that was provided by 11 out of the 60 people surveyed.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Features-of-the-Distribution">Features of the Distribution<a class="anchor-link" href="#Features-of-the-Distribution"> </a></h3><p>The binomial distribution has many wonderful properties, as we will discover in this course. Here are some basic properties that you can think of as "sanity checks".</p>
+<p><strong>1.</strong> In $n$ trials, the smallest possible number of successes is 0 and the largest possible number is $n$. That is why the range of possible values $k$ is $0 \le k \le n$.</p>
+<p><strong>2.</strong> For $k = 0$, the formula says</p>
+<p>$$
+P(X = 0) ~ = ~ \binom{n}{0} p^0 (1-p)^n ~ = ~ 1 \cdot 1 \cdot (1-p)^n ~ = ~ (1-p)^n
+$$</p>
+<p>This makes sense. "The number of successes is 0" is the same event as "all the trials are failures".</p>
+<p>You should check that the formula also makes sense for $k = n$. It says that $P(X = n) = p^n$.</p>
+<p><strong>3.</strong> The formula does result in a distribution: the terms add up to 1. That is because they are all the terms in the binomial expansion of $(p + (1-p))^n$ and $p + (1-p) = 1$.</p>
 
-<h3 id="prior-and-posterior-rates">Prior and Posterior Rates</h3>
+</div>
+</div>
+</div>
+</div>
 
-<p>While the answer above is numerically correct, it is rather unsettling.</p>
+<div class="jb_cell">
 
-<p>The medical test is pretty accurate. For a person who has the disease the test is error-free – it will always make the correct conclusion. For a person who doesn’t have the disease the test has an error rate of only 5%. For these people it will make the correct conclusion 95% of the time.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Calculation">Calculation<a class="anchor-link" href="#Calculation"> </a></h3><p>Calculating binomial probabilities just involves recalling the calculation of $\binom{n}{k}$ and plugging in the rest of the factors correctly. Here are some examples.</p>
+<p>We started this section with the chance of getting two sixes in five rolls of a die.</p>
+<p>$$
+P(\text{2 sixes in 5 rolls}) ~ = ~ \binom{5}{2} \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3 ~ = ~ \frac{5 \times 4}{2!} \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3 ~ \approx ~ 16\%
+$$</p>
+<p>In the last section, we found that the chance of getting one head in three tosses of a coin is $3/8$. That's the chance of getting one success in three independent trials each of which is a success with chance $1/2$, and the binomial formula says</p>
+<p>$$
+P(\text{1 head in 3 tosses}) ~ = ~ \binom{3}{1} \big{(} \frac{1}{2} \big{)}^1 \big{(} \frac{1}{2} \big{)}^2 ~ = ~ 3 \times \frac{1}{8} ~ = ~ \frac{3}{8}
+$$</p>
+<p>The factor $\binom{n}{k}$ can be large for even moderate values of $n$ and $k$. For example, $\binom{20}{10} = 184756$ and is not pleasant to calculate by hand. Fortunately, we have Python!</p>
 
-<p>Yet for a randomly selected person who has tested positive, the calculation says the chance of disease is a mere 2%.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>To understand what the 2% means, remember that it is a posterior probability of disease: the probability that the person has the disease, given that they tested positive.</p>
+<div class="jb_cell">
 
-<p>This should be compared to the prior probability of disease: the probability we assigned to the person having the disease before we knew anything about test results. That probability was the base rate of 0.001, which is 0.1%.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-Probabilities-in-Python">Binomial Probabilities in Python<a class="anchor-link" href="#Binomial-Probabilities-in-Python"> </a></h3><p><code>SciPy</code> is a compendium of Python software that is enormously useful in data science. In particular, its <code>stats</code> module contains numerous functions and methods used by data scientists. We will import the module in the cell below, but in future sections it will always have been imported before the start of the section.</p>
 
-<p>Knowing that the person tested positive increased this probability by a factor of 20.</p>
+</div>
+</div>
+</div>
+</div>
 
-<h3 id="effect-of-a-low-base-rate">Effect of a Low Base Rate</h3>
+<div class="jb_cell">
 
-<p>If 2% still seems small as an answer, look at the table below. It pretends that the population consists of 100,000 people, and displays the counts in the four branches of the tree. You can redo the table with a different population size if you wish, as long as you keep the proportions consistent with the question.</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Test Positive</th>
-      <th>Test Negative</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Disease</strong></td>
-      <td>100</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td><strong>No Disease</strong></td>
-      <td>4,995</td>
-      <td>94,905</td>
-    </tr>
-  </tbody>
-</table>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+</pre></div>
 
-<p>As described in the question, 100 out of the 100,000 people (1/1000) have the disease. All these people test positive. Of the 99,900 people who don’t have the disease, 4,995 (5%) falsely test positive and the rest test negative.</p>
+</div>
+</div>
+</div>
 
-<p>If a randomly picked person has the disease, they are one of the people in the Test Positive column. This column illuminates an aspect of the calculation that must be understood in order to correctly interpret the result.</p>
+</div>
+</div>
 
-<p>There are two groups of people who test positive: all those who have the disease, and also 5% of those who don’t have the disease.</p>
+<div class="jb_cell">
 
-<p>The base rate is very small: the disease is rare in the population. So even though everybody with the disease tests positive, their number is small (100) in comparison to the group of people who don’t have the disease and falsely test positive (4,995). So the people who correctly test positive are a small fraction of all the people who test positive.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall that a probability distribution is sometimes called a probability mass function or pmf. If $X$ has the binomial $(n, p)$ distribution, the call below evaluates to $P(X = k)$:</p>
+<p><code>stats.binom.pmf(k, n, p)</code></p>
+<p>For example, the chance of 2 sixes in 5 rolls of a die is</p>
 
-<p>That is why when we are given that the test result of a randomly chosen person is positive, we conclude that there is a small chance that the person has the disease.</p>
+</div>
+</div>
+</div>
+</div>
 
-<h3 id="base-rate-fallacy">Base Rate Fallacy</h3>
+<div class="jb_cell">
 
-<p>How could 27 out of the 60 Medical School members surveyed end up with an answer of 95% instead? It is because they made a common mistake known as the <em>base rate fallacy</em>. This error consists of simply ignoring the base rate and just focusing on the likelihoods.</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<p>Since the test had a 5% false positive rate, 27 people ignored all else and answered 95%, not noticing that they had provided $P(\text{test negative} \mid \text{no disease})$ when instead the question asked for $P(\text{disease} \mid \text{test positive})$.</p>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
 
-<p>The authors of the survey scathingly concluded that, “… formal decision analysis was almost entirely unknown and even common-sense reasoning about the interpretation of laboratory data was uncommon.”</p>
+</div>
+</div>
+</div>
 
-<p>Ouch. But the Med School members have plenty of company. The base rate fallacy occurs with depressing frequency in medicine, the law, and other fields. For some people who are not trained in data science, it is hard to keep track of several different rates at once and combine them appropriately.</p>
+<div class="output_wrapper">
+<div class="output">
 
-<h3 id="changing-the-base-rate">Changing the Base Rate</h3>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
 
-<p>The most unsettling aspect of the Bayes’ Rule calculation above is the prior probability of 0.001. It is based on the assumption that the person was picked randomly from the population. But medical tests aren’t given to random members of the public. People get tested when they or their doctors think they might be at risk for the disease. In that case the base rate might not be the right figure to use for the prior probability of disease.</p>
 
-<p>Suppose instead a person thinks that there is a small chance, say 10%, that they have the disease. If this person’s test result comes out positive, how should they update their probability of disease?</p>
 
-<p>Since the test remains the same, all that has to change in the tree diagram is the prior probability of having and not having the disease.</p>
+<div class="output_text output_subarea output_execute_result">
+<pre>0.16075102880658435</pre>
+</div>
 
-<p><img src="../../images/tree_disease_harvard_2.png" alt="tree with subjective prior" /></p>
+</div>
+</div>
+</div>
+</div>
 
-<p>The calculation changes to</p>
+</div>
+</div>
 
-<script type="math/tex; mode=display">P(\text{disease} \mid \text{test positive}) ~ = ~ 
-\frac{0.1 \times 1}{(0.1 \times 1) + (0.9 \times 0.05)} ~ \approx ~ 0.69</script>
+<div class="jb_cell">
 
-<p>The change in the prior probability of disease from 0.1% to 10% has a massive effect on the posterior probability of disease given a positive test result. That is now close to 70%.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This agrees with the our calculation earlier in the section.</p>
+<p>In a spin of a roulette wheel, the winning pocket is red with chance $18/38$, independently of other spins. The chance that the winner is red in 12 out of 20 spins of a roulette wheel is about 9.5%.</p>
 
-<p>The main lesson is that posterior probabilities are affected by the base rate as well as the likelihoods. Ignoring either of these can result in errors of calculation and interpretation.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="o">/</span><span class="mi">38</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.09464664493762641</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can use <code>stats.binom.pmf</code> to get more than one probability in a binomial distribution in a single call. If <code>k_array</code> is an array of possible values, then <code>stats.binom.pmf(k_array, n, p)</code> evaluates to an array of binomial $(n, p)$ probabilities for all $k$ in <code>k_array</code>.</p>
+<p>For example, here are all the probabilities in the binomial $(3, 1/2)$ distribution. They are the probabilities in the distribution of the number of heads in 3 tosses of a coin.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.125, 0.375, 0.375, 0.125])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>They add up to 1:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.0</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is the probability histogram of the number of sixes in 12 rolls of a die, that is, the histogram of the binomial $(12, 1/6)$ distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_03/03_The_Binomial_Distribution_18_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that 2 is the most likely value. That makes sense. Roughly, you expect about $1/6$ of the rolls to be sixes. So in 12 trials, you expect roughly 2 sixes.</p>
+<p>It can be shown that all binomial histograms either look like this one in the sense that the probabilities rise and then fall; or the probabilities only rise; or they only fall. But they can't bob up and down repeatedly like waves.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="College-Graduates-in-a-Random-Sample">College Graduates in a Random Sample<a class="anchor-link" href="#College-Graduates-in-a-Random-Sample"> </a></h3><p>Suppose you take a sample of 100 people at random with replacement from a population in which 20% of the people are college graduates. What is the chance that you get more than 10 college graduates in your sample?</p>
+<p>The sample is being drawn with replacement. So the draws are $n = 100$ independent trials, each of which results in a success (college graduate) with chance $p = 0.2$.</p>
+<p>Let $X$ be the number of college graduates in the sample. Then $X$ has the binomial $(100, 0.2)$ distribution.</p>
+<p>We want $P(X &gt; 10)$. By the binomial formula and the addition rule, this is</p>
+<p>$$
+P(X &gt; 10) ~ = ~ \sum_{k=11}^{100} \binom{100}{k} 0.2^k 0.8^{100-k}
+$$</p>
+<p>The expression in the cell below evaluates to this sum.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9943036190441882</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The chance that there are more than 10 college graduates in the sample is just about 99.43%.</p>
+<p>This high value makes sense. Since 20% of the population are college graduates, you expect roughly 20% college graduates in a large random sample. So it is not surprising that the chance of more than 10 college graduates in a random sample of size 100 is high.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/03_Bayes_Rule.html">
-      〈 <span class="u-margin-right-tiny"></span> Bayes Rule
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/02_Random_Variables.html">
+      〈 <span class="u-margin-right-tiny"></span> Random Variables
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_02/05_Independence.html">
-      Independence <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
