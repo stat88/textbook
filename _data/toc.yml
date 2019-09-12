@@ -119,5 +119,11 @@
   - title: The Binomial Distribution
     url: /notebooks/Chapter_03/03_The_Binomial_Distribution
     not_numbered: False
+  - title: The Hypergeometric Distribution
+    url: /notebooks/Chapter_03/04_The_Hypergeometric_Distribution
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_03/05_Exercises
+    not_numbered: False
  
   

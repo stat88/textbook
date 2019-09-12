@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Random Counts</title>
-  <meta name="description" content="Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m...">
+  <title>Exercises</title>
+  <meta name="description" content="Exercises 1.In a move in the game Monopoly, a die is rolled twice. Let $D_1$ be the number of spots on the first roll, $D_2$ the number of spots on the secon...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Exercises.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Exercises.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Random Counts" />
-<meta property="og:description" content="Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m..." />
+<meta property="og:title"       content="Exercises" />
+<meta property="og:description" content="Exercises 1.In a move in the game Monopoly, a die is rolled twice. Let $D_1$ be the number of spots on the first roll, $D_2$ the number of spots on the secon..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html",
-  "headline": "Random Counts",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Exercises.html",
+  "headline": "Exercises",
   "datePublished": "2019-09-11T21:54:34-05:00",
   "dateModified": "2019-09-11T21:54:34-05:00",
-  "description": "Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m...",
+  "description": "Exercises 1.In a move in the game Monopoly, a die is rolled twice. Let $D_1$ be the number of spots on the first roll, $D_2$ the number of spots on the secon...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -844,7 +844,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
         >
           
@@ -944,7 +944,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_03/05_Exercises.html"
                 >
                   
@@ -1010,67 +1010,184 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="random-counts">Random Counts</h1>
+              <div class="jb_cell">
 
-<p>The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions made by a sports journalist – all of these are example of <em>counts</em>. Random counts occur commonly in data science. Understanding them not only helps answer questions about the situations in which they arose but also helps us understand more complicated random quantities.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h2>
+</div>
+</div>
+</div>
+</div>
 
-<p>In this chapter we will start out with random counts that seem unlikely. We will then develop some general terminology and notation for dealing with random quantities that have numerical values. Our main examples will be random counts when sampling with and without replacement.</p>
+<div class="jb_cell">
 
-<h3 id="arranging-in-a-line">Arranging in a Line</h3>
-<p>It will help to review some of the math involved in counting. Let $n$ be a positive integer and suppose you have a set of $n$ elements.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>1.</strong>
+In a move in the game Monopoly, a die is rolled twice. Let $D_1$ be the number of spots on the first roll, $D_2$ the number of spots on the second roll, and $S = D_1 + D_2$ the total number of spots on the two rolls.</p>
+<p><strong>a)</strong> Find the distribution of $S$.</p>
+<p><strong>b)</strong> Find $P(S &gt; 7)$.</p>
+<p><strong>c)</strong> Find $P(|S - 7| \le 2)$.</p>
 
-<p>Let $k$ be a fixed integer such that $1 \le k \le n$.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>By the product rule of counting, the number of ways in which you can arrange $k$ of the $n$ elements in a line is $n(n-1)(n-2) \cdots (n-k+1)$.</p>
+<div class="jb_cell">
 
-<p>If $k = n$, this is the same as arranging all $n$ elements in a line. Plug $k = n$ into the expression above to see that the number of ways of arranging $n$ elements in a line is $n!$. These are called <em>permutations</em> of the $n$ elements.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>2.</strong>
+A true-false test has 20 questions.</p>
+<p><strong>a)</strong> Dev hasn't studied at all, so he guesses each answer by tossing a coin. Let $R$ be the number of questions that Dev gets right. Find $P(R &gt; 16)$.</p>
+<p><strong>b)</strong> Aram, Chendi, and Samir haven't studied either. So each of them also guesses every answer by tossing a coin. What is the chance that none of them gets more than 16 questions right?</p>
 
-<h3 id="choosing-subsets">Choosing Subsets</h3>
-<p>Suppose now that you want to select $k$ elements from among the $n$ but you are not interested in the order in which they appear. This happens for example when you deal a hand of cards: you hand is the <em>subset</em> or group of cards that you got. Subsets are not ordered.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>The number of different subset of $k$ elements that you can create out of $n$ elements is the number $\binom{n}{k}$, read as “$n$ choose $k$”.</p>
+<div class="jb_cell">
 
-<p>For $k \ge 1$, a good way to remember this number is</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>3.</strong>
+Yi likes to bet on "red" at roulette. Each time she bets, her chance of winning is $18/38$ independently of all other times. Suppose she bets repeatedly on red. Find the chance that:</p>
+<p><strong>a)</strong> she wins four of the first 10 bets</p>
+<p><strong>b)</strong> she wins at most four of the first 10 bets</p>
+<p><strong>c)</strong> the third time she wins is on the 10th bet</p>
+<p><strong>d)</strong> she needs more than 10 bets to win five times</p>
 
-<script type="math/tex; mode=display">\binom{n}{k} ~ = ~ \frac{n(n-1)(n-2) \ldots (n-k+1)}{k!}</script>
+</div>
+</div>
+</div>
+</div>
 
-<p>Notice that $\binom{n}{n} = 1$. There is only one way to choose a set of $n$ elements out of $n$: choose them all.</p>
+<div class="jb_cell">
 
-<p>The calculation says that you can start by pulling out $k$ elements and arranging them in a line; the number of ways to do that is the numerator above. But you can’t just stop there. All $k!$ ways of permuting those same $k$ elements give you the same subset, but the numerator counts them all as different arrangements. In other words, the numerator counts every subset consisting of $k$ elements not once but $k!$ times. You only want to count each subset once. Dividing by $k!$ solves this problem.</p>
-
-<p>There is another way to remember $\binom{n}{k}$. This way is not great for numerical computation because factorials get very large. But it’s a clean formula and sometimes helpful in algebraic calculations.</p>
-
-<script type="math/tex; mode=display">\binom{n}{k} ~ = ~ \frac{n!}{k!(n-k)!}</script>
-
-<p>It is easy to see by algebra that the two expressions for $\binom{n}{k}$ give the same answer.</p>
-
-<p>One nice consequence of the second representation is that it can also be used when $k=0$ and gives the natural answer $\binom{n}{0} = 1$. There is only one way to choose 0 elements out of $n$: do nothing.</p>
-
-<p>Recall that $0!$ is defined to be 1. That’s to make the formula above work out.</p>
-
-<p>The numbers $\binom{n}{k}$ appear in many calculations.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>4.</strong> Akaash bets a dollar repeatedly on a "split" at roulette.</p>
 <ul>
-  <li>They are the elements of <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal’s Triangle</a>.</li>
-  <li>They are the coefficients in the <a href="https://en.wikipedia.org/wiki/Binomial_theorem">expansion</a> of $(a + b)^n$. Try it out for $n = 2$ and see!</li>
+<li>Each time he bets, his chance of winning is $2/38$ independently of other times. </li>
+<li>Each time he wins a bet, his net gain is 17 dollars. </li>
+<li>Each time he loses a bet, he loses a dollar; that is, his net gain is $-1$ dollars.</li>
 </ul>
+<p>Suppose he bets 90 times. What is the chance that he makes money? In other words, what is the chance that his total net gain is positive?</p>
 
-<p>For our purposes, the main property of $\binom{n}{k}$ is that it is the number of ways you can choose a subset of $k$ elements out of a set of $n$.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>5.</strong> A standard deck consists of 52 cards. Each card has a color, a suit, and a rank, as follows.</p>
+<ul>
+<li>There are 13 cards in each of four suits: hearts, diamonds, spades, and clubs.</li>
+<li>Hearts and diamonds are red. Spades and clubs are black.</li>
+<li>In each suit, the cards are of 13 ranks: Ace, 2, 3, $\ldots$, 10, Jack, Queen, King.</li>
+<li>The Jacks, Queens, and Kings are called face cards.</li>
+</ul>
+<p>Throughout this course, "dealt" means "sampled at random without replacement".</p>
+<p>A bridge hand consists of 13 cards dealt from the deck.</p>
+<p><strong>a)</strong> Find the chance that the hand contains two aces.</p>
+<p><strong>b)</strong> Find the chance that the hand contains more than two aces.</p>
+<p><strong>c)</strong> Find the chance that the hand contains six face cards.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>6.</strong> In a population of 200 voters, 70 are registered with Party A and the other 130 are registered with Party B. A simple random sample of 40 voters is drawn from this population. Let $V$ be the number of sampled voters who are registered with Party A, and let $W = 40 - V$ be the number of sampled voters who are registered with Party B Find:</p>
+<p><strong>a)</strong> $P(V = 10)$</p>
+<p><strong>b)</strong> $P(V &gt; 10)$</p>
+<p><strong>c)</strong> $P(W &lt; 3V)$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>7.</strong>
+Every time Adalie buys a lottery ticket, her chance of winning is 1 in a million, independently of all other times. What is the smallest number of lottery tickets Adalie has to buy so that the chance that that she wins at least once is more than 50%?</p>
+<p>[You might want to use a Jupyter notebook cell to find the numerical value, just to get a sense of the magnitude. Use <code>np.log(x)</code> for $\log(x)$ and <code>np.e</code> for $e$. Here $\log$ means the natural logarithm.]</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>8.</strong>
+Yiwen, Shashank, and Ophelia go out to dinner together every week. Each time, each of them tosses a coin. If one person's coin lands differently from both the others, that person is the "odd one out" and has to pay for everyone's dinner. If nobody is the odd one out then each person pays for their own dinner.</p>
+<p>Suppose they do this for 15 weeks.</p>
+<p><strong>a)</strong> What is the chance that there is an odd one out at least once?</p>
+<p><strong>b)</strong> What is the chance that Yiwen never has to pay for her own dinner?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>9.</strong> A coin is tossed 200 times. Let $X_1$ be the number of heads in the first 100 tosses and let $X_2$ be the number of heads in the last 100 tosses.</p>
+<p><strong>a)</strong> True or false (explain): $X_1 = X_2$.</p>
+<p><strong>b)</strong> Do $X_1$ and $X_2$ have the same distribution? Why or why not?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>10.</strong> A standard deck consists of 52 cards, 4 of which are aces. A simple random sample of 26 cards is drawn from the deck. Let $X_1$ be the number of aces in the sample and let $X_2$ be the number of aces among the cards that were not drawn in the sample.</p>
+<p><strong>a)</strong> True or false (explain): $X_1 = X_2$.</p>
+<p><strong>b)</strong> Do $X_1$ and $X_2$ have the same distribution? Why or why not?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/06_Exercises.html">
-      〈 <span class="u-margin-right-tiny"></span> Exercises
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
+      〈 <span class="u-margin-right-tiny"></span> The Hypergeometric Distribution
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html">
-      Success and Failure <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

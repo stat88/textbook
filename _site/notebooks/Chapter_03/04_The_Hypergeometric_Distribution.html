@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Random Counts</title>
-  <meta name="description" content="Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m...">
+  <title>The Hypergeometric Distribution</title>
+  <meta name="description" content="The Hypergeometric Distribution When you are sampling at random from a finite population, it is more natural to draw without replacement than with replacemen...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Random Counts" />
-<meta property="og:description" content="Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m..." />
+<meta property="og:title"       content="The Hypergeometric Distribution" />
+<meta property="og:description" content="The Hypergeometric Distribution When you are sampling at random from a finite population, it is more natural to draw without replacement than with replacemen..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html",
-  "headline": "Random Counts",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html",
+  "headline": "The Hypergeometric Distribution",
   "datePublished": "2019-09-11T21:54:34-05:00",
   "dateModified": "2019-09-11T21:54:34-05:00",
-  "description": "Random CountsThe number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions m...",
+  "description": "The Hypergeometric Distribution When you are sampling at random from a finite population, it is more natural to draw without replacement than with replacemen...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -844,7 +844,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
         >
           
@@ -925,7 +925,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html"
                 >
                   
@@ -1010,67 +1010,343 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="random-counts">Random Counts</h1>
+              <div class="jb_cell tag_remove_input">
 
-<p>The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions made by a sports journalist – all of these are example of <em>counts</em>. Random counts occur commonly in data science. Understanding them not only helps answer questions about the situations in which they arose but also helps us understand more complicated random quantities.</p>
+<div class="cell border-box-sizing code_cell rendered">
 
-<p>In this chapter we will start out with random counts that seem unlikely. We will then develop some general terminology and notation for dealing with random quantities that have numerical values. Our main examples will be random counts when sampling with and without replacement.</p>
+</div>
+</div>
 
-<h3 id="arranging-in-a-line">Arranging in a Line</h3>
-<p>It will help to review some of the math involved in counting. Let $n$ be a positive integer and suppose you have a set of $n$ elements.</p>
+<div class="jb_cell">
 
-<p>Let $k$ be a fixed integer such that $1 \le k \le n$.</p>
-
-<p>By the product rule of counting, the number of ways in which you can arrange $k$ of the $n$ elements in a line is $n(n-1)(n-2) \cdots (n-k+1)$.</p>
-
-<p>If $k = n$, this is the same as arranging all $n$ elements in a line. Plug $k = n$ into the expression above to see that the number of ways of arranging $n$ elements in a line is $n!$. These are called <em>permutations</em> of the $n$ elements.</p>
-
-<h3 id="choosing-subsets">Choosing Subsets</h3>
-<p>Suppose now that you want to select $k$ elements from among the $n$ but you are not interested in the order in which they appear. This happens for example when you deal a hand of cards: you hand is the <em>subset</em> or group of cards that you got. Subsets are not ordered.</p>
-
-<p>The number of different subset of $k$ elements that you can create out of $n$ elements is the number $\binom{n}{k}$, read as “$n$ choose $k$”.</p>
-
-<p>For $k \ge 1$, a good way to remember this number is</p>
-
-<script type="math/tex; mode=display">\binom{n}{k} ~ = ~ \frac{n(n-1)(n-2) \ldots (n-k+1)}{k!}</script>
-
-<p>Notice that $\binom{n}{n} = 1$. There is only one way to choose a set of $n$ elements out of $n$: choose them all.</p>
-
-<p>The calculation says that you can start by pulling out $k$ elements and arranging them in a line; the number of ways to do that is the numerator above. But you can’t just stop there. All $k!$ ways of permuting those same $k$ elements give you the same subset, but the numerator counts them all as different arrangements. In other words, the numerator counts every subset consisting of $k$ elements not once but $k!$ times. You only want to count each subset once. Dividing by $k!$ solves this problem.</p>
-
-<p>There is another way to remember $\binom{n}{k}$. This way is not great for numerical computation because factorials get very large. But it’s a clean formula and sometimes helpful in algebraic calculations.</p>
-
-<script type="math/tex; mode=display">\binom{n}{k} ~ = ~ \frac{n!}{k!(n-k)!}</script>
-
-<p>It is easy to see by algebra that the two expressions for $\binom{n}{k}$ give the same answer.</p>
-
-<p>One nice consequence of the second representation is that it can also be used when $k=0$ and gives the natural answer $\binom{n}{0} = 1$. There is only one way to choose 0 elements out of $n$: do nothing.</p>
-
-<p>Recall that $0!$ is defined to be 1. That’s to make the formula above work out.</p>
-
-<p>The numbers $\binom{n}{k}$ appear in many calculations.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Hypergeometric-Distribution">The Hypergeometric Distribution<a class="anchor-link" href="#The-Hypergeometric-Distribution"> </a></h2><p>When you are sampling at random from a finite population, it is more natural to draw without replacement than with replacement. In this section, we imagine a population of elements each of which is in one of two categories. The goal is to study the number of sampled elements in one category.</p>
+<p>We will stick with the probabilists' tradition of calling the two categories "good" and "bad". You could also call them "success" and "failure," in parallel with the previous section.</p>
+<p>Consider a population of $N$ elements, $G$ of which are good and the remaining $N-G$ are bad.</p>
+<p>Take a simple random sample of size $n$ from the population. Let $X$ be the number of good elements in the sample.</p>
+<p>Before we find the distribution of $X$, let us list some examples where such situations arise.</p>
 <ul>
-  <li>They are the elements of <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal’s Triangle</a>.</li>
-  <li>They are the coefficients in the <a href="https://en.wikipedia.org/wiki/Binomial_theorem">expansion</a> of $(a + b)^n$. Try it out for $n = 2$ and see!</li>
+<li><p>If you are interested in the number of aces in a 5-card poker hand, then the population is the deck consisting of $N = 52$ cards of which $G = 4$ are good (aces) and the remaining $N - G = 48$ are bad. The hand is the simple random sample of size $n = 5$, and $X$ is the number of good elements in the sample.</p>
+</li>
+<li><p>If you are interested in the number of Independent voters in a simple random sample of 2000 voters taken from a population of one million voters of whom 1% are Independent, then the population consists of $N = 1,000,000$ voters of whom $G = 10,000$ are good (Independent) and the remaining $N-G = 1,000,000 - 10,000 = 990,000$ are bad. The simple random sample size is $n = 2000$ and $X$ is the number of good elements in the sample.</p>
+</li>
 </ul>
 
-<p>For our purposes, the main property of $\binom{n}{k}$ is that it is the number of ways you can choose a subset of $k$ elements out of a set of $n$.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hypergeometric-Probabilities">Hypergeometric Probabilities<a class="anchor-link" href="#Hypergeometric-Probabilities"> </a></h3><p>A simple random sample is a subset consisting of $n$ elements drawn at random from the population.</p>
+<p>The number of different samples we could draw is therefore $\binom{N}{n}$.</p>
+<p>Let us find $P(X = g)$, the chance of getting $g$ good elements in the sample. For this we have to count the number of simple random samples that contain $g$ good elements and $n-g$ bad elements.</p>
+<p>Use the product rule of counting:</p>
+<ul>
+<li>There are $\binom{G}{g}$ choices for the $g$ good elements.</li>
+<li>For each of these, there are $\binom{N-G}{n-g}$ choices for the $n-g$ bad elements.</li>
+<li>Therefore there are $\binom{G}{g}\binom{N-G}{n-g}$ samples that contain $g$ good elements.</li>
+</ul>
+<p>Since all of the $\binom{N}{n}$ samples are equally likely,</p>
+<p>$$
+P(X = g) ~ = ~ \frac{\binom{G}{g}\binom{N-G}{n-g}}{\binom{N}{n}}
+$$</p>
+<p>These are rather grandly called <em>hypergeometric probabilities</em> because they are related to the <a href="https://en.wikipedia.org/wiki/Hypergeometric_function#The_hypergeometric_series">hypergeometric series</a> in mathematics.</p>
+<p>As an example, the chance of getting two aces in a 5-card poker hand is</p>
+<p>$$
+P(\text{2 aces in 5-card poker hand}) ~ = ~ \frac{\binom{4}{2}\binom{48}{3}}{\binom{52}{5}}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hypergeometric-Distribution">Hypergeometric Distribution<a class="anchor-link" href="#Hypergeometric-Distribution"> </a></h3><p>The distribution of $X$, the number of good elements in the sample, is called the <em>hypergeometric distribution</em>. It has three parameters:</p>
+<ul>
+<li>$N$, the population size</li>
+<li>$G$, the number of good elements in the population</li>
+<li>$n$, the simple random sample size</li>
+</ul>
+<p>The distribution is given by the formula derived above:</p>
+<p>$$
+P(X = g) ~ = ~ \frac{\binom{G}{g}\binom{N-G}{n-g}}{\binom{N}{n}}, ~~~ 0 \le g \le n
+$$</p>
+<p><strong>Technical Note:</strong> The possible values of $X$ are 0 through $n$ in most applications. But for example if the sample size $n$ is bigger than the total number of good elements $G$, then $X$ can't be equal to $n$. It can be at most $G$. We won't bother with these kinds of situations. In any case, the formula for $P(X = g)$ will work in those cases as well, under the natural definition that quantities like $\binom{10}{15}$ and $\binom{10}{-2}$ are 0. There is no way to choose 15 elements out of 10, and there is no way to choose -2 elements out of 10 either.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $X$ is the number of aces in a 5-card poker hand then $X$ has the hypergeometric distribution with parameters $N = 52$, $G = 4$, and $n = 5$. Here is the probability histogram of $X$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_03/04_The_Hypergeometric_Distribution_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Not surprisingly, 0 is the most likely number of aces in the hand. Though it is possible to get 4 aces, the chance is so small that the bar over the value 4 is not visible.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hypergeometric-Probabilities-in-Python">Hypergeometric Probabilities in Python<a class="anchor-link" href="#Hypergeometric-Probabilities-in-Python"> </a></h3><p>You can use the <code>stats</code> module of <code>SciPy</code> to calculate hypergeometric probabilities, just as you used it to calculate binomial probabilities.</p>
+<p>The expression <code>stats.hypergeom.pmf(g, N, G, n)</code> evaluates to $P(X = g)$ if $X$ has the hypergeometric $(N, G, n)$ distribution described above.</p>
+<p>The numerical value of the chance of 2 aces in a 5-card poker hand is</p>
+<p>$$
+P(\text{2 aces in 5-card poker hand}) ~ = ~ \frac{\binom{4}{2}\binom{48}{3}}{\binom{52}{5}} ~ \approx ~ 4\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.039929818081078594</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can get several probabilities in the distribution simultaneously by providing the possible values in an array. If <code>g_array</code> is an array of possible values whose probabilities you want, then the following expression will evaluate to an array of all their chances:</p>
+<p><code>stats.hypergeom.pmf(g_array, N, G, n)</code></p>
+<p>For example, here are all of the chances in the distribution displayed in the histogram above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Distribution of the number of aces in a 5-card poker hand</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([6.58841998e-01, 2.99473636e-01, 3.99298181e-02, 1.73607905e-03,
+       1.84689260e-05])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If that is hard to read, you can round the values and then compare them with the bars in the histogram.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.6588, 0.2995, 0.0399, 0.0017, 0.    ])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-Approximation">Binomial Approximation<a class="anchor-link" href="#Binomial-Approximation"> </a></h3><p>At the start of this section we considered an example where $X$ is the number of Independent voters in a simple random sample of 2000 voters drawn from a population of one million voters of whom 1% are Independent.</p>
+<p>We know that $X$ has the hypergeometric distribution with parameters $N = 1,000,000$, $G = 10,000$, and $n = 2000$.</p>
+<p>Suppose instead we had drawn the sample <em>with</em> replacement. Then the sample would consist of 2000 independent draws, each of which would be a success with chance 1%. The distribution of $X$ would then be binomial $(2000, 0.01)$.</p>
+<p>The figure below overlays the two resulting histograms.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_03/04_The_Hypergeometric_Distribution_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Does it look as though only one histogram has been plotted? That's because the two histograms are so similar that the eyes can't tell the difference!</p>
+<p>It's important to understand the similarity. The key is that you are sampling only 2000 at random from a population of a million. Because the sample size is so small relative to the population, drawing without replacement is almost like drawing with replacement. Removing a small proportion of a population doesn't change the underlying proportions much.</p>
+<p>This is extremely important in data science. Frequently, the populations of interest to data scientists are enormous compared to the samples that researchers can afford to draw. In such cases it is usually fine to pretend that the draws were made with replacement, even if they were made without replacement.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/06_Exercises.html">
-      〈 <span class="u-margin-right-tiny"></span> Exercises
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html">
+      〈 <span class="u-margin-right-tiny"></span> The Binomial Distribution
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html">
-      Success and Failure <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/04_Exercises.html">
+      Exercises <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
