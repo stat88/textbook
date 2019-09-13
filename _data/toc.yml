@@ -122,8 +122,11 @@
   - title: The Hypergeometric Distribution
     url: /notebooks/Chapter_03/04_The_Hypergeometric_Distribution
     not_numbered: False
+  - title: Examples
+    url: /notebooks/Chapter_03/05_Examples
+    not_numbered: False
   - title: Exercises
-    url: /notebooks/Chapter_03/05_Exercises
+    url: /notebooks/Chapter_03/06_Exercises
     not_numbered: False
  
   

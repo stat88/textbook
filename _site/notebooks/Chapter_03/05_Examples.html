@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Probabilities as Proportions</title>
-  <meta name="description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...">
+  <title>Examples</title>
+  <meta name="description" content="Examples This section consists of an assortment of examples of the use of the binomial and hypergeometric distributions. In each example you will see some of...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Examples.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Examples.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Probabilities as Proportions" />
-<meta property="og:description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos..." />
+<meta property="og:title"       content="Examples" />
+<meta property="og:description" content="Examples This section consists of an assortment of examples of the use of the binomial and hypergeometric distributions. In each example you will see some of..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html",
-  "headline": "Probabilities as Proportions",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/05_Examples.html",
+  "headline": "Examples",
   "datePublished": "2019-09-13T11:26:45-05:00",
   "dateModified": "2019-09-13T11:26:45-05:00",
-  "description": "Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...",
+  "description": "Examples This section consists of an assortment of examples of the use of the binomial and hypergeometric distributions. In each example you will see some of...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -602,13 +602,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html"
                 >
                   
@@ -862,7 +862,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
@@ -944,7 +944,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_03/05_Examples.html"
                 >
                   
@@ -1029,155 +1029,376 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h2 id="probabilities-as-proportions">Probabilities as Proportions</h2>
+              <div class="jb_cell tag_remove_input">
 
-<p>You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philosophical debate which we will touch on from time to time. For now, it is reassuring to note that almost all sides in the debate agree on some basic computational principles. Indeed, these principles have been known to gamblers through the ages.</p>
+<div class="cell border-box-sizing code_cell rendered">
 
-<p>To state the principles it helps to have some terminology and notation. In this section we’ll just set these up informally and get a taste of some of the considerations that are involved in calculating chances. In later sections we will work more formally and in greater generality.</p>
+</div>
+</div>
 
-<h3 id="terminology">Terminology</h3>
+<div class="jb_cell">
 
-<p>An <em>experiment</em> is any activity that involves an element of chance. When you perform the experiment there is an <em>outcome</em> which is the result of the experiment.</p>
-
-<p>Thus for example rolling a six-sided die once is an experiment. You can think of the outcome as an integer in the range 1 through 6, corresponding to the number of spots on the face of the die that appears on the roll.</p>
-
-<p>An <em>event</em> is a description of the result of the experiment, which could be more broad than just a single outcome. For example, “the die shows a multiple of 3” is an event. This event happens if the die shows either 3 or 6.</p>
-
-<p><strong>Language note:</strong> The word <em>die</em> is singular. The word <em>dice</em> is the plural of <em>die</em>. You can have one die or two dice. But you cannot have one dice.</p>
-
-<h3 id="assumption-of-equally-likely-outcomes">Assumption of Equally Likely Outcomes</h3>
-
-<p>Here’s a question for you:</p>
-
-<p>What is the chance that the die shows a multiple of 3?</p>
-
-<p>Did you answer, “2 out of 6, or 1/3, because it’s two faces out of six faces”?</p>
-
-<p>If you did, pause for a second and examine what you hid in that answer. Notice that <strong>you assumed that all six faces have the same chance, and that the chance is just a simple proportion.</strong></p>
-
-<p>That’s a fine way to start, but it is important always to be aware that <strong>probabilities depend on the assumptions that have been made, and if the assumptions are wrong then the answers can’t be trusted</strong>.</p>
-
-<p>After all, you haven’t seen the die. It might be a trick die that is loaded in some way to show some faces more often than others.</p>
-
-<p>But for now let’s assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word “die” used without any qualification will mean “fair six-sided die”.</p>
-
-<h3 id="proportions">Proportions</h3>
-<p>Gamblers through the ages would agree with your calculation of “2 out of 6” for the chance that the die shows an even number, assuming that the die is fair.</p>
-
-<p>In general, <em>if an experiment has a finite number of equally likely outcomes,</em> then the probability of an event is defined as <em>the proportion of outcomes that are included in the event</em>.</p>
-
-<p>No matter whether the die is fair or loaded, the event “the die shows a multiple of 3” consists of two outcomes: 3 and 6. If the die is fair then the probability of the event is the proportion 2/6 by the definition above.</p>
-
-<p>We will usually shorten this to $P(\text{die shows a multiple of 3}) = 2/6$. That’s $P$ for probability, of course.</p>
-
-<p>You are welcome to write the answer as “2 out of 6” or “1/3” or “33.333…%” or “0.333…” or any equivalent way of representing the proportion.</p>
-
-<h3 id="teen-use-of-online-platforms">Teen Use of Online Platforms</h3>
-<p>Coins, dice, cards, and other games of chance provide wonderful examples that illuminate properties of probability. We will use them frequently for that purpose. But data scientists typically work in other settings. Ideas developed in the context of games of chance can be translated, with appropriate care, into those settings to help data scientists gain insights about the data.</p>
-
-<p>The <a href="https://www.pewresearch.org/">Pew Research Center</a> is an organization that conducts surveys on the opinions and choices of people in the U.S. In Spring 2018 it <a href="https://www.pewinternet.org/2018/05/31/teens-social-media-technology-2018/">surveyed U.S. teens</a> (ages 13 through 17) about their use of online platforms such as YouTube and Facebook.</p>
-
-<p>The graphic below displays some of the results of the survey. For now, set aside questions about the accuracy of the survey across the U.S; we will discuss sampling accuracy later in the course. Just consider a population of teens whose online platform usage is summarized by these graphs.</p>
-
-<p><img src="../../images/online_platforms.png" alt="online platform_use" /></p>
-
-<p>There are two bar charts. Each displays percents of teens over categories that are online platforms. Note “None of the above” as the category at the bottom of both. The teens in those bars are the same in both charts and constitute 3% of all the teens.</p>
-
-<h3 id="distribution">Distribution</h3>
-<p>Though the two bar charts cover the same categories, there is an important difference between them. Read the Note that the Pew Research Center included below the graphs.</p>
-
-<p>The chart on the right displays the answer to a question that asked which <em>one</em> of the platforms was most commonly used by the teen respondent. Each teen picked one and only one such platform. <em>Thus each teen is represented in exactly one of the bars.</em> For example, the group that said they used Facebook most often has no members in common with the group that said they used Twitter most often.</p>
-
-<p>That is why the percents in the bars of the right hand chart add up to 100 (apart from rounding). We say that the chart represents a <em>distribution</em> of teens over the categories. In a distribution, each individual appears in one and only one category.</p>
-
-<p>In the chart on the left, teens can appear in more than one category because they were identifying which platforms they used and were allowed to list more than one. Because the groups in the different categories overlap, the percents add up to more than 100. This bar chart does not represent a distribution.</p>
-
-<h3 id="complements">Complements</h3>
-<p>Now assume you are picking one teen at random from the population represented in these charts. That is short for assuming that each teen has the same chance of being picked as every other teen in the population.</p>
-
-<p>Because all the outcomes (teens!) are equally likely, probabilities are just percents of teens. Let’s use the charts to find some chances.</p>
-
-<p><strong>Question 1:</strong> What is the chance that the chosen teen used Facebook most often?</p>
-
-<p><strong>Answer:</strong> This can be read off the right hand chart: $P(\text{used Facebook most often}) ~ = ~ 0.1$</p>
-
-<p><strong>Question 2:</strong> What is the chance that the chosen teen did not use Facebook most often?</p>
-
-<p><strong>Answer:</strong> The group that did not use Facebook most often consists of everyone but those who used Facebook most often. In the language of set theory, these two groups are called <em>complements</em> of each other. Their two proportions must add up to 1. So: $P(\text{did not use Facebook most often}) ~ = ~ 1 - 0.1 ~ = ~ 0.9$</p>
-
-<p><strong>Question 3:</strong> What is the chance that the student used Facebook but used some other platform more often?</p>
-
-<p><strong>Answer:</strong> Now we have to use the information in both graphs. The left hand graph says that 51% of the teens used Facebook. We already saw that 10% of the teens used Facebook most often. <em>This group used Facebook</em>, so it is part of the 51% that used Facebook.</p>
-
-<p>Who were the other 41%? That’s right – they used Facebook, but not most often. That’s exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often <em>but only among those who used Facebook</em>.</p>
-
-<p>In summary,</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align*}
-& P(\text{used Facebook but used some other platform more often}) \\
-&= ~ 0.51 - 0.1 ~ = ~ 0.41
-\end{align*} %]]></script>
-
-<h3 id="conditioning">Conditioning</h3>
-<p>Probabilities of events can be affected by information about the occurrence of other events. For example, suppose as before that someone picks a teen at random from the population represented in the charts. And now suppose that they tell you that the teen used Facebook.</p>
-
-<p><strong>Question 4:</strong> Given this information, what is the chance that the teen used Facebook most often?</p>
-
-<p><strong>Answer:</strong> Go back and look at the left hand chart. You know that the selected teen is in the Facebook bar of the chart. So you can forget all the other bars. <em>You are now working with a restricted set of outcomes:</em> the outcomes corresponding to the given information, which is that the teen used Facebook.</p>
-
-<p>The teens who used Facebook most often are a subset of this group, as observed earlier and shown in the figure below. It’s just a rough Venn diagram that uses circles instead of bars. We’ll be sketching a lot of these, and you should too.</p>
-
-<p><img src="../../images/venn_conditioning.png" alt="Venn diagram" /></p>
-
-<p>The total number of outcomes is now the “used FB” group, which comprises 51% of the original total number of teens. If you prefer counts to percents, you can pretend that there were 100 teens in all, and that thus there were 51 teens who used Facebook.</p>
-
-<p>The right hand chart says that the teens who used Facebook most often are 10% of the entire population, that is, 10 out of 100 imagined teens.</p>
-
-<p>We can now put all these observations together to find the chance in question. Given that the selected teen used Facebook, the chance that they used Facebook most often is</p>
-
-<script type="math/tex; mode=display">\frac{\text{10% of original total}}{\text{51% of original total}} ~ = ~ \frac{0.1}{0.51} ~ = ~ \frac{10}{51} ~ \approx ~ 0.196</script>
-
-<p>This is called the <em>conditional probability that the teen used Facebook most often, given that they used Facebook</em>. That’s pretty long, so some notation is helpful. This conditional probability is written as</p>
-
-<script type="math/tex; mode=display">P(\text{used Facebook most often} \mid \text{used Facebook})</script>
-
-<p>The vertical bar is read as “given that”.</p>
-
-<p>To find a conditional probability:</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2><p>This section consists of an assortment of examples of the use of the binomial and hypergeometric distributions. In each example you will see some of the main problem solving techniques we have developed:</p>
 <ul>
-  <li>First restrict the set of all outcomes as well as the event to only the outcomes that satisfy the given condition</li>
-  <li>Then calculate proportions accordingly</li>
+<li>Breaking the problem down into smaller pieces</li>
+<li>Examining the assumptions and hence deciding which distributions can be used</li>
+<li>Organizing the information to identify the parameters of the distributions</li>
+<li>Partitioning events into component pieces</li>
+<li>Using the addition and multiplication rules carefully</li>
 </ul>
 
-<p>Compare the answers to Questions 1 and 4 to see how additional information about the outcome affects the probability of an event.</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Advisor-Meetings">Advisor Meetings<a class="anchor-link" href="#Advisor-Meetings"> </a></h3><p>An advisor at a university provides guidance to 10 students. Each student has to meet with her once a month during the school year which consists of nine months.</p>
+<p>So each month the advisor schedules one day of meetings. Each student has to sign up for one meeting that day. Students have the choice of meeting her in the morning or in the afternoon.</p>
+<p>Assume that every month each student, independently of other students and other months, chooses to meet in the afternoon with probability 0.75.</p>
+<p>What is the chance that  she has both morning and afternoon meetings in all of the months except one?</p>
+<p><strong>Answer:</strong> First, let's just examine one particular month in the school year, say October.</p>
+<p>For the advisor to have both morning and afternoon afternoon meetings in October, some of the 10 students would have to choose the morning and others would have to choose the afternoon. This can happen in many ways, so let's see if the complement is easier.</p>
+<p>The complement of "both morning and afternoon meetings" is "meetings only in the morning or only in the afternoon." The only ways that can happen is if all 10 students choose the morning or all 10 choose the afternoon. So, by the independence of the students' choices that month,</p>
+<p>$$
+P(\text{both morning and afternoon meetings in October}) ~ = ~ 1 - \big{(} 0.25^{10} + 0.75^{10}) ~ \approx 94.37\%
+$$</p>
+<p>Now let $X$ be the number of months in which this happens. Let the nine months be the trials. The students' choices are independent across months; success is having meetings both morning and afternoon; for each month, the chance of success is the answer above, which we will call $p$ for short.</p>
+<p>Then $X$ has the binomial $(9, p)$ distribution and we want $P(X = 8)$. The answer is</p>
+<p>$$
+P(X = 8) ~ = ~ \binom{9}{8} p^8 (1-p)^1 ~ \approx ~ 31.88\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mf">0.25</span><span class="o">**</span><span class="mi">10</span> <span class="o">+</span> <span class="mf">0.75</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9436855316162109</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.3187725164323302</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Randomized-Controlled-Experiments">Randomized Controlled Experiments<a class="anchor-link" href="#Randomized-Controlled-Experiments"> </a></h3><p>Two randomized controlled experiments are being run independently of each other. In each experiment, a simple random sample of half the participants will be assigned to the treatment group and the other half to control.</p>
+<p>Experiment 1 has 100 participants of whom 20 are men.</p>
+<p>Experiment 2 has 90 participants of whom 30 are men.</p>
+<p><strong>Question 1.</strong> What is the chance that the treatment and control groups in Experiment 1 contain the same number of men?</p>
+<p><strong>Answer:</strong> Let $T_1$ be the number of men in the treatment group of Experiment 1.</p>
+<p>The treatment group is a simple random sample of 50 participants drawn from all 100. For the two groups to have the same number of men, there must be 10 men in the treatment group. If we label men as the "good" elements, the distribution of $T_1$ is hypergeometric with parameters $N = 100$, $G = 20$, and $n = 50$.</p>
+<p>The chance that the treatment group contains 10 men is therefore</p>
+<p>$$
+P(T_1 = 10) ~ = ~ \frac{\binom{20}{10}\binom{80}{40}}{\binom{100}{50}} ~ \approx ~ 19.7\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.1968712177065496</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Question 2.</strong> What is the chance that the treatment groups in the two experiments have the same number of men?</p>
+<p><strong>Answer:</strong> Let $T_2$ be the number of men in the treatment group of Experiment 2. Analogously to $T_1$, we can see that $T_2$ has the hypergeometric distribution with parameters $N = 90$, $G = 30$, and $n = 45$.</p>
+<p>We want $P(T_1 = T_2)$. Partition the event into all the ways it can happen:</p>
 <ul>
-  <li>$P(\text{used Facebook most often}) = 0.1$</li>
-  <li>$P(\text{used Facebook most often} \mid \text{used Facebook}) \approx 0.196 \approx 0.2$</li>
+<li>$T_1 = 0, T_2 = 0$</li>
+<li>$T_1 = 1, T_2 = 1$</li>
+<li>$T_1 = 2, T_2 = 2$</li>
+<li>...</li>
+<li>$T_1 = 20, T_2 = 20$</li>
 </ul>
+<p>By the addition rule, $P(T_1 = T_2)$ is the sum of the chances of all these events.</p>
+<p>The two experiments are independent. So for $0 \le g \le 20$,</p>
+<p>$$
+P(T_1 = g, T_2 = g) ~ = ~ P(T_1 = g)P(T_2 = g) ~ = ~ \frac{\binom{20}{g}\binom{80}{50-g}}{\binom{100}{50}} \cdot \frac{\binom{30}{g}\binom{60}{45-g}}{\binom{90}{45}}
+$$</p>
+<p>Hence</p>
+<p>$$
+P(T_1 = T_2) ~ = ~ \sum_{g=0}^{20} \frac{\binom{20}{g}\binom{80}{50-g}}{\binom{100}{50}} \cdot \frac{\binom{30}{g}\binom{60}{45-g}}{\binom{90}{45}} ~ \approx ~ 3.37\%
+$$</p>
 
-<p>The second answer is about double the first.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>The answer to Question 1 is 10% (out of the original population). The answer to Question 4 is that same 10% relative to about half of the original population, because about half the original population used Facebook. That makes the answer to Question 4 about double the answer to Question 1.</p>
+<div class="jb_cell">
 
-<p>The probability of “used Facebook most often” changes based on the given information, because knowing that the selected teen used Facebook restricts the possible outcomes to about half of the original population.</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">t1_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">t2_probs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">t1_probs</span> <span class="o">*</span> <span class="n">t2_probs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.03366645657619225</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sampling-from-a-State">Sampling from a State<a class="anchor-link" href="#Sampling-from-a-State"> </a></h3><p>A state has several million households, half of which have annual incomes over 50,000 dollars. In a simple random sample of 400 households taken from the state, what is the chance that more than 215 have incomes over 50,000 dollars?</p>
+<p><strong>Answer:</strong> Think of a population whose elements are households in this state. We are counting successes where success is defined as an annual income of over 50,000 dollars. The sample is drawn without replacement, but we don't know the exact total number of households. Without the population size, we can't use the hypergeometric formula.</p>
+<p>Does that mean we are stuck? No, because we can see that the sample size is small relative to the population size: 400 out of several million. In such a situation, sampling without replacement is very well approximated by sampling with replacement.</p>
+<p>Since the draws are essentially independent, the number of successes $X$ can be thought of as a binomial $(400, 0.5)$ random variable because half the elements in the elements in the population are successes. The answer is</p>
+<p>$$
+P(X &gt; 215) = \sum_{k=216}^{400} \binom{400}{k}0.5^k0.5^{400-k} ~ = ~ 6.05\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">216</span><span class="p">,</span> <span class="mi">401</span><span class="p">),</span> <span class="mi">400</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.06051641842303604</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Assessing-a-Treatment">Assessing a Treatment<a class="anchor-link" href="#Assessing-a-Treatment"> </a></h3><p>In a randomized controlled experiment with 100 participants, 60 participants are in the treatment group and 40 are in the control group. In the treatment group, 50 out of the 60 participants recover after the treatment. In the control group, 30 out of the 40 participants recover.</p>
+<p>This looks like evidence in favor of the treatment, as $5/6 \approx 83\%$ of the treatment group recovered compared to 75% of the control group.</p>
+<p>As part of the assessement of whether the treatment was effective, data scientists pose the following question. Suppose the treatment had no special effect and in fact acted just like the control. Then the 80 patients who recovered would have recovered in whichever group they were placed. What is the chance that 50 or more of these 80 people were assigned to the treatment group just by chance?</p>
+<p>The treatment group consists of a simple random sample of 60 draws from a population of 100. Designate the 80 recovered patients as good elements and let $X$ be the number of them who were assigned to the treatment group. Then $X$ has the hypergeometric $(100, 80, 60)$ distribution, and</p>
+<p>$$
+P(X \ge 50) ~ = ~ \sum_{g=50}^{60} \frac{\binom{80}{g}\binom{20}{60-g}}{\binom{100}{60}} ~ \approx ~ 22\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">61</span><span class="p">),</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.22097998866696314</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If the treatment did nothing more than the control, then there is about 22% chance that the recovery rates would appear to favor the treatment by at least as much as was observed. That's a pretty substantial chance. This is not very convincing evidence in favor of the treatment.</p>
+<p>This way of assessing the treatment in a randomized controlled experiment is called <em>Fisher's Exact Test</em>. It is named after <a href="https://en.wikipedia.org/wiki/Ronald_Fisher">Sir Ronald Fisher</a> who introduced the way statistical hypotheses are tested. In his first paper on this topic, he performed this test using data from an experiment in which he had served <a href="https://en.wikipedia.org/wiki/Lady_tasting_tea">randomized cups of tea</a> to a lady who claimed she could tell if the milk or the tea had been added first in the cup.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_01/00_The_Basics.html">
-      〈 <span class="u-margin-right-tiny"></span> The Basics
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
+      〈 <span class="u-margin-right-tiny"></span> The Hypergeometric Distribution
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
-      Exact Calculation or Bound <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/06_Exercises.html">
+      Exercises <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
