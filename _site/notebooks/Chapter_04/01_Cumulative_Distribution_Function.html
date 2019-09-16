@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Fundamentals</title>
-  <meta name="description" content="      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ...">
+  <title>Cumulative Distribution Function (CDF)</title>
+  <meta name="description" content="Cumulative Distribution Function (CDF) There are many ways of specifying distributions. We have sometimes used a table to display the distribution of a rando...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Fundamentals" />
-<meta property="og:description" content="      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ..." />
+<meta property="og:title"       content="Cumulative Distribution Function (CDF)" />
+<meta property="og:description" content="Cumulative Distribution Function (CDF) There are many ways of specifying distributions. We have sometimes used a table to display the distribution of a rando..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html",
-  "headline": "Fundamentals",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html",
+  "headline": "Cumulative Distribution Function (CDF)",
   "datePublished": "2019-09-16T16:40:20-05:00",
   "dateModified": "2019-09-16T16:40:20-05:00",
-  "description": "      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ...",
+  "description": "Cumulative Distribution Function (CDF) There are many ways of specifying distributions. We have sometimes used a table to display the distribution of a rando...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -1011,13 +1011,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html"
                 >
                   
@@ -1102,39 +1102,351 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="cell code_cell">
-  <div class="input_area">
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># HIDDEN</span>
-<span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">prob140</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">'fivethirtyeight'</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+              <div class="jb_cell tag_remove_input">
 
-</code></pre></div>    </div>
-  </div>
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
+</div>
 
-<p>This is the beginning of the fundamentals chapter.</p>
+<div class="jb_cell">
 
-<p>Check back after lecture on 8/28 for more content!</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cumulative-Distribution-Function-(CDF)">Cumulative Distribution Function (CDF)<a class="anchor-link" href="#Cumulative-Distribution-Function-(CDF)"> </a></h2><p>There are many ways of specifying distributions. We have sometimes used a table to display the distribution of a random variable $X$. At other times we have written $P(X = k)$ as a formula for each possible value $k$ of $X$.</p>
+<p>Another useful function that encapsulates all the information about the distribution of $X$ is called the <em>cumulative distribution function</em> of $X$. That's a real mouthful, so it is usually abbreviated to the cdf of $X$.</p>
+<p>Let's see what the cdf is in an example.</p>
+<p>Suppose $X$ has the distribution given below. It happens to be the binomial $(3, 1/2)$ distribution, but that is not important for this discussion.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~x$</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(X=x)$</td>
+<td style="text-align:center">1/8</td>
+<td style="text-align:center">3/8</td>
+<td style="text-align:center">3/8</td>
+<td style="text-align:center">1/8</td>
+</tr>
+</tbody>
+</table>
+<p>The cdf of $X$ is another way of providing the same information. It is the function $F$ defined by</p>
+<p>$$
+F(x) ~ = ~ P(X \le x), ~~~~~ -\infty &lt; x &lt; \infty
+$$</p>
+<p>The cdf of the random variable $X$, evaluated at the point $x$, is the <strong>chance that the value of $X$ is at most $x$</strong>.</p>
+<p>The gold area in the probability histogram below is $F(2)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_04/01_Cumulative_Distribution_Function_2_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will sometimes use the loose term "left hand probabilities" to denote values of $F$. Each of those values $F(x)$ is the area of the bar at $x$ as well as all the bars to the left. In the figure above,</p>
+<p>$$
+F(2) ~ = ~ P(X \le 2) ~ = ~ P(X = 0) + P(X = 1) + P(X = 2)
+$$</p>
+<p>We will now augment the distribution table by a row containing some values of $F$. These are obtained obtained by adding the probabilities $P(X=x)$ successively from the left end. This <em>cumulative sum</em> is the reason for the name of the function.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~x$</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(X=x)$</td>
+<td style="text-align:center">1/8</td>
+<td style="text-align:center">3/8</td>
+<td style="text-align:center">3/8</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:right">$F(x)$</td>
+<td style="text-align:center">1/8</td>
+<td style="text-align:center">4/8</td>
+<td style="text-align:center">7/8</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that we can recover $P(X=x)$ from values of $F$ as follows. For integer $x$,</p>
+<p>$$
+P(X = x) ~ = ~ P(X \le x) - P(X \le x-1) ~ = ~ F(x) - F(x-1)
+$$</p>
+<p>These calculations show that if you know the distribution of $X$ then you know the cdf of $X$, and vice versa. The distribution and the cdf contain the same information.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Graph-of-the-CDF">Graph of the CDF<a class="anchor-link" href="#Graph-of-the-CDF"> </a></h3><p>The graph of every cdf has some properties that are easy to see:</p>
+<ul>
+<li>The graph is non-decreasing.</li>
+<li>The values are on the vertical axis are probabilities and hence are between 0 and 1.</li>
+<li>The graph starts out at or near 0 for large negative values of $x$, and ends up at or near 1 for large positive values of $x$.</li>
+</ul>
+<p>You can see all these properties in the graph of the function $F$ defined above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_04/01_Cumulative_Distribution_Function_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see also that the graph has flat parts and jumps.</p>
+<ul>
+<li><p><strong>Flat parts:</strong> These are in-between the possible values of $X$ and also beyond the possible values in both directions. Since $X$ is a non-negative variable, for all negative $x$ we have $F(x) = P(X \le x) = 0$. Since $X$ is always at most 3, for all $x &gt; 3$ we have $F(x) = P(X \le x) = 1$. For $x$ in between two possible values, say $x = 1.6$, we have $F(1.6) = P(X \le 1.6) = P(X \le 1) = F(1)$. So for $x \in [1, 2)$, the graph is flat at $F(1)$. You can explain all the other flat parts analogously.</p>
+</li>
+<li><p><strong>Jumps:</strong> The graph has a jump (or discontinuity) at each possible value $x$ of $X$. That is, the graph jumps at each value $x$ such that $P(X = x) &gt; 0$. The size of the jump at $x$ is equal to $P(X = x)$. For example, $P(X = 2)$ is the size of the jump at $x=2$, which is $0.875 - 0.5 = 0.375 = 3/8$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Computation">Computation<a class="anchor-link" href="#Computation"> </a></h3><p>We will have many uses for the cdf in this course. In fact, we have already used it several times without giving it a name.</p>
+<p>For example, the chance of at most 3 sixes in 20 rolls of a die is given by the binomial formula and the addition rule:</p>
+<p>$$
+P(\text{at most 3 sixes in 20 rolls}) ~ = ~ \sum_{k=0}^3 \binom{20}{k}(1/6)^k(5/6)^{20-k}
+$$</p>
+<p>This can be computed as</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5665456377756688</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X$ be the number of sixes in 20 rolls. Then $X$ has the binomial $(20, 1/6)$ distribution. The answer above is $P(X \le 3)$. That's $F(3)$ where $F$ is the cdf of $X$.</p>
+<p>The <code>stats</code> module includes a <code>cdf</code> method that allows us to obtain the answer directly without summing.</p>
+<p>The expression <code>stats.binom.cdf(k, n, p)</code> evaluates to $F(k)$ where $F$ is the cdf of a binomial $(n, p)$ random variable.</p>
+<p>So our answer can also be found as follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5665456377756695</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probabilities are frequently computed as sums. The cdf is a very useful tool for doing this, so <code>stats</code> provides a <code>cdf</code> method associated with each distribution.</p>
+<p>You can use <code>stats.hypergeom.cdf(k, N, G, n)</code> to find the value of $F(k)$ for a random variable that has the hypergeometric $(N, G, n)$ distribution.</p>
+<p>For example, recall that a standard deck contains 52 cards of which 12 are face cards. The chance of more than 5 face cards in a bridge hand of 13 cards dealt from a standard deck is</p>
+<p>$$
+\begin{align*}
+&amp;P(\text{more than 5 face cards in a hand of 13 cards}) \\
+&amp;= ~ 1 - P(\text{at most 5 face cards in the hand}) \\
+&amp;= ~ 1 - \sum_{k=0}^{5} \frac{\binom{12}{k}\binom{40}{13-k}}{\binom{52}{13}}
+\end{align*}
+$$</p>
+<p>Now you can get the numerical value by using <code>stats.hypergeom.pmf</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.03246092516982357</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/intro.html">
-      〈 <span class="u-margin-right-tiny"></span> Home
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html">
+      〈 <span class="u-margin-right-tiny"></span> Infinitely Many Values
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
-      Probabilities as Proportions <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_04/02_Waiting_Times.html">
+      Waiting Times <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

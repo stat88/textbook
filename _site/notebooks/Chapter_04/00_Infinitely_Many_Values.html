@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Fundamentals</title>
-  <meta name="description" content="      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ...">
+  <title>Infinitely Many Values</title>
+  <meta name="description" content="Infinitely Many Values The random variables we have studied thus far have had a finite number of possible values. For example, a random variable that has the...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Fundamentals" />
-<meta property="og:description" content="      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ..." />
+<meta property="og:title"       content="Infinitely Many Values" />
+<meta property="og:description" content="Infinitely Many Values The random variables we have studied thus far have had a finite number of possible values. For example, a random variable that has the..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html",
-  "headline": "Fundamentals",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html",
+  "headline": "Infinitely Many Values",
   "datePublished": "2019-09-16T16:40:20-05:00",
   "dateModified": "2019-09-16T16:40:20-05:00",
-  "description": "      # HIDDENfrom datascience import *from prob140 import *%matplotlib inlineimport matplotlib.pyplot as pltplt.style.use('fivethirtyeight')import numpy as ...",
+  "description": "Infinitely Many Values The random variables we have studied thus far have had a finite number of possible values. For example, a random variable that has the...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -993,7 +993,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+        <a class="c-sidebar__entry c-sidebar__entry--active"
           href="/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html"
         >
           
@@ -1011,7 +1011,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
@@ -1102,39 +1102,59 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="cell code_cell">
-  <div class="input_area">
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># HIDDEN</span>
-<span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">prob140</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">'fivethirtyeight'</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+              <div class="jb_cell">
 
-</code></pre></div>    </div>
-  </div>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Infinitely-Many-Values">Infinitely Many Values<a class="anchor-link" href="#Infinitely-Many-Values"> </a></h1>
+</div>
+</div>
+</div>
 </div>
 
-<p>This is the beginning of the fundamentals chapter.</p>
+<div class="jb_cell">
 
-<p>Check back after lecture on 8/28 for more content!</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The random variables we have studied thus far have had a finite number of possible values. For example, a random variable that has the binomial $(100, 0.5)$ distribution can be no bigger than 100.</p>
+<p>Much of data science involves large random samples. If you think of $n$ as a sample size, then natural questions arise about the properties of the sample when $n$ is large. To answer these questions, it helps to think about the sample size $n$ tending to infinity. That usually involves imagining an arbitrarily large set of possible values.</p>
+<p>This leads naturally to thinking about random variables that have infinitely many values. Many such random variables arise in practice. For example, if you toss a coin repeatedly and note down how many times you have to toss till you see heads for the first time, the number that you note down can be arbitrarily large because you can get any finite number of tails in a row.</p>
+<p>This chapter introduces some random variables that have infinitely many possible values. To study them, it helps to have a new way of specifying distributions. We introduce this first, and then look at examples of some random variables that have infinitely many values and are used frequently in applications.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="IID-Trials">IID Trials<a class="anchor-link" href="#IID-Trials"> </a></h3><p>The primary setting that we will use in the chapter is that of a sequence of independent repeated trials. The outcome of each trial has the same distribution as the outcome of every other trial, so we say that the trials are identically distributed.</p>
+<p>"Independent and identically distributed" has too many syllables for comfort, so it is abbreviated to <em>i.i.d.</em> which is one of the most heavily used acronyms in probability theory.</p>
+<p>Sequences of coin tosse are i.i.d. trials, as are sequences of rolls of a die, or samples drawn with replacement.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/intro.html">
-      〈 <span class="u-margin-right-tiny"></span> Home
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/06_Exercises.html">
+      〈 <span class="u-margin-right-tiny"></span> Exercises
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
-      Probabilities as Proportions <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function_(CDF).html">
+      Cumulative Distribution Function (... <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

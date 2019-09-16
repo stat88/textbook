@@ -128,5 +128,16 @@
   - title: Exercises
     url: /notebooks/Chapter_03/06_Exercises
     not_numbered: False
+- title: Infinitely Many Values
+  url: /notebooks/Chapter_04/00_Infinitely_Many_Values
+  not_numbered: False
+  expand_sections: false
+  sections:
+  - title: Cumulative Distribution Function (CDF)
+    url: /notebooks/Chapter_04/01_Cumulative_Distribution_Function
+    not_numbered: False
+  - title: Waiting Times
+    url: /notebooks/Chapter_04/02_Waiting_Times
+    not_numbered: False
  
   
