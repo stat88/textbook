@@ -139,5 +139,11 @@
   - title: Waiting Times
     url: /notebooks/Chapter_04/02_Waiting_Times
     not_numbered: False
+  - title: Exponential Approximations
+    url: /notebooks/Chapter_04/03_Exponential_Approximations
+    not_numbered: False
+  - title: The Poisson Distribution
+    url: /notebooks/Chapter_04/04_The_Poisson_Distribution
+    not_numbered: False
  
   

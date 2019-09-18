@@ -1,0 +1,332 @@
+---
+redirect_from:
+  - "/notebooks/chapter-04/03-exponential-approximations"
+interact_link: content/notebooks/Chapter_04/03_Exponential_Approximations.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Exponential Approximations
+prev_page:
+  url: /notebooks/Chapter_04/02_Waiting_Times.html
+  title: |-
+    Waiting Times
+next_page:
+  url: /notebooks/Chapter_04/04_The_Poisson_Distribution.html
+  title: |-
+    The Poisson Distribution
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exponential-Approximations">Exponential Approximations<a class="anchor-link" href="#Exponential-Approximations"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea to take its logarithm and try to approximate that. This leads to an <em>exponential approximation</em> for the chance.</p>
+<p>An example will help us see how this works.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bootstrap">Bootstrap<a class="anchor-link" href="#Bootstrap"> </a></h3><p>A <em>bootstrap</em> sample is a sample of size $n$ drawn at random with replacement from an original sample of $n$ individuals. Because the sample is drawn with replacement, some individuals may be drawn more than once and some not at all.</p>
+<p>Fix an individual in the original sample. For clarity, let's call that individual Special. What is the chance that Special appears at least once in the bootstrap sample?</p>
+<p>As before, we will use the complement:</p>
+<p>$$
+P(\text{Special appears at least once}) ~ = ~ 1 - P(\text{Special does not appear})
+$$</p>
+<p>For Special <em>not</em> to appear, every draw must result in an individual who is not Special. By the independence of the draws,</p>
+<p>$$
+P(\text{Special does not appear}) ~ = ~ \big{(} \frac{n-1}{n} \big{)}^n
+$$</p>
+<p>If the numerical value of $n$ is known, then we can just calculate the answer numerically. But can we get a rough sense of how big this chance is when $n$ is large?</p>
+<p>To figure this out, notice that when $n$ is large, the chance is a number close to 1 that has been raised to a large power. Let's take the $\log$ of the chance and see what we get.</p>
+<p>$$
+\begin{align*}
+&amp; \log(P(\text{Special does not appear})) \\
+&amp; = ~ n \log \big{(} \frac{n-1}{n} \big{)} \\
+&amp; = ~ n \log \big{(} 1 - \frac{1}{n} \big{)}
+\end{align*}
+$$</p>
+<p>Let's see what we can say about the rough size of $\log\big{(} 1 - \frac{1}{n} \big{)}$ when $n$ is large. For this we will examine the graph of the function $y = \log(x)$ for values of $x$ that are close to 1.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Log-of-a-Number-Close-to-1">Log of a Number Close to 1<a class="anchor-link" href="#Log-of-a-Number-Close-to-1"> </a></h3><p>The blue curve in the figure below is the graph of the function $y = \log(x)$ for values of $x$ near 1. The graph crosses the horizontal axis at $x = 1$ because $\log(1) = 0$.</p>
+<p>The red dashed line is the graph of the $45^\circ$ line at the point $(1, 0)$. The line is the tangent to the curve $y = \log(x)$ at the point $x = 1$. That is because the slope of the tangent line at $x$ is given by</p>
+<p>$$
+\frac{d}{dx}\log(x) ~ = ~ \frac{1}{x} ~ = ~ 1 ~~ \text{ if } x = 1
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_04/03_Exponential_Approximations_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a small positive number $\delta$, consider the point $x = 1+\delta$.</p>
+<ul>
+<li>The point is at a distance of $\delta$ away from $x = 1$.</li>
+<li>$\log(1+\delta )$ is the height of the blue curve at $x = 1+\delta$.</li>
+<li>Because $\delta$ is small, the tangent line $y = x$ is very close to the curve $y = \log(x)$ at the point $x = 1+\delta$.</li>
+<li>So the three points $(1, 0)$, $(1+\delta, 0)$, and $(1+\delta, \log(1+\delta))$ essentially form a $45^\circ$-$90^\circ$-$45^\circ$ triangle.</li>
+<li>The two legs of that triangle are equal, so $\log(1+\delta) \approx \delta$.</li>
+</ul>
+<p>We will use this approximation repeatedly:</p>
+<p>$$
+\log(1 + \delta) ~ \approx ~ \delta ~~~~~ \text{ for small } \delta
+$$</p>
+<p>A glance at the graphs above should convince you that the approximation is true regardless of whether $\delta$ is positive or negative, as long as it is small.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exponential-Approximation-in-the-Bootstrap">Exponential Approximation in the Bootstrap<a class="anchor-link" href="#Exponential-Approximation-in-the-Bootstrap"> </a></h3><p>Apply this approximation in our earlier calculation:</p>
+<p>$$
+\begin{align*}
+&amp; \log(P(\text{Special does not appear})) \\
+&amp; = ~ n \log \big{(} 1 - \frac{1}{n} \big{)} \\
+&amp; \approx ~ n \big{(} - \frac{1}{n} \big{)} ~~~~~ \text{when } n \text{ is large} \\
+&amp; = ~ -1
+\end{align*}
+$$</p>
+<p>Now undo the $\log$ by exponentiation.</p>
+<p>$$
+\log(P(\text{Special does not appear})) ~ \approx ~ -1 ~~~~~ \text{when } n \text{ is large}
+$$</p>
+<p>implies</p>
+<p>$$
+P(\text{Special does not appear}) ~ \approx ~ e^{-1} ~~~~~ \text{when } n \text{ is large}
+$$</p>
+<p>and so</p>
+<p>$$
+P(\text{Special appears at least once}) ~ \approx 1 - e^{-1} ~~~~~ \text{when } n \text{ is large}
+$$</p>
+<p>The numerical value of this chance is about 63%. Notice that you don't need to know the value of $n$. You just need to know that it is large.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6321205588285577</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rare-Events">Rare Events<a class="anchor-link" href="#Rare-Events"> </a></h3><p>The example above is a special case of a situation in which a data scientist is studying how many times a rare event occurs. When $n$ is large, Special being picked on a single draw can be thought of as a rare event because its chance is $1/n$ which is small.</p>
+<p>On any particular draw, we aren't expecting Special to be picked. But the number of draws is $n$, which is large. This makes it likely that Special is picked at least once, as we have seen.</p>
+<p>In general, suppose we have $n$ i.i.d. success/failure trials where $n$ is large and the probability $p$ of success on a single trial is small.</p>
+<p>Roughly, you expect a proportion $p$ of the trials to be successes. So you expect to get about $np$ successes in all. We will make this calculation precise in the next chapter. For now, denote $np$ by $\mu$.</p>
+<p>What is the chance of getting no successes?</p>
+<p>The exact answer is straightforward:</p>
+<p>$$
+P(\text{no successes}) ~ = ~ (1-p)^n
+$$</p>
+<p>To get a sense of the size of this chance, let's approximate it.</p>
+<p>$$
+\begin{align*}
+\log(P(\text{no successes}) ~ &amp;= ~ n\log(1-p) \\
+&amp;\approx ~ n(-p) ~~~~ \text{because } p \text{ is small} \\
+&amp;= -\mu
+\end{align*}
+$$</p>
+<p>So $P(\text{no successes}) ~ \approx ~ e^{-\mu}$ when $p$ is small.</p>
+<p>Thus if you run 1000 i.i.d. trials with chance 2/1000 of success on each trial, then the chance of getting no successes is approximately $e^{-2} \approx 13.5\%$. The cell below shows the exact chance and the approximation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exact chance and exponential approximation</span>
+
+<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.13506452244668338, 0.1353352832366127)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The approximation depends only on $\mu$, not on the individual values of $n$ and $p$. So suppose you run 5000 trials with chance 2/5000 of success on each trial. Then $\mu = 2$ as above. The chance of getting no successes is pretty much the same as above, and the exponential approximation is closer to the exact chance than it was above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exact chance and exponential approximation</span>
+
+<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5000</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.13528114551440706, 0.1353352832366127)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The approximation helps us understand how the chance behaves, without the need to calculate its exact value. In the next section you will see how this approximation becomes the foundation of a new distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
