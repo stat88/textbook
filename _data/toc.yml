@@ -148,5 +148,13 @@
   - title: Exercises
     url: /notebooks/Chapter_04/05_Exercises
     not_numbered: False
+- title: Expectation
+  url: /notebooks/Chapter_05/00_Expectation
+  not_numbered: False
+  expand_sections: False
+  sections:
+  - title: Definition
+    url: /notebooks/Chapter_05/01_Definition
+    not_numbered: False
  
   
