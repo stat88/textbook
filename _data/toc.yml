@@ -145,5 +145,8 @@
   - title: The Poisson Distribution
     url: /notebooks/Chapter_04/04_The_Poisson_Distribution
     not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_04/05_Exercises
+    not_numbered: False
  
   
