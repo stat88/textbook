@@ -156,5 +156,8 @@
   - title: Definition
     url: /notebooks/Chapter_05/01_Definition
     not_numbered: False
+  - title: Functions of Random Variables
+    url: /notebooks/Chapter_05/02_Functions_of_Random_Variables
+    not_numbered: False
  
   

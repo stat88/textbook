@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Probabilities as Proportions</title>
-  <meta name="description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...">
+  <title>Functions of Random Variables</title>
+  <meta name="description" content="Functions of Random Variables When we work with random variables, we often want to consider functions of them. For example, if $X$ is a random length in inch...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Probabilities as Proportions" />
-<meta property="og:description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos..." />
+<meta property="og:title"       content="Functions of Random Variables" />
+<meta property="og:description" content="Functions of Random Variables When we work with random variables, we often want to consider functions of them. For example, if $X$ is a random length in inch..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html",
-  "headline": "Probabilities as Proportions",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html",
+  "headline": "Functions of Random Variables",
   "datePublished": "2019-09-23T15:38:52-05:00",
   "dateModified": "2019-09-23T15:38:52-05:00",
-  "description": "Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...",
+  "description": "Functions of Random Variables When we work with random variables, we often want to consider functions of them. For example, if $X$ is a random length in inch...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -602,13 +602,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html"
                 >
                   
@@ -1141,7 +1141,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
@@ -1166,7 +1166,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html"
                 >
                   
@@ -1232,155 +1232,313 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h2 id="probabilities-as-proportions">Probabilities as Proportions</h2>
+              <div class="jb_cell">
 
-<p>You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philosophical debate which we will touch on from time to time. For now, it is reassuring to note that almost all sides in the debate agree on some basic computational principles. Indeed, these principles have been known to gamblers through the ages.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions-of-Random-Variables">Functions of Random Variables<a class="anchor-link" href="#Functions-of-Random-Variables"> </a></h2>
+</div>
+</div>
+</div>
+</div>
 
-<p>To state the principles it helps to have some terminology and notation. In this section we’ll just set these up informally and get a taste of some of the considerations that are involved in calculating chances. In later sections we will work more formally and in greater generality.</p>
+<div class="jb_cell">
 
-<h3 id="terminology">Terminology</h3>
-
-<p>An <em>experiment</em> is any activity that involves an element of chance. When you perform the experiment there is an <em>outcome</em> which is the result of the experiment.</p>
-
-<p>Thus for example rolling a six-sided die once is an experiment. You can think of the outcome as an integer in the range 1 through 6, corresponding to the number of spots on the face of the die that appears on the roll.</p>
-
-<p>An <em>event</em> is a description of the result of the experiment, which could be more broad than just a single outcome. For example, “the die shows a multiple of 3” is an event. This event happens if the die shows either 3 or 6.</p>
-
-<p><strong>Language note:</strong> The word <em>die</em> is singular. The word <em>dice</em> is the plural of <em>die</em>. You can have one die or two dice. But you cannot have one dice.</p>
-
-<h3 id="assumption-of-equally-likely-outcomes">Assumption of Equally Likely Outcomes</h3>
-
-<p>Here’s a question for you:</p>
-
-<p>What is the chance that the die shows a multiple of 3?</p>
-
-<p>Did you answer, “2 out of 6, or 1/3, because it’s two faces out of six faces”?</p>
-
-<p>If you did, pause for a second and examine what you hid in that answer. Notice that <strong>you assumed that all six faces have the same chance, and that the chance is just a simple proportion.</strong></p>
-
-<p>That’s a fine way to start, but it is important always to be aware that <strong>probabilities depend on the assumptions that have been made, and if the assumptions are wrong then the answers can’t be trusted</strong>.</p>
-
-<p>After all, you haven’t seen the die. It might be a trick die that is loaded in some way to show some faces more often than others.</p>
-
-<p>But for now let’s assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word “die” used without any qualification will mean “fair six-sided die”.</p>
-
-<h3 id="proportions">Proportions</h3>
-<p>Gamblers through the ages would agree with your calculation of “2 out of 6” for the chance that the die shows an even number, assuming that the die is fair.</p>
-
-<p>In general, <em>if an experiment has a finite number of equally likely outcomes,</em> then the probability of an event is defined as <em>the proportion of outcomes that are included in the event</em>.</p>
-
-<p>No matter whether the die is fair or loaded, the event “the die shows a multiple of 3” consists of two outcomes: 3 and 6. If the die is fair then the probability of the event is the proportion 2/6 by the definition above.</p>
-
-<p>We will usually shorten this to $P(\text{die shows a multiple of 3}) = 2/6$. That’s $P$ for probability, of course.</p>
-
-<p>You are welcome to write the answer as “2 out of 6” or “1/3” or “33.333…%” or “0.333…” or any equivalent way of representing the proportion.</p>
-
-<h3 id="teen-use-of-online-platforms">Teen Use of Online Platforms</h3>
-<p>Coins, dice, cards, and other games of chance provide wonderful examples that illuminate properties of probability. We will use them frequently for that purpose. But data scientists typically work in other settings. Ideas developed in the context of games of chance can be translated, with appropriate care, into those settings to help data scientists gain insights about the data.</p>
-
-<p>The <a href="https://www.pewresearch.org/">Pew Research Center</a> is an organization that conducts surveys on the opinions and choices of people in the U.S. In Spring 2018 it <a href="https://www.pewinternet.org/2018/05/31/teens-social-media-technology-2018/">surveyed U.S. teens</a> (ages 13 through 17) about their use of online platforms such as YouTube and Facebook.</p>
-
-<p>The graphic below displays some of the results of the survey. For now, set aside questions about the accuracy of the survey across the U.S; we will discuss sampling accuracy later in the course. Just consider a population of teens whose online platform usage is summarized by these graphs.</p>
-
-<p><img src="../../images/online_platforms.png" alt="online platform_use" /></p>
-
-<p>There are two bar charts. Each displays percents of teens over categories that are online platforms. Note “None of the above” as the category at the bottom of both. The teens in those bars are the same in both charts and constitute 3% of all the teens.</p>
-
-<h3 id="distribution">Distribution</h3>
-<p>Though the two bar charts cover the same categories, there is an important difference between them. Read the Note that the Pew Research Center included below the graphs.</p>
-
-<p>The chart on the right displays the answer to a question that asked which <em>one</em> of the platforms was most commonly used by the teen respondent. Each teen picked one and only one such platform. <em>Thus each teen is represented in exactly one of the bars.</em> For example, the group that said they used Facebook most often has no members in common with the group that said they used Twitter most often.</p>
-
-<p>That is why the percents in the bars of the right hand chart add up to 100 (apart from rounding). We say that the chart represents a <em>distribution</em> of teens over the categories. In a distribution, each individual appears in one and only one category.</p>
-
-<p>In the chart on the left, teens can appear in more than one category because they were identifying which platforms they used and were allowed to list more than one. Because the groups in the different categories overlap, the percents add up to more than 100. This bar chart does not represent a distribution.</p>
-
-<h3 id="complements">Complements</h3>
-<p>Now assume you are picking one teen at random from the population represented in these charts. That is short for assuming that each teen has the same chance of being picked as every other teen in the population.</p>
-
-<p>Because all the outcomes (teens!) are equally likely, probabilities are just percents of teens. Let’s use the charts to find some chances.</p>
-
-<p><strong>Question 1:</strong> What is the chance that the chosen teen used Facebook most often?</p>
-
-<p><strong>Answer:</strong> This can be read off the right hand chart: $P(\text{used Facebook most often}) ~ = ~ 0.1$</p>
-
-<p><strong>Question 2:</strong> What is the chance that the chosen teen did not use Facebook most often?</p>
-
-<p><strong>Answer:</strong> The group that did not use Facebook most often consists of everyone but those who used Facebook most often. In the language of set theory, these two groups are called <em>complements</em> of each other. Their two proportions must add up to 1. So: $P(\text{did not use Facebook most often}) ~ = ~ 1 - 0.1 ~ = ~ 0.9$</p>
-
-<p><strong>Question 3:</strong> What is the chance that the student used Facebook but used some other platform more often?</p>
-
-<p><strong>Answer:</strong> Now we have to use the information in both graphs. The left hand graph says that 51% of the teens used Facebook. We already saw that 10% of the teens used Facebook most often. <em>This group used Facebook</em>, so it is part of the 51% that used Facebook.</p>
-
-<p>Who were the other 41%? That’s right – they used Facebook, but not most often. That’s exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often <em>but only among those who used Facebook</em>.</p>
-
-<p>In summary,</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When we work with random variables, we often want to consider functions of them. For example, if $X$ is a random length in inches then $Y = 2.54X$ is the length in centimeters, and $W = \vert X - 12 \vert $ measures how far $X$ is from 12 inches.</p>
+<p>If we know the distribution of $X$ we can easily find the expectation of any function of $X$, as in the example below.</p>
+<p>Let $X$ have the uniform distribution on $\{ -1, 0, 1 \}$, and let $Y = X^2$. Let's find $E(Y)$.</p>
+<p>Here is a distribution table for $X$, with values of $Y$ as well.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$y = x^2$</th>
+<th style="text-align:center">$~~~~1$</th>
+<th style="text-align:center">$~~~~0$</th>
+<th style="text-align:center">$~~~~1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~ x$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+</tr>
+<tr>
+<td style="text-align:right">$P(X = x)$</td>
+<td style="text-align:center">$1/3$</td>
+<td style="text-align:center">$1/3$</td>
+<td style="text-align:center">$1/3$</td>
+</tr>
+</tbody>
+</table>
+<p>At a glance you can see that $Y$ has the value $1$ with chance $2/3$ and the value $0$ with chance $1/3$, so $E(Y) = 2/3$.</p>
+<p>But because of the distributive property, we don't even have to collect terms. We can just find $E(Y)$ as the weighted average of the top row, with the weights in the bottom row.</p>
+<p>$$
+E(Y) ~ = ~ (-1)^2\frac{1}{3} + 0^2\cdot\frac{1}{3} + 1^2\cdot\frac{1}{3} = \frac{2}{3}
+$$</p>
+<p>This method can be expressed in a formula that has an unfortunate way of making the operation seem more complicated than it is.</p>
+<p>Let $Y = g(X)$ be a function of the random variable $X$. Then</p>
+<p>$$
+E(g(X)) ~ = ~ \sum_{\text{all }x} g(x)P(X=x)
+$$</p>
+<p>This just expresses what we did in our example for the function $g$ defined by $g(x) = x^2$:</p>
+<ul>
+<li>Take a value $x$ of the original random variable $X$.</li>
+<li>Apply the function $g$ to create $g(x)$, the corresponding value of $Y$.</li>
+<li>Weight this by $P(X=x)$, to get the product $g(x)P(X=x)$.</li>
+<li>Add these products over all possible values $x$ of $X$.</li>
+</ul>
+<p>For example, if $W = \min(X, 0.5)$ is the smaller of $X$ and 0.5 in our example above, then</p>
+<p>$$
 \begin{align*}
-& P(\text{used Facebook but used some other platform more often}) \\
-&= ~ 0.51 - 0.1 ~ = ~ 0.41
-\end{align*} %]]></script>
+E(W) ~ &amp;= ~ \min(-1, 0.5)\frac{1}{3} + \min(0, 0.5)\frac{1}{3} + \min(1, 0.5)\frac{1}{3} \\
+&amp;= ~ (-1)\frac{1}{3} + 0\cdot\frac{1}{3} + 0.5\cdot\frac{1}{3} ~ \approx ~ -0.167
+\end{align*}
+$$</p>
 
-<h3 id="conditioning">Conditioning</h3>
-<p>Probabilities of events can be affected by information about the occurrence of other events. For example, suppose as before that someone picks a teen at random from the population represented in the charts. And now suppose that they tell you that the teen used Facebook.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p><strong>Question 4:</strong> Given this information, what is the chance that the teen used Facebook most often?</p>
+<div class="jb_cell">
 
-<p><strong>Answer:</strong> Go back and look at the left hand chart. You know that the selected teen is in the Facebook bar of the chart. So you can forget all the other bars. <em>You are now working with a restricted set of outcomes:</em> the outcomes corresponding to the given information, which is that the teen used Facebook.</p>
-
-<p>The teens who used Facebook most often are a subset of this group, as observed earlier and shown in the figure below. It’s just a rough Venn diagram that uses circles instead of bars. We’ll be sketching a lot of these, and you should too.</p>
-
-<p><img src="../../images/venn_conditioning.png" alt="Venn diagram" /></p>
-
-<p>The total number of outcomes is now the “used FB” group, which comprises 51% of the original total number of teens. If you prefer counts to percents, you can pretend that there were 100 teens in all, and that thus there were 51 teens who used Facebook.</p>
-
-<p>The right hand chart says that the teens who used Facebook most often are 10% of the entire population, that is, 10 out of 100 imagined teens.</p>
-
-<p>We can now put all these observations together to find the chance in question. Given that the selected teen used Facebook, the chance that they used Facebook most often is</p>
-
-<script type="math/tex; mode=display">\frac{\text{10% of original total}}{\text{51% of original total}} ~ = ~ \frac{0.1}{0.51} ~ = ~ \frac{10}{51} ~ \approx ~ 0.196</script>
-
-<p>This is called the <em>conditional probability that the teen used Facebook most often, given that they used Facebook</em>. That’s pretty long, so some notation is helpful. This conditional probability is written as</p>
-
-<script type="math/tex; mode=display">P(\text{used Facebook most often} \mid \text{used Facebook})</script>
-
-<p>The vertical bar is read as “given that”.</p>
-
-<p>To find a conditional probability:</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Functions-on-the-Outcome-Space">Functions on the Outcome Space<a class="anchor-link" href="#Functions-on-the-Outcome-Space"> </a></h3><p>The method above extends to finding the expectation of a function of any number of random variables. That's important because data scientists often want to use functions of random samples to make inferences about unknown quantities.</p>
+<p>Recall that our construction of random variables started with the space $\Omega$ consisting of outcomes of our experiment. We defined a random variable as a numerical function on $\Omega$. For example, if $X$ is the number of heads in two tosses of coin then we can set $\Omega = \{ HH, HT, TH, TT\}$ and</p>
+<p>$$
+X(HH) = 2, ~~ X(HT) = 1 = X(TH), ~~ X(TT) = 0
+$$</p>
+<p>In general, for an outcome $\omega$ in $\Omega$, the value of $X$ is $X(\omega)$.</p>
+<p>This helps us make precise the idea that a function of a random variable is itself a random variable. For example, let $g$ be the function defined by $g(x) = x^2$. Then $g(X)$ is defined by composing two functions as follows:
+$ g(X(\omega)) ~ = ~ (X(\omega))^2$ for every $\omega \in \Omega$. Thus $g(X)$ is also a function on $\Omega$ and hence is a random variable.</p>
+<p>Most commonly, we work with multiple random variables defined on the same space. Here is an example.</p>
+<p>Suppose two draws are made at random without replacement from a population that has five elements labeled $ 1, 2, 2, 3, 3 $. Define the following random variables:</p>
 <ul>
-  <li>First restrict the set of all outcomes as well as the event to only the outcomes that satisfy the given condition</li>
-  <li>Then calculate proportions accordingly</li>
+<li>$X_1$ is the number on the first draw</li>
+<li>$X_2$ is the number on the second draw</li>
+<li>$S = X_1 + X_2$ is sum of the numbers on the two draws</li>
 </ul>
+<p>We will now create a table of all possible values of the pair $(X_1, X_2)$ and the probabilities of all the pairs. We will then use the table to find probabilities of events involving $X_1$, $X_2$, and $S$.</p>
 
-<p>Compare the answers to Questions 1 and 4 to see how additional information about the outcome affects the probability of an event.</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint-Distribution">Joint Distribution<a class="anchor-link" href="#Joint-Distribution"> </a></h3><p>We know how to make a distribution table for a single random variable. We will now extend this to a table that displays the <em>joint distribution</em> of two random variables.</p>
+<p>The joint distribution of random variables $X$ and $Y$ consists of all pairs $(x, y)$ that are possible values of the pair $(X, Y)$, along with all the corresponding probabilities $P(X=x, Y=y)$.</p>
+<p>Here is the <em>joint distribution table</em> of the random variables $X_1$ and $X_2$ defined above.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+</tbody>
+</table>
+<p>Each cell of the table represents an intersection: an event of the form $(X_1 = i, X_2 = j)$ for $i$ and $j$ in the range 1, 2, 3. The quantity displayed in the cell is $P(X_1 = i, X_2 = j)$.</p>
+<p>For example, the cell $X_1 = 2, X_2 = 3$ displays $P(X_1 = 2, X_2 = 3) = \frac{2}{5} \cdot \frac{2}{4} = \frac{4}{20}$.</p>
+<p>The table partitions the whole outcome space according to the pairs of values of $X_1$ and $X_2$. So the sum of all the probabilities in the table is equal to 1.</p>
+<p>The chance of any event determined by $X_1$ and $X_2$ can be calculated cell by cell using the addition rule:</p>
 <ul>
-  <li>$P(\text{used Facebook most often}) = 0.1$</li>
-  <li>$P(\text{used Facebook most often} \mid \text{used Facebook}) \approx 0.196 \approx 0.2$</li>
+<li>If the cell is in the event, include its probability.</li>
+<li>If the cell is not in the event, skip it.</li>
 </ul>
+<p>For example,</p>
+<p>$$
+\begin{align*}
+&amp;P(X_1 = X_2) \\
+&amp;= ~ P(X_1 = 1, X_2 = 1) + P(X_1 = 2, X_2 = 2) + P(X_1 = 3, X_2 = 3) \\
+&amp;= ~ 0  + \frac{2}{20} + \frac{2}{20} ~ = ~ \frac{1}{5}
+\end{align*}
+$$</p>
+<p>For $S = X_1 + X_2$,</p>
+<p>$$
+P(S = 5) ~ = ~ P(X_1 = 2, X_2 = 3) + P(X_1 = 3, X_2 = 2) ~ = ~ \frac{4}{20} + \frac{4}{20} ~ = ~ \frac{2}{5}
+$$</p>
 
-<p>The second answer is about double the first.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>The answer to Question 1 is 10% (out of the original population). The answer to Question 4 is that same 10% relative to about half of the original population, because about half the original population used Facebook. That makes the answer to Question 4 about double the answer to Question 1.</p>
+<div class="jb_cell">
 
-<p>The probability of “used Facebook most often” changes based on the given information, because knowing that the selected teen used Facebook restricts the possible outcomes to about half of the original population.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&quot;Marginal&quot;-Distribution">"Marginal" Distribution<a class="anchor-link" href="#&quot;Marginal&quot;-Distribution"> </a></h3><p>If you have the joint distribution of two random variables, then you can find the distribution of each one.</p>
+<p>For example, the event $X_1 = 1$ consists of the cells in the top row of the joint distribution table above, so</p>
+<p>$$
+P(X_1 = 1) ~ = ~ 0 + \frac{2}{20} + \frac{2}{20} ~ = ~ \frac{4}{20} ~ = ~ \frac{1}{5}
+$$</p>
+<p>This confirms what you already knew from the definition of $X_1$.</p>
+<p>To get each probability in the distribution of $X_1$, we have to add all the probabilities in the corresponding row of the table above. Since the sums are often written in the margins of the table, as shown below, the distribution of $X_1$ is also called the <em>marginal</em> distribution of $X_1$.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+<th>Dist of $X_1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td>$\frac{4}{20} = \frac{1}{5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+<td>$\frac{8}{20} = \frac{2}{5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td>$\frac{8}{20} = \frac{2}{5}$</td>
+</tr>
+</tbody>
+</table>
+<p>You can get the distribution of $X_2$ by summing along columns.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expectations-of-Functions">Expectations of Functions<a class="anchor-link" href="#Expectations-of-Functions"> </a></h3><p>We can find the expectation of any function $g$ of two random variables $X$ and $Y$ by extending our method for finding the expectation of a function of $X$.</p>
+<ul>
+<li>Take a cell of the joint distribution table of $X$ and $Y$. This corresponds to one possible value $(x, y)$ of the pair $(X, Y)$.</li>
+<li>Apply the function $g$ to get $g(x,y)$.</li>
+<li>Weight this by the probability in the cell, to get the product $g(x,y)P(X=x, Y=y)$</li>
+<li>Add these products over all the cells of the table.</li>
+</ul>
+<p>This is a bit laborious but straightforward. Here for reference is the joint distribution table of $X_1$ and $X_2$ from the examples above. Let's use it to find $E(\vert X_1 - X_2 \vert)$, the expected value of how far apart the the two draws are.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+</tbody>
+</table>
+<p>We will find $E(\vert X_1 - X_2 \vert)$ by executing the plan described above.</p>
+<ul>
+<li>The contribution of the cell $X_1 = 1, X_2 =1$ is clearly 0.</li>
+<li>The contribution of the cell $X_1 = 1, X_2 =2$ is $\vert 1 - 2 \vert \frac{2}{20} = \frac{2}{20}$.</li>
+<li>The contribution of the cell $X_1 = 1, X_2 =3$ is $\vert 1 - 3 \vert \frac{2}{20} = \frac{4}{20}$.</li>
+<li>And so on.</li>
+</ul>
+<p>It's a bit of pain, but you can go through the process for all nine cells of the table and add up all the contributions to get $E(\vert X_1 - X_2 \vert) = \frac{20}{20} = 1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Additivity-of-Expectation">Additivity of Expectation<a class="anchor-link" href="#Additivity-of-Expectation"> </a></h3><p>It will come as a relief that you can find $E(X+Y)$ without going through the long process outlined above. Because of the distributive property, the long calculation simplifies and we get</p>
+<p>$$
+E(X+Y) ~ = ~ E(X) + E(Y)
+$$</p>
+<p>no matter what the joint distribution of $X$ and $Y$.</p>
+<p>This <em>additivity</em> is one of the most important properties of expectation, because it is true whether the random variables are dependent or independent.</p>
+<p>One way to prove the formula is to apply our long-hand method for finding $E(S)$ and then do the algebra. Another is to make an equivalent definition of expectation on the outcome space $\Omega$ and use that. But we won't take the time for that.</p>
+<p>The rest of the chapter consists of powerful uses of additivity. For now, let's find $E(S)$ in our example above.</p>
+<ul>
+<li>$E(X_1) = 1\cdot\frac{1}{5} + 2\cdot\frac{2}{5} + 3\cdot\frac{2}{5} = 2.2$.</li>
+<li>By the symmetry of draws without replacement, the distribution of $X_2$ is the same as that of $X_1$ and hence $E(X_2) = 2.2$. You can also check this by finding the marginal distribution of $X_2$ and calculating its expectation.</li>
+</ul>
+<p>By additivity, the expectation of $S = X_1 + X_2$ is</p>
+<p>$$
+E(S) ~ = ~ E(X_1) + E(X_2) ~ = ~ 2.2 + 2.2 ~ = ~ 4.4
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_01/00_The_Basics.html">
-      〈 <span class="u-margin-right-tiny"></span> The Basics
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_05/01_Definition.html">
+      〈 <span class="u-margin-right-tiny"></span> Definition
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
-      Exact Calculation or Bound <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
