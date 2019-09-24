@@ -1,0 +1,312 @@
+---
+redirect_from:
+  - "/notebooks/chapter-05/02-functions-of-random-variables"
+interact_link: content/notebooks/Chapter_05/02_Functions_of_Random_Variables.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Functions of Random Variables
+prev_page:
+  url: /notebooks/Chapter_05/01_Definition.html
+  title: |-
+    Definition
+next_page:
+  url: 
+  title: |-
+    
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions-of-Random-Variables">Functions of Random Variables<a class="anchor-link" href="#Functions-of-Random-Variables"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When we work with random variables, we often want to consider functions of them. For example, if $X$ is a random length in inches then $Y = 2.54X$ is the length in centimeters, and $W = \vert X - 12 \vert $ measures how far $X$ is from 12 inches.</p>
+<p>If we know the distribution of $X$ we can easily find the expectation of any function of $X$, as in the example below.</p>
+<p>Let $X$ have the uniform distribution on $\{ -1, 0, 1 \}$, and let $Y = X^2$. Let's find $E(Y)$.</p>
+<p>Here is a distribution table for $X$, with values of $Y$ as well.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$y = x^2$</th>
+<th style="text-align:center">$~~~~1$</th>
+<th style="text-align:center">$~~~~0$</th>
+<th style="text-align:center">$~~~~1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~ x$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+</tr>
+<tr>
+<td style="text-align:right">$P(X = x)$</td>
+<td style="text-align:center">$1/3$</td>
+<td style="text-align:center">$1/3$</td>
+<td style="text-align:center">$1/3$</td>
+</tr>
+</tbody>
+</table>
+<p>At a glance you can see that $Y$ has the value $1$ with chance $2/3$ and the value $0$ with chance $1/3$, so $E(Y) = 2/3$.</p>
+<p>But because of the distributive property, we don't even have to collect terms. We can just find $E(Y)$ as the weighted average of the top row, with the weights in the bottom row.</p>
+<p>$$
+E(Y) ~ = ~ (-1)^2\frac{1}{3} + 0^2\cdot\frac{1}{3} + 1^2\cdot\frac{1}{3} = \frac{2}{3}
+$$</p>
+<p>This method can be expressed in a formula that has an unfortunate way of making the operation seem more complicated than it is.</p>
+<p>Let $Y = g(X)$ be a function of the random variable $X$. Then</p>
+<p>$$
+E(g(X)) ~ = ~ \sum_{\text{all }x} g(x)P(X=x)
+$$</p>
+<p>This just expresses what we did in our example for the function $g$ defined by $g(x) = x^2$:</p>
+<ul>
+<li>Take a value $x$ of the original random variable $X$.</li>
+<li>Apply the function $g$ to create $g(x)$, the corresponding value of $Y$.</li>
+<li>Weight this by $P(X=x)$, to get the product $g(x)P(X=x)$.</li>
+<li>Add these products over all possible values $x$ of $X$.</li>
+</ul>
+<p>For example, if $W = \min(X, 0.5)$ is the smaller of $X$ and 0.5 in our example above, then</p>
+<p>$$
+\begin{align*}
+E(W) ~ &amp;= ~ \min(-1, 0.5)\frac{1}{3} + \min(0, 0.5)\frac{1}{3} + \min(1, 0.5)\frac{1}{3} \\
+&amp;= ~ (-1)\frac{1}{3} + 0\cdot\frac{1}{3} + 0.5\cdot\frac{1}{3} ~ \approx ~ -0.167
+\end{align*}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Functions-on-the-Outcome-Space">Functions on the Outcome Space<a class="anchor-link" href="#Functions-on-the-Outcome-Space"> </a></h3><p>The method above extends to finding the expectation of a function of any number of random variables. That's important because data scientists often want to use functions of random samples to make inferences about unknown quantities.</p>
+<p>Recall that our construction of random variables started with the space $\Omega$ consisting of outcomes of our experiment. We defined a random variable as a numerical function on $\Omega$. For example, if $X$ is the number of heads in two tosses of coin then we can set $\Omega = \{ HH, HT, TH, TT\}$ and</p>
+<p>$$
+X(HH) = 2, ~~ X(HT) = 1 = X(TH), ~~ X(TT) = 0
+$$</p>
+<p>In general, for an outcome $\omega$ in $\Omega$, the value of $X$ is $X(\omega)$.</p>
+<p>This helps us make precise the idea that a function of a random variable is itself a random variable. For example, let $g$ be the function defined by $g(x) = x^2$. Then $g(X)$ is defined by composing two functions as follows:
+$ g(X(\omega)) ~ = ~ (X(\omega))^2$ for every $\omega \in \Omega$. Thus $g(X)$ is also a function on $\Omega$ and hence is a random variable.</p>
+<p>Most commonly, we work with multiple random variables defined on the same space. Here is an example.</p>
+<p>Suppose two draws are made at random without replacement from a population that has five elements labeled $ 1, 2, 2, 3, 3 $. Define the following random variables:</p>
+<ul>
+<li>$X_1$ is the number on the first draw</li>
+<li>$X_2$ is the number on the second draw</li>
+<li>$S = X_1 + X_2$ is sum of the numbers on the two draws</li>
+</ul>
+<p>We will now create a table of all possible values of the pair $(X_1, X_2)$ and the probabilities of all the pairs. We will then use the table to find probabilities of events involving $X_1$, $X_2$, and $S$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Joint-Distribution">Joint Distribution<a class="anchor-link" href="#Joint-Distribution"> </a></h3><p>We know how to make a distribution table for a single random variable. We will now extend this to a table that displays the <em>joint distribution</em> of two random variables.</p>
+<p>The joint distribution of random variables $X$ and $Y$ consists of all pairs $(x, y)$ that are possible values of the pair $(X, Y)$, along with all the corresponding probabilities $P(X=x, Y=y)$.</p>
+<p>Here is the <em>joint distribution table</em> of the random variables $X_1$ and $X_2$ defined above.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+</tbody>
+</table>
+<p>Each cell of the table represents an intersection: an event of the form $(X_1 = i, X_2 = j)$ for $i$ and $j$ in the range 1, 2, 3. The quantity displayed in the cell is $P(X_1 = i, X_2 = j)$.</p>
+<p>For example, the cell $X_1 = 2, X_2 = 3$ displays $P(X_1 = 2, X_2 = 3) = \frac{2}{5} \cdot \frac{2}{4} = \frac{4}{20}$.</p>
+<p>The table partitions the whole outcome space according to the pairs of values of $X_1$ and $X_2$. So the sum of all the probabilities in the table is equal to 1.</p>
+<p>The chance of any event determined by $X_1$ and $X_2$ can be calculated cell by cell using the addition rule:</p>
+<ul>
+<li>If the cell is in the event, include its probability.</li>
+<li>If the cell is not in the event, skip it.</li>
+</ul>
+<p>For example,</p>
+<p>$$
+\begin{align*}
+&amp;P(X_1 = X_2) \\
+&amp;= ~ P(X_1 = 1, X_2 = 1) + P(X_1 = 2, X_2 = 2) + P(X_1 = 3, X_2 = 3) \\
+&amp;= ~ 0  + \frac{2}{20} + \frac{2}{20} ~ = ~ \frac{1}{5}
+\end{align*}
+$$</p>
+<p>For $S = X_1 + X_2$,</p>
+<p>$$
+P(S = 5) ~ = ~ P(X_1 = 2, X_2 = 3) + P(X_1 = 3, X_2 = 2) ~ = ~ \frac{4}{20} + \frac{4}{20} ~ = ~ \frac{2}{5}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&quot;Marginal&quot;-Distribution">"Marginal" Distribution<a class="anchor-link" href="#&quot;Marginal&quot;-Distribution"> </a></h3><p>If you have the joint distribution of two random variables, then you can find the distribution of each one.</p>
+<p>For example, the event $X_1 = 1$ consists of the cells in the top row of the joint distribution table above, so</p>
+<p>$$
+P(X_1 = 1) ~ = ~ 0 + \frac{2}{20} + \frac{2}{20} ~ = ~ \frac{4}{20} ~ = ~ \frac{1}{5}
+$$</p>
+<p>This confirms what you already knew from the definition of $X_1$.</p>
+<p>To get each probability in the distribution of $X_1$, we have to add all the probabilities in the corresponding row of the table above. Since the sums are often written in the margins of the table, as shown below, the distribution of $X_1$ is also called the <em>marginal</em> distribution of $X_1$.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+<th>Dist of $X_1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td>$\frac{4}{20} = \frac{1}{5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+<td>$\frac{8}{20} = \frac{2}{5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td>$\frac{8}{20} = \frac{2}{5}$</td>
+</tr>
+</tbody>
+</table>
+<p>You can get the distribution of $X_2$ by summing along columns.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expectations-of-Functions">Expectations of Functions<a class="anchor-link" href="#Expectations-of-Functions"> </a></h3><p>We can find the expectation of any function $g$ of two random variables $X$ and $Y$ by extending our method for finding the expectation of a function of $X$.</p>
+<ul>
+<li>Take a cell of the joint distribution table of $X$ and $Y$. This corresponds to one possible value $(x, y)$ of the pair $(X, Y)$.</li>
+<li>Apply the function $g$ to get $g(x,y)$.</li>
+<li>Weight this by the probability in the cell, to get the product $g(x,y)P(X=x, Y=y)$</li>
+<li>Add these products over all the cells of the table.</li>
+</ul>
+<p>This is a bit laborious but straightforward. Here for reference is the joint distribution table of $X_1$ and $X_2$ from the examples above. Let's use it to find $E(\vert X_1 - X_2 \vert)$, the expected value of how far apart the the two draws are.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~~~~~~$</th>
+<th style="text-align:center">$X_2=1$</th>
+<th style="text-align:center">$X_2=2$</th>
+<th style="text-align:center">$X_2=3$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$X_1=1$</td>
+<td style="text-align:center">$~~~~~ 0 ~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=2$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4}{20}~~~~~$</td>
+</tr>
+<tr>
+<td style="text-align:right">$X_1=3$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{4} {20}~~~~~$</td>
+<td style="text-align:center">$~~~~~\frac{2}{20}~~~~~$</td>
+</tr>
+</tbody>
+</table>
+<p>We will find $E(\vert X_1 - X_2 \vert)$ by executing the plan described above.</p>
+<ul>
+<li>The contribution of the cell $X_1 = 1, X_2 =1$ is clearly 0.</li>
+<li>The contribution of the cell $X_1 = 1, X_2 =2$ is $\vert 1 - 2 \vert \frac{2}{20} = \frac{2}{20}$.</li>
+<li>The contribution of the cell $X_1 = 1, X_2 =3$ is $\vert 1 - 3 \vert \frac{2}{20} = \frac{4}{20}$.</li>
+<li>And so on.</li>
+</ul>
+<p>It's a bit of pain, but you can go through the process for all nine cells of the table and add up all the contributions to get $E(\vert X_1 - X_2 \vert) = \frac{20}{20} = 1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Additivity-of-Expectation">Additivity of Expectation<a class="anchor-link" href="#Additivity-of-Expectation"> </a></h3><p>It will come as a relief that you can find $E(X+Y)$ without going through the long process outlined above. Because of the distributive property, the long calculation simplifies and we get</p>
+<p>$$
+E(X+Y) ~ = ~ E(X) + E(Y)
+$$</p>
+<p>no matter what the joint distribution of $X$ and $Y$.</p>
+<p>This <em>additivity</em> is one of the most important properties of expectation, because it is true whether the random variables are dependent or independent.</p>
+<p>One way to prove the formula is to apply our long-hand method for finding $E(S)$ and then do the algebra. Another is to make an equivalent definition of expectation on the outcome space $\Omega$ and use that. But we won't take the time for that.</p>
+<p>The rest of the chapter consists of powerful uses of additivity. For now, let's find $E(S)$ in our example above.</p>
+<ul>
+<li>$E(X_1) = 1\cdot\frac{1}{5} + 2\cdot\frac{2}{5} + 3\cdot\frac{2}{5} = 2.2$.</li>
+<li>By the symmetry of draws without replacement, the distribution of $X_2$ is the same as that of $X_1$ and hence $E(X_2) = 2.2$. You can also check this by finding the marginal distribution of $X_2$ and calculating its expectation.</li>
+</ul>
+<p>By additivity, the expectation of $S = X_1 + X_2$ is</p>
+<p>$$
+E(S) ~ = ~ E(X_1) + E(X_2) ~ = ~ 2.2 + 2.2 ~ = ~ 4.4
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

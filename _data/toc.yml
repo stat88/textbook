@@ -64,7 +64,7 @@
   # i.e. the "intro" page to the chapter
   url: /notebooks/Chapter_01/00_The_Basics
   not_numbered: False # Number this section 
-  expand_sections: false
+  expand_sections: True
   sections:
   - title: Probabilities as Proportions # Section title
     # path in repo after content/ to what should be displayed when this section is clicked on
@@ -84,7 +84,7 @@
 - title: Intersections and Conditioning 
   url: /notebooks/Chapter_02/00_Intersections_and_Conditioning
   not_numbered: False
-  expand_sections: false
+  expand_sections: True
   sections:
   - title: The Chance of an Intersection
     url: /notebooks/Chapter_02/01_The_Chance_of_an_Intersection
@@ -108,7 +108,7 @@
 - title: Random Counts
   url: /notebooks/Chapter_03/00_Random_Counts
   not_numbered: False
-  expand_sections: false
+  expand_sections: True
   sections:
   - title: Success and Failure
     url: /notebooks/Chapter_03/01_Success_and_Failure
@@ -131,7 +131,7 @@
 - title: Infinitely Many Values
   url: /notebooks/Chapter_04/00_Infinitely_Many_Values
   not_numbered: False
-  expand_sections: false
+  expand_sections: True
   sections:
   - title: Cumulative Distribution Function (CDF)
     url: /notebooks/Chapter_04/01_Cumulative_Distribution_Function
@@ -151,10 +151,13 @@
 - title: Expectation
   url: /notebooks/Chapter_05/00_Expectation
   not_numbered: False
-  expand_sections: False
+  expand_sections: True
   sections:
   - title: Definition
     url: /notebooks/Chapter_05/01_Definition
+    not_numbered: False
+  - title: Functions of Random Variables
+    url: /notebooks/Chapter_05/02_Functions_of_Random_Variables
     not_numbered: False
  
   
