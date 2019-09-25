@@ -159,5 +159,11 @@
   - title: Functions of Random Variables
     url: /notebooks/Chapter_05/02_Functions_of_Random_Variables
     not_numbered: False
+  - title: Method of Indicators
+    url: /notebooks/Chapter_05/03_Method_of_Indicators
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_05/05_Exercises
+    not_numbered: False
  
   
