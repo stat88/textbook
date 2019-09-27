@@ -162,6 +162,9 @@
   - title: Method of Indicators
     url: /notebooks/Chapter_05/03_Method_of_Indicators
     not_numbered: False
+  - title: Unbiased Estimators
+    url: /notebooks/Chapter_05/04_Unbiased_Estimators
+    not_numbered: False
   - title: Exercises
     url: /notebooks/Chapter_05/05_Exercises
     not_numbered: False
