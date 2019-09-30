@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html",
   "headline": "Unbiased Estimators",
-  "datePublished": "2019-09-30T07:58:04-05:00",
-  "dateModified": "2019-09-30T07:58:04-05:00",
+  "datePublished": "2019-09-30T08:28:49-05:00",
+  "dateModified": "2019-09-30T08:28:49-05:00",
   "description": "Unbiased Estimators Data scientists often use information in random samples to estimate unknown numercial quantities. For example, they might estimate the un...",
   "author": {
     "@type": "Person",
@@ -1343,8 +1343,8 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology"> </a></h3><p>In the context of estimation, a <em>parameter</em> is a fixed number associated with the population. That's the same as the way we have used the term before: the parameter is a contant in the distribution of each sampled element.</p>
-<p>For example, if the population consists of all U.S. adults, the paramter could be the average annual income in the population. We will denote this parameter by $\mu$ for "mean". Data scientists commonly use $\mu$ to represent means, in vastly different contexts. When you read the description of a model or an analysis and see the notation $\mu$, make sure you understand exactly how it is defined in that context.</p>
+<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology"> </a></h3><p>In the context of estimation, a <em>parameter</em> is a fixed number associated with the population. That's the same as the way we have used the term before: the parameter is a constant in the distribution of each sampled element.</p>
+<p>For example, if the population consists of all U.S. adults, the parameter could be the average annual income in the population. We will denote this parameter by $\mu$ for "mean". Data scientists commonly use $\mu$ to represent means, in vastly different contexts. When you read the description of a model or an analysis and see the notation $\mu$, make sure you understand exactly how it is defined in that context.</p>
 <p>Now suppose you draw a random sample from the population. A <em>statistic</em> is any number computed based on the data in the sample. Thus for example the average income of the sampled people is a statistic.</p>
 <p>In general, if $X_i$ represents the $i$th element in the sample, then a statistic is a function $g(X_1, X_2, \ldots, X_n)$. The sample average is the statistic $\bar{X}$ defined as the function</p>
 <p>$$
@@ -1365,7 +1365,7 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Unbiased-Estimator">Unbiased Estimator<a class="anchor-link" href="#Unbiased-Estimator"> </a></h3><p>An unbiased estimator of a parameter is an estimator whose expected value is equal to the paramter.</p>
+<h3 id="Unbiased-Estimator">Unbiased Estimator<a class="anchor-link" href="#Unbiased-Estimator"> </a></h3><p>An unbiased estimator of a parameter is an estimator whose expected value is equal to the parameter.</p>
 <p>That is, if the estimator $S$ is being used to estimate a parameter $\theta$, then $S$ is an unbiased estimator of $\theta$ if $E(S) = \theta$.</p>
 <p>Remember that expectation can be thought of as a long-run average value of a random variable. If an estimator $S$ is unbiased, then on average it is equal to the number it is trying to estimate. Here "on average" involves imagining repeated samples, as follows:</p>
 <ul>
@@ -1395,7 +1395,7 @@ $$</p>
 <p>Notice that in the calculation above we have also discovered many other unbiased estimators of $\mu$.</p>
 <p>For example, $X_1$ is an unbiased estimator of $\mu$ because $E(X_1) = \mu$. Indeed if you fix any $i$ then $X_i$ is an unbiased estimator of $\mu$.</p>
 <p>Even though both $\bar{X}$ and $X_1$ are unbiased estimators, it seems like a better idea to use $\bar{X}$ to estimate $\mu$ than to use just $X_1$. Why throw away the rest of the data?</p>
-<p>This intution is correct: it is indeed better to use $\bar{X}$, because it is likely to be closer to $\mu$ than $X_1$. We will show this later in the course. For now, just note that the same sample can be used to construct more than one unbiased estimator for the parmaeter.</p>
+<p>This intution is correct: it is indeed better to use $\bar{X}$, because it is likely to be closer to $\mu$ than $X_1$. We will show this later in the course. For now, just note that the same sample can be used to construct more than one unbiased estimator for the parameter.</p>
 
 </div>
 </div>
@@ -1412,7 +1412,7 @@ $$</p>
 <p>Let $X_1, X_2, \ldots, X_n$ be draws at random with replacement from the population. Then $X_1, X_2, \ldots, X_n$ are independent identically distributed indicator random variables, each with chance $p$ of being 1.</p>
 <p>The sample mean $\bar{X}$ is the <em>sample proportion</em> of ones, and is an unbiased estimator of the population proportion of ones.</p>
 <p>Note that in this case the <em>sample sum</em> $S_n = X_1 + X_2 + \ldots + X_n$ is the number of ones in the sample and has the binomial $(n, p)$ distribution. The sample mean is $\bar{X} = S_n/n$.</p>
-<p>The graph below shows the relation between the sample proportion $\bar{X}$ ad the population proportion $p$ in an example.</p>
+<p>The graph below shows the relation between the sample proportion $\bar{X}$ and the population proportion $p$ in an example.</p>
 <p>Suppose you roll a die 30 times and find the sample proportion of sixes. The histogram below shows the results of 20,000 repetitions of this experiment. On average, the 20,000 sample proportions are almost indistinguishable from $p = 1/6$.</p>
 
 </div>
