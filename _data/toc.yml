@@ -165,8 +165,14 @@
   - title: Unbiased Estimators
     url: /notebooks/Chapter_05/04_Unbiased_Estimators
     not_numbered: False
+  - title: Conditional Expectation
+    url: /notebooks/Chapter_05/05_Conditional_Expectation
+    not_numbered: False
+  - title: Expectation by Conditioning
+    url: /notebooks/Chapter_05/06_Expectation_by_Conditioning
+    not_numbered: False
   - title: Exercises
-    url: /notebooks/Chapter_05/05_Exercises
+    url: /notebooks/Chapter_05/07_Exercises
     not_numbered: False
  
   
