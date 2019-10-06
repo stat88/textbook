@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Probabilities as Proportions</title>
-  <meta name="description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...">
+  <meta name="description" content="Probabilities as Proportions You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philo...">
 
   <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Probabilities as Proportions" />
-<meta property="og:description" content="Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos..." />
+<meta property="og:description" content="Probabilities as Proportions You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philo..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html",
   "headline": "Probabilities as Proportions",
-  "datePublished": "2019-10-02T18:42:22-05:00",
-  "dateModified": "2019-10-02T18:42:22-05:00",
-  "description": "Probabilities as ProportionsYou can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philos...",
+  "datePublished": "2019-10-05T19:53:04-05:00",
+  "dateModified": "2019-10-05T19:53:04-05:00",
+  "description": "Probabilities as Proportions You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philo...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -475,25 +475,25 @@ printContent = () => {
         element.setAttribute('id', thisId);
         ignoreAssistList.push(thisId)
     });
-
+    
     // Print the actual content object
     printJS({
         printable: 'textbook_content',
         type: 'html',
         css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
     })
 };
-
 initPrint = () => {
     document.querySelector('#interact-button-print').addEventListener('click', printContent)
 }
-
 initFunction(initPrint)
 </script>
-
+© 2019 GitHub, Inc.
 </head>
 
   <body>
@@ -1300,10 +1300,13 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/textbook/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/textbook/content/notebooks/Chapter_01/01_Probabilities_as_Proportions.ipynb" download>
+        <button id="interact-button-download" class="interact-button"></button>
+        </a>
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
 
@@ -1327,140 +1330,209 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h2 id="probabilities-as-proportions">Probabilities as Proportions</h2>
+              <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Probabilities-as-Proportions">Probabilities as Proportions<a class="anchor-link" href="#Probabilities-as-Proportions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philosophical debate which we will touch on from time to time. For now, it is reassuring to note that almost all sides in the debate agree on some basic computational principles. Indeed, these principles have been known to gamblers through the ages.</p>
+<p>To state the principles it helps to have some terminology and notation. In this section we'll just set these up informally and get a taste of some of the considerations that are involved in calculating chances. In later sections we will work more formally and in greater generality.</p>
 
-<p>To state the principles it helps to have some terminology and notation. In this section we’ll just set these up informally and get a taste of some of the considerations that are involved in calculating chances. In later sections we will work more formally and in greater generality.</p>
+</div>
+</div>
+</div>
+</div>
 
-<h3 id="terminology">Terminology</h3>
+<div class="jb_cell">
 
-<p>An <em>experiment</em> is any activity that involves an element of chance. When you perform the experiment there is an <em>outcome</em> which is the result of the experiment.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology"> </a></h3><p>An <em>experiment</em> is any activity that involves an element of chance. When you perform the experiment there is an <em>outcome</em> which is the result of the experiment.</p>
 <p>Thus for example rolling a six-sided die once is an experiment. You can think of the outcome as an integer in the range 1 through 6, corresponding to the number of spots on the face of the die that appears on the roll.</p>
-
-<p>An <em>event</em> is a description of the result of the experiment, which could be more broad than just a single outcome. For example, “the die shows a multiple of 3” is an event. This event happens if the die shows either 3 or 6.</p>
-
+<p>An <em>event</em> is a description of the result of the experiment, which could be more broad than just a single outcome. For example, "the die shows a multiple of 3" is an event. This event happens if the die shows either 3 or 6.</p>
 <p><strong>Language note:</strong> The word <em>die</em> is singular. The word <em>dice</em> is the plural of <em>die</em>. You can have one die or two dice. But you cannot have one dice.</p>
 
-<h3 id="assumption-of-equally-likely-outcomes">Assumption of Equally Likely Outcomes</h3>
+</div>
+</div>
+</div>
+</div>
 
-<p>Here’s a question for you:</p>
+<div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Assumption-of-Equally-Likely-Outcomes">Assumption of Equally Likely Outcomes<a class="anchor-link" href="#Assumption-of-Equally-Likely-Outcomes"> </a></h3><p>Here's a question for you:</p>
 <p>What is the chance that the die shows a multiple of 3?</p>
-
-<p>Did you answer, “2 out of 6, or 1/3, because it’s two faces out of six faces”?</p>
-
+<p>Did you answer, "2 out of 6, or 1/3, because it's two faces out of six faces"?</p>
 <p>If you did, pause for a second and examine what you hid in that answer. Notice that <strong>you assumed that all six faces have the same chance, and that the chance is just a simple proportion.</strong></p>
+<p>That's a fine way to start, but it is important always to be aware that <strong>probabilities depend on the assumptions that have been made, and if the assumptions are wrong then the answers can't be trusted</strong>.</p>
+<p>After all, you haven't seen the die. It might be a trick die that is loaded in some way to show some faces more often than others.</p>
+<p>But for now let's assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word "die" used without any qualification will mean "fair six-sided die".</p>
 
-<p>That’s a fine way to start, but it is important always to be aware that <strong>probabilities depend on the assumptions that have been made, and if the assumptions are wrong then the answers can’t be trusted</strong>.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>After all, you haven’t seen the die. It might be a trick die that is loaded in some way to show some faces more often than others.</p>
+<div class="jb_cell">
 
-<p>But for now let’s assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word “die” used without any qualification will mean “fair six-sided die”.</p>
-
-<h3 id="proportions">Proportions</h3>
-<p>Gamblers through the ages would agree with your calculation of “2 out of 6” for the chance that the die shows an even number, assuming that the die is fair.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Proportions">Proportions<a class="anchor-link" href="#Proportions"> </a></h3><p>Gamblers through the ages would agree with your calculation of "2 out of 6" for the chance that the die shows an even number, assuming that the die is fair.</p>
 <p>In general, <em>if an experiment has a finite number of equally likely outcomes,</em> then the probability of an event is defined as <em>the proportion of outcomes that are included in the event</em>.</p>
+<p>No matter whether the die is fair or loaded, the event "the die shows a multiple of 3" consists of two outcomes: 3 and 6. If the die is fair then the probability of the event is the proportion 2/6 by the definition above.</p>
+<p>We will usually shorten this to $P(\text{die shows a multiple of 3}) = 2/6$. That's $P$ for probability, of course.</p>
+<p>You are welcome to write the answer as "2 out of 6" or "1/3" or "33.333...%" or "0.333..." or any equivalent way of representing the proportion.</p>
 
-<p>No matter whether the die is fair or loaded, the event “the die shows a multiple of 3” consists of two outcomes: 3 and 6. If the die is fair then the probability of the event is the proportion 2/6 by the definition above.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>We will usually shorten this to $P(\text{die shows a multiple of 3}) = 2/6$. That’s $P$ for probability, of course.</p>
+<div class="jb_cell">
 
-<p>You are welcome to write the answer as “2 out of 6” or “1/3” or “33.333…%” or “0.333…” or any equivalent way of representing the proportion.</p>
-
-<h3 id="teen-use-of-online-platforms">Teen Use of Online Platforms</h3>
-<p>Coins, dice, cards, and other games of chance provide wonderful examples that illuminate properties of probability. We will use them frequently for that purpose. But data scientists typically work in other settings. Ideas developed in the context of games of chance can be translated, with appropriate care, into those settings to help data scientists gain insights about the data.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Teen-Use-of-Online-Platforms">Teen Use of Online Platforms<a class="anchor-link" href="#Teen-Use-of-Online-Platforms"> </a></h3><p>Coins, dice, cards, and other games of chance provide wonderful examples that illuminate properties of probability. We will use them frequently for that purpose. But data scientists typically work in other settings. Ideas developed in the context of games of chance can be translated, with appropriate care, into those settings to help data scientists gain insights about the data.</p>
 <p>The <a href="https://www.pewresearch.org/">Pew Research Center</a> is an organization that conducts surveys on the opinions and choices of people in the U.S. In Spring 2018 it <a href="https://www.pewinternet.org/2018/05/31/teens-social-media-technology-2018/">surveyed U.S. teens</a> (ages 13 through 17) about their use of online platforms such as YouTube and Facebook.</p>
-
 <p>The graphic below displays some of the results of the survey. For now, set aside questions about the accuracy of the survey across the U.S; we will discuss sampling accuracy later in the course. Just consider a population of teens whose online platform usage is summarized by these graphs.</p>
+<p><img src="../../images/online_platforms.png" alt="online platform_use"></p>
 
-<p><img src="../../images/online_platforms.png" alt="online platform_use" /></p>
+</div>
+</div>
+</div>
+</div>
 
-<p>There are two bar charts. Each displays percents of teens over categories that are online platforms. Note “None of the above” as the category at the bottom of both. The teens in those bars are the same in both charts and constitute 3% of all the teens.</p>
+<div class="jb_cell">
 
-<h3 id="distribution">Distribution</h3>
-<p>Though the two bar charts cover the same categories, there is an important difference between them. Read the Note that the Pew Research Center included below the graphs.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are two bar charts. Each displays percents of teens over categories that are online platforms. Note "None of the above" as the category at the bottom of both. The teens in those bars are the same in both charts and constitute 3% of all the teens.</p>
 
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Distribution">Distribution<a class="anchor-link" href="#Distribution"> </a></h3><p>Though the two bar charts cover the same categories, there is an important difference between them. Read the Note that the Pew Research Center included below the graphs.</p>
 <p>The chart on the right displays the answer to a question that asked which <em>one</em> of the platforms was most commonly used by the teen respondent. Each teen picked one and only one such platform. <em>Thus each teen is represented in exactly one of the bars.</em> For example, the group that said they used Facebook most often has no members in common with the group that said they used Twitter most often.</p>
-
 <p>That is why the percents in the bars of the right hand chart add up to 100 (apart from rounding). We say that the chart represents a <em>distribution</em> of teens over the categories. In a distribution, each individual appears in one and only one category.</p>
-
 <p>In the chart on the left, teens can appear in more than one category because they were identifying which platforms they used and were allowed to list more than one. Because the groups in the different categories overlap, the percents add up to more than 100. This bar chart does not represent a distribution.</p>
 
-<h3 id="complements">Complements</h3>
-<p>Now assume you are picking one teen at random from the population represented in these charts. That is short for assuming that each teen has the same chance of being picked as every other teen in the population.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p>Because all the outcomes (teens!) are equally likely, probabilities are just percents of teens. Let’s use the charts to find some chances.</p>
+<div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Complements">Complements<a class="anchor-link" href="#Complements"> </a></h3><p>Now assume you are picking one teen at random from the population represented in these charts. That is short for assuming that each teen has the same chance of being picked as every other teen in the population.</p>
+<p>Because all the outcomes (teens!) are equally likely, probabilities are just percents of teens. Let's use the charts to find some chances.</p>
 <p><strong>Question 1:</strong> What is the chance that the chosen teen used Facebook most often?</p>
-
 <p><strong>Answer:</strong> This can be read off the right hand chart: $P(\text{used Facebook most often}) ~ = ~ 0.1$</p>
-
 <p><strong>Question 2:</strong> What is the chance that the chosen teen did not use Facebook most often?</p>
-
 <p><strong>Answer:</strong> The group that did not use Facebook most often consists of everyone but those who used Facebook most often. In the language of set theory, these two groups are called <em>complements</em> of each other. Their two proportions must add up to 1. So: $P(\text{did not use Facebook most often}) ~ = ~ 1 - 0.1 ~ = ~ 0.9$</p>
-
 <p><strong>Question 3:</strong> What is the chance that the student used Facebook but used some other platform more often?</p>
-
 <p><strong>Answer:</strong> Now we have to use the information in both graphs. The left hand graph says that 51% of the teens used Facebook. We already saw that 10% of the teens used Facebook most often. <em>This group used Facebook</em>, so it is part of the 51% that used Facebook.</p>
-
-<p>Who were the other 41%? That’s right – they used Facebook, but not most often. That’s exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often <em>but only among those who used Facebook</em>.</p>
-
+<p>Who were the other 41%? That's right – they used Facebook, but not most often. That's exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often <em>but only among those who used Facebook</em>.</p>
 <p>In summary,</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
+<p>$$
 \begin{align*}
-& P(\text{used Facebook but used some other platform more often}) \\
-&= ~ 0.51 - 0.1 ~ = ~ 0.41
-\end{align*} %]]></script>
+&amp; P(\text{used Facebook but used some other platform more often}) \\
+&amp;= ~ 0.51 - 0.1 ~ = ~ 0.41
+\end{align*}
+$$</p>
 
-<h3 id="conditioning">Conditioning</h3>
-<p>Probabilities of events can be affected by information about the occurrence of other events. For example, suppose as before that someone picks a teen at random from the population represented in the charts. And now suppose that they tell you that the teen used Facebook.</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditioning">Conditioning<a class="anchor-link" href="#Conditioning"> </a></h3><p>Probabilities of events can be affected by information about the occurrence of other events. For example, suppose as before that someone picks a teen at random from the population represented in the charts. And now suppose that they tell you that the teen used Facebook.</p>
 <p><strong>Question 4:</strong> Given this information, what is the chance that the teen used Facebook most often?</p>
-
 <p><strong>Answer:</strong> Go back and look at the left hand chart. You know that the selected teen is in the Facebook bar of the chart. So you can forget all the other bars. <em>You are now working with a restricted set of outcomes:</em> the outcomes corresponding to the given information, which is that the teen used Facebook.</p>
+<p>The teens who used Facebook most often are a subset of this group, as observed earlier and shown in the figure below. It's just a rough Venn diagram that uses circles instead of bars. We'll be sketching a lot of these, and you should too.</p>
+<p><img src="../../images/venn_conditioning.png" alt="Venn diagram"></p>
 
-<p>The teens who used Facebook most often are a subset of this group, as observed earlier and shown in the figure below. It’s just a rough Venn diagram that uses circles instead of bars. We’ll be sketching a lot of these, and you should too.</p>
+</div>
+</div>
+</div>
+</div>
 
-<p><img src="../../images/venn_conditioning.png" alt="Venn diagram" /></p>
+<div class="jb_cell">
 
-<p>The total number of outcomes is now the “used FB” group, which comprises 51% of the original total number of teens. If you prefer counts to percents, you can pretend that there were 100 teens in all, and that thus there were 51 teens who used Facebook.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The total number of outcomes is now the "used FB" group, which comprises 51% of the original total number of teens. If you prefer counts to percents, you can pretend that there were 100 teens in all, and that thus there were 51 teens who used Facebook.</p>
 <p>The right hand chart says that the teens who used Facebook most often are 10% of the entire population, that is, 10 out of 100 imagined teens.</p>
-
 <p>We can now put all these observations together to find the chance in question. Given that the selected teen used Facebook, the chance that they used Facebook most often is</p>
+<p>$$
+\frac{\text{10% of original total}}{\text{51% of original total}} ~ = ~ \frac{0.1}{0.51} ~ = ~ \frac{10}{51} ~ \approx ~ 0.196 
+$$</p>
 
-<script type="math/tex; mode=display">\frac{\text{10% of original total}}{\text{51% of original total}} ~ = ~ \frac{0.1}{0.51} ~ = ~ \frac{10}{51} ~ \approx ~ 0.196</script>
+</div>
+</div>
+</div>
+</div>
 
-<p>This is called the <em>conditional probability that the teen used Facebook most often, given that they used Facebook</em>. That’s pretty long, so some notation is helpful. This conditional probability is written as</p>
+<div class="jb_cell">
 
-<script type="math/tex; mode=display">P(\text{used Facebook most often} \mid \text{used Facebook})</script>
-
-<p>The vertical bar is read as “given that”.</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is called the <em>conditional probability that the teen used Facebook most often, given that they used Facebook</em>. That's pretty long, so some notation is helpful. This conditional probability is written as</p>
+<p>$$
+P(\text{used Facebook most often} \mid \text{used Facebook})
+$$</p>
+<p>The vertical bar is read as "given that".</p>
 <p>To find a conditional probability:</p>
-
 <ul>
-  <li>First restrict the set of all outcomes as well as the event to only the outcomes that satisfy the given condition</li>
-  <li>Then calculate proportions accordingly</li>
+<li>First restrict the set of all outcomes as well as the event to only the outcomes that satisfy the given condition</li>
+<li>Then calculate proportions accordingly</li>
 </ul>
 
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Compare the answers to Questions 1 and 4 to see how additional information about the outcome affects the probability of an event.</p>
-
 <ul>
-  <li>$P(\text{used Facebook most often}) = 0.1$</li>
-  <li>$P(\text{used Facebook most often} \mid \text{used Facebook}) \approx 0.196 \approx 0.2$</li>
+<li>$P(\text{used Facebook most often}) = 0.1$</li>
+<li>$P(\text{used Facebook most often} \mid \text{used Facebook}) \approx 0.196 \approx 0.2$</li>
 </ul>
-
 <p>The second answer is about double the first.</p>
-
 <p>The answer to Question 1 is 10% (out of the original population). The answer to Question 4 is that same 10% relative to about half of the original population, because about half the original population used Facebook. That makes the answer to Question 4 about double the answer to Question 1.</p>
+<p>The probability of "used Facebook most often" changes based on the given information, because knowing that the selected teen used Facebook restricts the possible outcomes to about half of the original population.</p>
 
-<p>The probability of “used Facebook most often” changes based on the given information, because knowing that the selected teen used Facebook restricts the possible outcomes to about half of the original population.</p>
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>

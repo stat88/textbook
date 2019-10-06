@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_05/03_Method_of_Indicators.html",
   "headline": "Method of Indicators",
-  "datePublished": "2019-10-02T18:42:22-05:00",
-  "dateModified": "2019-10-02T18:42:22-05:00",
+  "datePublished": "2019-10-05T19:53:04-05:00",
+  "dateModified": "2019-10-05T19:53:04-05:00",
   "description": "Method of Indicators The additivity property of expectation says that for any two random variables $X$ and $Y$ defined on the same space,$$E(X+Y) ~ = ~ E(X) ...",
   "author": {
     "@type": "Person",
@@ -475,25 +475,25 @@ printContent = () => {
         element.setAttribute('id', thisId);
         ignoreAssistList.push(thisId)
     });
-
+    
     // Print the actual content object
     printJS({
         printable: 'textbook_content',
         type: 'html',
         css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
     })
 };
-
 initPrint = () => {
     document.querySelector('#interact-button-print').addEventListener('click', printContent)
 }
-
 initFunction(initPrint)
 </script>
-
+© 2019 GitHub, Inc.
 </head>
 
   <body>
@@ -1300,10 +1300,13 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/textbook/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/textbook/content/notebooks/Chapter_05/03_Method_of_Indicators.ipynb" download>
+        <button id="interact-button-download" class="interact-button"></button>
+        </a>
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
 

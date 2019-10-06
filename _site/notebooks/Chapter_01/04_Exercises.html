@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Exercises</title>
-  <meta name="description" content="Exercises1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: “If a current high school student asked yo...">
+  <meta name="description" content="Exercises 1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked y...">
 
   <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/04_Exercises.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/04_Exercises.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Exercises" />
-<meta property="og:description" content="Exercises1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: “If a current high school student asked yo..." />
+<meta property="og:description" content="Exercises 1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked y..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/04_Exercises.html",
   "headline": "Exercises",
-  "datePublished": "2019-10-02T18:42:22-05:00",
-  "dateModified": "2019-10-02T18:42:22-05:00",
-  "description": "Exercises1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: “If a current high school student asked yo...",
+  "datePublished": "2019-10-05T19:53:04-05:00",
+  "dateModified": "2019-10-05T19:53:04-05:00",
+  "description": "Exercises 1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked y...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -475,25 +475,25 @@ printContent = () => {
         element.setAttribute('id', thisId);
         ignoreAssistList.push(thisId)
     });
-
+    
     // Print the actual content object
     printJS({
         printable: 'textbook_content',
         type: 'html',
         css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
     })
 };
-
 initPrint = () => {
     document.querySelector('#interact-button-print').addEventListener('click', printContent)
 }
-
 initFunction(initPrint)
 </script>
-
+© 2019 GitHub, Inc.
 </head>
 
   <body>
@@ -1300,10 +1300,13 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/textbook/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/textbook/content/notebooks/Chapter_01/04_Exercises.ipynb" download>
+        <button id="interact-button-download" class="interact-button"></button>
+        </a>
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
 
@@ -1327,80 +1330,107 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h2 id="exercises">Exercises</h2>
+              <div class="jb_cell">
 
-<p><strong>1.</strong> In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: “If a current high school student asked you for advice on what sort of career they should pursue, what would you tell them?” Here adults are defined as people aged 18 or more.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h2>
+</div>
+</div>
+</div>
+</div>
 
-<p>The Center’s <a href="http://pewrsr.ch/2xyIAAW">report</a> provides the following summary of the responses.</p>
+<div class="jb_cell">
 
-<p><img src="../../images/advice.png" alt="advice" /></p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>1.</strong> In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: "If a current high school student asked you for advice on what sort of career they should pursue, what would you tell them?" Here adults are defined as people aged 18 or more.</p>
+<p>The Center's <a href="http://pewrsr.ch/2xyIAAW">report</a> provides the following summary of the responses.</p>
+<p><img src="../../images/advice.png" alt="advice"></p>
 <p>Assume that the percents in the chart were accurate for the US adult population in 2017.</p>
-
 <p><strong>a)</strong> Read the Note at the bottom of the chart and explain what you think the word NET means in this context.</p>
-
 <p><strong>b)</strong> If a US adult was picked at random in 2017, what is the chance that they would not advise STEM fields?</p>
+<p><strong>c)</strong> Suppose a US adult was picked at random in 2017. Given that this person gave general career advice, what is the chance that the advice was to follow one's passion?</p>
+<p><strong>d)</strong> Though the chart doesn't show this, the researchers also looked at the advice by age. Which group do you think was larger: those aged 18-29, or those aged at least 30? Why?</p>
+<p><strong>e)</strong> The chart shows that 34% of adults advised going into STEM fields. The report also notes that "adults aged 30 and older are more likely than those younger than 30 to to promote the virtues of STEM fields (36% versus 23%)." Do these numbers confirm or contradict your answer to Part (d)? Why?</p>
 
-<p><strong>c)</strong> Suppose a US adult was picked at random in 2017. Given that this person gave general career advice, what is the chance that the advice was to follow one’s passion?</p>
+</div>
+</div>
+</div>
+</div>
 
-<p><strong>d)</strong> Though the chart doesn’t show this, the researchers also looked at the advice by age. Which group do you think was larger: those aged 18-29, or those aged at least 30? Why?</p>
+<div class="jb_cell">
 
-<p><strong>e)</strong> The chart shows that 34% of adults advised going into STEM fields. The report also notes that “adults aged 30 and older are more likely than those younger than 30 to to promote the virtues of STEM fields (36% versus 23%).” Do these numbers confirm or contradict your answer to Part (d)? Why?</p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>2.</strong> Ashley, Francie, and Rohan arrive for a meeting in random order. This means that if you let A, F, and R represent Ashley, Francie, and Rohan respectively, then all six of the possible orderings AFR, ARF, FAR, FRA, RAF, and RFA have the same chance. These orderings are also known as <em>permutations</em> of the letters A, F, and R.</p>
-
 <p><strong>a)</strong> For each event below, write the subset of permutations and find the chance of the event. What is the relation between the chances?</p>
-
 <ul>
-  <li>
-    <p>$A_1$: Ashley arrives first</p>
-  </li>
-  <li>
-    <p>$A_2$: Ashley arrives second</p>
-  </li>
-  <li>
-    <p>$A_3$: Ashley arrives third</p>
-  </li>
+<li><p>$A_1$: Ashley arrives first</p>
+</li>
+<li><p>$A_2$: Ashley arrives second</p>
+</li>
+<li><p>$A_3$: Ashley arrives third</p>
+</li>
 </ul>
-
 <p><strong>b)</strong> What is the chance that Rohan arrives before Francie?</p>
-
 <p><strong>c)</strong> Say whether the following statement is true or false. If it is true, explain why. If it is false, find the correct value of the left hand side.</p>
-
 <p>$P(\text{Francie arrives before Rohan or Ashley}) ~ = ~ P(\text{Francie arrives before Rohan}) + P(\text{Francie arrives before Ashley})$</p>
 
-<p><strong>3.</strong> In the grade distribution of a class, an equal proportion of students got A’s and B’s and the remaining students got C’s. You can assume that there was at least one student in each grade category.</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>3.</strong> In the grade distribution of a class, an equal proportion of students got A's and B's and the remaining students got C's. You can assume that there was at least one student in each grade category.</p>
 <p>One student is picked at random from this class.</p>
-
 <p><strong>a)</strong> If possible, find the numerical value of the chance that the selected student got an A. If this is not possible, explain why not.</p>
-
 <p><strong>b)</strong> If possible, find the numerical value of the chance that the selected student got an A given that the student got an A or a B. If this is not possible, explain why not.</p>
-
 <p><strong>c)</strong> If possible say which one of the following chances is larger than the other. If this is not possible, explain why not.</p>
-
 <ul>
-  <li>the chance that the student got an A</li>
-  <li>the chance that the student got an A given that the student did not get a B</li>
+<li>the chance that the student got an A</li>
+<li>the chance that the student got an A given that the student did not get a B</li>
 </ul>
 
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>4.</strong> The 17th century French writer who called himself the Chevalier de Méré was interested in probability and claimed that two events involving dice have the same chance. In this exercise you will assess his calculations.</p>
-
-<p>Note that on a die, the “ace” is the face with one spot.</p>
-
+<p>Note that on a die, the "ace" is the face with one spot.</p>
 <p><strong>a)</strong> The Chevalier said that the chance of getting at least one ace in four rolls of a die is 2/3. His reasoning was that the chance of getting an ace on one roll is 1/6, so the chance of getting an ace in at least one of four rolls is $4 \times (1/6) = 4/6 = 2/3$.</p>
-
-<p>Is this a good argument? If not, what is the flaw? If it is flawed, is the Chevalier’s answer too large or is it too small?</p>
-
+<p>Is this a good argument? If not, what is the flaw? If it is flawed, is the Chevalier's answer too large or is it too small?</p>
 <p><strong>b)</strong> The Chevalier also said that the chance of getting at least one double-ace in 24 rolls of a pair of dice is 2/3. He reasoned that the chance of getting a double-ace in one roll of a pair of dice is 1/36, which is true. He went on to say that therefore the chance of at least one double-ace in 24 rolls of a pair of dice is $24 \times (1/36) = 24/36 = 2/3$.</p>
-
-<p>Is this a good argument? If not, what is the flaw? If it is flawed, is the Chevalier’s answer too large or is it too small?</p>
-
+<p>Is this a good argument? If not, what is the flaw? If it is flawed, is the Chevalier's answer too large or is it too small?</p>
 <p>[In fairness to the Chevalier, he observed that when dice were actually rolled, the events in Parts <strong>a</strong> and <strong>b</strong> did not occur equally often. He got the great mathematicians Pascal and Fermat to help him fix his error. You will do their work in the next chapter.]</p>
 
-<p><strong>5.</strong> Here’s a <a href="https://www.quora.com/If-a-student-applies-to-ten-colleges-with-a-20-chance-of-being-accepted-to-each-what-are-the-chances-he-will-be-accepted-by-at-least-one-college">question from Quora</a>: “If a student applies to ten colleges with a 20% chance of being accepted to each, what are the chances that he will be accepted by at least one college?”</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>5.</strong> Here's a <a href="https://www.quora.com/If-a-student-applies-to-ten-colleges-with-a-20-chance-of-being-accepted-to-each-what-are-the-chances-he-will-be-accepted-by-at-least-one-college">question from Quora</a>: "If a student applies to ten colleges with a 20% chance of being accepted to each, what are the chances that he will be accepted by at least one college?"</p>
 <p>Without making any further assumptions, what can you say about this chance?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>

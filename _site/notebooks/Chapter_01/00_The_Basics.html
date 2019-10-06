@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>The Basics</title>
-  <meta name="description" content="The BasicsThis chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren’t laws of nature. They are mi...">
+  <meta name="description" content="The Basics This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren't laws of nature. They are m...">
 
   <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_The_Basics.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_The_Basics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Basics" />
-<meta property="og:description" content="The BasicsThis chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren’t laws of nature. They are mi..." />
+<meta property="og:description" content="The Basics This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren't laws of nature. They are m..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_The_Basics.html",
   "headline": "The Basics",
-  "datePublished": "2019-10-02T18:42:22-05:00",
-  "dateModified": "2019-10-02T18:42:22-05:00",
-  "description": "The BasicsThis chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren’t laws of nature. They are mi...",
+  "datePublished": "2019-10-05T19:53:04-05:00",
+  "dateModified": "2019-10-05T19:53:04-05:00",
+  "description": "The Basics This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren't laws of nature. They are m...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -475,25 +475,25 @@ printContent = () => {
         element.setAttribute('id', thisId);
         ignoreAssistList.push(thisId)
     });
-
+    
     // Print the actual content object
     printJS({
         printable: 'textbook_content',
         type: 'html',
         css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
     })
 };
-
 initPrint = () => {
     document.querySelector('#interact-button-print').addEventListener('click', printContent)
 }
-
 initFunction(initPrint)
 </script>
-
+© 2019 GitHub, Inc.
 </head>
 
   <body>
@@ -1300,10 +1300,13 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/textbook/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/textbook/content/notebooks/Chapter_01/00_The_Basics.ipynb" download>
+        <button id="interact-button-download" class="interact-button"></button>
+        </a>
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
 
@@ -1327,15 +1330,31 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="the-basics">The Basics</h1>
+              <div class="jb_cell">
 
-<p>This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren’t laws of nature. They are minimal conditions outlined by probabilists to reflect some reasonable requirements about how probabilities should behave. It turns out that the simple set of axioms leads to a powerful theory that has an extraordinary range of application, some of which we will study in this course.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Basics">The Basics<a class="anchor-link" href="#The-Basics"> </a></h1>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren't laws of nature. They are minimal conditions outlined by probabilists to reflect some reasonable requirements about how probabilities should behave. It turns out that the simple set of axioms leads to a powerful theory that has an extraordinary range of application, some of which we will study in this course.</p>
 <p>We will start out by examining our own intuition about probabilities as proportions, and then look at some ways in which proportions behave. This will help motivate the formal axioms and a few of their consequences.</p>
-
-<p>Along the way we will also address a general problem that data scientists encounter frequently: What do we do if we are looking for a numerical answer to a question but don’t have enough information to find it? Can we do better than just giving up and going away?</p>
-
+<p>Along the way we will also address a general problem that data scientists encounter frequently: What do we do if we are looking for a numerical answer to a question but don't have enough information to find it? Can we do better than just giving up and going away?</p>
 <p>In many situations there is indeed a better option. We will examine one of those situations and see what we can do to gain some insight even though we have incomplete information.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
             </div>

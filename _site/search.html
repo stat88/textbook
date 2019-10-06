@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-02T18:42:22-05:00",
-  "dateModified": "2019-10-02T18:42:22-05:00",
+  "datePublished": "2019-10-05T19:53:04-05:00",
+  "dateModified": "2019-10-05T19:53:04-05:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -475,25 +475,25 @@ printContent = () => {
         element.setAttribute('id', thisId);
         ignoreAssistList.push(thisId)
     });
-
+    
     // Print the actual content object
     printJS({
         printable: 'textbook_content',
         type: 'html',
         css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
     })
 };
-
 initPrint = () => {
     document.querySelector('#interact-button-print').addEventListener('click', printContent)
 }
-
 initFunction(initPrint)
 </script>
-
+© 2019 GitHub, Inc.
 </head>
 
   <body>
@@ -1300,10 +1300,10 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/textbook/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
 
@@ -1329,26 +1329,10 @@ initFunction(initPrint)
 <script>
     // Add the lunr store since we will now search it
     var store = [{
-        "title": "Fundamentals",
-        
-        "excerpt":
-            "        # HIDDEN from datascience import * from prob140 import * %matplotlib inline import matplotlib.pyplot as plt plt.style.use('fivethirtyeight') import numpy as np             This is the beginning of the fundamentals chapter.   Check back after lecture on 8/28 for more content!   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_Fundamentals.html",
-        "teaser":null},{
         "title": "The Basics",
         
         "excerpt":
             "The Basics This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren't laws of nature. They are minimal conditions outlined by probabilists to reflect some reasonable requirements about how probabilities should behave. It turns out that the simple set of axioms leads to a powerful theory that has an extraordinary range of application, some of which we will study in this course. We will start out by examining our own intuition about probabilities as proportions, and then look at some ways in which proportions behave. This will...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_The_Basics.html",
-        "teaser":null},{
-        "title": "The Basics",
-        
-        "excerpt":
-            "The Basics This chapter sets out the rules of the game – the axioms on which the theory of probability is based. The axioms aren’t laws of nature. They are minimal conditions outlined by probabilists to reflect some reasonable requirements about how probabilities should behave. It turns out that the simple set of axioms leads to a powerful theory that has an extraordinary range of application, some of which we will study in this course. We will start out by examining our own intuition about probabilities as proportions, and then look at some ways in which proportions behave. This will...",
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/00_The_Basics.html",
@@ -1361,14 +1345,6 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html",
         "teaser":null},{
-        "title": "Probabilities as Proportions",
-        
-        "excerpt":
-            "Probabilities as Proportions You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philosophical debate which we will touch on from time to time. For now, it is reassuring to note that almost all sides in the debate agree on some basic computational principles. Indeed, these principles have been known to gamblers through the ages. To state the principles it helps to have some terminology and notation. In this section we’ll just set these up informally and get a taste of some of the considerations that are involved in calculating...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html",
-        "teaser":null},{
         "title": "Exact Calculation or Bound",
         
         "excerpt":
@@ -1376,22 +1352,6 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html",
-        "teaser":null},{
-        "title": "Exact Calculation or Bound",
-        
-        "excerpt":
-            "Exact Calculation, or Bound? All of the questions we asked in the previous section could be answered based on the information given. But sometimes the information at hand is not enough for us to be able to find the probability of an event of interest. Let’s look at an example of this and then see if there is anything useful we can say in situations where we can’t find an answer exactly. As a reminder, here is the Pew Research Center graphic again. The experiment is to pick one teen at random from the population represented in the charts. Facebook...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html",
-        "teaser":null},{
-        "title": "Fundamental Rules",
-        
-        "excerpt":
-            "Fundamental Rules In 1933, the Russian mathematician Andrey Kolmogorov established the axioms of the modern theory of probability. You will see that the axioms are generalizations of the natural properties of proportions that we have already used in our calculations. We will start this section with formal defnitions of some familiar terms. We will then state the axioms and list some important consequences. Outcome Space and Events $\\bullet$ An outcome space or sample space is the set of all possible outcomes of an experiment. The outcome space could be finite, for example when the experiment is one roll of a...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html",
         "teaser":null},{
         "title": "Fundamental Rules",
         
@@ -1409,26 +1369,10 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/04_Exercises.html",
         "teaser":null},{
-        "title": "Exercises",
-        
-        "excerpt":
-            "Exercises 1. In 2017, a Pew Research Center survey asked a random sample of American adults an open-ended question: “If a current high school student asked you for advice on what sort of career they should pursue, what would you tell them?” Here adults are defined as people aged 18 or more. The Center’s report provides the following summary of the responses. Assume that the percents in the chart were accurate for the US adult population in 2017. a) Read the Note at the bottom of the chart and explain what you think the word NET means in this context....",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_01/04_Exercises.html",
-        "teaser":null},{
         "title": "Intersections and Conditioning",
         
         "excerpt":
             "Intersections and Conditioning The main axiom of probability specifies the chance of the union of mutually exclusive events. As you have seen, when events are not mutually exclusive we have to understand their overlap or intersection in order to find the chance of the union. Probabilists and data scientists are often interested in chances of intersections. The chance that we lose all our bets, or that a randomly picked person is at risk for a disease and doesn't have health insurance, are just two examples. So when it comes to intersections, probabilists have shortened even the standard notation of set...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/00_Intersections_and_Conditioning.html",
-        "teaser":null},{
-        "title": "Intersections and Conditioning",
-        
-        "excerpt":
-            "Intersections and Conditioning The main axiom of probability specifies the chance of the union of mutually exclusive events. As you have seen, when events are not mutually exclusive we have to understand their overlap or intersection in order to find the chance of the union. Probabilists and data scientists are often interested in chances of intersections. The chance that we lose all our bets, or that a randomly picked person is at risk for a disease and doesn’t have health insurance, are just two examples. So when it comes to intersections, probabilists have shortened even the standard notation of set...",
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/00_Intersections_and_Conditioning.html",
@@ -1440,22 +1384,6 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html",
-        "teaser":null},{
-        "title": "The Chance of an Intersection",
-        
-        "excerpt":
-            "The Chance of an Intersection The intersection of two events is a subset of each of them, so its chance is less than or equal to the chance of each one and hence is at most equal to the minimum of the two chances. But how do we find it exactly? Let’s start out with a simple example. Two Cards from a Deck of Three I deal two cards at random without replacement from a deck that contains one red, one blue, and one green card. This means: I pick one of the three cards at random. Then I pick...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html",
-        "teaser":null},{
-        "title": "Symmetry in Simple Random Sampling",
-        
-        "excerpt":
-            "Symmetry in Simple Random Sampling Sampling individuals at random without replacement is one of the most natural ways to collect a random sample from a finite population. It is called simple random sampling and will be studied extensively in this course. But before we get to large populations, we will examine simple random sampling in the context of dealing hands of cards from a deck (or population) of size 52. This will help us see some beautiful symmetries that arise when we sample at random without replacement. Product Rule of Counting We saw earlier that if you deal five cards...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html",
         "teaser":null},{
         "title": "Symmetry in Simple Random Sampling",
         
@@ -1473,14 +1401,6 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/03_Bayes_Rule.html",
         "teaser":null},{
-        "title": "Bayes Rule",
-        
-        "excerpt":
-            "Bayes’ Rule Thus far, we have used the multiplication rule $P(AB) = P(A)P(B \\mid A)$ only in settings where the conditional probability $P(B \\mid A)$ is clear as the proportion of outcomes that are in $B$ among only the outcomes that are in $A$. The general definition of conditional probability, regardless of setting, is just a rearrangement of the multiplication rule. Conditional Probability (Division Rule) Let $A$ and $B$ be two events and let $P(A) &gt; 0$. The conditional probability of $B$ given $A$ is defined as It makes sense to assume $P(A) &gt; 0$, not just because $P(A)$ appears...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/03_Bayes_Rule.html",
-        "teaser":null},{
         "title": "Use and Interpretation",
         
         "excerpt":
@@ -1489,22 +1409,6 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html",
         "teaser":null},{
-        "title": "Use and Interpretation",
-        
-        "excerpt":
-            "Use and Interpretation There are many situations in the law, medicine, and other fields, where Bayes’ Rule might help make decisions. Given the evidence, is the defendant guilty or not? Given the test results, does the patient have the disease, or not? But not all medical or legal professionals have taken data science classes. So the calculations are sometimes misinterpreted or done incorrectly or simply not done at all. Here is an example that demonstrates some of the issues that are involved. Harvard Medical School Survey In 1978, Cascella, Schoenberger, and Grayboys asked 60 physicians, students, and house officers at...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html",
-        "teaser":null},{
-        "title": "Exercises",
-        
-        "excerpt":
-            "Exercises 1. There are 2,598,960 different poker hands. Suppose I play poker two times so that each time all hands are equally likely regardless of which hand I got the other time. The chance that I get the same hand both times is equal to (pick one and explain): (i) $\\frac{1}{2598960} \\times \\frac{1}{2598960}$ (ii) $\\frac{1}{2598960}$ (iii) Neither (i) nor (ii) 2. A population consists of equal numbers of students in four categories: freshman, sophomore, junior, and senior. a) Suppose there are 8 people in the population, and a simple random sample of 4 people is drawn. What is the chance...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/05_Exercises.html",
-        "teaser":null},{
         "title": "Independence",
         
         "excerpt":
@@ -1512,22 +1416,6 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/05_Independence.html",
-        "teaser":null},{
-        "title": "Independence",
-        
-        "excerpt":
-            "Independence Events $A$ and $B$ are independent if the information that one of them occurred does not change the chance of the other. If you don’t know whether $A$ has occurred, then the chance of $B$ is just $P(B)$. If you do know that $A$ occurred, then you have to update the chance of $B$ to $P(B \\mid A)$, the conditional chance of $B$ given $A$. The definition of independence says that $A$ and $B$ are independent if $P(B \\mid A) = P(B)$. For example, suppose you roll a die once and see an odd number. What does that tell...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/05_Independence.html",
-        "teaser":null},{
-        "title": "Exercises",
-        
-        "excerpt":
-            "Exercises 1. There are 2,598,960 different poker hands. Suppose I play poker two times so that each time all hands are equally likely regardless of which hand I got the other time. The chance that I get the same hand both times is equal to (pick one and explain): (i) $\\frac{1}{2598960} \\times \\frac{1}{2598960}$ (ii) $\\frac{1}{2598960}$ (iii) Neither (i) nor (ii) 2. A population consists of equal numbers of students in four categories: freshman, sophomore, junior, and senior. a) Suppose there are 8 people in the population, and a simple random sample of 4 people is drawn. What is the chance...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/06_Exercises.html",
         "teaser":null},{
         "title": "Exercises",
         
@@ -1688,14 +1576,6 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_05/05_Conditional_Expectation.html",
-        "teaser":null},{
-        "title": "Exercises",
-        
-        "excerpt":
-            "Exercises 1. Let $X$ have the distribution displayed in the table below. $~~~~~~~~~~~~~~~~x$ $-2$ $-1$ $0$ $1$ $P(X=x)$ $0.2$ $0.25$ $0.35$ $0.2$ Find a) $E(X)$ b) $E(X-1)$ c) $E(\\vert X - 1 \\vert)$ d) $E((X-1)^2)$ 2. A true/false test consists of 25 questions. A student knows the correct answer to 10 of the questions. She guesses each of the other answers independently based on the toss of a coin. a) Find the expectation of the number of correct answers. b) Find the chance that the student gets more than 20 questions right. 3. A box contains four blank index cards...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/textbook/notebooks/Chapter_05/05_Exercises.html",
         "teaser":null},{
         "title": "Expectation by Conditioning",
         

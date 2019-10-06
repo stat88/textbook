@@ -74,8 +74,82 @@ codemirror_theme: abcdef                     # Theme for codemirror cells, for o
 use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
-use_download_button: false               # If 'true', display a button to download a zip file for the notebook
-download_button_text: Download                # The text that download buttons will contain
+use_download_button: true               # If 'true', display a button to download a zip file for the notebook
+download_button_text: ''                # The text that download buttons will contain
+download_page_header: "Authorship: Ani Adhikari ; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
+#######################################################################################
+# Jupyter book extensions and additional features
+
+# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
+scholar:
+  style: apa
+
+#######################################################################################
+# Option to add a Goggle analytics tracking code
+
+# Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
+google_analytics:
+  mytrackingcode:
+
+#######################################################################################
+# Jupyter book settings you probably don't need to change
+
+content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
+images_url: /assets/images                   # Path to static image files
+css_url: /assets/css                      # Path to static CSS files
+js_url: /assets/js                       # Path to JS files
+custom_static_url: /assets/custom            # Path to user's custom CSS/JS files
+
+
+#######################################################################################
+# Jekyll build settings (only modify if you know what you're doing)
+
+# Site settings
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: default
+    toc: true
+    toc_label: '  On this page'
+    toc_icon: list-ul
+
+favicon_path: images/logo/favicon.ico
+
+# Markdown Processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  style: compressed
+
+collections:
+  build:
+    output: true
+    permalink: /:path.html
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+- scripts/
+- Gemfile
+- Gemfile.lock
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+
+plugins:
+- jekyll-redirect-from
+- jekyll-scholar
+
+# Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
+jupyter_book_version: 0.5.3dev0
+
 
 #######################################################################################
 # Jupyter book extensions and additional features
