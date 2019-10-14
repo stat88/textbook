@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Success and Failure</title>
-  <meta name="description" content="Success and Failure In experiments that involve drawing at random, it is common to label the draws as "trials". For most of this chapter, we will consider ex...">
+  <title>Variance and Standard_Deviation</title>
+  <meta name="description" content="Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/01_Success_and_Failure.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/01_Success_and_Failure.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Success and Failure" />
-<meta property="og:description" content="Success and Failure In experiments that involve drawing at random, it is common to label the draws as "trials". For most of this chapter, we will consider ex..." />
+<meta property="og:title"       content="Variance and Standard_Deviation" />
+<meta property="og:description" content="Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/01_Success_and_Failure.html",
-  "headline": "Success and Failure",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html",
+  "headline": "Variance and Standard_Deviation",
   "datePublished": "2019-10-14T18:38:55-05:00",
   "dateModified": "2019-10-14T18:38:55-05:00",
-  "description": "Success and Failure In experiments that involve drawing at random, it is common to label the draws as "trials". For most of this chapter, we will consider ex...",
+  "description": "Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -868,7 +868,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html"
                 >
                   
@@ -1315,7 +1315,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html"
                 >
                   
@@ -1375,11 +1375,18 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="jb_cell">
+              <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Success-and-Failure">Success and Failure<a class="anchor-link" href="#Success-and-Failure"> </a></h2>
+<h2 id="Variance-and-Standard-Deviation">Variance and Standard Deviation<a class="anchor-link" href="#Variance-and-Standard-Deviation"> </a></h2>
 </div>
 </div>
 </div>
@@ -1389,55 +1396,473 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In experiments that involve drawing at random, it is common to label the draws as "trials". For most of this chapter, we will consider experiments in which the result of each trial is in one of a fixed set of categories. For example, in tosses of a coin the categories are usually heads and tails. In cards dealt from a deck, the categories could be the four suits.</p>
-<p>When we count outcomes in a particular category, the category that is being counted is often called a "success". When used in this sense, the word "success" does not have to connote any kind of desirability other than being counted. For example, if you were interested in the number of rotten apples in a random collection of fruit, then it would be natural to label the rotten apples as the successes.</p>
-<p>Any outcome that is not a success is called a failure.</p>
-<p>To start out, we will look at some random counts and see if they are surprising.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Paul-the-Octopus">Paul the Octopus<a class="anchor-link" href="#Paul-the-Octopus"> </a></h3><p>During the 2010 FIFA World Cup, an octopus in a Sea Life Center in Germany became an international sensation by correctly predicting the results of all of Germany's group stage matches, quarter-final and semi-final matches as well as the third-place match (Germany lost the semi-final). Paul also correctly predicted the result of the final, which was won by Spain.</p>
-<p>For each prediction Paul was given two clear plastic boxes, each containing a treat. Each box was marked with the flag of one of the teams. Paul's prediction was the country whose flag was on the box he opened to consume the treat within. Here is Paul in a photograph from <a href="https://www.spiegel.de/fotostrecke/photo-gallery-remembering-paul-the-octopus-fotostrecke-60919.html">Der Speigel</a>, with his tentacles inside the Germany box.</p>
-<p><img src="../../images/paul_the_octopus.png" alt="Paul the Octopus"></p>
-<p>The world had great fun with <a href="https://en.wikipedia.org/wiki/Paul_the_Octopus">Paul's predictions</a> and some people even took them rather seriously. When Paul predicted that Spain would beat Germany in their semi-final, German fans suggested that he be eaten while the Spanish government offered him refuge. The <a href="https://www.telegraph.co.uk/news/worldnews/europe/germany/7912418/Mahmoud-Ahmadinejad-attacks-Octopus-Paul.html">President of Iran</a> called him a symbol of what was wrong with the Western world.</p>
-<p>Statisticians, of course, looked at the probability of making all these predictions just by tossing a coin. Paul made eight correct predictions in the 2010 World Cup. Suppose instead that each time someone picked at random from the two countries playing the match, independently of all other choices. Then what would be the chance that all eight of their choices would be winners?</p>
-<p>Here it is natural to call each individual selection a trial. Success occurs if the chosen country wins the match. No matter which country wins, the chance of picking that country is 1/2. So, by the independence of the choices, the chance of picking all eight winners is $(1/2)^8 = 1/256$.</p>
-<p>That's pretty small. Paul did something unusual.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="More-Soothsayers">More Soothsayers<a class="anchor-link" href="#More-Soothsayers"> </a></h3><p>Paul wasn't the only creature predicting soccer results. In Singapore, <a href="https://en.wikipedia.org/wiki/Mani_the_parakeet">Mani the Parakeet</a> made almost as many correct predictions. Here is Mani with his owner, from a piece in the <a href="https://www.theguardian.com/football/2010/jul/09/pulpo-paul-mani-psychic-parakeet">Guardian UK</a>, picking up a card that appears to show the flag of the Netherlands.</p>
-<p><img src="../../images/mani_the_parakeet.png" alt="mani_the_parakeet"></p>
-<p><a href="https://en.wikipedia.org/wiki/Paul_the_Octopus">Other creatures</a> that were engaged in soccer divination included Leon the porcupine and Petty the pygmy hippopotamus, to name just two.</p>
-<p>These other soothsayers didn't do as well as Paul. This raises another question. If numerous creatures are engaged in prediction, what is the chance that at least one of them would get all eight predictions correct just by chance?</p>
-<p>Suppose 200 creatures are independently predicting the result of all eight games, and suppose their method was probabilistically equivalent to guessing at random. The number 200 comes from the fact that there are about 200 countries in the world and we are imagining one creature per country. You can use any other large number that you want. Just adjust the calculation below accordingly.</p>
-<p>To find the chance that at least one of them predicts all eight games correctly, we have to choose appropriate definitions of "trial" and "success".</p>
-<ul>
-<li>Now a trial is one creature predicting the results of eight matches. There are 200 trials, all independent of each other.</li>
-<li>Success is a creature getting all eight predictions right by guessing at random. This chance is $1/256$.</li>
-</ul>
-<p>The chance that at least one creature gets all eight predictions right is therefore the chance of at least one success, which by the complement rule works out to</p>
+<p>Let $X$ be a random variable and let $\mu_X = E(X)$. The <em>deviation from expected value</em>, informally called the deviation from average or just deviation for short, is defined as the difference</p>
 <p>$$
-P(\text{at least one success}) ~ = ~ 1 - (1 - \frac{1}{256})^{200} ~ \approx ~ 54.3\%
+D ~ = ~ X - \mu_X
 $$</p>
-<p>Even though the chance of any single creature getting all eight predictions right by pure chance is small, if 200 creatures guess at random then it is more likely than not that at least one of them will do as well as Paul did.</p>
+<p>Thus $D$ is the amount by which $X$ exceeds its expectation $\mu_X$. Note that $D$ is negative when $X &lt; \mu_X$.</p>
+<p>The goal of this section is to quantify the rough size of $D$. One natural approach is to find $E(D)$, but that results in</p>
+<p>$$
+E(D) ~ = ~ E(X - \mu_X) ~ = ~ E(X) - \mu_X ~ = ~ 0
+$$</p>
+<p>No matter what the distribution of $X$, the expected deviation from average is 0: all the positive deviations exactly cancel out all the negative ones.</p>
+<p>The expected deviation isn't a useful measure because it's 0 for every $X$. But it does help us understand what we have in mind when we say "rough size" of $D$: we mean the value of $D$ regardless of the sign.</p>
 
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance">Variance<a class="anchor-link" href="#Variance"> </a></h3><p>We could measure the rough size of $D$ by $E(\vert D \vert)$, but expectations of absolute values don't have nice math properties. In particular, they don't work well with sums. But because of Pythagoras' Theorem, <em>squares</em> of distances do have good properties, especially with sums. so we will define a measure called the <em>variance</em> of $X$ by</p>
+<p>$$
+Var(X) ~ = ~ E(D^2) ~ = ~ E((X - \mu_X)^2)
+$$</p>
+<p>The variance of $X$ is non-negative because $D^2$ is a non-negative variable. Indeed, $Var(X)$ is strictly positive except if $X$ is just a constant.</p>
+<p>Notice that variance is an expectation: it is the expectation of a non-linear function of $X$. To calculate it, we can apply our familiar method of finding expectations of non-linear functions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Standard-Deviation">Standard Deviation<a class="anchor-link" href="#Standard-Deviation"> </a></h3><p>Calculating variance takes care of the problem of positive and negative deviations canceling out. But it introduces a different problem, which is that variance is the expected <em>squared</em> deviation and thus has different units from the original variable $X$. For example, if $X$ is a weight in pounds then $Var(X)$ is in squared pounds, and squared pounds aren't easy to undertand.</p>
+<p>To fix this problem we take the square root of the variance. The resulting quantity has the same units as $X$ and is called the <em>standard deviation</em> or SD of $X$.</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{Var(X)} ~ = ~ \sqrt{E((X - \mu_X)^2}
+$$</p>
+<p>The standard deviation will be our main measure of the variability in a random variable. We will look carefully at its use and interpretation. But first, let's write the steps to calculate it.</p>
+<p>Remember that the point of the SD is to measure the rough size of deviations around the expectation of $X$. So start by calculating the expectation.</p>
+<ul>
+<li>Find $\mu_X$.</li>
+<li>Find the deviation $D = X - \mu_X$.</li>
+<li>Square the deviation to get rid of the signs: $D^2 = (X - \mu_X)^2$.</li>
+<li>Find the mean squared deviation, also known as the variance: $Var(X) = E((X - \mu_X)^2)$.</li>
+<li>Take the square root of the variance to get the standard deviation: $SD(X) = \sqrt{Var(X)}$</li>
+</ul>
+<p>If you go backwards along these steps you will see why the SD is called the <em>root mean square of deviations from average</em>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example">Example<a class="anchor-link" href="#Example"> </a></h3><p>Let $X$ have the distribution given below.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~ x$</th>
+<th style="text-align:center">$3$</th>
+<th style="text-align:center">$4$</th>
+<th style="text-align:center">$5$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(X = x)$</td>
+<td style="text-align:center">$0.35$</td>
+<td style="text-align:center">$0.5$</td>
+<td style="text-align:center">$0.15$</td>
+</tr>
+</tbody>
+</table>
+<p>Then</p>
+<p>$$
+E(X) ~ = ~ 3(0.35) + 4(0.5) + 5(0.15) ~ = ~ 3.8
+$$</p>
+<p>and is marked by a red arrow on the horizontal axis of the probability histogram below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_6_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The table below shows the distribution of $X$ along with the squared deviations:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">variance_table</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>x</th> <th>(x - E(X))**2</th> <th>P(X = x)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>3   </td> <td>0.64         </td> <td>0.35    </td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>0.04         </td> <td>0.5     </td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>1.44         </td> <td>0.15    </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have</p>
+<p>$$
+Var(X) ~ = ~ E((X - \mu_X)^2) ~ = ~ 0.64(0.35) + 0.04(0.5) + 1.44(0.15) ~ = ~ 0.46
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_X</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">variance_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">variance_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">var_X</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.45999999999999996</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The standard deviation can now be calculated as</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{Var(X)} ~ = ~ \sqrt{0.46} ~ \approx ~ 0.68 
+$$</p>
+<p>The points $E(X) \pm SD(X)$ are $3.8 - 0.68 = 3.12$ and $3.8 + 0.68 = 4.48$. These are the blue arrows in the figure below, shown to indicate the sense in which the SD measures the "rough size" of the deviations. We will have much more to say about interpretation in later sections.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-2:-Larger-Spread">Example 2: Larger Spread<a class="anchor-link" href="#Example-2:-Larger-Spread"> </a></h3><p>The random variable $Y$ with the distribution given below has the same expectation as $X$ above. But its distribution looks quite different from that of $X$.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~ y$</th>
+<th style="text-align:center">$3$</th>
+<th style="text-align:center">$4$</th>
+<th style="text-align:center">$5$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(Y = y)$</td>
+<td style="text-align:center">$0.55$</td>
+<td style="text-align:center">$0.1$</td>
+<td style="text-align:center">$0.35$</td>
+</tr>
+</tbody>
+</table>
+<p>$$
+E(Y) ~ = ~ 3(0.55) + 4(0.1) + 5(0.35) ~ = ~ 3.8
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_15_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probabilities in the distribution of $Y$ are concentrated on the two outer values (3 and 5) whereas in the distribution of $X$ the most likely value is 4. Because both distributions have the same mean of 3.8, the deviations of $Y$ are more likely to be large than those of $X$. So $Y$ has the greater $SD$.</p>
+<p>You can check this numerically:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">variance_table_Y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>y</th> <th>(y - E(Y))**2</th> <th>P(Y = y)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>3   </td> <td>0.64         </td> <td>0.55    </td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>0.04         </td> <td>0.1     </td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>1.44         </td> <td>0.35    </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_Y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">variance_table_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">variance_table_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sd_Y</span> <span class="o">=</span> <span class="n">var_Y</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">sd_Y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9273618495495703</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The figure below shows the probability histogram of $Y$ along with the three points $E(Y)$ and $E(Y) \pm SD(Y)$. Compare this with the corresponding figure for $X$ above. You will see that the two expectations are the same but $Y$ has the bigger SD.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_21_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1448,15 +1873,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_03/00_Random_Counts.html">
-      〈 <span class="u-margin-right-tiny"></span> Random Counts
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_06/00_Measuring_Variability.html">
+      〈 <span class="u-margin-right-tiny"></span> Measuring Variability
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/02_Random_Variables.html">
-      Random Variables <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

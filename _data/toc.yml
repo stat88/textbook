@@ -174,5 +174,13 @@
   - title: Exercises
     url: /notebooks/Chapter_05/07_Exercises
     not_numbered: False
+- title: Measuring Variability
+  url: /notebooks/Chapter_06/00_Measuring_Variability
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Variance and Standard_Deviation
+    url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation
+    not_numbered: False
  
   
