@@ -182,5 +182,8 @@
   - title: Variance and Standard_Deviation
     url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation
     not_numbered: False
+  - title: Simplifying the Calculation
+    url: /notebooks/Chapter_06/02_Simplifying_the_Calculation
+    not_numbered: False
  
   

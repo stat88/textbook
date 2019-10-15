@@ -1,0 +1,345 @@
+---
+redirect_from:
+  - "/notebooks/chapter-06/02-simplifying-the-calculation"
+interact_link: content/notebooks/Chapter_06/02_Simplifying_the_Calculation.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Simplifying the Calculation
+prev_page:
+  url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html
+  title: |-
+    Variance and Standard_Deviation
+next_page:
+  url: 
+  title: |-
+    
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Simplifying-the-Calculation">Simplifying the Calculation<a class="anchor-link" href="#Simplifying-the-Calculation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To calculate the variance, we have had to find each deviation, square it, and then find the weighted average of of the squares. It's worth seeing if we can reduce this work.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linear-Transformations">Linear Transformations<a class="anchor-link" href="#Linear-Transformations"> </a></h3><p>When we change units, we usually multiply the variable by a constant. For example if $X$ is a length in inches then $Y = 2.54X$ is the same length in centimeters. If $X$ is a temperature in degrees Celsius then $Y = (9/5)X + 32$ is the same temperature in degrees Fahrenheit. Both of these are linear transformations of $X$.</p>
+<p>We will now show that if you know the SD of $X$ then you can easily find the SD of any linear transformation of $X$.</p>
+<p>For a constant $b$, let $Y = X+b$. Then the probability histogram of $Y$ is the probability histogram of $X$ slid along the horizontal axis by $b$ units. The slide doesn't affect the spread. So</p>
+<p>$$
+SD(X+b) ~ = ~ SD(X) ~~~~~ \text{ for all } b
+$$</p>
+<p>Of course you can prove this by algebra, but it's clear from imagining the probability histograms or visualizing them as in the figure below. In the figure, $b = 6$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/02_Simplifying_the_Calculation_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let $Y = aX$ for a positive constant $a$. Here are the probability histograms of $X$ and $Y = 3X$ for $X$ as in the example above.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/02_Simplifying_the_Calculation_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bars that were separated by one horizontal unit in the histogram of $X$ are separated by 3 horizontal units in the histogram of $Y$. So the SD of $Y$ is 3 times the SD of $X$. In general,</p>
+<p>$$
+SD(aX) ~ = ~ aSD(X) ~~~~ \text{ for } a &gt; 0
+$$</p>
+<p>If $a &lt; 0$ then we have to be a little more careful. The figure below show the probability histograms of $X$ and $Y = -3X$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/02_Simplifying_the_Calculation_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The figure reminds us that if $a &lt; 0$ then multiplication by $a$ has two stages: first a multiplication by $\vert a \vert$ which affects the SD, and then a multiplication by $-1$ which flips the histogram about the vertical axis and doesn't affect the SD.</p>
+<p>Thus</p>
+<p>$$
+SD(aX) ~ = ~ \vert a \vert SD(X) ~~~~ \text{ for all } a
+$$</p>
+<p>Put these results together to see that</p>
+<p>$$
+SD(aX + b) ~ = ~ \vert a \vert SD(X)
+$$</p>
+<p>Because variance is the square of the SD,</p>
+<p>$$
+Var(aX + b) ~ = ~ a^2 Var(X)
+$$</p>
+<p>Note that while expectation has the linearity property $E(aX + b) = aE(X) + b$, neither the variance nor the SD have that property.</p>
+<p>For example:</p>
+<ul>
+<li>If $X$ is a temperature in degrees Celsius and $Y = (9/5)X + 32$ is $X$ converted to degrees Fahrenheit, then $E(Y) = (9/5)E(X) + 32$ and $SD(Y) = (9/5)SD(X)$.</li>
+<li>If $Y = 10 - X$ then $E(Y) = 10 - E(X)$ and $SD(Y) = SD(X)$.</li>
+</ul>
+<p>Make a note that $Var(-X) = Var(X)$. This result will be useful in later calculations.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Different-Way-of-Calculating-Variance">A Different Way of Calculating Variance<a class="anchor-link" href="#A-Different-Way-of-Calculating-Variance"> </a></h3><p>An algebraic simplification helps reduce the labor in the calculation of the variance.</p>
+<p>$$
+\begin{align*}
+Var(X) ~ &amp;= ~ E((X - \mu_X)^2) \\
+&amp;= ~ E(X^2 - 2X\mu_X + \mu_X^2) \\
+&amp;= ~ E(X^2) -2\mu_XE(X) + \mu_X^2 \\
+&amp;= ~ E(X^2) - 2\mu_X^2 + \mu_X^2 \\
+&amp;= ~ E(X^2) - \mu_X^2
+\end{align*}
+$$</p>
+<p>We have shown the <em>the variance is the expectation of the square minus the square of the expectation</em>.</p>
+<p>This formula for the variance eliminates the need to calculate all the deviations from mean.</p>
+<p>For example, if $X$ is the number of spots on one roll of a die, then $\mu_X = 3.5$ by symmetry, and</p>
+<p>$$
+Var(X) ~ = ~ \sum_{i=1}^6 i^2\cdot\frac{1}{6} ~ - ~ 3.5^2
+~ \approx ~ 2.917
+$$</p>
+<p>So</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{Var(X)} ~ \approx ~ 1.71
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">var_X</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">faces</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">-</span> <span class="mf">3.5</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sd_X</span> <span class="o">=</span> <span class="n">var_X</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">var_X</span><span class="p">,</span> <span class="n">sd_X</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(2.916666666666668, 1.7078251276599334)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous section we saw that the random variable $Y$ with distribution given by</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$~~~~~~~~~~ y$</th>
+<th style="text-align:center">$3$</th>
+<th style="text-align:center">$4$</th>
+<th style="text-align:center">$5$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(Y = y)$</td>
+<td style="text-align:center">$0.55$</td>
+<td style="text-align:center">$0.1$</td>
+<td style="text-align:center">$0.35$</td>
+</tr>
+</tbody>
+</table>
+<p>has expectation 3.8 and SD approximately 0.927. Let's confirm that we get the same SD by our new method.</p>
+<p>$$
+Var(Y) ~ = ~ 9(0.55) + 16(0.1) + 25(0.35) ~ - ~ 3.8^2 ~ = ~ 0.86
+$$</p>
+<p>and therefore</p>
+<p>$$
+SD(Y) ~ = ~ \sqrt{0.86} ~ \approx ~ 0.927
+$$</p>
+<p>as before.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_Y</span> <span class="o">=</span> <span class="mi">9</span><span class="o">*</span><span class="mf">0.55</span> <span class="o">+</span> <span class="mi">16</span><span class="o">*</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="mf">0.35</span> <span class="o">-</span> <span class="mf">3.8</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sd_Y</span> <span class="o">=</span> <span class="n">var_Y</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">var_Y</span><span class="p">,</span> <span class="n">sd_Y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.8600000000000012, 0.927361849549571)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
