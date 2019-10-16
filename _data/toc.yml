@@ -92,7 +92,7 @@
   - title: Symmetry in Simple Random Sampling
     url: /notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
     not_numbered: False
-  - title: Bayes Rule
+  - title: "Bayes' Rule"
     url: /notebooks/Chapter_02/03_Bayes_Rule
     not_numbered: False
   - title: Use and Interpretation
@@ -184,6 +184,12 @@
     not_numbered: False
   - title: Simplifying the Calculation
     url: /notebooks/Chapter_06/02_Simplifying_the_Calculation
+    not_numbered: False
+  - title: "Markov's Inequality"
+    url: /notebooks/Chapter_06/03_Markovs_Inequality
+    not_numbered: False
+  - title: "Chebyshev's Inequality"
+    url: /notebooks/Chapter_06/04_Chebyshevs_Inequality
     not_numbered: False
  
   

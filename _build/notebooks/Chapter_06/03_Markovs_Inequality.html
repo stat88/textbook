@@ -1,0 +1,176 @@
+---
+redirect_from:
+  - "/notebooks/chapter-06/03-markovs-inequality"
+interact_link: content/notebooks/Chapter_06/03_Markovs_Inequality.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Markov's Inequality
+prev_page:
+  url: /notebooks/Chapter_06/02_Simplifying_the_Calculation.html
+  title: |-
+    Simplifying the Calculation
+next_page:
+  url: /notebooks/Chapter_06/04_Chebyshevs_Inequality.html
+  title: |-
+    Chebyshev's Inequality
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Markov's-Inequality">Markov's Inequality<a class="anchor-link" href="#Markov's-Inequality"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To understand the accuracy of estimates, it helps to start by examining
+the chance that a random variable is far from its mean.</p>
+<p>In this section we will see what we can say about how far a non-negative random variable can be from its mean, using only the mean and not the SD.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tail-Probabilities">Tail Probabilities<a class="anchor-link" href="#Tail-Probabilities"> </a></h3><p>Let $X$ be a non-negative random variables. That means all the possible values of $X$ are non-negative. Almost all the random variables you have encountered in this course so far have been non-negative.</p>
+<p>Fix $c &gt; 0$ and consider the <em>right hand tail probability</em> $P(X \ge c)$. The figure below shows such a probability. You can see from the graph why the term "tail" is used. The red arrow on the horizontal axis is at $E(X)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_06/03_Markovs_Inequality_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How big can the tail probability be? Clearly the answer depends on the shape of the distribution and also on how far $c$ is from the center of the distribution.</p>
+<p>The center is measured by $E(X)$, so we will start with the definition of $E(X)$ and see if we can learn anything about the tail probability $P(X \ge c)$.</p>
+<p>$$
+\begin{align*}
+E(X) ~ &amp;= ~ \sum_{\text{all }x} xP(X = x) \\
+&amp;= ~ \sum_{\text{all }x &lt; c} xP(X = x) + \sum_{\text{all }x \ge c} xP(X = x) \\
+\end{align*}
+$$</p>
+<p>Both of the sums on the right hand side are non-negative, since all the possible values of $X$ are non-negative. So if we just drop the first sum we get the inequality</p>
+<p>$$
+E(X) ~ \ge ~ \sum_{\text{all }x \ge c} xP(X = x)
+$$</p>
+<p>Each $x$ in the sum on the right hand side is at least $c$, so if we replace it by $c$ we have the further inequality</p>
+<p>$$
+\begin{align*}
+E(X) ~ &amp;\ge ~ \sum_{\text{all }x \ge c} cP(X = x) \\
+&amp;= ~ c\sum_{\text{all }x \ge c} P(X = x) \\
+&amp;= ~ cP(X \ge c)
+\end{align*}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Markov's-Bound">Markov's Bound<a class="anchor-link" href="#Markov's-Bound"> </a></h3><p>We have just proved <strong>Markov's Inequality</strong>:</p>
+<p>Let $X$ be a non-negative random variable and let $c$ be a positive constant. Then</p>
+<p>$$
+P(X \ge c) ~ \le ~ \frac{E(X)}{c}
+$$</p>
+<p>Markov's inequality is a <em>tail bound</em>. It gives an upper bound on a tail probability.</p>
+<p>Note that the inequality implies that</p>
+<p>$$
+P(X &gt; c) ~ \le ~ P(X \ge c) ~ \le ~ \frac{E(X)}{c}
+$$</p>
+<p>Markov's inequality is useful because it makes no assumptions about the shape of the distribution of $X$, other than specifying that the values of $X$ must be non-negative.</p>
+<p>Thus for any non-negative random variable $X$, the chance that $X$ is at least 10 times its mean can be bounded by Markov's inequality:</p>
+<p>$$
+P(X ~ \ge 10E(X)) ~ \le ~ \frac{E(X)}{10E(X)} ~ = ~ \frac{1}{10}
+$$</p>
+<p>This example points us to an equivalent way of stating Markov's inequality.</p>
+<p>Let $X$ be a non-negative random variable and let $k$ be any positive constant (not necessarily an integer). Then</p>
+<p>$$
+P(X \ge kE(X)) ~ \le ~ \frac{1}{k}
+$$</p>
+<p>Markov's inequality says that the chance that a non-negative random variable is at least three times its mean can be no more than $1/3$. The chance that the random variable is at least four times its mean can be no more than $1/4$. And so on. A non-negative random variable is not likely to exceed its mean by a big factor.</p>
+<p>What does Markov's bound say about the chance that the random variable is at least half its mean?</p>
+<p>$$
+P(X \ge 0.5E(X)) ~ \le ~ \frac{1}{0.5} ~ = ~ 2
+$$</p>
+<p>This is correct as a bound, but we already know that a probability can be at most 1. So we don't gain any new information by applying Markov's bound in this case.</p>
+<p>We only learn something from Markov's upper bound if we apply it to a tail that starts beyond the expected value.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bounds-Are-Not-Approximations">Bounds Are Not Approximations<a class="anchor-link" href="#Bounds-Are-Not-Approximations"> </a></h3><p>It is important to keep in mind that an upper bound is just a ceiling, not an approximation.</p>
+<p>For example, if $X$ has the binomial $(100, 0.5)$ distribution then it is non-negative and so Markov's inequality can be applied to see that the tail probability $P(X \ge 4E(X))$ is at most $1/4$. But in fact we know that the chance is 0 because $4E(X) = 4 \times 50 = 200$ but $X$ can't be more than 100.</p>
+<p>So, while it's true that $P(X \ge 200) \le 1/4$, the exact value of the chance is 0 and the bound is neither close nor helpful.</p>
+<p>In general, if you know the distribution of $X$ then you might be able to considerably better by using the distribution than Markov's bound.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
