@@ -191,5 +191,8 @@
   - title: "Chebyshev's Inequality"
     url: /notebooks/Chapter_06/04_Chebyshevs_Inequality
     not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_06/05_Exercises
+    not_numbered: False
  
   
