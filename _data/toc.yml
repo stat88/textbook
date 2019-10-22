@@ -194,5 +194,14 @@
   - title: Exercises
     url: /notebooks/Chapter_06/05_Exercises
     not_numbered: False
+- title: The Variance of a Sum
+  url: /notebooks/Chapter_07/00_The_Variance_of_a_Sum
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Sums of Independent Random Variables
+    url: /notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables
+    not_numbered: False
+    
  
   
