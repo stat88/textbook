@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Sampling Without Replacement</title>
+  <meta name="description" content="Sampling Without Replacement The draws in a simple random sample aren't independent of each other. This makes calculating variances a little less straightfor...">
+
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html">
+  <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Sampling Without Replacement" />
+<meta property="og:description" content="Sampling Without Replacement The draws in a simple random sample aren't independent of each other. This makes calculating variances a little less straightfor..." />
+<meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html",
+  "headline": "Sampling Without Replacement",
+  "datePublished": "2019-10-23T13:38:01-05:00",
+  "dateModified": "2019-10-23T13:38:01-05:00",
+  "description": "Sampling Without Replacement The draws in a simple random sample aren't independent of each other. This makes calculating variances a little less straightfor...",
+  "author": {
+    "@type": "Person",
+    "name": "Ani Adhikari"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
+
+initFunction(initAnchors);
+</script>
+
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+
+}
+initFunction(initToc);
+</script>
+
+
+  <!-- Google analytics -->
+  <script src="/textbook/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+    
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "This a section from 'Theory Meets Data' by Ani Adhikari; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
+    })
+};
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+initFunction(initPrint)
+</script>
+© 2019 GitHub, Inc.
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://stat88.github.io/"><img src="/textbook/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Stat 88 Textbook</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="http://stat88.org/"
+        >
+          
+          Course Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/intro.html"
+        >
+          
+          Authors and License
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href=".html"
+        >
+          
+          Search
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_01/00_The_Basics.html"
+        >
+          
+            1.
+          
+          The Basics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html"
+                >
+                  
+                    1.1
+                  
+                  Probabilities as Proportions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html"
+                >
+                  
+                    1.2
+                  
+                  Exact Calculation or Bound
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html"
+                >
+                  
+                    1.3
+                  
+                  Fundamental Rules
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/04_Exercises.html"
+                >
+                  
+                    1.4
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_02/00_Intersections_and_Conditioning.html"
+        >
+          
+            2.
+          
+          Intersections and Conditioning
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html"
+                >
+                  
+                    2.1
+                  
+                  The Chance of an Intersection
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html"
+                >
+                  
+                    2.2
+                  
+                  Symmetry in Simple Random Sampling
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/03_Bayes_Rule.html"
+                >
+                  
+                    2.3
+                  
+                  Bayes' Rule
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html"
+                >
+                  
+                    2.4
+                  
+                  Use and Interpretation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/05_Independence.html"
+                >
+                  
+                    2.5
+                  
+                  Independence
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/06_Exercises.html"
+                >
+                  
+                    2.6
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
+        >
+          
+            3.
+          
+          Random Counts
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html"
+                >
+                  
+                    3.1
+                  
+                  Success and Failure
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/02_Random_Variables.html"
+                >
+                  
+                    3.2
+                  
+                  Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html"
+                >
+                  
+                    3.3
+                  
+                  The Binomial Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html"
+                >
+                  
+                    3.4
+                  
+                  The Hypergeometric Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/05_Examples.html"
+                >
+                  
+                    3.5
+                  
+                  Examples
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/06_Exercises.html"
+                >
+                  
+                    3.6
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html"
+        >
+          
+            4.
+          
+          Infinitely Many Values
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html"
+                >
+                  
+                    4.1
+                  
+                  Cumulative Distribution Function (CDF)
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/02_Waiting_Times.html"
+                >
+                  
+                    4.2
+                  
+                  Waiting Times
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html"
+                >
+                  
+                    4.3
+                  
+                  Exponential Approximations
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/04_The_Poisson_Distribution.html"
+                >
+                  
+                    4.4
+                  
+                  The Poisson Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/05_Exercises.html"
+                >
+                  
+                    4.5
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_05/00_Expectation.html"
+        >
+          
+            5.
+          
+          Expectation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/01_Definition.html"
+                >
+                  
+                    5.1
+                  
+                  Definition
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html"
+                >
+                  
+                    5.2
+                  
+                  Functions of Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/03_Method_of_Indicators.html"
+                >
+                  
+                    5.3
+                  
+                  Method of Indicators
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html"
+                >
+                  
+                    5.4
+                  
+                  Unbiased Estimators
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/05_Conditional_Expectation.html"
+                >
+                  
+                    5.5
+                  
+                  Conditional Expectation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/06_Expectation_by_Conditioning.html"
+                >
+                  
+                    5.6
+                  
+                  Expectation by Conditioning
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/07_Exercises.html"
+                >
+                  
+                    5.7
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_06/00_Measuring_Variability.html"
+        >
+          
+            6.
+          
+          Measuring Variability
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html"
+                >
+                  
+                    6.1
+                  
+                  Variance and Standard_Deviation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/02_Simplifying_the_Calculation.html"
+                >
+                  
+                    6.2
+                  
+                  Simplifying the Calculation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/03_Markovs_Inequality.html"
+                >
+                  
+                    6.3
+                  
+                  Markov's Inequality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/04_Chebyshevs_Inequality.html"
+                >
+                  
+                    6.4
+                  
+                  Chebyshev's Inequality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/05_Exercises.html"
+                >
+                  
+                    6.5
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_07/00_The_Variance_of_a_Sum.html"
+        >
+          
+            7.
+          
+          The Variance of a Sum
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html"
+                >
+                  
+                    7.1
+                  
+                  Sums of Independent Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html"
+                >
+                  
+                    7.2
+                  
+                  Sampling Without Replacement
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html"
+                >
+                  
+                    7.3
+                  
+                  The Law of Averages
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+
+
+  
+  
+  
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sampling-Without-Replacement">Sampling Without Replacement<a class="anchor-link" href="#Sampling-Without-Replacement"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The draws in a simple random sample aren't independent of each other. This makes calculating variances a little less straightforward than in the case of draws with replacement.</p>
+<p>In this section we will find the variance of a random variable that has a hypergeometric distribution. Then we will use the variance to examine the accuracy of polls.</p>
+<p>As a preliminary, let's do some calculations involving indicator random variables.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Squares-and-Products-of-Indicators">Squares and Products of Indicators<a class="anchor-link" href="#Squares-and-Products-of-Indicators"> </a></h3><p>Let $I_A$ be the indicator of the event $A$. Then the distribution of $I_A$ is given by</p>
+<table>
+<thead><tr>
+<th style="text-align:right">value</th>
+<th style="text-align:center">$0$</th>
+<th style="text-align:center">$1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>probability</strong></td>
+<td style="text-align:center">$1-P(A)$</td>
+<td style="text-align:center">$P(A)$</td>
+</tr>
+</tbody>
+</table>
+<p>We know that $E(I_A) = P(A)$.</p>
+<p>Now let's look at the random variable $I_A^2$. As we have seen before, this is a function of $I_A$ that is in fact equal to $I_A$: when $I_A = 0$ then $I_A^2 = 0$ and when $I_A = 1$ then $I_A^2 = 1$.</p>
+<p>So $I_A^2 = I_A$ and hence $E(I_A^2) = P(A)$.</p>
+<p>Now let $I_B$ be the indicator of the event $B$, and consider the product $I_AI_B$.</p>
+<p>This product is itself an indicator. It has the value 1 when both A and B occur, and it is 0 otherwise. In other words, it is the indcator of the event $AB$.</p>
+<p>Therefore $E(I_AI_B) ~ = ~ P(AB)$.</p>
+<p>The expectation of the product of two indicators is the probability that both the events being indicated occur.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SD-of-the-Hypergeometric">SD of the Hypergeometric<a class="anchor-link" href="#SD-of-the-Hypergeometric"> </a></h3><p>Let $X$ have the hypergeometric $(N, G, n)$ distribution. That is, let $X$ be the number of good elements in a simple random sample of size $n$ drawn from a population of $N$ elements of which $G$ are good.</p>
+<p>As we have seen before,</p>
+<p>$$
+X ~ = ~ I_1 + I_2 + \cdots + I_n
+$$</p>
+<p>where $I_j$ is the indicator of the event that the $j$th draw is good.</p>
+<p>We know that $I_1, I_2, \ldots, I_n$ are identically distributed, and that each has chance $G/N$ of being 1. That was how we showed that</p>
+<p>$$
+E(X) ~ = ~ n\frac{G}{N}
+$$</p>
+<p>But we can't just add the variances of the indicators to get the variance of $X$. Unlike the binomial case, these indicators aren't independent.</p>
+<p>So let's get back to basics and try to use</p>
+<p>$$
+Var(X) ~ = ~ E(X^2) - (E(X)^2) ~ = ~ E(X^2) - \big{(} n\frac{G}{N} \big{)}^2
+$$</p>
+<p>To find $E(X^2)$ note that</p>
+<p>$$
+X^2 ~ = ~ (I_1 + I_2 + \cdots + I_n)^2 ~ = ~ \sum_{j=1}^n I_j^2 + \mathop{\sum_{j=1}^n \sum_{k=1}^n}_{j \ne k} I_jI_k
+$$</p>
+<p>So</p>
+<p>$$
+\begin{align*}
+E(X^2) ~ &amp;= ~ E(\sum_{j=1}^n I_j^2) + E(\mathop{\sum_{j=1}^n \sum_{k=1}^n}_{j \ne k} I_jI_k)\\
+&amp;=~ \sum_{j=1}^n E(I_j^2) + \mathop{\sum_{j=1}^n \sum_{k=1}^n}_{j \ne k} E(I_jI_k)\\
+&amp;=~ nE(I_1^2) + n(n-1)E(I_1I_2)
+\end{align*}
+$$</p>
+<p>by the symmetry of simple random sampling.</p>
+<p>Apply our results about indicators to see that</p>
+<p>$$
+E(X^2) ~ = ~ n \frac{G}{N} + n(n-1)\frac{G}{N}\cdot\frac{G-1}{N-1}
+$$</p>
+<p>and therefore</p>
+<p>$$
+Var(X) ~ = ~ n \frac{G}{N} + n(n-1)\frac{G}{N}\cdot\frac{G-1}{N-1} - \big{(} n\frac{G}{N} \big{)}^2
+$$</p>
+<p>That looks awful but it's actually not so bad. Pull out a common factor:</p>
+<p>$$
+Var(X) ~ = ~ n\frac{G}{N}\big{(} 1 + (n-1)\frac{G-1}{N-1} - n\frac{G}{N}\big{)}
+$$</p>
+<p>After a little manipulation this becomes</p>
+<p>$$
+Var(X) ~ = ~ n\frac{G}{N} \cdot \frac{N-G}{N}\cdot\frac{N-n}{N-1}
+$$</p>
+<p>The initial part of this formula is the binomial variance $npq$. To see this more clearly, write $B = N-G$ for the number of bad elements. Then</p>
+<p>$$
+Var(X) ~ = ~ \big{(} n\frac{G}{N} \cdot \frac{B}{N}\big{)}\frac{N-n}{N-1} 
+$$</p>
+<p>and</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{n\frac{G}{N} \cdot \frac{B}{N}}\sqrt{\frac{N-n}{N-1}} ~ = ~ \sqrt{npq} \sqrt{\frac{N-n}{N-1}}
+$$</p>
+<p>for $p = \frac{G}{N}$.</p>
+<p>For example, the number of hearts in a 5-card poker hand is expected to be</p>
+<p>$$
+5 \times \frac{13}{52} ~ \approx ~ 1.25
+$$</p>
+<p>with an SD of</p>
+<p>$$
+\sqrt{5 \times \frac{13}{52} \times \frac{39}{52}}\sqrt{\frac{52 - 5}{52 - 1}} ~ \approx ~ 0.93
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Size-of-the-FPC">The Size of the FPC<a class="anchor-link" href="#The-Size-of-the-FPC"> </a></h3><p>We have shown that the SD of the number of good elements when drawing <em>without</em> replacement is the same as though we had been drawing <em>with</em> replacement, times the <em>finite population correction</em> or fpc given by</p>
+<p>$$
+\text{fpc} ~ = ~ \sqrt{\frac{N-n}{N-1}}
+$$</p>
+<p>Since the sample size is typically greater than 1, the fpc is typically less than 1.</p>
+<p>This implies that the hypergeoemtric SD is <em>less</em> than the corresponding binomial SD if the draws had been made with replacement.</p>
+<p>The figure below shows the histogram of the hypergeometric $(52, 26, 5)$ distribution (the distribution of the number of red cards in a poker hand) and the binomial $(5, 26/52)$ distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/02_Sampling_Without_Replacement_6_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Both histograms are centered at 2.5. You can see that the hypergeometric histogram is a bit taller and hence a bit less spread out than the binomial.</p>
+<p>But not by much! Let's see why.</p>
+<p>As we have observed before, sampling with and without replacement are essentially the same when the sample size is small relative to the population size. We now have another confirmation of this.</p>
+<p>When the sample size is small relative to the population, the finite population correction is close to 1. That is because</p>
+<p>$$
+\frac{N-n}{N-1} ~ = ~ 1 - \frac{n-1}{N-1} ~ \approx ~ 1 - \frac{n}{N} ~ \approx ~ 1
+$$</p>
+<p>when $\frac{n}{N}$ is small.</p>
+<p>The SD of the number of good elements in the sample is the same for sampling with and without replacement, apart from the fpc. When the fpc is close to 1, the two SDs are essentially equal.</p>
+<p>Data scientists often have to work with relatively small samples drawn from large populations. We see once more that in such situations they can treat the draws as if they had been made with replacement.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Accuracy-of-Simple-Random-Samples">The Accuracy of Simple Random Samples<a class="anchor-link" href="#The-Accuracy-of-Simple-Random-Samples"> </a></h3><p>When politicans don't like the result of a poll, they sometimes say they don't trust polls that are based on tiny percents of the population. Let's see what we think of that.</p>
+<p>Suppose a poll is based on a simple random sample drawn from a huge population of voters of whom a proportion $p$ favor a politician. Then the SD of the number of voters who favor the politician is</p>
+<p>$$
+\sqrt{npq}\sqrt{\frac{N-n}{N-1}} ~ \approx ~ \sqrt{npq}
+$$</p>
+<p>because the fpc is close to 1.</p>
+<p>Essentially, the SD depends on $p$ and on the <em>sample</em> size $n$, not on the population size $N$. The population size appears only in the fpc which is close to 1. In effect, the population size is so large in comparison to the sample size that it might as well be infinite.</p>
+<p>Thus if all other things (such as $p$) are equal, a simple random sample of size 100 taken from Berkeley (population about 120,000) is just about as accurate as a simple random sample of size 100 taken from San Francisco (population about 880,000).</p>
+<p>As for the doubting politicians, we have to remind them that when the population is large, it's the sample size that matters, not the population size. A a 0.1% sample of one million voters is a small percent of the population but it consists of $n = 1000$ voters. Simple random samples that big are pretty accurate, as we will see in the next section.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+      〈 <span class="u-margin-right-tiny"></span> Sums of Independent Random Variables
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html">
+      The Law of Averages <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

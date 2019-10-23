@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>The Law of Averages</title>
+  <meta name="description" content="The Law of Averages Informally, the law of averages is the familiar statement that if you toss a coin many times you get about half heads and half tails.The ...">
+
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html">
+  <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="The Law of Averages" />
+<meta property="og:description" content="The Law of Averages Informally, the law of averages is the familiar statement that if you toss a coin many times you get about half heads and half tails.The ..." />
+<meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html",
+  "headline": "The Law of Averages",
+  "datePublished": "2019-10-23T13:38:01-05:00",
+  "dateModified": "2019-10-23T13:38:01-05:00",
+  "description": "The Law of Averages Informally, the law of averages is the familiar statement that if you toss a coin many times you get about half heads and half tails.The ...",
+  "author": {
+    "@type": "Person",
+    "name": "Ani Adhikari"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/textbook",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/textbook",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/textbook/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/textbook';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
+
+initFunction(initAnchors);
+</script>
+
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+
+}
+initFunction(initToc);
+</script>
+
+
+  <!-- Google analytics -->
+  <script src="/textbook/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/textbook/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/textbook/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/textbook/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/textbook/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+    
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/textbook/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "This a section from 'Theory Meets Data' by Ani Adhikari; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)"
+    })
+};
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+initFunction(initPrint)
+</script>
+© 2019 GitHub, Inc.
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://stat88.github.io/"><img src="/textbook/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Stat 88 Textbook</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="http://stat88.org/"
+        >
+          
+          Course Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/intro.html"
+        >
+          
+          Authors and License
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href=".html"
+        >
+          
+          Search
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_01/00_The_Basics.html"
+        >
+          
+            1.
+          
+          The Basics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/01_Probabilities_as_Proportions.html"
+                >
+                  
+                    1.1
+                  
+                  Probabilities as Proportions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html"
+                >
+                  
+                    1.2
+                  
+                  Exact Calculation or Bound
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/03_Fundamental_Rules.html"
+                >
+                  
+                    1.3
+                  
+                  Fundamental Rules
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_01/04_Exercises.html"
+                >
+                  
+                    1.4
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_02/00_Intersections_and_Conditioning.html"
+        >
+          
+            2.
+          
+          Intersections and Conditioning
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html"
+                >
+                  
+                    2.1
+                  
+                  The Chance of an Intersection
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html"
+                >
+                  
+                    2.2
+                  
+                  Symmetry in Simple Random Sampling
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/03_Bayes_Rule.html"
+                >
+                  
+                    2.3
+                  
+                  Bayes' Rule
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html"
+                >
+                  
+                    2.4
+                  
+                  Use and Interpretation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/05_Independence.html"
+                >
+                  
+                    2.5
+                  
+                  Independence
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_02/06_Exercises.html"
+                >
+                  
+                    2.6
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
+        >
+          
+            3.
+          
+          Random Counts
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html"
+                >
+                  
+                    3.1
+                  
+                  Success and Failure
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/02_Random_Variables.html"
+                >
+                  
+                    3.2
+                  
+                  Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/03_The_Binomial_Distribution.html"
+                >
+                  
+                    3.3
+                  
+                  The Binomial Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html"
+                >
+                  
+                    3.4
+                  
+                  The Hypergeometric Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/05_Examples.html"
+                >
+                  
+                    3.5
+                  
+                  Examples
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_03/06_Exercises.html"
+                >
+                  
+                    3.6
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_04/00_Infinitely_Many_Values.html"
+        >
+          
+            4.
+          
+          Infinitely Many Values
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html"
+                >
+                  
+                    4.1
+                  
+                  Cumulative Distribution Function (CDF)
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/02_Waiting_Times.html"
+                >
+                  
+                    4.2
+                  
+                  Waiting Times
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html"
+                >
+                  
+                    4.3
+                  
+                  Exponential Approximations
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/04_The_Poisson_Distribution.html"
+                >
+                  
+                    4.4
+                  
+                  The Poisson Distribution
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_04/05_Exercises.html"
+                >
+                  
+                    4.5
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_05/00_Expectation.html"
+        >
+          
+            5.
+          
+          Expectation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/01_Definition.html"
+                >
+                  
+                    5.1
+                  
+                  Definition
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/02_Functions_of_Random_Variables.html"
+                >
+                  
+                    5.2
+                  
+                  Functions of Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/03_Method_of_Indicators.html"
+                >
+                  
+                    5.3
+                  
+                  Method of Indicators
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html"
+                >
+                  
+                    5.4
+                  
+                  Unbiased Estimators
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/05_Conditional_Expectation.html"
+                >
+                  
+                    5.5
+                  
+                  Conditional Expectation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/06_Expectation_by_Conditioning.html"
+                >
+                  
+                    5.6
+                  
+                  Expectation by Conditioning
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_05/07_Exercises.html"
+                >
+                  
+                    5.7
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_06/00_Measuring_Variability.html"
+        >
+          
+            6.
+          
+          Measuring Variability
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html"
+                >
+                  
+                    6.1
+                  
+                  Variance and Standard_Deviation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/02_Simplifying_the_Calculation.html"
+                >
+                  
+                    6.2
+                  
+                  Simplifying the Calculation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/03_Markovs_Inequality.html"
+                >
+                  
+                    6.3
+                  
+                  Markov's Inequality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/04_Chebyshevs_Inequality.html"
+                >
+                  
+                    6.4
+                  
+                  Chebyshev's Inequality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_06/05_Exercises.html"
+                >
+                  
+                    6.5
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_07/00_The_Variance_of_a_Sum.html"
+        >
+          
+            7.
+          
+          The Variance of a Sum
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html"
+                >
+                  
+                    7.1
+                  
+                  Sums of Independent Random Variables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html"
+                >
+                  
+                    7.2
+                  
+                  Sampling Without Replacement
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/textbook/notebooks/Chapter_07/03_The_Law_of_Averages.html"
+                >
+                  
+                    7.3
+                  
+                  The Law of Averages
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+
+
+  
+  
+  
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/textbook/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Law-of-Averages">The Law of Averages<a class="anchor-link" href="#The-Law-of-Averages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Informally, the <em>law of averages</em> is the familiar statement that if you toss a coin many times you get about half heads and half tails.</p>
+<p>The main reason for studying the law of averages is to begin to understand why large random samples are the basis for inference in data science. In this section we will take a close look at the informal statement of the law and try to make it more precise. In the process, we will confirm some intuition about probabilities and also come across a fact that may be surprising.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Sample-Sum">The Sample Sum<a class="anchor-link" href="#The-Sample-Sum"> </a></h3><p>Before we get to averages let's take a look at sums. Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and SD $\sigma$, and let $S_n = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Then $E(S_n) = n\mu$, as we have known for some time. As the sample size $n$ gets larger, $E(S_n)$ also gets larger. This tells us that the distribution of $S_n$ places its mass further and further to the right as $n$ increases.</p>
+<p>We also know that $Var(S_n) = n\sigma^2$ and hence $SD(S_n) = \sqrt{n}\sigma$. As $n$ increases, the distribution of $S_n$ is more widely dispersed around its mean.</p>
+<p>To visualize these properties, let's take $X_1, X_2, \ldots, X_n$ to be the indicators of heads on successive tosses of a coin.</p>
+<p>Then $S_n$ is the number of heads in $n$ tosses and has the binomial $(n, 1/2)$ distribution with expectation $n/2$ and SD $\sqrt{n}(1/2)$.</p>
+<p>The figure below shows the probability histograms of $S_{100}$ and $S_{400}$. You can see that the distribution of $S_{400}$ is wider and to the right of the distribution of $S_{100}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because the distribution of $S_{400}$ is wider and the areas of both the histograms are 1, the histogram of $S_{400}$ is lower than that of $S_{100}$. As the sample size $n$ gets larger, the distribution of the sample sum shifts to the right and gets lower and more spread out.</p>
+<p>This observation raises an interesting question. The histograms above indicate that the chance of 200 heads in 400 tosses is <em>less</em> than the chance of 50 heads in 100 tosses. Is that right? If so, how can it be consistent with the law of averages?</p>
+<p>Let us try to answer these questions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exactly-Half-Heads">Exactly Half Heads<a class="anchor-link" href="#Exactly-Half-Heads"> </a></h3><p>The chance of exactly half heads is the chance of $n$ heads in $2n$ tosses, which we can calculate using the binomial formula.</p>
+<p>$$
+P(n \text{ heads in } 2n \text{ tosses } ~ = ~ 
+\binom{2n}{n}\big{(}\frac{1}{2}\big{)}^n\big{(}\frac{1}{2}\big{)}^n
+$$</p>
+<p>Here is a table of some of these values.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">p_half_heads</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Assumes m is even and returns </span>
+<span class="sd">    P(m/2 heads in m tosses)&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">even</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;2n&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="n">prob_half</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_half_heads</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">even</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;P(n heads in 2n tosses)&#39;</span><span class="p">,</span> <span class="n">prob_half</span><span class="p">)</span>
+<span class="n">even</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>2n</th> <th>P(n heads in 2n tosses)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>100 </td> <td>0.0795892              </td>
+        </tr>
+        <tr>
+            <td>150 </td> <td>0.0650385              </td>
+        </tr>
+        <tr>
+            <td>200 </td> <td>0.0563485              </td>
+        </tr>
+        <tr>
+            <td>250 </td> <td>0.0504122              </td>
+        </tr>
+        <tr>
+            <td>300 </td> <td>0.0460275              </td>
+        </tr>
+        <tr>
+            <td>350 </td> <td>0.0426183              </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>0.0398693              </td>
+        </tr>
+        <tr>
+            <td>450 </td> <td>0.0375917              </td>
+        </tr>
+        <tr>
+            <td>500 </td> <td>0.0356646              </td>
+        </tr>
+        <tr>
+            <td>550 </td> <td>0.0340065              </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (9 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first row tells us that the chance of 50 heads in 100 tosses is about 8%. The row corresponding to 400 tosses tells us that the chance of 200 heads in 400 tosses is about 4%. Both of these chances are consistent with the peaks of the histograms of $S_{100}$ and $S_{400}$.</p>
+<p>The entries in the chance column <em>decrease</em> as the number of tosses increases, ending at about 2.5% for the chance of 500 heads in 1000 tosses.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">even</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>2n</th> <th>P(n heads in 2n tosses)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1000</td> <td>0.025225               </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is clear from these calculations that the chance of getting <em>exactly</em> half heads decreases as the number of tosses increases.</p>
+<p>Indeed, it can be shown that the chance decreases to 0.</p>
+<p>Why does this not contradict the law of averages? To understand this, look closely at the informal statment of the law: "If you toss a coin many times you get <em>about</em> half heads and half tails."</p>
+<p>The crucial word is <em>about</em>. You expect to get <em>about</em> half heads, not <em>exactly</em> half heads.</p>
+<p>Now let's try to understand "about" a bit better.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Sample-Average">The Sample Average<a class="anchor-link" href="#The-Sample-Average"> </a></h3><p>As before, let $S_n = X_1 + X_2 + \ldots + X_n$ be the sum of i.i.d random variables that have mean $\mu$ and SD $\sigma$. Now let $A_n = S_n / n$ be the sample average.</p>
+<p>When the $X_i$s are indicators, $A_n$ is the sample proportion of successes.</p>
+<p>But for the moment, we won't specialize to indicators. Instead we will develop two general facts that are consequences of the linear relation $A_n = S_n/n$.</p>
+<p>$$
+E(A_n) ~ = ~ \frac{1}{n}E(S_n) ~ = ~ \frac{1}{n} n\mu ~ = ~ \mu
+$$</p>
+<p>$$
+SD(A_n) ~ = ~ \frac{1}{n}SD(S_n) ~ = ~ \frac{1}{n}\sqrt{n}\sigma ~ = ~ \frac{\sigma}{\sqrt{n}}
+$$</p>
+<p>No matter what the sample size, the distribution of the sample mean balances at the population mean. As the sample size increases, the SD of the sample mean gets smaller.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Square-Root-Law">The Square Root Law<a class="anchor-link" href="#The-Square-Root-Law"> </a></h3><p>As you know, the sample mean $A_n$ is an unbiased estimator of the population mean. In the language of estimation, the <em>accuracy</em> of an unbiased estimator can be measured by its SD: the smaller the SD, the more accurate the estimator.</p>
+<p>Let's compare $SD(A_{100})$ and $SD(A_{400})$. We know that $SD(A_{400})$ is smaller, but by how much?</p>
+<p>$$
+SD(A_{400}) ~ = ~ \frac{\sigma}{\sqrt{400}} ~ = ~ \frac{\sigma}{\sqrt{4}\sqrt{100}} ~ = ~ \frac{1}{2}SD(A_{100})
+$$</p>
+<p>We say that $A_{400}$ is <em>twice as accurate</em> as $A_{100}$. The factor of $2$ comes from the relation between the square roots of the two sample sizes: $\sqrt{400} = 20$ is twice as large as $\sqrt{100} = 10$.</p>
+<p>Accuracy doesn't come cheap. For double the accuracy, we have to multiply the sample size by a factor of $2^2 = 4$. For 5 times the accuracy, we would have to multiply the sample size by a factor of $5^2 = 25$.</p>
+<p>In other words, if you multiply the sample size by a factor, the accuracy only goes up by the square root of the factor. This is called the <strong>square root law</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Concentration-of-Probabilities">Concentration of Probabilities<a class="anchor-link" href="#Concentration-of-Probabilities"> </a></h3><p>In the figure below, $A_n$ is proportion of heads in $n$ tosses of a coin. That is, $A_n$ is the average of i.i.d. $X_1, X_2, \ldots, X_n$ where each $X_i$ is an indicator that is 1 with chance $1/2$.</p>
+<p>The histograms show the distribution of $A_{100}$ and $A_{400}$. Notice that both distributions balance at 0.5, and the distribution of $A_{400}$ is more concentrated around 0.5.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In general, the larger the sample size $n$, the more likely it is that the sample average $A_n$ will be close to the population average $\mu$.</p>
+<p>Formally, let $c &gt; 0$ be any number. Then</p>
+<p>$$
+P(\mu - c &lt; A_n &lt; \mu + c) ~ = ~ P(\vert A_n - \mu \vert &lt; c) ~ \to ~ 1 ~~~ \text{ as } n \to \infty
+$$</p>
+<p>No matter how small $c$ is, when the sample size is large enough the sample mean is almost certain to be in the interval $\mu \pm c$.</p>
+<p>This result is called the <strong>Weak Law of Large Numbers</strong> and you can prove it using Chebyshev's inequality. We will be most interested in the special case where $A_n$ is a proportion.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Law-of-Averages">The Law of Averages<a class="anchor-link" href="#The-Law-of-Averages"> </a></h3><p>Let $X_1, X_2, \ldots, X_n$ be i.i.d. indicators, each equal to 1 with probability $p$. Let $A_n$ be the sample proportion of 1's, that is, let $A_n = S_n/n$ be the sample average.</p>
+<p>The formal statement of the <em>law of averages</em> is that for each fixed $c &gt; 0$, no matter how small,</p>
+<p>$$
+P(p - c &lt; A_n &lt; p + c) ~ = ~ P(\vert A_n - p \vert &lt; c) ~ \to ~ 1 ~~~ \text{ as } n \to \infty
+$$</p>
+<p>The law of averages says that when the sample size is large, the sample proportion of 1's is hugely likely to be in a small interval around $p$.</p>
+<p>But the sample proportion is unlikely to be exactly equal to $p$, as we have seen in examples when $p = 0.5$.</p>
+<p>The law of averages implies that as you keep rolling a die:</p>
+<ul>
+<li>There is greater chance that the proportion of sixes is in any fixed interval that contains $1/6$. For example, as the number of rolls gets larger there is greater chance that the proportion of sixes will be in the range 15% to 18%.</li>
+<li>There is less chance that the proportion of sixes is in any fixed interval that doesn't contain $1/6$. For example, as the number of rolls gets larger there is less chance that the proportion of sixes will be less than 16%.</li>
+</ul>
+<p>There is nothing special about sixes in the discussion above. You could replace "six" with any other face of the die. The result is the same: in a large number of rolls, it is hugely likely that the observed proportion of times the face appears is close to $1/6$.</p>
+<p>That is why when you repeatedly simulate rolling a die, the entire <em>empirical histogram</em> of the simulated results starts to look like the uniform distribution on 1, 2, 3, 4, 5, 6.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">one_die</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">die_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">one_die</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">die_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability Histogram of the Face on One Roll&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_17_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">simulations</span> <span class="o">=</span> <span class="n">one_die</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">simulations</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">die_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Empirical Histogram of 10,000 Rolls&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_18_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_07/02_Sampling_Without_Replacement.html">
+      〈 <span class="u-margin-right-tiny"></span> Sampling Without Replacement
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

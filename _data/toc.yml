@@ -202,6 +202,13 @@
   - title: Sums of Independent Random Variables
     url: /notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables
     not_numbered: False
+  - title: Sampling Without Replacement
+    url: /notebooks/Chapter_07/02_Sampling_Without_Replacement
+    not_numbered: False
+  - title: The Law of Averages
+    url: /notebooks/Chapter_07/03_The_Law_of_Averages
+    not_numbered: False
+  
     
  
   

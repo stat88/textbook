@@ -11,9 +11,9 @@ prev_page:
   title: |-
     The Variance of a Sum
 next_page:
-  url: 
+  url: /notebooks/Chapter_07/02_Sampling_Without_Replacement.html
   title: |-
-    
+    Sampling Without Replacement
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -208,6 +208,116 @@ $$</p>
 
 <div class="output_png output_subarea ">
 <img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Varying-$p$">Varying $p$<a class="anchor-link" href="#Varying-$p$"> </a></h3><p>The function $g(p) = pq = p(1-p)$ is a quadratic function of $p$ and is maximized at $p = 1/2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$p$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Graph of $g(p) = p(1-p)$&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since $pq \le 0.25$, we have $\sqrt{pq} \le 0.5$. We will sometimes use $0.5$ as an upper bound for $\sqrt{pq}$ if we don't know $p$.</p>
+<p>Because of this bound, we say that the fair coin is the most variable. For example, here are the histograms of the binomial $(10, 0.5)$ and binomial $(10, 0.1)$ distributions. The latter is clearly less spread out.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">probs1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
+<span class="n">binom1_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs1</span><span class="p">)</span>
+<span class="n">probs2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+<span class="n">binom2_dist</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(</span><span class="n">probs2</span><span class="p">)</span>
+<span class="n">Plots</span><span class="p">(</span><span class="s1">&#39;Binomial (10, 0.5)&#39;</span><span class="p">,</span> <span class="n">binom1_dist</span><span class="p">,</span> <span class="s1">&#39;Binomial (10, 0.1)&#39;</span><span class="p">,</span> <span class="n">binom2_dist</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Successes&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_13_0.png"
 >
 </div>
 
