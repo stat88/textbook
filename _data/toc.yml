@@ -211,6 +211,17 @@
   - title: Exercises
     url: /notebooks/Chapter_07/04_Exercises
     not_numbered: False
+- title: The Central Limit Theorem
+  url: /notebooks/Chapter_08/00_Central_Limit_Theorem
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Distribution of a Sample Sum
+    url: /notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum
+    not_numbered: False
+  - title: Standard Normal Curve
+    url: /notebooks/Chapter_08/02_Standard_Normal_Curve
+    not_numbered: False
   
     
  
