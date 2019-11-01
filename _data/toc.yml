@@ -222,6 +222,12 @@
   - title: Standard Normal Curve
     url: /notebooks/Chapter_08/02_Standard_Normal_Curve
     not_numbered: False
+  - title: Normal Approximation
+    url: /notebooks/Chapter_08/03_Normal_Approximation
+    not_numbered: False
+  - title: How Large is Large
+    url: /notebooks/Chapter_08/04_How_Large_is_Large
+    not_numbered: False
   
     
  
