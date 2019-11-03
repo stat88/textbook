@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Exercises</title>
-  <meta name="description" content="Exercises 1. At rush hour, passengers in a subway station come down an escalator to the platforms and choose either the Eastbound or the Westbound platform. ...">
+  <meta name="description" content="Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/05_Exercises.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/05_Exercises.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Exercises" />
-<meta property="og:description" content="Exercises 1. At rush hour, passengers in a subway station come down an escalator to the platforms and choose either the Eastbound or the Westbound platform. ..." />
+<meta property="og:description" content="Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_04/05_Exercises.html",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html",
   "headline": "Exercises",
   "datePublished": "2019-11-03T11:13:49-06:00",
   "dateModified": "2019-11-03T11:13:49-06:00",
-  "description": "Exercises 1. At rush hour, passengers in a subway station come down an escalator to the platforms and choose either the Eastbound or the Westbound platform. ...",
+  "description": "Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -1093,7 +1093,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_04/05_Exercises.html"
                 >
                   
@@ -1632,7 +1632,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_08/05_Exercises.html"
                 >
                   
@@ -1692,7 +1692,14 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="jb_cell">
+              <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1706,10 +1713,12 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>1.</strong> At rush hour, passengers in a subway station come down an escalator to the platforms and choose either the Eastbound or the Westbound platform. Assume that each passenger chooses the Eastbound platform with chance 0.8 independently of all other passengers.</p>
-<p>Suppose you start watching the escalator at the start of rush hour.</p>
-<p><strong>a)</strong> Find the chance that the first passenger to choose the Westbound platform is the fifth passenger that you see.</p>
-<p><strong>b)</strong> Find the chance that more than 15 passengers choose the Eastbound platform before the first one who chooses the Westbound platform.</p>
+<p><strong>1.</strong>
+At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $M$ be the mean amount on those 200 checks.</p>
+<p><strong>a)</strong> Find $E(T)$ and $SD(T)$.</p>
+<p><strong>b)</strong> If possible, sketch the approximate distribution of $T$ and mark $E(T)$ and $SD(T)$ appropriately on your sketch. If this is not possible, explain why not.</p>
+<p><strong>c)</strong> Find $E(M)$ and $SD(M)$.</p>
+<p><strong>d)</strong> If possible, sketch the approximate distribution of $M$ and mark $E(M)$ and $SD(M)$ appropriately on your sketch. If this is not possible, explain why not.</p>
 
 </div>
 </div>
@@ -1720,28 +1729,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>2.</strong> A random variable $W$ has the distribution shown in the table below. Sketch a graph of the cdf of $W$.</p>
-<table>
-<thead><tr>
-<th style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~w$</th>
-<th style="text-align:center">$-2$</th>
-<th style="text-align:center">$-1$</th>
-<th style="text-align:center">$0$</th>
-<th style="text-align:center">$1$</th>
-<th style="text-align:center">$3$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">$P(W = w)$</td>
-<td style="text-align:center">$0.1$</td>
-<td style="text-align:center">$0.3$</td>
-<td style="text-align:center">$0.25$</td>
-<td style="text-align:center">$0.2$</td>
-<td style="text-align:center">$0.15$</td>
-</tr>
-</tbody>
-</table>
+<p><strong>2.</strong> Suppose the numbers of M&amp;Ms in the small 1.69-ounce bags of the candy are i.i.d. with mean 55 and SD 2. Let $X$ be the total number of M&amp;Ms in 100 such bags. Find or approximate $P(X &gt; 5525)$.</p>
 
 </div>
 </div>
@@ -1752,8 +1740,13 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>3</strong>.
-In a population, 30% of the individuals are green and the rest are blue. Suppose you draw individuals at random with replacement till both colors have appeared. Find the chance that you draw 10 times.</p>
+<p><strong>3.</strong>
+A population consists of 1 million people. Incomes in the population have an average of 70,000 dollars and an SD of 30,000 dollars. A simple random sample of 400 people is taken from the population.</p>
+<p>Sketch your best guesses of the shapes of the following histograms and provide your reasoning.</p>
+<p><strong>a)</strong> the histogram of the 1 million incomes in the population</p>
+<p><strong>b)</strong> the histogram of the 400 incomes in the sample</p>
+<p><strong>c)</strong> the probability histogram of the income of a person drawn at random from the population</p>
+<p><strong>d)</strong> the probability histogram of the average of a simple random sample of 400 people drawn from the population</p>
 
 </div>
 </div>
@@ -1765,11 +1758,9 @@ In a population, 30% of the individuals are green and the rest are blue. Suppose
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>4.</strong>
-In a "best of seven" sports series, Team A plays Team B until one team has won four games. That team wins the series. Assume that in each game Team A has chance 0.8 of winning, independently of other games.</p>
-<p><strong>a)</strong> Find the chance that there is a "sweep", that is, one team wins the first four games.</p>
-<p><strong>b)</strong> Find the chance that the series lasts more than five games.</p>
-<p><strong>c)</strong> Find the chance that the series lasts six games and Team A wins it.</p>
-<p><strong>d)</strong> Find the chance that Team A wins the series.</p>
+<strong>[Continuing the previous exercise.]</strong></p>
+<p><strong>a)</strong> Fill in the blank with a number: At least 75% of the population has incomes in the range 70,000 dollars plus or minus $\underline{~~~~~~~~~~~~~~~~~~}$ dollars.</p>
+<p><strong>b)</strong> Fill in the blank with a number: With chance about 75%, the average income of the sampled people is in the range 70,000 dollars plus or minus $\underline{~~~~~~~~~~~~~~~~~~}$ dollars.</p>
 
 </div>
 </div>
@@ -1780,10 +1771,8 @@ In a "best of seven" sports series, Team A plays Team B until one team has won f
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>5.</strong>
-Cards are dealt one by one at random without replacement till the fourth ace appears. Let $X$ be the number of cards dealt.</p>
-<p><strong>a)</strong> Find $P(X = 39)$.</p>
-<p><strong>b)</strong> Find $P(X &gt; 20)$.</p>
+<p><strong>5.</strong> 
+Suppose the weights of sticks of butter are i.i.d. with a mean of 115 grams and an SD of 5 grams. Let $X$ be the total weight of 600 such sticks. Find $x$ such that $P(X &gt; x)$ is approximately 95%.</p>
 
 </div>
 </div>
@@ -1795,45 +1784,41 @@ Cards are dealt one by one at random without replacement till the fourth ace app
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>6.</strong>
-Each time I play the lottery, I have chance $1/2n$ of winning, independently of other times. Suppose I play $n$ times. For large $n$, find an approximate numerical value of the chance that I win at least once. Your answer should not involve $n$.</p>
+A coin is tossed 100 times. Let $X$ be the number of heads.</p>
+<p><strong>a)</strong> What is the distribution of $X$?</p>
+<p><strong>b)</strong> Sketch the normal curve that approximates the distribution of $X$. Mark the numerical values of $E(X)$ and $SD(X)$ appropriately on the sketch.</p>
+<p><strong>c)</strong> Use the approximation in Part <strong>b</strong> to get a rough numerical value for $P(45 \le X \le 55)$.</p>
+<p><strong>d)</strong> Find the exact numerical value of $P(45 \le X \le 55)$ and compare with the answer to <strong>c</strong>. The approximation is pretty rough.</p>
+<p><strong>e)</strong> The figure below shows the probability histogram of $X$ and the approximating normal curve. Fill in the blanks:</p>
+<p>$P(45 \le X \le 55)$ is the area of the bars centered over the integers $\underline{~~~~~~~~~~~~~~}$ through $\underline{~~~~~~~~~~~~~~}$. This is approximately the area under the red curve between the points $\underline{~~~~~~~~~~~~~~}$ and $\underline{~~~~~~~~~~~~~~}$ on the horizontal axis.</p>
 
 </div>
 </div>
 </div>
 </div>
 
-<div class="jb_cell">
+<div class="jb_cell tag_remove_input">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>7.</strong>
-A book has 20 chapters. In each chapter the number of misprints has the Poisson distribution with parameter 2, independently of the misprints in other chapters.</p>
-<p><strong>a)</strong> Find the chance that Chapter 1 has more than two misprints.</p>
-<p><strong>b)</strong> Find the chance that the book has no misprints.</p>
-<p><strong>c)</strong> Find the chance that two of the chapters have three misprints each.</p>
+<div class="cell border-box-sizing code_cell rendered">
 
-</div>
-</div>
-</div>
-</div>
+<div class="output_wrapper">
+<div class="output">
 
-<div class="jb_cell">
+<div class="jb_output_wrapper }}">
+<div class="output_area">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>8.</strong> In the first hour that a bank opens, the customers who enter are of three kinds: those who only require teller service, those who only want to use the ATM, and those who only require special services (neither the tellers nor the ATM). Assume that the numbers of customers of the three kinds are independent of each other and also that:</p>
-<ul>
-<li>the number that only require teller service has the Poisson (6) distribution,</li>
-<li>the number that only want to use the ATM has the Poisson (2) distribution, and</li>
-<li>the number that only require special services has the Poisson (1) distribution.</li>
-</ul>
-<p>Suppose you observe the bank in the first hour that it opens. In each part below, find the chance of the event described.</p>
-<p><strong>a)</strong> 12 customers enter the bank</p>
-<p><strong>b)</strong> more than 12 customers enter the bank</p>
-<p><strong>c)</strong> customers do enter but none requires special services</p>
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/05_Exercises_8_0.png"
+>
+</div>
 
 </div>
 </div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1841,50 +1826,7 @@ A book has 20 chapters. In each chapter the number of misprints has the Poisson 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>9.</strong> On each spin of a roulette wheel, a gambler bets on a "single number". The chance that the gambler wins the bet on a spin is $1/38$ independently of all other spins.</p>
-<p>Suppose the gambler keeps making this bet until he has won six times. Let $X$ be the number of spins required. Find the cdf of $X$. Your answer should be a formula for the function.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>10</strong>. 
-Suppose you are running independent success/failure trials with probability 0.7 of success on each trial. Find the chance that you get 10 failures before the 15th success.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>11.</strong> 
-A courtyard is paved with 100 identical tiles. In an instant of rain, the number of raindrops on each tile has the Poisson (10) distribution independently of all other tiles.</p>
-<p>Find the chance that more than 90 tiles have more than 5 raindrops on them.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>12.</strong> 
-Each Cal Cookie contains random amounts of blue M&amp;Ms and gold M&amp;Ms. No other color is allowed.</p>
-<p>In one cookie, let $N_b$ be the number of blue M&amp;Ms and $N_g$ the number of gold M&amp;Ms. Let $M = N_b + N_g$ be the total number of M&amp;Ms in the cookie.</p>
-<p>Suppose that $N_b$ and $N_g$ are independent and that each has the Poisson (4) distribution.</p>
-<p><strong>a)</strong> Find $P(N_b = 3 \mid M = 10)$.</p>
-<p><strong>b)</strong> Fill in the blanks with the name of a distribution and its parameters. Explain your answers.</p>
-<p>Given $M = 10$, $N_b$ has the $\underline{~~~~~~~~~~~~~~~~~~~~~~~~~}$ distribution with parameters $\underline{~~~~~~~~~~~~~~~~~~~~~~~~~}$.</p>
+<p><strong>f)</strong> Use Part <strong>e</strong> to get a better normal approximation for $P(45 \le X \le 55)$. This is called the normal approximation <em>with continuity correction</em>. You are correcting for using a continuous curve to approximate a discrete histogram.</p>
 
 </div>
 </div>
@@ -1898,15 +1840,15 @@ Each Cal Cookie contains random amounts of blue M&amp;Ms and gold M&amp;Ms. No o
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_04/04_The_Poisson_Distribution.html">
-      〈 <span class="u-margin-right-tiny"></span> The Poisson Distribution
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_08/04_How_Large_is_Large.html">
+      〈 <span class="u-margin-right-tiny"></span> How Large is Large
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_05/00_Expectation.html">
-      Expectation <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
