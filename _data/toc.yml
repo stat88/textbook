@@ -231,6 +231,14 @@
   - title: Exercises
     url: /notebooks/Chapter_08/05_Exercises
     not_numbered: False
+- title: Testing Hypotheses
+  url: /notebooks/Chapter_09/00_Testing_Hypotheses
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Testing Hypotheses
+    url: /notebooks/Chapter_09/01_Testing_Hypotheses
+    not_numbered: False
   
     
  
