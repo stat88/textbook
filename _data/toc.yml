@@ -231,13 +231,16 @@
   - title: Exercises
     url: /notebooks/Chapter_08/05_Exercises
     not_numbered: False
-- title: Testing Hypotheses
-  url: /notebooks/Chapter_09/00_Testing_Hypotheses
+- title: Inference
+  url: /notebooks/Chapter_09/00_Inference
   not_numbered: False
   expand_sections: True
   sections:
   - title: Testing Hypotheses
     url: /notebooks/Chapter_09/01_Testing_Hypotheses
+    not_numbered: False
+  - title: Confidence Intervals Method
+    url: /notebooks/Chapter_09/03_Confidence_Intervals_Method
     not_numbered: False
   
     
