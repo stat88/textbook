@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Exponential Approximations</title>
-  <meta name="description" content="Exponential Approximations Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea...">
+  <title>A/B Testing: Fisher&#39;s Exact Test</title>
+  <meta name="description" content="A/B Testing: Fisher's Exact Test A/B testing is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. A...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Exponential Approximations" />
-<meta property="og:description" content="Exponential Approximations Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea..." />
+<meta property="og:title"       content="A/B Testing: Fisher&#39;s Exact Test" />
+<meta property="og:description" content="A/B Testing: Fisher's Exact Test A/B testing is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. A..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html",
-  "headline": "Exponential Approximations",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html",
+  "headline": "A/B Testing: Fisher&#39;s Exact Test",
   "datePublished": "2019-11-08T16:45:51-06:00",
   "dateModified": "2019-11-08T16:45:51-06:00",
-  "description": "Exponential Approximations Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea...",
+  "description": "A/B Testing: Fisher's Exact Test A/B testing is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. A...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -1055,7 +1055,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_04/03_Exponential_Approximations.html"
                 >
                   
@@ -1705,7 +1705,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html"
                 >
                   
@@ -1795,7 +1795,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exponential-Approximations">Exponential Approximations<a class="anchor-link" href="#Exponential-Approximations"> </a></h2>
+<h2 id="A/B-Testing:-Fisher's-Exact-Test">A/B Testing: Fisher's Exact Test<a class="anchor-link" href="#A/B-Testing:-Fisher's-Exact-Test"> </a></h2>
 </div>
 </div>
 </div>
@@ -1805,133 +1805,27 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea to take its logarithm and try to approximate that. This leads to an <em>exponential approximation</em> for the chance.</p>
-<p>An example will help us see how this works.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bootstrap">Bootstrap<a class="anchor-link" href="#Bootstrap"> </a></h3><p>A <em>bootstrap</em> sample is a sample of size $n$ drawn at random with replacement from an original sample of $n$ individuals. Because the sample is drawn with replacement, some individuals may be drawn more than once and some not at all.</p>
-<p>Fix an individual in the original sample. For clarity, let's call that individual Special. What is the chance that Special appears at least once in the bootstrap sample?</p>
-<p>As before, we will use the complement:</p>
-<p>$$
-P(\text{Special appears at least once}) ~ = ~ 1 - P(\text{Special does not appear})
-$$</p>
-<p>For Special <em>not</em> to appear, every draw must result in an individual who is not Special. By the independence of the draws,</p>
-<p>$$
-P(\text{Special does not appear}) ~ = ~ \big{(} \frac{n-1}{n} \big{)}^n
-$$</p>
-<p>If the numerical value of $n$ is known, then we can just calculate the answer numerically. But can we get a rough sense of how big this chance is when $n$ is large?</p>
-<p>To figure this out, notice that when $n$ is large, the chance is a number close to 1 that has been raised to a large power. Let's take the $\log$ of the chance and see what we get.</p>
-<p>$$
-\begin{align*}
-&amp; \log(P(\text{Special does not appear})) \\
-&amp; = ~ n \log \big{(} \frac{n-1}{n} \big{)} \\
-&amp; = ~ n \log \big{(} 1 - \frac{1}{n} \big{)}
-\end{align*}
-$$</p>
-<p>Let's see what we can say about the rough size of $\log\big{(} 1 - \frac{1}{n} \big{)}$ when $n$ is large. For this we will examine the graph of the function $y = \log(x)$ for values of $x$ that are close to 1.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Log-of-a-Number-Close-to-1">Log of a Number Close to 1<a class="anchor-link" href="#Log-of-a-Number-Close-to-1"> </a></h3><p>The blue curve in the figure below is the graph of the function $y = \log(x)$ for values of $x$ near 1. The graph crosses the horizontal axis at $x = 1$ because $\log(1) = 0$.</p>
-<p>The red dashed line is the graph of the $45^\circ$ line at the point $(1, 0)$. The line is the tangent to the curve $y = \log(x)$ at the point $x = 1$. That is because the slope of the tangent line at $x$ is given by</p>
-<p>$$
-\frac{d}{dx}\log(x) ~ = ~ \frac{1}{x} ~ = ~ 1 ~~ \text{ if } x = 1
-$$</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_04/03_Exponential_Approximations_5_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For a small positive number $\delta$, consider the point $x = 1+\delta$.</p>
+<p><em>A/B testing</em> is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. Although the term is relatively new, the ideas and methods have been used by statisticians for a very long time.</p>
+<p>In this section we revisit a test of hypotheses performed in Data 8 using random permutations. We will show how the test can be performed using a method devised by Sir Ronald Fisher early in the 20th century.</p>
+<p>Recall a <a href="https://www.inferentialthinking.com/chapters/12/3/Causality.html">randomized controlled experiment</a> to study a potential treatment for chronic back pain. The treatment was the botulinum toxin A, a very potent toxin that can be used as medication in tiny doses.</p>
+<p>A total of 31 patients participated in the study. Of these, 15 were randomly assigned to the treatment group and the remaining 16 to the control group. Eight weeks after treatment, 11 of the 15 in the treatment group had pain relief compared to 2 out of 16 in the control group.</p>
+<p>In other words, of the 13 patients who had pain relief, 11 were in the treatment group and 2 in the control group. Is this evidence in favor of the treatment?</p>
+<p>We can answer this question by performing a test of hypotheses.</p>
+<p>The null hypothesis $H_0$ says that the treatment does nothing; any difference between the two groups is due to the random assignment of patients to treatment and control.</p>
+<p>The alternative hypothesis $H_A$ says that the treatment was beneficial.</p>
+<p>A natural test statistic to use is the number of treated patients who had pain relief. Call this statistic $X$. High values of $X$ favor the alternative hypothesis.</p>
+<p>Under $H_0$, the treatment did nothing. So among the 31 patients in the study, 13 would have had pain relief anyway, regardless of the assignment to groups. The only reason 11 of them ended up in the treatment group is due to the random assignment of patients to groups.</p>
+<p>Thus the $p$-value is the chance of getting 11 or more of the 13 "pain relief" patients in the treatment group, just by assigning 15 randomly picked patients to the treatment group.</p>
+<p>This is a hypergeometric probability. The parameters are</p>
 <ul>
-<li>The point is at a distance of $\delta$ away from $x = 1$.</li>
-<li>$\log(1+\delta )$ is the height of the blue curve at $x = 1+\delta$.</li>
-<li>Because $\delta$ is small, the tangent line $y = x$ is very close to the curve $y = \log(x)$ at the point $x = 1+\delta$.</li>
-<li>So the three points $(1, 0)$, $(1+\delta, 0)$, and $(1+\delta, \log(1+\delta))$ essentially form a $45^\circ$-$90^\circ$-$45^\circ$ triangle.</li>
-<li>The two legs of that triangle are equal, so $\log(1+\delta) \approx \delta$.</li>
+<li>N = 31, the population size</li>
+<li>G = 13, the total number of "pain relief" patients</li>
+<li>n = 15, the size of the treatment group</li>
 </ul>
-<p>We will use this approximation repeatedly:</p>
+<p>The $p$-value is</p>
 <p>$$
-\log(1 + \delta) ~ \approx ~ \delta ~~~~~ \text{ for small } \delta
+P_{H_0}(X \ge 11) ~ = ~ \sum_{g=11}^{13} \frac{\binom{13}{g}\binom{18}{15-g}}{\binom{31}{15}} ~ \approx ~ 0.0008
 $$</p>
-<p>A glance at the graphs above should convince you that the approximation is true regardless of whether $\delta$ is positive or negative, as long as it is small.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exponential-Approximation-in-the-Bootstrap">Exponential Approximation in the Bootstrap<a class="anchor-link" href="#Exponential-Approximation-in-the-Bootstrap"> </a></h3><p>Apply this approximation in our earlier calculation:</p>
-<p>$$
-\begin{align*}
-&amp; \log(P(\text{Special does not appear})) \\
-&amp; = ~ n \log \big{(} 1 - \frac{1}{n} \big{)} \\
-&amp; \approx ~ n \big{(} - \frac{1}{n} \big{)} ~~~~~ \text{when } n \text{ is large} \\
-&amp; = ~ -1
-\end{align*}
-$$</p>
-<p>Now undo the $\log$ by exponentiation.</p>
-<p>$$
-\log(P(\text{Special does not appear})) ~ \approx ~ -1 ~~~~~ \text{when } n \text{ is large}
-$$</p>
-<p>implies</p>
-<p>$$
-P(\text{Special does not appear}) ~ \approx ~ e^{-1} ~~~~~ \text{when } n \text{ is large}
-$$</p>
-<p>and so</p>
-<p>$$
-P(\text{Special appears at least once}) ~ \approx 1 - e^{-1} ~~~~~ \text{when } n \text{ is large}
-$$</p>
-<p>The numerical value of this chance is about 63%. Notice that you don't need to know the value of $n$. You just need to know that it is large.</p>
 
 </div>
 </div>
@@ -1945,7 +1839,7 @@ $$</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -1961,7 +1855,7 @@ $$</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.6321205588285577</pre>
+<pre>0.0008299755046076295</pre>
 </div>
 
 </div>
@@ -1976,119 +1870,13 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Rare-Events">Rare Events<a class="anchor-link" href="#Rare-Events"> </a></h3><p>The example above is a special case of a situation in which a data scientist is studying how many times a rare event occurs. When $n$ is large, Special being picked on a single draw can be thought of as a rare event because its chance is $1/n$ which is small.</p>
-<p>On any particular draw, we aren't expecting Special to be picked. But the number of draws is $n$, which is large. This makes it likely that Special is picked at least once, as we have seen.</p>
-<p>In general, suppose we have $n$ i.i.d. success/failure trials where $n$ is large and the probability $p$ of success on a single trial is small.</p>
-<p>Roughly, you expect a proportion $p$ of the trials to be successes. So you expect to get about $np$ successes in all. We will make this calculation precise in the next chapter. For now, denote $np$ by $\mu$.</p>
-<p>What is the chance of getting no successes?</p>
-<p>The exact answer is straightforward:</p>
-<p>$$
-P(\text{no successes}) ~ = ~ (1-p)^n
-$$</p>
-<p>To get a sense of the size of this chance, let's approximate it.</p>
-<p>$$
-\begin{align*}
-\log(P(\text{no successes}) ~ &amp;= ~ n\log(1-p) \\
-&amp;\approx ~ n(-p) ~~~~ \text{because } p \text{ is small} \\
-&amp;= -\mu
-\end{align*}
-$$</p>
-<p>So $P(\text{no successes}) ~ \approx ~ e^{-\mu}$ when $p$ is small.</p>
-<p>Thus if you run 1000 i.i.d. trials with chance 2/1000 of success on each trial, then the chance of getting no successes is approximately $e^{-2} \approx 13.5\%$. The cell below shows the exact chance and the approximation.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exact chance and exponential approximation</span>
-
-<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(0.13506452244668338, 0.1353352832366127)</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The approximation depends only on $\mu$, not on the individual values of $n$ and $p$. So suppose you run 5000 trials with chance 2/5000 of success on each trial. Then $\mu = 2$ as above. The chance of getting no successes is pretty much the same as above, and the exponential approximation is closer to the exact chance than it was above.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exact chance and exponential approximation</span>
-
-<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5000</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(0.13528114551440706, 0.1353352832366127)</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The approximation helps us understand how the chance behaves, without the need to calculate its exact value. In the next section you will see how this approximation becomes the foundation of a new distribution.</p>
+<p>That's a very small $p$-value, which implies that the data support the alternative hypothesis more than they support the null. The treatment helped. This is consistent with the conclusion of the researchers and also with our own analysis in Data 8. But all three analyses are different.</p>
+<ul>
+<li>The calculations in the research paper involve some approximations.</li>
+<li>In Data 8 we simulated the difference between the two group proportions under the null hypothesis, by pooling the two groups and randomly permuting the pooled sample. Our conclusion was based on an empirical, approximate $p$-value.</li>
+<li>The calculation here does not require simulation and produces an exact $p$-value.</li>
+</ul>
+<p>The method we have used is called <em>Fisher's exact test</em>. That's the same Sir Ronald Fisher who formalized tests of hypotheses, suggested cutoffs for $p$-values, and so on. The method can be used for any sample size and any randomized controlled experiment with a binary response.</p>
 
 </div>
 </div>
@@ -2102,15 +1890,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_04/02_Waiting_Times.html">
-      〈 <span class="u-margin-right-tiny"></span> Waiting Times
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_09/01_Testing_Hypotheses.html">
+      〈 <span class="u-margin-right-tiny"></span> Testing Hypotheses
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_04/04_The_Poisson_Distribution.html">
-      The Poisson Distribution <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_09/03_Confidence_Intervals_Method.html">
+      Confidence Intervals Method <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
