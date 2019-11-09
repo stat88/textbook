@@ -239,9 +239,9 @@
   - title: Testing Hypotheses
     url: /notebooks/Chapter_09/01_Testing_Hypotheses
     not_numbered: False
-  #- title: "A/B Testing: Fisher's Exact Test"
-   #url: /notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test
-    #not_numbered: False
+  - title: "A/B Testing: Fisher's Exact Test"
+    url: /notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test
+    not_numbered: False
   - title: Confidence Intervals Method
     url: /notebooks/Chapter_09/03_Confidence_Intervals_Method
     not_numbered: False
