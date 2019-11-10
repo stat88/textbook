@@ -245,6 +245,12 @@
   - title: Confidence Intervals Method
     url: /notebooks/Chapter_09/03_Confidence_Intervals_Method
     not_numbered: False
+  - title: "Confidence Intervals: Interpretation"
+    url: /notebooks/Chapter_09/04_Confidence_Intervals_Interpretation
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_09/05_Exercises
+    not_numbered: False
   
     
  
