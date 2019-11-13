@@ -1,0 +1,364 @@
+---
+redirect_from:
+  - "/notebooks/chapter-10/02-expectation-and-variance"
+interact_link: content/notebooks/Chapter_10/02_Expectation_and_Variance.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Expectation and Variance
+prev_page:
+  url: /notebooks/Chapter_10/01_Density.html
+  title: |-
+    Density
+next_page:
+  url: 
+  title: |-
+    
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Expectation-and-Variance">Expectation and Variance<a class="anchor-link" href="#Expectation-and-Variance"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If a random variable $X$ has density $f$, the expectation $E(X)$ is defined by</p>
+<p>$$
+E(X) ~ = ~ \int_{-\infty}^\infty xf(x)dx
+$$</p>
+<p>This is parallel to the definition of the expectation of a discrete random variable $X$:</p>
+<p>$$
+E(X) ~ = ~ \sum_{\text{all }x} xP(X=x)
+$$</p>
+<p><strong>Technical Note:</strong> Not all integrals are finite, and some don't even exist. But in this class you don't have to worry about that. All random variables we encounter will have finite expectations and variances.</p>
+<p>If $X$ has density $f$ then the expected square $E(X^2)$ is defined by</p>
+<p>$$
+E(X^2) ~ = ~ \int_{-\infty}^\infty x^2f(x)dx
+$$</p>
+<p>This is parallel to the definition of the expected square of a discrete random variable $X$:</p>
+<p>$$
+E(X) ~ = ~ \sum_{\text{all }x} x^2P(X=x)
+$$</p>
+<p>Whether $X$ has a density or is discrete, the variance of $X$ is defined as</p>
+<p>$$
+Var(X) ~ = ~ E(X^2) - \big{(}E(X)\big{)}^2
+$$</p>
+<p>and the standard deviation of $X$ is defined as</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{Var(X)}
+$$</p>
+<p>Properties of expectation and variance are the same as before. For example,</p>
+<ul>
+<li>Linear functions: $E(aX+b) = aE(X) + b$, $SD(aX+b) = \vert a \vert SD(X)$</li>
+<li>Additivity of expectation: $E(X+Y) = E(X) + E(Y)$</li>
+<li>Independence: $X$ and $Y$ are independent if $P(X \in A, Y \in B) = P(X \in A)P(Y \in B)$ for all numerical sets $A$ and $B$.</li>
+<li>Addition rule for variance: If $X$ and $Y$ are independent, then $Var(X+Y) = Var(X)+Var(Y)$</li>
+</ul>
+<p>The Central Limit Theorem holds too: If $X_1, X_2, \ldots $ are i.i.d. then for large $n$ the distribution of $S_n = \sum_{i=1}^n X_i$ is approximately normal.</p>
+<p>So if you are working with a random variables that has a density, you have to know how to find probabilities, expectation, and variance using the density function. After that, probabilities and expectations combine just as they did in the discrete case.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Calculating-Expectation-and-SD">Calculating Expectation and SD<a class="anchor-link" href="#Calculating-Expectation-and-SD"> </a></h3><p>Let $X$ have density given by</p>
+<p>$$
+f(x) ~ = ~ 
+\begin{cases}
+6x(1-x) ~~~ 0 &lt; x &lt; 1 \\
+0 ~~~~~~~~~~~~~~~~~ \text{otherwise}
+\end{cases}
+$$</p>
+<p>As we saw in the previous section, the density of $X$ is symmetric about $0.5$ and so $E(X)$ must be $0.5$. This is consistent with the answer we get by applying the definition of expectation above:</p>
+<p>$$
+\begin{align*}
+E(X) ~ &amp;= ~ \int_0^1 x6x(1-x)dx \\
+&amp;= ~ 6 \int_0^1 (x^2-x^3)dx \\
+&amp;=~ \frac{6}{3} - \frac{6}{4} ~ = ~ \frac{6}{12} ~ = ~ 0.5
+\end{align*}
+$$</p>
+<p>To find $Var(X)$ we start by finding $E(X^2)$. We'll speed up the calculus as it is similar to the above.</p>
+<p>$$
+E(X^2) ~ = ~ \int_0^1 x^26x(1-x)dx ~ = ~ \frac{6}{4} - \frac{6}{5} ~ = ~ 0.3
+$$</p>
+<p>So</p>
+<p>$$
+Var(X) ~ = ~ 0.3 - 0.5^2 = 0.05
+$$</p>
+<p>and</p>
+<p>$$
+SD(X) ~ = ~ \sqrt{0.05} ~ \approx 0.22
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.05</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.22360679774997896</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uniform-$(0,-1)$-Distribution">Uniform $(0, 1)$ Distribution<a class="anchor-link" href="#Uniform-$(0,-1)$-Distribution"> </a></h3><p>A random variable $U$ has the <em>uniform</em> distribution on the unit interval $(0, 1)$ if its density $f$ is constant over the interval:</p>
+<p>$$
+f(u) ~ = ~ 
+\begin{cases}
+1 ~~~~~~ 0 &lt; u &lt; 1 \\
+0 ~~~~~~ \text{otherwise}
+\end{cases}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/02_Expectation_and_Variance_6_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probability of an interval is the length of the interval. For $0 &lt; u_1 &lt; u_2 &lt; 1$,</p>
+<p>$$
+P(u_1 &lt; U &lt; u_2) ~ = ~ u_2 - u_1
+$$</p>
+<p>This is the area of the gold rectangle in the figure below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/02_Expectation_and_Variance_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The cdf of $U$ is given by:</p>
+<ul>
+<li>$F(x) = 0$ for $x \le 0$</li>
+<li>$F(x) = P(0 &lt; U \le x) = x$ for $0 &lt; x &lt; 1$</li>
+<li>$F(x) = 1$ for $x \ge 1$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span><span class="s1">&#39;datalim&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CDF of $U$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/02_Expectation_and_Variance_10_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Clearly $E(U) = 0.5$ by symmetry, and</p>
+<p>$$
+E(U^2) ~ = ~ \int_0^1 u^2\cdot 1du ~ = ~ \frac{1}{3}
+$$</p>
+<p>So</p>
+<p>$$
+Var(U) ~ = ~ \frac{1}{3} - \frac{1}{4} ~ = ~ \frac{1}{12}
+$$</p>
+<p>and</p>
+<p>$$
+SD(U) ~ = ~ \frac{1}{\sqrt{12}}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Uniform-$(a,-b)$-Distribution">Uniform $(a, b)$ Distribution<a class="anchor-link" href="#Uniform-$(a,-b)$-Distribution"> </a></h3><p>For any $a &lt; b$, the random variable $X$ has the uniform distribution on the interval $(a, b)$ if its density is constant over the interval. The total area under the density has to be 1, so the density function is given by</p>
+<p>$$
+f_X(x) ~ = ~ 
+\begin{cases}
+\frac{1}{b-a} ~~~~~~ a &lt; x &lt; b \\
+0 ~~~~~~ \text{otherwise}
+\end{cases}
+$$</p>
+<p>The probability of an interval is its <em>relative</em> length: for $a &lt; x_1 &lt; x_2 &lt; b$,</p>
+<p>$$
+P(x_1 &lt; X &lt; x_2) ~ = ~ \frac{x_2 - x_1}{b-a}
+$$</p>
+<p>By symmetry, $E(X)$ is halfway between $a$ and $b$:</p>
+<p>$$
+E(X) ~ = ~ \frac{a+b}{2}
+$$</p>
+<p>No integration is needed for the variance either, because you can write $X$ as a linear function of $U$ where $U$ is uniform on $(0, 1)$. Both have flat densities, so you can get from one to the other by stretching and shifting the values appropriately:</p>
+<ul>
+<li>The random variable $(b-a)U$ has the uniform distribution on $(0, b-a)$.</li>
+<li>The random variable $(b-a)U + a$ has the uniform distribution on $(a, b)$.</li>
+</ul>
+<p>Conversely $X - a$ has the uniform distribution on $(0, b-a)$, and $\frac{X-a}{b-a}$ has the uniform distribution on $(0, 1)$.</p>
+<p>Thus if $X$ is uniform on $(a, b)$ then</p>
+<p>$$
+X ~ = ~ (b-a)U + a
+$$</p>
+<p>where $U$ is uniform on $(0, 1)$. So</p>
+<p>$$
+Var(X) ~ = ~ (b-a)^2Var(U) ~ = ~ (b-a)^2\frac{1}{12}
+$$</p>
+<p>and</p>
+<p>$$
+SD(X) ~ = ~ \frac{b-a}{\sqrt{12}}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

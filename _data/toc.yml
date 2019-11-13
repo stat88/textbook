@@ -251,6 +251,17 @@
   - title: Exercises
     url: /notebooks/Chapter_09/05_Exercises
     not_numbered: False
+- title: Probability Density
+  url: /notebooks/Chapter_10/00_Probability_Density
+  not_numbered: False
+  expand_sections: True 
+  sections:
+  - title: Density
+    url: /notebooks/Chapter_10/01_Density
+    not_numbered: False
+  - title: Expectation and Variance
+    url: /notebooks/Chapter_10/02_Expectation_and_Variance
+    not_numbered: False
   
     
  
