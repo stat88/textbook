@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Variance and Standard_Deviation</title>
-  <meta name="description" content="Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ...">
+  <title>The Exponential Distribution</title>
+  <meta name="description" content="Exponential Distribution Let $\lambda$ be a positive constant. A random variable $T$ has the exponential distribution with rate $\lambda$ if the density of $...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_10/03_The_Exponential_Distribution.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_10/03_The_Exponential_Distribution.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Variance and Standard_Deviation" />
-<meta property="og:description" content="Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ..." />
+<meta property="og:title"       content="The Exponential Distribution" />
+<meta property="og:description" content="Exponential Distribution Let $\lambda$ be a positive constant. A random variable $T$ has the exponential distribution with rate $\lambda$ if the density of $..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html",
-  "headline": "Variance and Standard_Deviation",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_10/03_The_Exponential_Distribution.html",
+  "headline": "The Exponential Distribution",
   "datePublished": "2019-11-15T09:49:18-06:00",
   "dateModified": "2019-11-15T09:49:18-06:00",
-  "description": "Variance and Standard Deviation Let $X$ be a random variable and let $\mu_X = E(X)$. The deviation from expected value, informally called the deviation from ...",
+  "description": "Exponential Distribution Let $\lambda$ be a positive constant. A random variable $T$ has the exponential distribution with rate $\lambda$ if the density of $...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -1315,7 +1315,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html"
                 >
                   
@@ -1854,7 +1854,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_10/03_The_Exponential_Distribution.html"
                 >
                   
@@ -1925,7 +1925,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Variance-and-Standard-Deviation">Variance and Standard Deviation<a class="anchor-link" href="#Variance-and-Standard-Deviation"> </a></h2>
+<h2 id="Exponential-Distribution">Exponential Distribution<a class="anchor-link" href="#Exponential-Distribution"> </a></h2>
 </div>
 </div>
 </div>
@@ -1935,17 +1935,59 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let $X$ be a random variable and let $\mu_X = E(X)$. The <em>deviation from expected value</em>, informally called the deviation from average or just deviation for short, is defined as the difference</p>
+<p>Let $\lambda$ be a positive constant. A random variable $T$ has the <em>exponential distribution with rate $\lambda$</em> if the density of $T$ is given by</p>
 <p>$$
-D ~ = ~ X - \mu_X
+f(t) ~ = \lambda e^{-\lambda t}, ~~~ t \ge 0
 $$</p>
-<p>Thus $D$ is the amount by which $X$ exceeds its expectation $\mu_X$. Note that $D$ is negative when $X &lt; \mu_X$.</p>
-<p>The goal of this section is to quantify the rough size of $D$. One natural approach is to find $E(D)$, but that results in</p>
+<p>The graph below shows the density $f$ for $\lambda = 5$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/03_The_Exponential_Distribution_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CDF-and-Survival-Function">CDF and Survival Function<a class="anchor-link" href="#CDF-and-Survival-Function"> </a></h3><p>The exponential distribution is often used as a model for random lifetimes that have an interesting property that we will describe below. For now, just think of $T$ as the lifetime of an object like a lightbulb, and note that the cdf at time $t$ can be thought of as the chance that the object dies before time $t$:</p>
 <p>$$
-E(D) ~ = ~ E(X - \mu_X) ~ = ~ E(X) - \mu_X ~ = ~ 0
+\begin{align*}
+F(t) ~ &amp;= ~ P(T \le t) \\
+&amp;= ~ \int_0^t \lambda e^{-\lambda s}ds \\
+&amp;= ~ -e^{-\lambda s} \big{|}_0^t \\
+&amp;= ~ 1 - e^{-\lambda t}
+\end{align*}
 $$</p>
-<p>No matter what the distribution of $X$, the expected deviation from average is 0: all the positive deviations exactly cancel out all the negative ones.</p>
-<p>The expected deviation isn't a useful measure because it's 0 for every $X$. But it does help us understand what we have in mind when we say "rough size" of $D$: we mean the value of $D$ regardless of the sign.</p>
+<p>The complementary event is that the object survives past time $t$, and therefore its probability defines the <em>survival function</em> $S$:</p>
+<p>$$
+S(t) ~ = ~ P(T &gt; t) ~ = ~ 1 - F(t) ~ = ~ e^{-\lambda t}
+$$</p>
 
 </div>
 </div>
@@ -1956,12 +1998,19 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Variance">Variance<a class="anchor-link" href="#Variance"> </a></h3><p>We could measure the rough size of $D$ by $E(\vert D \vert)$, but expectations of absolute values don't have nice math properties. In particular, they don't work well with sums. But because of Pythagoras' Theorem, <em>squares</em> of distances do have good properties, especially with sums. so we will define a measure called the <em>variance</em> of $X$ by</p>
+<h3 id="Memoryless-Property">Memoryless Property<a class="anchor-link" href="#Memoryless-Property"> </a></h3><p>The survival function tells us something unusual about exponentially distributed lifetimes. Let $s$ and $t$ be positive, and let's find the conditional probability that the object survives a further $s$ units of time given that it has already survived $t$.</p>
 <p>$$
-Var(X) ~ = ~ E(D^2) ~ = ~ E((X - \mu_X)^2)
+\begin{align*}
+P(T &gt; t+s \mid T &gt; t) ~ &amp;= ~ \frac{P(T &gt; t+s, T &gt; t)}{P(T &gt; t)} \\ 
+&amp;= ~ \frac{P(T &gt; t+s)}{P(T &gt; t)} \\
+&amp;= ~ \frac{e^{-\lambda(t+s)}}{e^{-\lambda t}} \\
+&amp;= ~ e^{-\lambda s} \\
+&amp;= ~ P(T &gt; s)
+\end{align*}
 $$</p>
-<p>The variance of $X$ is non-negative because $D^2$ is a non-negative variable. Indeed, $Var(X)$ is strictly positive except if $X$ is just a constant.</p>
-<p>Notice that variance is an expectation: it is the expectation of a non-linear function of $X$. To calculate it, we can apply our familiar method of finding expectations of non-linear functions.</p>
+<p>Notice that $t$ does not appear in the answer. So for example the chance that the object survives an additional year given that it has been alive for 50 years is the same as the chance that is survives a year when it starts out brand new. It <em>forgets</em> that it has already lived 50 years.</p>
+<p>This is called the <em>memoryless property</em> of the exponential distribution. It can be shown that the exponential and the geometric are the only two distributions that have the memoryless property. As you can see, the graph of the exponential density resembles the geometric probability histogram.</p>
+<p>The memoryless property is an excellent reason <em>not</em> to use the exponential distribution to model the lifetimes of people or of anything that ages. For lifetimes of things like lightbulbs or radioactive atoms, the exponential distribution often does fine.</p>
 
 </div>
 </div>
@@ -1972,436 +2021,119 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Standard-Deviation">Standard Deviation<a class="anchor-link" href="#Standard-Deviation"> </a></h3><p>Calculating variance takes care of the problem of positive and negative deviations canceling out. But it introduces a different problem, which is that variance is the expected <em>squared</em> deviation and thus has different units from the original variable $X$. For example, if $X$ is a weight in pounds then $Var(X)$ is in squared pounds, and squared pounds aren't easy to undertand.</p>
-<p>To fix this problem we take the square root of the variance. The resulting quantity has the same units as $X$ and is called the <em>standard deviation</em> or SD of $X$.</p>
+<h3 id="Mean-and-SD">Mean and SD<a class="anchor-link" href="#Mean-and-SD"> </a></h3><p>The expectation of $T$ is given by</p>
 <p>$$
-SD(X) ~ = ~ \sqrt{Var(X)} ~ = ~ \sqrt{E((X - \mu_X)^2)}
+E(T) ~ = ~ \int_0^{\infty} t\lambda e^{-\lambda t} dt ~ = ~ \frac{1}{\lambda}
 $$</p>
-<p>The standard deviation will be our main measure of the variability in a random variable. We will look carefully at its use and interpretation. But first, let's write the steps to calculate it.</p>
-<p>Remember that the point of the SD is to measure the rough size of deviations around the expectation of $X$. So start by calculating the expectation.</p>
+<p>either by integration by parts or by recognizing that the indefinite integral of $\lambda te^{-\lambda t}$ is $-te^{-\lambda t} + e^{-\lambda t}$.</p>
+<p>This result is an indication of why $\lambda$ is called the rate of the lifetime distribution. The bigger $\lambda$ is, the faster the item is expected to die.</p>
+<p>To find $E(T^2)$, you can use integration by parts again, or you can just accept that $E(T^2) = 2/\lambda^2$ and therefore</p>
+<p>$$
+Var(T) ~ = ~ \frac{1}{\lambda^2} ~~~~ \mbox{and } ~~~~ SD(T) = \frac{1}{\lambda}
+$$</p>
+<p>The SD of the exponential distribution is the same as the mean.</p>
+<p>The graph below shows the exponential density $f$ with the labeled points on the horizontal axis corresponding to standard units of -1, 0, 1, 2, and 3. The random variable $T$ can't be negative, and the density doesn't go further than 1 SD below the mean. The spread comes from the long right hand tail.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/03_The_Exponential_Distribution_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Median">Median<a class="anchor-link" href="#Median"> </a></h3><p>The figure below displays graphs of the cdf and survival function of $T$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_10/03_The_Exponential_Distribution_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The two curves intersect at the vertical level $0.5$.</p>
+<p>This is because if $t_{0.5}$ is the value of $t$ at which the curves intersect, then:</p>
 <ul>
-<li>Find $\mu_X$.</li>
-<li>Find the deviation $D = X - \mu_X$.</li>
-<li>Square the deviation to get rid of the signs: $D^2 = (X - \mu_X)^2$.</li>
-<li>Find the mean squared deviation, also known as the variance: $Var(X) = E((X - \mu_X)^2)$.</li>
-<li>Take the square root of the variance to get the standard deviation: $SD(X) = \sqrt{Var(X)}$</li>
+<li>$S(t_{0.5}) = 1 - F(t_{0.5})$</li>
+<li>$S(t_{0.5}) = F(t_{0.5})$</li>
 </ul>
-<p>If you go backwards along these steps you will see why the SD is called the <em>root mean square of deviations from average</em>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example">Example<a class="anchor-link" href="#Example"> </a></h3><p>Let $X$ have the distribution given below.</p>
-<table>
-<thead><tr>
-<th style="text-align:right">$~~~~~~~~~~ x$</th>
-<th style="text-align:center">$3$</th>
-<th style="text-align:center">$4$</th>
-<th style="text-align:center">$5$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">$P(X = x)$</td>
-<td style="text-align:center">$0.35$</td>
-<td style="text-align:center">$0.5$</td>
-<td style="text-align:center">$0.15$</td>
-</tr>
-</tbody>
-</table>
-<p>Then</p>
+<p>Therefore</p>
 <p>$$
-E(X) ~ = ~ 3(0.35) + 4(0.5) + 5(0.15) ~ = ~ 3.8
+S(t_{0.5}) ~ = ~ 0.5 ~ = ~ F(t_{0.5})
 $$</p>
-<p>and is marked by a red arrow on the horizontal axis of the probability histogram below.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_6_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The table below shows the distribution of $X$ along with the squared deviations:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">variance_table</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>x</th> <th>(x - E(X))**2</th> <th>P(X = x)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>3   </td> <td>0.64         </td> <td>0.35    </td>
-        </tr>
-        <tr>
-            <td>4   </td> <td>0.04         </td> <td>0.5     </td>
-        </tr>
-        <tr>
-            <td>5   </td> <td>1.44         </td> <td>0.15    </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We now have</p>
+<p>That is,</p>
 <p>$$
-Var(X) ~ = ~ E((X - \mu_X)^2) ~ = ~ 0.64(0.35) + 0.04(0.5) + 1.44(0.15) ~ = ~ 0.46
+P(T &gt; t_{0.5}) = 0.5 = P(T &lt; t_{0.5})
+$$</p>
+<p>The point $t_{0.5}$ is called the <em>median</em> of the distribution. We can find $t_{0.5}$ in terms of $\lambda$ by using the formula for the survival function.</p>
+<p>$$
+\begin{align*}
+e^{-\lambda t_{0.5}} = 0.5 ~ &amp;\iff ~ -\lambda t_{0.5} = \log(0.5)\\
+&amp;\iff ~ \lambda t_{0.5} =  \log(2) \\
+&amp;\iff ~ t_{0.5} = \frac{\log(2)}{\lambda} = \log(2)E(T)
+\end{align*}
+$$</p>
+<p>Because $\log(2) &lt; 1$, the median lifetime $t_{0.5}$ is less than the mean lifetime $E(T) = 1/\lambda$ as you can see on the graph. This is consistent with an observation you made in Data 8: if a distribution has a right hand tail, the median is less than the mean.</p>
+<p>The exponential distribution is often used to model lifetimes of objects like radioactive atoms that undergo <em>exponential decay</em>. The <em>half life</em> of a radioactive isotope is defined as the time by which half of the atoms of the isotope will have decayed. That is, the half life is the median of the exponential lifetime of the atom. The parameter $\lambda$ is called the <em>decay rate</em> of the atom. By the property of the median $t_{0.5}$ derived above, the relation between $\lambda$ and the half life is</p>
+<p>$$
+\text{half life} = \frac{\log(2)}{\lambda}
 $$</p>
 
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_X</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">variance_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">variance_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">var_X</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.45999999999999996</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The standard deviation can now be calculated as</p>
-<p>$$
-SD(X) ~ = ~ \sqrt{Var(X)} ~ = ~ \sqrt{0.46} ~ \approx ~ 0.68 
-$$</p>
-<p>The points $E(X) \pm SD(X)$ are $3.8 - 0.68 = 3.12$ and $3.8 + 0.68 = 4.48$. These are the blue arrows in the figure below, shown to indicate the sense in which the SD measures the "rough size" of the deviations. We will have much more to say about interpretation in later sections.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_13_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-2:-Larger-Spread">Example 2: Larger Spread<a class="anchor-link" href="#Example-2:-Larger-Spread"> </a></h3><p>The random variable $Y$ with the distribution given below has the same expectation as $X$ above. But its distribution looks quite different from that of $X$.</p>
-<table>
-<thead><tr>
-<th style="text-align:right">$~~~~~~~~~~ y$</th>
-<th style="text-align:center">$3$</th>
-<th style="text-align:center">$4$</th>
-<th style="text-align:center">$5$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">$P(Y = y)$</td>
-<td style="text-align:center">$0.55$</td>
-<td style="text-align:center">$0.1$</td>
-<td style="text-align:center">$0.35$</td>
-</tr>
-</tbody>
-</table>
-<p>$$
-E(Y) ~ = ~ 3(0.55) + 4(0.1) + 5(0.35) ~ = ~ 3.8
-$$</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_15_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The probabilities in the distribution of $Y$ are concentrated on the two outer values (3 and 5) whereas in the distribution of $X$ the most likely value is 4. Because both distributions have the same mean of 3.8, the deviations of $Y$ are more likely to be large than those of $X$. So $Y$ has the greater $SD$.</p>
-<p>You can check this numerically:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">variance_table_Y</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>y</th> <th>(y - E(Y))**2</th> <th>P(Y = y)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>3   </td> <td>0.64         </td> <td>0.55    </td>
-        </tr>
-        <tr>
-            <td>4   </td> <td>0.04         </td> <td>0.1     </td>
-        </tr>
-        <tr>
-            <td>5   </td> <td>1.44         </td> <td>0.35    </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_Y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">variance_table_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">variance_table_Y</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">sd_Y</span> <span class="o">=</span> <span class="n">var_Y</span> <span class="o">**</span> <span class="mf">0.5</span>
-<span class="n">sd_Y</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.9273618495495703</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The figure below shows the probability histogram of $Y$ along with the three points $E(Y)$ and $E(Y) \pm SD(Y)$. Compare this with the corresponding figure for $X$ above. You will see that the two expectations are the same but $Y$ has the bigger SD.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_06/01_Variance_and_Standard_Deviation_21_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2412,15 +2144,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_06/00_Measuring_Variability.html">
-      〈 <span class="u-margin-right-tiny"></span> Measuring Variability
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_10/02_Expectation_and_Variance.html">
+      〈 <span class="u-margin-right-tiny"></span> Expectation and Variance
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">
-      Simplifying the Calculation <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

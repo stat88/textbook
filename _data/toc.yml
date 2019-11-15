@@ -262,6 +262,9 @@
   - title: Expectation and Variance
     url: /notebooks/Chapter_10/02_Expectation_and_Variance
     not_numbered: False
+  - title: The Exponential Distribution
+    url: /notebooks/Chapter_10/03_The_Exponential_Distribution
+    not_numbered: False
   
     
  
