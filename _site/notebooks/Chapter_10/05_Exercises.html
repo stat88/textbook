@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Bayes&#39; Rule</title>
-  <meta name="description" content="Bayes' Rule Thus far, we have used the multiplication rule $P(AB) = P(A)P(B \mid A)$ only in settings where the conditional probability $P(B \mid A)$ is clea...">
+  <title>Exercises</title>
+  <meta name="description" content="Exercises 1.Let $X_1, X_2, X_3, \ldots $ be i.i.d. with density given by$$f(x) ~ = ~\begin{cases}0 ~~~~~~~ x \le 50 \\\frac{c}{x^4} ~~~~~~ x &gt; 50\end{case...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_02/03_Bayes_Rule.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_10/05_Exercises.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_02/03_Bayes_Rule.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_10/05_Exercises.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Bayes&#39; Rule" />
-<meta property="og:description" content="Bayes' Rule Thus far, we have used the multiplication rule $P(AB) = P(A)P(B \mid A)$ only in settings where the conditional probability $P(B \mid A)$ is clea..." />
+<meta property="og:title"       content="Exercises" />
+<meta property="og:description" content="Exercises 1.Let $X_1, X_2, X_3, \ldots $ be i.i.d. with density given by$$f(x) ~ = ~\begin{cases}0 ~~~~~~~ x \le 50 \\\frac{c}{x^4} ~~~~~~ x &gt; 50\end{case..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_02/03_Bayes_Rule.html",
-  "headline": "Bayes&#39; Rule",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_10/05_Exercises.html",
+  "headline": "Exercises",
   "datePublished": "2019-11-19T10:04:34-06:00",
   "dateModified": "2019-11-19T10:04:34-06:00",
-  "description": "Bayes' Rule Thus far, we have used the multiplication rule $P(AB) = P(A)P(B \mid A)$ only in settings where the conditional probability $P(B \mid A)$ is clea...",
+  "description": "Exercises 1.Let $X_1, X_2, X_3, \ldots $ be i.i.d. with density given by$$f(x) ~ = ~\begin{cases}0 ~~~~~~~ x \le 50 \\\frac{c}{x^4} ~~~~~~ x &gt; 50\end{case...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -757,7 +757,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_02/03_Bayes_Rule.html"
                 >
                   
@@ -1892,7 +1892,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_10/05_Exercises.html"
                 >
                   
@@ -1956,7 +1956,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bayes'-Rule">Bayes' Rule<a class="anchor-link" href="#Bayes'-Rule"> </a></h2>
+<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h2>
 </div>
 </div>
 </div>
@@ -1966,30 +1966,21 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus far, we have used the multiplication rule $P(AB) = P(A)P(B \mid A)$ only in settings where the conditional probability $P(B \mid A)$ is clear as the proportion of outcomes that are in $B$ among only the outcomes that are in $A$.</p>
-<p>The general definition of conditional probability, regardless of setting, is just a rearrangement of the multiplication rule.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Conditional-Probability-(Division-Rule)">Conditional Probability (Division Rule)<a class="anchor-link" href="#Conditional-Probability-(Division-Rule)"> </a></h3><p>Let $A$ and $B$ be two events and let $P(A) &gt; 0$. The <em>conditional probability of $B$ given $A$</em> is defined as</p>
+<p><strong>1.</strong>
+Let $X_1, X_2, X_3, \ldots $ be i.i.d. with density given by</p>
 <p>$$
-P(B \mid A) ~ = ~ \frac{P(AB)}{P(A)}
+f(x) ~ = ~
+\begin{cases}
+0 ~~~~~~~ x \le 50 \\
+\frac{c}{x^4} ~~~~~~ x &gt; 50
+\end{cases}
 $$</p>
-<p>It makes sense to assume $P(A) &gt; 0$, not just because $P(A)$ appears in the denominator but also because if $P(A)$ were 0 then we could not be given the condition that $A$ occurred.</p>
-<p>In the figure below, think of the grey rectangle as the whole space $\Omega$. The unconditional chances $P(A)$ and $P(B)$ are the areas of the corresponding circles relative to the area of the grey rectangle.</p>
-<p><img src="../../images/cond_prob.png" alt="conditional probability"></p>
-<p>But once we are given that $A$ occurred, the outcome space is restricted to $A$. Under this condition, the only way $B$ can occur is if the outcome is in the intersection $AB$.</p>
-<p>Therefore, given that $A$ has occurred, the conditional chance of $B$ is the area of the overlap $AB$ relative to the area of $A$. That's what the definition is saying.</p>
-<p>You have seen many examples where you have quite naturally written down conditional probabilities without using the division rule. In these examples, an experiment had several stages (for example, cards were being dealt one by one) and you were working with conditional probabilities of events at later stages given the results of earlier stages.</p>
-<p>The division rule helps when the conditioning makes you go backwards in time, for example by giving you the result of a later stage and asking your opinion about what might have happened earlier.</p>
-<p>Let's start with a simple example.</p>
+<p>This is one of the <em>Pareto</em> densities, sometimes used in economics to represent distributions of wealth in populations where a small percent of the population owns a large percent of the wealth.</p>
+<p><strong>a)</strong> Find $c$.</p>
+<p><strong>b)</strong> Find the cdf of $X_1$ and sketch its graph.</p>
+<p><strong>c)</strong> Find $E(X_1)$.</p>
+<p><strong>d)</strong> Find $Var(X_1)$.</p>
+<p><strong>e)</strong> Let $\bar{X}_{(n)} = \frac{1}{n}\sum_{i=1}^n X_i$. Find or approximate $P(\bar{X}_{(100)} &gt; 70)$.</p>
 
 </div>
 </div>
@@ -2000,36 +1991,11 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A-Random-Container">A Random Container<a class="anchor-link" href="#A-Random-Container"> </a></h3><p>I have two containers: a jar and a box. Each container has five balls.</p>
-<ul>
-<li>The jar contains three red balls and two green balls.</li>
-<li>The box contains one red ball and four green balls.</li>
-</ul>
-<p>I pick a container at random and then a ball at random from that container. Given that the ball is red, what is the chance I picked the box?</p>
-<p>At a glance, you should guess that the answer is less than half. Given that the ball is red, you should be leaning towards guessing that I picked the jar because it has a higher proportion of red balls than the box does.</p>
-<p>To make this intuition precise, it helps to visualize the details of the experiment in a <em>tree diagram</em>.</p>
-<p><img src="../../images/tree_balls_in_containers.png" alt="balls in boxes tree"></p>
-<p>The first level of the tree corresponds to the first stage of the experiment, that is, picking the box. The second level corresponds to picking the ball once the box has been picked.</p>
-<p>The numbers on the branches are probabilities. Let $J$ be the event that I picked the jar and let $B$ be the event that I picked the box. Let $R$ be the event that the selected ball is red and let $G$ be the event that it is green. The probabilities displayed in the figure are:</p>
-<ul>
-<li>$P(J) = 0.5 = P(B)$</li>
-<li>$P(R \mid J) = 0.6$, $P(G \mid J) = 1 - P(R \mid J)$ = 0.4</li>
-<li>$P(R \mid B) = 0.2$, $P(G \mid B) = 1 - P(R \mid B)$ = 0.8</li>
-</ul>
-<p>The four conditional probabilities in the display are all "forwards in time" probabilities: conditional chances for the second stage of the experiment given the result of the first stage. They can be written down directly.</p>
-<p>But our problem is to find $P(B \mid R)$, the conditional chance of drawing the box in the first stage given that the result of the second stage is Red.</p>
-<p>The given condition is that the outcome is on one of the two branches that end in red: $JR$ or $BR$. The probability that we want is the conditional chance that the outcome is actually on the lower of the two branches: $BR$.</p>
-<p>The division rules helps us find this chance.</p>
-<p>$$
-P(B \mid R) ~ = ~ \frac{P(BR)}{P(R)} ~ = ~ \frac{0.5 \times 0.2}{(0.5 \times 0.6) + (0.5 \times 0.2)} ~ = ~ 0.25
-$$</p>
-<p>The answer is less than half, just as you had guessed.</p>
-<p>We have updated our opinion about whether the box was drawn, given the color of the ball.</p>
-<ul>
-<li>Before we knew the color of the ball, we said the chance of drawing the box is 0.5. This is called the <em>prior</em> probability of drawing the box.</li>
-<li>After we saw that the ball is red, we said that the chance that the box was drawn is 0.25. This is called the <em>posterior</em> probability of drawing the box.</li>
-</ul>
-<p>This way of updating probabilities based on new information is the basis for much inference in data science.</p>
+<p><strong>2.</strong>
+A class starts at 3:10 p.m. Seven students in the class arrive at random times $T_1, T_2, \ldots, T_7$ that are i.i.d. with the uniform distribution on the interval 3:07 to 3:12.</p>
+<p><strong>a)</strong> Find $E(T_1)$.</p>
+<p><strong>b)</strong> What is the chance that all seven students arrive before 3:10?</p>
+<p><strong>c)</strong> Let $X = \max(T_1, T_2, \ldots, T_7)$ be the time when the last of the seven students arrives. Find the cdf of $X$.</p>
 
 </div>
 </div>
@@ -2040,17 +2006,134 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bayes'-Rule">Bayes' Rule<a class="anchor-link" href="#Bayes'-Rule"> </a></h3><p>The calculation we just did is a special case of a result developed by <a href="https://en.wikipedia.org/wiki/Thomas_Bayes">Reverend Thomas Bayes</a>. It says that if $A$ and $B$ are two events and we already know $P(A)$, $P(B \mid A)$, and $P(B \mid A^c)$, then we can find $P(A \mid B)$ as</p>
-<p>$$
-P(A \mid B) ~ = ~ \frac{P(AB)}{P(B)} ~ = ~ \frac{P(A)P(B \mid A)}{P(A)P(B \mid A) + P(A^c)P(B \mid A^c)}
-$$</p>
-<p>This is just the division rule in a particular scenario, which is why the division rule is itself sometimes called Bayes' Rule.</p>
-<p>The rule helps you find a <em>posterior probability:</em> a conditional chance for the first stage, given the result of a second stage. The calculation has two ingredients:</p>
+<p><strong>3.</strong>
+Let $X$ have the exponential distribution with mean 24 hours. Assume that $X$ is measured in hours.</p>
+<p><strong>a)</strong> Find $P(X &gt; 72)$.</p>
+<p><strong>b)</strong> Find $P(X &gt; 72 \mid X &gt; 24)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>4.</strong> 
+Strontium 90 has a half-life of 28.8 years. Assuming exponential decay, about how many years will it take for $2/3$ of a lump of Strontium 90 to decay?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>5.</strong>
+The weights of five randomly sampled people are i.i.d. normally distributed random variables with mean 150 pounds and SD 20 pounds. Let $W$ be the total weight of the five people, measured in pounds. If possible, find $w$ such that $P(W &gt; w) = 0.05$. If this is not possible, explain why not.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>6.</strong> 
+A random variable $X$ is normally distributed. The 25th percentile of the distribution is 120 and the 75th percentile is 147. Find the 90th percentile. [Use any method, but it's worth seeing if you can solve the problem without using the mean.]</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>7.</strong> A simple random sample of 200 students is taken at University A. Independently, a simple random sample of 300 students is taken at University B.</p>
 <ul>
-<li>probabilities for the first stage; these are called <em>prior</em> probabilities</li>
-<li>conditional probabilities for the second stage given the first; these are called <em>likelihoods</em></li>
+<li>The number of football games watched by students in Sample A has an average of 1.5 and an SD of 2. The number of football games watched by students in Sample B has an average of 4 and and SD of 1.5.</li>
+<li>20% of the students in Sample A are football fans, whereas 50% of the students in Sample B are football fans.</li>
 </ul>
-<p>The calculation in Bayes' Rule is best remembered in terms of the tree diagram: the total chance of the braches you want relative to the total chance of all the branches that satisfy the given condition. The formula has a way of making this simple idea look harder.</p>
+<p>In what follows, define "difference" to be "Quantity in B minus Quantity in A". Note that this not an absolute difference; it is allowed to be negative.</p>
+<p><strong>a)</strong> Construct an approximate 95% confidence interval for the difference between the average number of football games watched by students in the two universities.</p>
+<p><strong>b)</strong> Construct an approximate 95% confidence interval for the difference between the proportions of football fans in the two universities.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>8.</strong>
+A simple random sample of 500 students is taken at University A. Independently, a simple random sample of 700 students is taken at University B.</p>
+<p>In the sample from University A, 20% of the students are Economics majors. In the sample from University B, 16% of the students are Economics majors.</p>
+<p>Is this difference due to chance? Or does University A have a higher percent of Economics majors?</p>
+<p>Answer this by performing a test of hypotheses at the 5% level. Your answer should include a null hypothesis in terms of random variables, an appropriate alternative hypothesis, a test statistic, a $p$-value, and a conclusion, along with justifications of all of these.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>9.</strong>
+The heights of two men drawn at random from a population are i.i.d. normal with mean 68 inches and SD 3 inches. Find the chance that one of the men is more than four inches taller than the other.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>10.</strong>
+Let $U$ have the uniform distribution on the interval $(0, 1)$. Let $V = -\frac{1}{5}\log(U)$.</p>
+<p><strong>a)</strong> What are the possible values of $V$?</p>
+<p><strong>b)</strong> Find the cdf of $V$. Be careful about minus signs and directions of inequalities. <a href="http://stat88.org/textbook/notebooks/Chapter_10/02_Expectation_and_Variance.html">Section 10.2</a> has the cdf of $U$.</p>
+<p><strong>c)</strong> Use Part <strong>b</strong> to identify the distribution of $V$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>11.</strong>
+Scores on a test are normally distributed. The 80th percentile is 15 points higher than the 70th percentile.</p>
+<p>True or false (explain):</p>
+<p>The 90th percentile is 15 points higher than the 80th percentile.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>12.</strong> 
+In a simple random sample of 100 students taken in School A, the average GPA is 3.2 and the SD is 0.5. In a simple random sample of 150 students taken at School B, the average GPA is 3.4 and the SD is 0.3. You can assume that the samples from the two schools are independent of each other.</p>
+<p>Is this just chance variation? Or are the average GPAs different in the two schools?</p>
+<p>Answer this by performing a test of hypotheses at the 5% level. Your answer should include a null hypothesis in terms of random variables, an appropriate alternative hypothesis, a test statistic, a $p$-value, and a conclusion, along with justifications of all of these.</p>
 
 </div>
 </div>
@@ -2064,15 +2147,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
-      〈 <span class="u-margin-right-tiny"></span> Symmetry in Simple Random Sampling
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_10/04_The_Normal_Distribution.html">
+      〈 <span class="u-margin-right-tiny"></span> The Normal Distribution
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_02/04_Use_and_Interpretation.html">
-      Use and Interpretation <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

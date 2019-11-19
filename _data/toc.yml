@@ -265,6 +265,12 @@
   - title: The Exponential Distribution
     url: /notebooks/Chapter_10/03_The_Exponential_Distribution
     not_numbered: False
+  - title: The Normal Distribution
+    url: /notebooks/Chapter_10/04_The_Normal_Distribution
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_10/05_Exercises
+    not_numbered: False
   
     
  
