@@ -271,6 +271,14 @@
   - title: Exercises
     url: /notebooks/Chapter_10/05_Exercises
     not_numbered: False
+- title: "Bias, Variance, and Least Squares"
+  url: /notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Bias and Variance
+    url: /notebooks/Chapter_11/01_Bias_and_Variance
+    not_numbered: False
   
     
  

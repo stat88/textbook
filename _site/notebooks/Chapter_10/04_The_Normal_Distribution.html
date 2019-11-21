@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_10/04_The_Normal_Distribution.html",
   "headline": "The Normal Distribution",
-  "datePublished": "2019-11-19T10:04:34-06:00",
-  "dateModified": "2019-11-19T10:04:34-06:00",
+  "datePublished": "2019-11-21T09:17:22-06:00",
+  "dateModified": "2019-11-21T09:17:22-06:00",
   "description": "The Normal Distribution We can now think of the normal distribution as the distribution of a random variable that has values on the whole number line, instea...",
   "author": {
     "@type": "Person",
@@ -1913,6 +1913,60 @@ initFunction(initPrint)
 
       
     
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/textbook/notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares.html"
+        >
+          
+            11.
+          
+          Bias, Variance, and Least Squares
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_11/01_Bias_and_Variance.html"
+                >
+                  
+                    11.1
+                  
+                  Bias and Variance
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
   </ul>
   <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
@@ -2169,9 +2223,9 @@ $$</p>
 <p>$H_A$: The mean income in City Y is greater than that in City X; that is, $\mu_Y &gt; \mu_X$.</p>
 <p>It is important to keep in mind that the hypothese are just about the two population means. The null hypothesis is not saying that the two population distributions are the same. It is just saying that the two means are the same. The SDs might be different, the shapes might be different – the null hypothesis makes no claim about those.</p>
 <p>A natural test statistic is $\bar{Y} - \bar{X}$. Large values of this statistic favor the alternative.</p>
-<p>Under $H_0$, the distribution of $\bar{Y} - \bar{X}$ is approximately normal with mean $0$ and variance</p>
+<p>Under $H_0$, the distribution of $\bar{Y} - \bar{X}$ is approximately normal with mean $0$ and standard deviation</p>
 <p>$$
-\frac{\sigma_X^2}{400} + \frac{\sigma_Y^2}{600} ~ \approx ~ \sqrt{\frac{40000^2}{400} + \frac{50000^2}{600}} ~ \approx ~ 2858
+\sqrt{\frac{\sigma_X^2}{400} + \frac{\sigma_Y^2}{600}}  \approx  \sqrt{\frac{40000^2}{400} + \frac{50000^2}{600}}  \approx  2858
 $$</p>
 <p>as before.</p>
 <p>The observed value of the statistic is $80000 - 70000 = 10000$ dollars. This is the red dot on the horizontal axis of the figure below.</p>
