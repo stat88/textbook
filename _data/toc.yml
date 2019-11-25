@@ -179,7 +179,7 @@
   not_numbered: False
   expand_sections: True
   sections:
-  - title: Variance and Standard_Deviation
+  - title: Variance and Standard Deviation
     url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation
     not_numbered: False
   - title: Simplifying the Calculation
@@ -278,6 +278,9 @@
   sections:
   - title: Bias and Variance
     url: /notebooks/Chapter_11/01_Bias_and_Variance
+    not_numbered: False
+  - title: "The German Tank Problem, Revisited"
+    url: /notebooks/Chapter_11/02_German_Tank_Problem_Revisited
     not_numbered: False
   
     

@@ -11,9 +11,9 @@ prev_page:
   title: |-
     Bias, Variance, and Least Squares
 next_page:
-  url: 
+  url: /notebooks/Chapter_11/02_German_Tank_Problem_Revisited.html
   title: |-
-    
+    The German Tank Problem, Revisited
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -34,16 +34,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <p>Suppose we are trying to estimate a constant numerical parameter $\theta$, and our estimator is the statistic $T$. Remember that a statistic is a number that we can calculate from our random sample; since the sample is random, so is the statistic.</p>
 <p>To assess the quality of an estimator, we have to examine how its values compare with the parameter being estimated. We will first do a qualitative analysis and then move on to formal definitions.</p>
 <p>Each figure below corresponds to a different estimator. In each case, the parameter $\theta$ is at the red dot on the number line. We have generated a few values of the estimator and have plotted them in blue.</p>
-<ul>
-<li><p>The figure on the top left corresponds to an estimator that is unbiased and has low variance. Its values are tightly clustered around the red dot. This kind of estimator is desirable: it is rarely far from the parameter, and it doesn't systematically overestimate or underestimate.</p>
-</li>
-<li><p>The figure on the bottom left corresponds to an estimator that has low variance but is <em>biased</em>. We will give a formal definition of bias later in this section; for now, just think of bias as a systematic overestimation or underestimation. The estimator in this figure overestimates by quite a bit compared to the estimators in the other figures.</p>
-</li>
-<li><p>The figure on the top right corresponds to an estimator that is unbiased but has high variance. The six values plotted do look roughly evenly distributed around the red dot, but some of them are quite far from the red dot, on either side.</p>
-</li>
-<li><p>The figure on the bottom right corresponds to an estimator that has low variance and also low bias. It's not unbiased – you can see that it overestimates in general. But not by much! And because of its low variance, it is rarely very far from the parameter. So, even though the estimator is biased, we might want to use it because we know its value will be close to the parameter.</p>
-</li>
-</ul>
 
 </div>
 </div>
@@ -61,6 +51,26 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <td> <img src="../../images/bias_lvar.png" alt="biased, low variance" style="width: 400px;"/> </td>
 <td> <img src="../../images/lbias_lvar.png" alt="low bias, low variance" style="width: 400px;"/> </td>
 </tr></table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The figure on the top left corresponds to an estimator that is unbiased and has low variance. Its values are tightly clustered around the red dot. This kind of estimator is desirable: it is rarely far from the parameter, and it doesn't systematically overestimate or underestimate.</p>
+</li>
+<li><p>The figure on the bottom left corresponds to an estimator that has low variance but is <em>biased</em>. We will give a formal definition of bias later in this section; for now, just think of bias as a systematic overestimation or underestimation. The estimator in this figure overestimates by quite a bit compared to the estimators in the other figures.</p>
+</li>
+<li><p>The figure on the top right corresponds to an estimator that is unbiased but has high variance. The six values plotted do look roughly evenly distributed around the red dot, but some of them are quite far from the red dot, on either side.</p>
+</li>
+<li><p>The figure on the bottom right corresponds to an estimator that has low variance and also low bias. It's not unbiased – you can see that it overestimates in general. But not by much! And because of its low variance, it is rarely very far from the parameter. So, even though the estimator is biased, we might want to use it because we know its value will be close to the parameter.</p>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -150,6 +160,12 @@ $$</p>
 $$</p>
 <p>This quantifies what we saw visually: the quality of an estimator depends on the bias as well as the variance.</p>
 <p>Ideally, we would like to construct an estimator for which both the bias and the variance are small. Sometimes this turns out to be impossible. For example, if you adjust an estimator to reduce bias, you might end up increasing the variance.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The second term on the right hand side is the square of the bias, not just the bias. The bias has the same units of measurement as $T$ and $\theta$. The square of the bias is in the square of those units, like the mean squared error and the variance.</li>
+<li>It's clear from the diagrams at the start of this section that variance and bias are important in assessing how good $T$ is as an estimator. The bias-variance decomposition shows that there is no other aspect of $T$ that contributes to the mean square error.</li>
+<li>The MSE, bias, and variance of $T$ all depend on $\theta$. We typically don't know the parameter $\theta$, so we can't compute numerical values of these quantities. But we can work with them as functions of $\theta$. For example, if one estimator has variance $\theta^2$ and another estimator has variance $2\theta^2$, then we know that the second one has the higher variance for every value of $\theta$.</li>
+</ul>
 
 </div>
 </div>

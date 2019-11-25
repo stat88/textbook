@@ -1,0 +1,258 @@
+---
+redirect_from:
+  - "/notebooks/chapter-11/02-german-tank-problem-revisited"
+interact_link: content/notebooks/Chapter_11/02_German_Tank_Problem_Revisited.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  The German Tank Problem, Revisited
+prev_page:
+  url: /notebooks/Chapter_11/01_Bias_and_Variance.html
+  title: |-
+    Bias and Variance
+next_page:
+  url: 
+  title: |-
+    
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-German-Tank-Problem,-Revisited">The German Tank Problem, Revisited<a class="anchor-link" href="#The-German-Tank-Problem,-Revisited"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Earlier in the course we examined the <a href="http://stat88.org/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html#World-War-II-Tanks">German tank problem</a> in which statisticians helped the Allies estimate the number of tanks the Germans were manufacturing in World War II.</p>
+<p>In our discussion we had assumed a simpler model than the one the Allies had used. We had started by assuming, as the Allies had, that the tanks were numbered sequentially from 1 through $N$. The goal was to estimate $N$ from the serial numbers on the tanks that were observed. Our model had said that these numbers were like draws <em>with</em> replacement from $1, 2, 3, \ldots, N$. But that's not a great model for serial numbers observed on tanks that have been captured or destroyed.</p>
+<p>So we will now assume, as the Allies did, that the serial numbers of the observed tanks are random variables $X_1, X_2, \ldots, X_n$ drawn uniformly at random <em>without</em> replacement from $\{1, 2, 3, \ldots, N\}$. That is, we have a simple random sample of size $n$ from the population $\{1, 2, 3, \ldots, N\}$, and we have to estimate $N$.</p>
+<p>By the symmetry of simple random sampling, each $X_i$ has the same distribution as the others. The distribution is uniform on $\{1, 2, 3, \ldots, N\}$, so for each $i$ we have</p>
+<p>$$
+E(X_i) ~ = ~ \frac{N+1}{2} 
+$$</p>
+<p>Hence if $\bar{X}$ is the sample average, then</p>
+<p>$$
+E(\bar{X}) ~ = ~ \frac{N+1}{2}
+$$</p>
+<p>This is a linear function of the parameter $N$. So by inverting the function (that is, isolating $N$), we can construct an unbiased estimator of $N$. We have</p>
+<p>$$
+N ~ = ~ 2E(\bar{X}) - 1
+$$</p>
+<p>This is an equality of constants, but we'll never know $E(\bar{X})$ because that quantity involves $N$  which is exactly what we are trying to estimate. However, by linearity of expectation, the random variable</p>
+<p>$$
+T_1 ~ = ~ 2\bar{X} - 1
+$$</p>
+<p>has expectation $N$ and hence is an unbiased estimator of $N$. It can be calculated based on the sample $X_1, X_2, \ldots, X_n$.</p>
+<p>We have called this estimator $T_1$ because it is the first of several competing estimators of $N$.</p>
+<p>Another natural estimator of $N$ is $T_2 = \max\{X_1, X_2, \ldots, X_n\}$, the maximum of the observed numbers. This estimator is clearly biased. It is always less than or equal to $N$. So on average, it will underestimate $N$.</p>
+<p>But not by much! The figure below shows the empirical histograms of $T_1$ and $T_2$ based on 10,000 repetitions of drawing a simple random sample of size 30 from the integers $1$ through $300$ and computing $T_1$ and $T_2$ for each sample. You can see that the distribution of the sample maximum $T_2$ puts a lot of mass just to the left of the population maximum $300$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_11/02_German_Tank_Problem_Revisited_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The blue histogram shows the empirical distribution of $T_1 = 2\bar{X} - 1$. It is roughly normal because the distribution of $\bar{X}$ is roughly normal: when sampling $30$ elements out of a population of $300$, sampling with and without replacement aren't very different, so the Central Limit Theorem for i.i.d. sample means implies approximate normality. As the number of captured or destroyed tanks was small relative to the number produced, it is reasonable to assume that $n$ is quite a bit smaller than $N$.</p>
+<p>The blue histogram is centered at $N = 300$, the value of $N$ that we chose for the simulation. That is because $T_1$ is an unbiased estimator of $N$.</p>
+<p>The gold histogram displays the distribution of $T_2 = \max\{1, 2, 3, \ldots, N\}$. It is entirely to the left of $N = 300$, confirming our assertion that $T_2$ underestimates $N$. However, the gold histogram is quite a bit narrower than the blue and puts most of its probability very close to the parameter $N$. This is a situation in which we might prefer to use the somewhat biased estimator $T_2$ over the unbiased but widely variable estimator $T_1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Bias-of-the-Sample-Maximum">The Bias of the Sample Maximum<a class="anchor-link" href="#The-Bias-of-the-Sample-Maximum"> </a></h3><p>To calculate the bias of $M$, it helps to imagine a row of $N$ spots for the serial numbers $1$ through $N$, with marks at the spots corresponding to the observed serial numbers. The visualization below shows an outcome in the case $N= 20$ and $n = 3$.</p>
+<p><img src="../../images/all_gaps.png" alt="gaps"></p>
+<ul>
+<li>There are $N = 20$ spots in all. </li>
+<li>From these, we take a simple random sample of size $n = 3$. Those are the gold spots.</li>
+<li>The remaining $N - n = 17$ spots are colored blue.</li>
+</ul>
+<p>The $n = 3$ sampled spots create $n+1 = 4$ blue "gaps" between sampled values: one before the leftmost gold spot, two between successive gold spots, and one after the rightmost gold spot that is at position $M$.</p>
+<p>The key observation is that because of the symmetry of simple random sampling, the lengths of all four gaps have the same distribution. Therefore all four gaps have the same expected length, which we can find by counting blue and gold spots as follows:</p>
+<ul>
+<li>The gaps are made up of $N - n = 17$ blue spots.</li>
+<li>Since each of the four gaps has the same expected length, the expected length of a single gap is $\frac{17}{4}$.</li>
+</ul>
+<p>In general, when the data are a simple random sample of $n$ elements out of $1, 2, 3, \ldots, N$, then</p>
+<p>$$
+\text{expected length of gap} ~ = ~ \frac{N-n}{n+1}
+$$</p>
+<p>The length of the very last gap (the one after $M$) is the random amount by which $M$ underestimates $N$. Let's call the length of that gap $G_{n+1}$ since it is the $(n+1)$th gap starting from the left.</p>
+<p>Then $N = M + G_{n+1}$. Take expectations on both sides and remember that $N$ is a constant:</p>
+<p>$$
+N ~ = ~ E(M) + E(G_{n+1}) ~ = ~ E(M) + \frac{N-n}{n+1}
+$$</p>
+<p>So the bias of $M$ is</p>
+<p>$$
+E(M) - N ~ = ~ \frac{-(N-n)}{n+1}
+$$</p>
+<p>The bias is negative, consistent with our observation that the sample maximum tends to underestimate $N$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Better-Estimator">A Better Estimator<a class="anchor-link" href="#A-Better-Estimator"> </a></h3><p>The fact that the bias of $M$ is linear in the parameter $N$ allows us to construct a new unbiased estimator of $N$.</p>
+<p>You can of course find $E(M)$ by using the formula for the bias, but we will find $E(M)$ by counting spots from the left, up to and including the gold spot at position $M$. These spots consist of:</p>
+<ul>
+<li>$n$ blue gaps of expected length $\frac{N-n}{n+1}$ each, and</li>
+<li>$n$ gold spots</li>
+</ul>
+<p>Hence</p>
+<p>$$
+E(M) ~ = ~ n\big{(}\frac{N-n}{n+1}\big{)} + n ~ = ~ \frac{n}{n+1}(N + 1)
+$$</p>
+<p>after a little algebra.</p>
+<p>This is a linear function of $N$, so you can isolate $N$ to create an unbiased estimator of $N$ just as we did earlier in the section. Isolating $N$ gives</p>
+<p>$$
+N ~ = ~ E(M)\big{(}\frac{n+1}{n}\big{)} - 1
+$$</p>
+<p>and so it follows that</p>
+<p>$$
+T_3 ~ = ~  M\big{(}\frac{n+1}{n}\big{)} - 1
+$$</p>
+<p>is an unbiased estimator of $N$. We will call this the "augmented maximum" for reasons that will become clear at the end of this section.</p>
+<p>Since $T_3$ is a linear function of $M$, we have</p>
+<p>$$
+SD(T_3) ~ = ~ \frac{n+1}{n}SD(M) ~ &gt; ~ SD(M)
+$$</p>
+<p>While $T_3$ is unbiased and $M$ is biased, $T_3$ is more variable than $M$.</p>
+<p>To decide which one to use, notice that $SD(T_3) = (1 + \frac{1}{n})SD(M)$, so the two SDs are almost the same for large $n$. For moderate $n$, the Allied statisticians decided that the reduction in bias was worth the slight increase in variance.</p>
+<p>The simulation below gives you a sense of the relative sizes of all these quantities. The parameter $N$ and the sample size $n$ are the same as in the simulation shown earlier in the section.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Average of Augmented Maxes: 300.18587333333335
+SD of of Augmented Maxes: 8.947086216787126
+Average of Maxes: 291.4702
+SD of Maxes: 8.65847053237464
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_11/02_German_Tank_Problem_Revisited_8_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Understanding-the-Augmented-Maximum">Understanding the Augmented Maximum<a class="anchor-link" href="#Understanding-the-Augmented-Maximum"> </a></h3><p>We gave an algebraic derivation of the augmented maximum $T_3$, but there is another good way to understand the formula.</p>
+<p>The reason the sample maximum $M$ is biased is that in the sample we can see all but the last gap, as in the figure below in the case $n = 3$. The red question mark reminds you that the gap to the right of $M$ is invisible to us.</p>
+<p><img src="../../images/mystery_gap.png" alt="mystery gap"></p>
+<p>If we could see the gap to the right of $M$, we would see $N$. But we can't. So we can try to do the next best thing, which is to augment $M$ by the estimated size of that gap.</p>
+<p>Since we can see all of the spots and their colors up to and including $M$, we can see $n$ out of the $n+1$ gaps. The lengths of the gaps all have the same distribution by symmetry, so we can estimate the length of a single gap by the average length of all the gaps that we can see.</p>
+<p>We can see $M$ spots, of which $n$ are the sampled values. So the total length of all $n$ visible gaps is $M-n$. Therefore</p>
+<p>$$
+\text{estimated length of one gap} ~ = ~ \frac{M-n}{n}
+$$</p>
+<p>and hence we can try to improve upon $M$ using the estimator</p>
+<p>$$
+M + \frac{M-n}{n}
+$$</p>
+<p>instead. Now</p>
+<p>$$
+M + \frac{M-n}{n} ~ = ~ M\big{(}\frac{n+1}{n}\big{)} - 1 ~ = T_3
+$$</p>
+<p>Our new estimator is the same as the unbiased estimator $T_3$ we derived earlier. That is why we have called $T_3$ the augmented maximum: it is the sample maximum plus one estimated gap.</p>
+<p>It is possible for the augmented maximum to overestimate $N$. For example, if the observed value of $M$ happens to be $N$, in the calculation of $T_3$ we will have added a gap that we didn't need to add and therefore we will overestimate $N$.</p>
+<p>As before, it is possible for the augmented maximum to underestimate $N$, for example if all the sampled serial numbers are small.</p>
+<p>What we have shown is that on average, the augmented maximum gets the answer right, and is only slightly more variable than the maximum.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
