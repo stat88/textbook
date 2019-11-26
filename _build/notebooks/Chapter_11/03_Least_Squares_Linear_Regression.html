@@ -39,7 +39,10 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 $$</p>
 <p>where $r$ is the correlation between the two variables (which we have not yet defined in this course), and</p>
 <p>$$
-\text{intercept of the regression line} ~ = ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+\begin{align*}
+&amp;\text{intercept of the regression line} \\
+&amp;= ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+\end{align*}
 $$</p>
 <p>Data 8 gives you two ways of confirming that the formulas work:</p>
 <ul>
@@ -100,7 +103,10 @@ $$</p>
 $$</p>
 <p>This is consistent with the formula for the intercept of the regression line in Data 8:</p>
 <p>$$
-\text{intercept of the regression line} ~ = ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+\begin{align*}
+&amp;\text{intercept of the regression line} \\
+&amp;= ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+\end{align*}
 $$</p>
 <p>To be very thorough, we should take the second derivative, look at its sign, and confirm that we have a minimum rather than a maximum value of the mean squared error. But we will spare ourselves that calculation. We have enough experience from Data 8 to know that this is a minimum, not a maximum.</p>
 
@@ -195,6 +201,12 @@ $$</p>
 <li>the slope of the regression line is $\hat{a} = r\frac{\sigma_Y}{\sigma_X}$</li>
 <li>the intercept of the regression line is $\hat{b} = \mu_Y - \hat{a}\mu_X$</li>
 </ul>
+<p>Sometimes it is useful to write the regression equation in a different form:</p>
+<p>$$
+\hat{Y} ~ = ~ \hat{a}X + \mu_Y - \hat{a}\mu_X
+~ = ~ \hat{a}(X - \mu_X) + \mu_Y
+$$</p>
+<p>This form can reduce calculation because $E(X - \mu_X) = 0$ and $Var(X - \mu_X) = Var(X) = \sigma_X^2$. We will use it in later sections to study the error in the regression prediction.</p>
 
 </div>
 </div>
