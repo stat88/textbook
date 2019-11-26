@@ -282,6 +282,9 @@
   - title: "The German Tank Problem, Revisited"
     url: /notebooks/Chapter_11/02_German_Tank_Problem_Revisited
     not_numbered: False
+  - title: Least Squares Linear Regression
+    url: /notebooks/Chapter_11/03_Least_Squares_Linear_Regression
+    not_numbered: False
   
     
  

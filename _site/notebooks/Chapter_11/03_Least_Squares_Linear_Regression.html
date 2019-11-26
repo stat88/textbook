@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Exercises</title>
-  <meta name="description" content="Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $...">
+  <title>Least Squares Linear Regression</title>
+  <meta name="description" content="Least Squares Linear Regression The mean squared error is a criterion by which you can compare two estimators – the one with the smaller mean squared error i...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Exercises" />
-<meta property="og:description" content="Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $..." />
+<meta property="og:title"       content="Least Squares Linear Regression" />
+<meta property="og:description" content="Least Squares Linear Regression The mean squared error is a criterion by which you can compare two estimators – the one with the smaller mean squared error i..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_08/05_Exercises.html",
-  "headline": "Exercises",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html",
+  "headline": "Least Squares Linear Regression",
   "datePublished": "2019-11-25T23:48:31-06:00",
   "dateModified": "2019-11-25T23:48:31-06:00",
-  "description": "Exercises 1.At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $...",
+  "description": "Least Squares Linear Regression The mean squared error is a criterion by which you can compare two estimators – the one with the smaller mean squared error i...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -1632,7 +1632,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/textbook/notebooks/Chapter_08/05_Exercises.html"
                 >
                   
@@ -1984,7 +1984,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html"
                 >
                   
@@ -2044,18 +2044,11 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-</div>
-
-<div class="jb_cell">
+              <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h2>
+<h2 id="Least-Squares-Linear-Regression">Least Squares Linear Regression<a class="anchor-link" href="#Least-Squares-Linear-Regression"> </a></h2>
 </div>
 </div>
 </div>
@@ -2065,40 +2058,28 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>1.</strong>
-At a restaurant, the amounts on the checks are i.i.d. with mean 40 dollars and SD 30 dollars. Let $T$ be the total amount on 200 checks and let $M$ be the mean amount on those 200 checks.</p>
-<p><strong>a)</strong> Find $E(T)$ and $SD(T)$.</p>
-<p><strong>b)</strong> If possible, sketch the approximate distribution of $T$ and mark $E(T)$ and $SD(T)$ appropriately on your sketch. If this is not possible, explain why not.</p>
-<p><strong>c)</strong> Find $E(M)$ and $SD(M)$.</p>
-<p><strong>d)</strong> If possible, sketch the approximate distribution of $M$ and mark $E(M)$ and $SD(M)$ appropriately on your sketch. If this is not possible, explain why not.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>2.</strong> Suppose the numbers of M&amp;Ms in the small 1.69-ounce bags of the candy are i.i.d. with mean 55 and SD 2. Let $X$ be the total number of M&amp;Ms in 100 such bags. Find or approximate $P(X &gt; 5525)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>3.</strong>
-A population consists of 1 million people. Incomes in the population have an average of 70,000 dollars and an SD of 30,000 dollars. A simple random sample of 400 people is taken from the population.</p>
-<p>Sketch your best guesses of the shapes of the following histograms and provide your reasoning.</p>
-<p><strong>a)</strong> the histogram of the 1 million incomes in the population</p>
-<p><strong>b)</strong> the histogram of the 400 incomes in the sample</p>
-<p><strong>c)</strong> the probability histogram of the income of a person drawn at random from the population</p>
-<p><strong>d)</strong> the probability histogram of the average of a simple random sample of 400 people drawn from the population</p>
+<p>The mean squared error is a criterion by which you can compare two estimators – the one with the smaller mean squared error is on average closer to the quantity you are trying to estimate. An important use of this criterion is to identify the best among a class of estimators.</p>
+<p>For example, suppose you have a random pair $(X, Y)$ and you want to use a linear function of $X$ to estimate $Y$. That is, you want to estimate $Y$ by the function $aX + b$ for some slope $a$ and intercept $b$. Your goal is to find the best in the class of all linear functions. If the criterion is mean squared error, the goal is to see if there is a slope and an intercept that minimize the mean squared error.</p>
+<p>This is the <a href="https://www.inferentialthinking.com/chapters/15/2/Regression_Line.html">regression</a> problem from Data 8, expressed in random variable notation. Recall that in Data 8 you were given formulas for the <a href="https://www.inferentialthinking.com/chapters/15/2/Regression_Line.html#The-Equation-of-the-Regression-Line">slope and intercept</a> of the "best" or "least squares" line, also known as the regression line. In Data 8 notation the formulas are:</p>
+<p>$$
+\text{slope of the regression line} ~ = ~ r \frac{\text{SD of }y}{\text{SD of }x}
+$$</p>
+<p>where $r$ is the correlation between the two variables (which we have not yet defined in this course), and</p>
+<p>$$
+\text{intercept of the regression line} ~ = ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+$$</p>
+<p>Data 8 gives you two ways of confirming that the formulas work:</p>
+<ul>
+<li>By the <a href="https://www.inferentialthinking.com/chapters/15/2/Regression_Line.html#Identifying-the-Line-in-Standard-Units">geometry</a> of elliptical or "football shaped" scatter diagrams</li>
+<li>By <a href="https://www.inferentialthinking.com/chapters/15/3/Method_of_Least_Squares.html#Minimizing-the-Root-Mean-Squared-Error">numerical minimization</a> of the mean squared error over all possible lines</li>
+</ul>
+<p>We will now derive the formulas mathematically using calculus and properties of expectation and variance.</p>
+<p>First, some notation:</p>
+<ul>
+<li>$E(X) = \mu_X$, $SD(X) = \sigma_X$</li>
+<li>$E(Y) = \mu_Y$, $SD(Y) = \sigma_Y$</li>
+</ul>
+<p>Also, some terminology: statistics that we have been calling "estimators" can also be called "predictors" depending on the context. Data 8 calls the regression estimate a regression prediction, and we will do that too.</p>
 
 </div>
 </div>
@@ -2109,10 +2090,11 @@ A population consists of 1 million people. Incomes in the population have an ave
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>4.</strong>
-<strong>[Continuing the previous exercise.]</strong></p>
-<p><strong>a)</strong> Fill in the blank with a number: At least 75% of the population has incomes in the range 70,000 dollars plus or minus $\underline{~~~~~~~~~~~~~~~~~~}$ dollars.</p>
-<p><strong>b)</strong> Fill in the blank with a number: With chance about 75%, the average income of the sampled people is in the range 70,000 dollars plus or minus $\underline{~~~~~~~~~~~~~~~~~~}$ dollars.</p>
+<h3 id="Mean-Squared-Error">Mean Squared Error<a class="anchor-link" href="#Mean-Squared-Error"> </a></h3><p>For the random point $(X, Y)$, the mean squared error of a linear predictor of $Y$ based on $X$ depends on the slope $a$ and intercept $b$ of the line used. So let us define $MSE(a, b)$ to be the mean squared error when we use the line $aX + b$ to predict $Y$. That is,</p>
+<p>$$
+MSE(a, b) ~ = ~ E\big{(} (Y - (aX+b))^2 \big{)}
+$$</p>
+<p>We have to find the values of $a$ and $b$ that minimize this function. We will do that by calculus, in two stages.</p>
 
 </div>
 </div>
@@ -2123,8 +2105,31 @@ A population consists of 1 million people. Incomes in the population have an ave
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>5.</strong> 
-Suppose the weights of sticks of butter are i.i.d. with a mean of 115 grams and an SD of 5 grams. Let $X$ be the total weight of 600 such sticks. Find $x$ such that $P(X &gt; x)$ is approximately 95%.</p>
+<h3 id="Best-Intercept-for-a-Fixed-Slope">Best Intercept for a Fixed Slope<a class="anchor-link" href="#Best-Intercept-for-a-Fixed-Slope"> </a></h3><p>First, we will fix the slope and find the best intercept for that slope. The error can be rewritten as follows:</p>
+<p>$$
+Y - (aX+b) ~ = ~ (Y-aX) - b
+$$</p>
+<p>For a fixed $a$, let $MSE_a(b) = MSE(a, b)$ be considered as a function of $b$ alone. Then</p>
+<p>$$
+\begin{align*}
+MSE_a(b) ~ &amp;= ~ E\big{(} ((Y-aX) - b)^2 \big{)} \\
+&amp;= ~ E\big{(} (Y-aX)^2 - 2b(Y-aX) + b^2 \big{)} \\
+&amp;= ~ E\big{(} (Y-aX)^2\big{)} -2bE(Y-aX) + b^2
+\end{align*}
+$$</p>
+<p>Now</p>
+<p>$$
+\frac{d}{db}MSE_a(b) ~ = ~ -2E(Y-aX) + 2b
+$$</p>
+<p>Set this equal to $0$ and solve to see that the best intercept $\hat{b}_a$ for the fixed slope $a$ is given by</p>
+<p>$$
+\hat{b}_a ~ = ~ E(Y-aX) ~ = ~ \mu_Y - a\mu_X
+$$</p>
+<p>This is consistent with the formula for the intercept of the regression line in Data 8:</p>
+<p>$$
+\text{intercept of the regression line} ~ = ~ \text{(average of }y\text{)} - \text{slope}\times\text{(average of }x\text{)}
+$$</p>
+<p>To be very thorough, we should take the second derivative, look at its sign, and confirm that we have a minimum rather than a maximum value of the mean squared error. But we will spare ourselves that calculation. We have enough experience from Data 8 to know that this is a minimum, not a maximum.</p>
 
 </div>
 </div>
@@ -2135,42 +2140,35 @@ Suppose the weights of sticks of butter are i.i.d. with a mean of 115 grams and 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>6.</strong>
-A coin is tossed 100 times. Let $X$ be the number of heads.</p>
-<p><strong>a)</strong> What is the distribution of $X$?</p>
-<p><strong>b)</strong> Sketch the normal curve that approximates the distribution of $X$. Mark the numerical values of $E(X)$ and $SD(X)$ appropriately on the sketch.</p>
-<p><strong>c)</strong> Use the approximation in Part <strong>b</strong> to get a rough numerical value for $P(45 \le X \le 55)$.</p>
-<p><strong>d)</strong> Find the exact numerical value of $P(45 \le X \le 55)$ and compare with the answer to <strong>c</strong>. The approximation is pretty rough.</p>
-<p><strong>e)</strong> The figure below shows the probability histogram of $X$ and the approximating normal curve. Fill in the blanks:</p>
-<p>$P(45 \le X \le 55)$ is the area of the bars centered over the integers $\underline{~~~~~~~~~~~~~~}$ through $\underline{~~~~~~~~~~~~~~}$. This is approximately the area under the red curve between the points $\underline{~~~~~~~~~~~~~~}$ and $\underline{~~~~~~~~~~~~~~}$ on the horizontal axis.</p>
+<h3 id="Best-Slope">Best Slope<a class="anchor-link" href="#Best-Slope"> </a></h3><p>We now have to find the best among all slopes. For each fixed slope $a$ we must first plug in the best intercept we just found. Then the error in the prediction can be written as</p>
+<p>$$
+\begin{align*}
+Y - (aX+\hat{b}_a) ~ &amp;= Y - (aX + \mu_Y - a\mu_X) \\
+&amp;= ~ (Y-\mu_Y) - a(X-\mu_X) \\
+&amp;= D_Y - aD_X
+\end{align*}
+$$</p>
+<p>where $D_X$ and $D_Y$ are the deviations of $X$ and $Y$ from their respective means.</p>
+<p>We have to minimize</p>
+<p>$$
+\begin{align*}
+MSE(a) ~ &amp;= ~ E\big{(} (D_Y - aD_X)^2 \big{)} \\
+&amp;= ~ E(D_Y^2) -2aE(D_XD_Y) + a^2E(D_X^2) \\
+&amp;= ~ \sigma_X^2 -2aE(D_XD_Y) + a^2\sigma_X^2
+\end{align*}
+$$</p>
+<p>by the definition of variance. Now</p>
+<p>$$
+\frac{d}{da}MSE(a) ~ = ~ -2E(D_XD_Y) + 2a\sigma_X^2
+$$</p>
+<p>Set this equal to $0$ and solve to see that the best slope is</p>
+<p>$$
+\hat{a} ~ = ~ \frac{E(D_XD_Y)}{\sigma_X^2} ~ = ~ \frac{E\big{(}(X-\mu_X)(Y-\mu_Y)\big{)}}{\sigma_X^2}
+$$</p>
+<p>This doesn't look like the Data 8 formula for the slope of the regression line, but it is the way the slope of the regression line is often written. Let's see if we can make it resemble the Data 8 formula.</p>
 
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_08/05_Exercises_8_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2178,7 +2176,52 @@ A coin is tossed 100 times. Let $X$ be the number of heads.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>f)</strong> Use Part <strong>e</strong> to get a better normal approximation for $P(45 \le X \le 55)$. This is called the normal approximation <em>with continuity correction</em>. You are correcting for using a continuous curve to approximate a discrete histogram.</p>
+<h3 id="Correlation">Correlation<a class="anchor-link" href="#Correlation"> </a></h3><p>The expected product $E(D_XD_Y)$ is called the <em>covariance</em> of $X$ and $Y$. Covariance is difficult to interpret because it has strange units. For example, if we were using educational level to predict income, then the covariance could be measured in units of years$\times$dollars, which is hard to understand.</p>
+<p>One way to deal with this problem is to first divide each deviation by the corresponding SD, to get a pure number. This converts each variable to standard units. The expected product of standard units is called the <em>correlation coefficient</em> of $X$ and $Y$, or just correlation for short. We will denote it by $r(X, Y)$ or just $r$.</p>
+<p>$$
+r ~ = ~ r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X - \mu_X}{\sigma_X}\big{)}\big{(}\frac{Y - \mu_Y}{\sigma_Y}\big{)} \Big{)}
+$$</p>
+<p>This agrees with the <a href="https://www.inferentialthinking.com/chapters/15/1/Correlation.html#Calculating-$r$">Data 8 definition</a> of correlation, which says, "$r$ is the average of the products of the two variables, when both variables are measured in standard units."</p>
+<p>We now have</p>
+<p>$$
+E(D_XD_Y) ~ = ~ E\big{(}(X-\mu_X)(Y-\mu_Y)\big{)} ~ = ~ r\sigma_X\sigma_Y
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-Familiar-Formula-for-the-Best-Slope">A Familiar Formula for the Best Slope<a class="anchor-link" href="#A-Familiar-Formula-for-the-Best-Slope"> </a></h3><p>The best slope can be written as</p>
+<p>$$
+\hat{a} ~ = ~ \frac{E(D_XD_Y)}{\sigma_X^2} ~ = ~ \frac{r\sigma_X\sigma_Y}{\sigma_X^2} ~ = ~ r\frac{\sigma_Y}{\sigma_X}
+$$</p>
+<p>which is the same as the Data 8 formula for the slope of the regression line.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Equation-of-the-Regression-Line">Equation of the Regression Line<a class="anchor-link" href="#Equation-of-the-Regression-Line"> </a></h3><p>We have shown that no matter what the joint distribution of the pair $(X, Y)$, there is a unique straight line that minimizes the mean squared error of prediction among all straight lines. This line is called the <em>regression line</em>, for reasons that you know from Data 8.</p>
+<p>The equation of the regression line is</p>
+<p>$$
+\hat{Y} ~ = ~ \hat{a}X + \hat{b}
+$$</p>
+<p>where:</p>
+<ul>
+<li>$\hat{Y}$ is the regression prediction of $Y$ based on $X$, also known as the <em>fitted value</em> of $Y$</li>
+<li>the slope of the regression line is $\hat{a} = r\frac{\sigma_Y}{\sigma_X}$</li>
+<li>the intercept of the regression line is $\hat{b} = \mu_Y - \hat{a}\mu_X$</li>
+</ul>
 
 </div>
 </div>
@@ -2192,15 +2235,15 @@ A coin is tossed 100 times. Let $X$ be the number of heads.</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_08/04_How_Large_is_Large.html">
-      〈 <span class="u-margin-right-tiny"></span> How Large is Large
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_11/02_German_Tank_Problem_Revisited.html">
+      〈 <span class="u-margin-right-tiny"></span> The German Tank Problem, Revisited
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_09/00_Inference.html">
-      Inference <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
