@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Random Counts</title>
-  <meta name="description" content="Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ...">
+  <title>The Error in Regression</title>
+  <meta name="description" content="The Error in Regression To assess the accuracy of the regression estimate, we must quantify the amount of error in the estimate. The error in the regression ...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/05_The_Error_in_Regression.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/05_The_Error_in_Regression.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Random Counts" />
-<meta property="og:description" content="Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ..." />
+<meta property="og:title"       content="The Error in Regression" />
+<meta property="og:description" content="The Error in Regression To assess the accuracy of the regression estimate, we must quantify the amount of error in the estimate. The error in the regression ..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html",
-  "headline": "Random Counts",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_11/05_The_Error_in_Regression.html",
+  "headline": "The Error in Regression",
   "datePublished": "2019-12-02T09:13:57-06:00",
   "dateModified": "2019-12-02T09:13:57-06:00",
-  "description": "Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ...",
+  "description": "The Error in Regression To assess the accuracy of the regression estimate, we must quantify the amount of error in the estimate. The error in the regression ...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -844,7 +844,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
         >
           
@@ -2022,7 +2022,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_11/05_The_Error_in_Regression.html"
                 >
                   
@@ -2105,7 +2105,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Random-Counts">Random Counts<a class="anchor-link" href="#Random-Counts"> </a></h1>
+<h2 id="The-Error-in-Regression">The Error in Regression<a class="anchor-link" href="#The-Error-in-Regression"> </a></h2>
 </div>
 </div>
 </div>
@@ -2115,53 +2115,105 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions made by a sports journalist – all of these are example of <em>counts</em>. Random counts occur commonly in data science. Understanding them not only helps answer questions about the situations in which they arose but also helps us understand more complicated random quantities.</p>
-<p>In this chapter we will start out with random counts that seem unlikely. We will then develop some general terminology and notation for dealing with random quantities that have numerical values. Our main examples will be random counts when sampling with and without replacement.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Arranging-in-a-Line">Arranging in a Line<a class="anchor-link" href="#Arranging-in-a-Line"> </a></h3><p>It will help to review some of the math involved in counting. Let $n$ be a positive integer and suppose you have a set of $n$ elements.</p>
-<p>Let $k$ be a fixed integer such that $1 \le k \le n$.</p>
-<p>By the product rule of counting, the number of ways in which you can arrange $k$ of the $n$ elements in a line is $n(n-1)(n-2) \cdots (n-k+1)$.</p>
-<p>If $k = n$, this is the same as arranging all $n$ elements in a line. Plug $k = n$ into the expression above to see that the number of ways of arranging $n$ elements in a line is $n!$. These are called <em>permutations</em> of the $n$ elements.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choosing-Subsets">Choosing Subsets<a class="anchor-link" href="#Choosing-Subsets"> </a></h3><p>Suppose now that you want to select $k$ elements from among the $n$ but you are not interested in the order in which they appear. This happens for example when you deal a hand of cards: you hand is the <em>subset</em> or group of cards that you got. Subsets are not ordered.</p>
-<p>The number of different subset of $k$ elements that you can create out of $n$ elements is the number $\binom{n}{k}$, read as "$n$ choose $k$".</p>
-<p>For $k \ge 1$, a good way to remember this number is</p>
+<p>To assess the accuracy of the regression estimate, we must quantify the amount of error in the estimate. The error in the regression estimate is called the <em>residual</em> and is defined as</p>
 <p>$$
-\binom{n}{k} ~ = ~ \frac{n(n-1)(n-2) \ldots (n-k+1)}{k!}
+D = Y - \hat{Y}
 $$</p>
-<p>Notice that $\binom{n}{n} = 1$. There is only one way to choose a set of $n$ elements out of $n$: choose them all.</p>
-<p>The calculation says that you can start by pulling out $k$ elements and arranging them in a line; the number of ways to do that is the numerator above. But you can't just stop there. All $k!$ ways of permuting those same $k$ elements give you the same subset, but the numerator counts them all as different arrangements. In other words, the numerator counts every subset consisting of $k$ elements not once but $k!$ times. You only want to count each subset once. Dividing by $k!$ solves this problem.</p>
-<p>There is another way to remember $\binom{n}{k}$. This way is not great for numerical computation because factorials get very large. But it's a clean formula and sometimes helpful in algebraic calculations.</p>
+<p>where $\hat{Y} = \hat{a}(X-\mu_X) + \mu_Y$ is the regression estimate of $Y$ based on $X$.</p>
+<p>Calculations become much easier if we express the residual $D$ in terms of the deviations $D_X$ and $D_Y$.</p>
 <p>$$
-\binom{n}{k} ~ = ~ \frac{n!}{k!(n-k)!}
+\begin{align*} 
+D ~ &amp;= ~ Y - \big{(} \hat{a}(X - \mu_X) + \mu_Y \big{)} \\
+&amp;= ~ (Y - \mu_Y) - \hat{a}(X - \mu_X) \\
+&amp;= ~ D_Y - \hat{a}D_X
+\end{align*}
 $$</p>
-<p>It is easy to see by algebra that the two expressions for $\binom{n}{k}$ give the same answer.</p>
-<p>One nice consequence of the second representation is that it can also be used when $k=0$ and gives the natural answer $\binom{n}{0} = 1$. There is only one way to choose 0 elements out of $n$: do nothing.</p>
-<p>Recall that $0!$ is defined to be 1. That's to make the formula above work out.</p>
-<p>The numbers $\binom{n}{k}$ appear in many calculations.</p>
-<ul>
-<li>They are the elements of <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal's Triangle</a>.</li>
-<li>They are the coefficients in the <a href="https://en.wikipedia.org/wiki/Binomial_theorem">expansion</a> of $(a + b)^n$. Try it out for $n = 2$ and see!</li>
-</ul>
-<p>For our purposes, the main property of $\binom{n}{k}$ is that it is the number of ways you can choose a subset of $k$ elements out of a set of $n$.</p>
+<p>Since $E(D_X) = 0 = E(D_Y)$, we have $E(D) = 0$.</p>
+<p>This is consistent with what you learned in <a href="https://www.inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html#Average-of-Residuals">Data 8</a>: No matter what the shape of the scatter diagram, the average of the residuals is $0$.</p>
+<p>In our probability world, "no matter what the shape of the scatter diagram" translates to "no matter what the joint distribution of $X$ and $Y$". Remember that we have made no assumptions about that joint distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mean-Squared-Error-of-Regression">Mean Squared Error of Regression<a class="anchor-link" href="#Mean-Squared-Error-of-Regression"> </a></h3><p>The mean squared error of regression is $E\big{(} (Y - \hat{Y})^2 \big{)}$. That is just $E(D^2)$, the expected squared residual.</p>
+<p>Since $E(D) = 0$, $E(D^2) = Var(D)$. So the mean squared error of regression is the variance of the residual.</p>
+<p>Let $r(X,Y) = r$ for short. To calculate the mean squared error of regression, recall that $\hat{a} = r\frac{\sigma_Y}{\sigma_X}$ and $E(D_XD_Y) = r\sigma_X\sigma_Y$.</p>
+<p>The mean squared error of regression is</p>
+<p>$$
+\begin{align*}
+Var(D) ~ &amp;= ~ E(D^2) \\
+&amp;= ~ E(D_Y^2) - 2\hat{a}E(D_XD_Y) + \hat{a}^2E(D_X^2) \\
+&amp;= ~ \sigma_Y^2 - 2r\frac{\sigma_Y}{\sigma_X}r\sigma_X\sigma_Y + r^2\frac{\sigma_Y^2}{\sigma_X^2}\sigma_X^2 \\
+&amp;= ~ \sigma_Y^2 - 2r^2\sigma_Y^2 + r^2\sigma_Y^2 \\
+&amp;= ~ \sigma_Y^2 - r^2\sigma_Y^2 \\
+&amp;= ~ (1-r^2)\sigma_Y^2
+\end{align*}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SD-of-the-Residual">SD of the Residual<a class="anchor-link" href="#SD-of-the-Residual"> </a></h3><p>The SD of the residual is therefore</p>
+<p>$$
+SD(D) ~ = ~ \sqrt{1 - r^2}\sigma_Y
+$$</p>
+<p>which is consistent with the <a href="https://www.inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html#SD-of-the-Residuals">Data 8 formula</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$r$-As-a-Measure-of-Linear-Association">$r$ As a Measure of Linear Association<a class="anchor-link" href="#$r$-As-a-Measure-of-Linear-Association"> </a></h3><p>The expectation of the residual is always $0$. So if $SD(D) \approx 0$ then $D$ is pretty close to $0$ with high probability, that is, $Y$ is pretty close to $\hat{Y}$. In other words, if the SD of the residual is small, then $Y$ is pretty close to being a linear function of $X$.</p>
+<p>The SD of the residual is small if $r$ is close to $1$ or $-1$. The closer $r$ is to those extremes, the closer $Y$ is to being a linear function of $X$. If $r = \pm 1$ then $Y$ is a perfectly linear function of $X$.</p>
+<p>A way to visualize this is that if $r$ is close to $1$ or $-1$, and you repeatedly simulate points $(X, Y)$, the points will lie very close to a straight line. In that sense $r$ is a measure of how closely the scatter diagram is clustered around a straight line.</p>
+<p>The case $r=0$ is worth examining. In that case we say that $X$ and $Y$ are "uncorrelated". Because $\hat{a} = 0$, the equation of the regression line is simply $\hat{Y} = \mu_Y$. That's the horizontal line at $\mu_Y$; your prediction for $Y$ is $\mu_Y$ no matter what the value of $X$ is. The mean squared error is therefore $E\big{(}(Y-\mu_Y)^2\big{)} = \sigma_Y^2$, which is exactly what you get by plugging $r=0$ into the expression $(1 - r^2)\sigma_Y^2$.</p>
+<p>This shows that when $X$ and $Y$ are uncorrelated there is no benefit in using linear regression to estimate $Y$ based on $X$. In this sense too, $r$ quantifies the amount of linear association between $X$ and $Y$.</p>
+<p>In exercises you will see that it is possible for $X$ and $Y$ to be uncorrelated and have a very strong <em>non-linear</em> association. So it is important to keep in mind that $r$ measures only linear association.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Residual-is-Uncorrelated-with-$X$">The Residual is Uncorrelated with $X$<a class="anchor-link" href="#The-Residual-is-Uncorrelated-with-$X$"> </a></h3><p>In Data 8 you learned to perform some <a href="https://www.inferentialthinking.com/chapters/15/5/Visual_Diagnostics.html#Visual-Diagnostics">visual diagnostics</a> on regression by drawing a <em>residual plot</em> which was defined as a scatter diagram of the residuals and the observed values of $X$. We said that residual plots are always flat: "the plot shows no upward or downward trend."</p>
+<p>We will now make this precise by showing that the correlation between $X$ and the residual $D$ is 0.</p>
+<p>By the definition of correlation,</p>
+<p>$$
+\begin{align*}
+r(D, X) ~ &amp;= ~ E\Big{(} \big{(}\frac{D - \mu_D}{\sigma_D}\big{)}\big{(}\frac{X - \mu_X}{\sigma_X}\big{)} \Big{)} \\ \\
+&amp;= ~ \frac{1}{\sigma_D\sigma_X}E(DD_X)
+\end{align*}
+$$</p>
+<p>because $\mu_D = 0$. Therefore to show $r(D, X) = 0$, we just have to show that $E(DD_X) = 0$. Let's do that.</p>
+<p>$$
+\begin{align*}
+E(DD_X) ~ &amp;= ~ E((D_Y - \hat{a}D_X)D_X) \\
+&amp;= ~ E(D_XD_Y) - \hat{a}E(D_X^2) \\
+&amp;= ~ r\sigma_X\sigma_Y - r\frac{\sigma_Y}{\sigma_X}\sigma_X^2 \\
+&amp;= ~ 0
+\end{align*}
+$$</p>
 
 </div>
 </div>
@@ -2175,15 +2227,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/06_Exercises.html">
-      〈 <span class="u-margin-right-tiny"></span> Exercises
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_11/04_Bounds_on_Correlation.html">
+      〈 <span class="u-margin-right-tiny"></span> Bounds on Correlation
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html">
-      Success and Failure <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_11/06_Exercises.html">
+      Exercises <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

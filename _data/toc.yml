@@ -285,6 +285,14 @@
   - title: Least Squares Linear Regression
     url: /notebooks/Chapter_11/03_Least_Squares_Linear_Regression
     not_numbered: False
+  - title: Bounds on Correlation
+    url: /notebooks/Chapter_11/04_Bounds_on_Correlation
+    not_numbered: False
+  - title: The Error in Regression
+    url: /notebooks/Chapter_11/05_The_Error_in_Regression
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_11/06_Exercises
   
     
  

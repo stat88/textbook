@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Random Counts</title>
-  <meta name="description" content="Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ...">
+  <title>Bounds on Correlation</title>
+  <meta name="description" content="Bounds on Correlation For a random pair $(X, Y)$, the correlation $r(X, Y)$ is defined as$$r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{...">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/04_Bounds_on_Correlation.html">
   <link rel="alternate" type="application/rss+xml" title="Stat 88 Textbook" href="http://0.0.0.0:4000/textbook/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/textbook/notebooks/Chapter_11/04_Bounds_on_Correlation.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Random Counts" />
-<meta property="og:description" content="Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ..." />
+<meta property="og:title"       content="Bounds on Correlation" />
+<meta property="og:description" content="Bounds on Correlation For a random pair $(X, Y)$, the correlation $r(X, Y)$ is defined as$$r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_03/00_Random_Counts.html",
-  "headline": "Random Counts",
+  "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_11/04_Bounds_on_Correlation.html",
+  "headline": "Bounds on Correlation",
   "datePublished": "2019-12-02T09:13:57-06:00",
   "dateModified": "2019-12-02T09:13:57-06:00",
-  "description": "Random Counts The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions ...",
+  "description": "Bounds on Correlation For a random pair $(X, Y)$, the correlation $r(X, Y)$ is defined as$$r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{...",
   "author": {
     "@type": "Person",
     "name": "Ani Adhikari"
@@ -844,7 +844,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/textbook/notebooks/Chapter_03/00_Random_Counts.html"
         >
           
@@ -2003,7 +2003,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/textbook/notebooks/Chapter_11/04_Bounds_on_Correlation.html"
                 >
                   
@@ -2105,7 +2105,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Random-Counts">Random Counts<a class="anchor-link" href="#Random-Counts"> </a></h1>
+<h2 id="Bounds-on-Correlation">Bounds on Correlation<a class="anchor-link" href="#Bounds-on-Correlation"> </a></h2>
 </div>
 </div>
 </div>
@@ -2115,53 +2115,77 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The number of people who will vote for a Presidential candidate, the number of treated patients who recover, the number of correct predictions made by a sports journalist – all of these are example of <em>counts</em>. Random counts occur commonly in data science. Understanding them not only helps answer questions about the situations in which they arose but also helps us understand more complicated random quantities.</p>
-<p>In this chapter we will start out with random counts that seem unlikely. We will then develop some general terminology and notation for dealing with random quantities that have numerical values. Our main examples will be random counts when sampling with and without replacement.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Arranging-in-a-Line">Arranging in a Line<a class="anchor-link" href="#Arranging-in-a-Line"> </a></h3><p>It will help to review some of the math involved in counting. Let $n$ be a positive integer and suppose you have a set of $n$ elements.</p>
-<p>Let $k$ be a fixed integer such that $1 \le k \le n$.</p>
-<p>By the product rule of counting, the number of ways in which you can arrange $k$ of the $n$ elements in a line is $n(n-1)(n-2) \cdots (n-k+1)$.</p>
-<p>If $k = n$, this is the same as arranging all $n$ elements in a line. Plug $k = n$ into the expression above to see that the number of ways of arranging $n$ elements in a line is $n!$. These are called <em>permutations</em> of the $n$ elements.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choosing-Subsets">Choosing Subsets<a class="anchor-link" href="#Choosing-Subsets"> </a></h3><p>Suppose now that you want to select $k$ elements from among the $n$ but you are not interested in the order in which they appear. This happens for example when you deal a hand of cards: you hand is the <em>subset</em> or group of cards that you got. Subsets are not ordered.</p>
-<p>The number of different subset of $k$ elements that you can create out of $n$ elements is the number $\binom{n}{k}$, read as "$n$ choose $k$".</p>
-<p>For $k \ge 1$, a good way to remember this number is</p>
+<p>For a random pair $(X, Y)$, the correlation $r(X, Y)$ is defined as</p>
 <p>$$
-\binom{n}{k} ~ = ~ \frac{n(n-1)(n-2) \ldots (n-k+1)}{k!}
+r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{(}\frac{Y-\mu_Y}{\sigma_Y}\big{)} \Big{)} ~ = ~ E(X^*Y^*)
 $$</p>
-<p>Notice that $\binom{n}{n} = 1$. There is only one way to choose a set of $n$ elements out of $n$: choose them all.</p>
-<p>The calculation says that you can start by pulling out $k$ elements and arranging them in a line; the number of ways to do that is the numerator above. But you can't just stop there. All $k!$ ways of permuting those same $k$ elements give you the same subset, but the numerator counts them all as different arrangements. In other words, the numerator counts every subset consisting of $k$ elements not once but $k!$ times. You only want to count each subset once. Dividing by $k!$ solves this problem.</p>
-<p>There is another way to remember $\binom{n}{k}$. This way is not great for numerical computation because factorials get very large. But it's a clean formula and sometimes helpful in algebraic calculations.</p>
+<p>where $X^*$ and $Y^*$ are respectively $X$ and $Y$ measured in standard units.</p>
+<p>Thus by definition, correlation is a pure number and has no units.</p>
+<p>You have seen several properties of correlation in Data 8. Some are obvious, such as $r(X, Y) = r(Y, X)$. Some require proof.</p>
+<p>In this brief section we will prove one principal property, which is that correlation is a number between $-1$ and $1$. You will prove a few other properties in exercises. In the next section we will specify the sense in which correlation measures clustering about a straight line.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Lower-Bound">Lower Bound<a class="anchor-link" href="#Lower-Bound"> </a></h3><p>As a preliminary, recall that</p>
 <p>$$
-\binom{n}{k} ~ = ~ \frac{n!}{k!(n-k)!}
+E(X^*) = 0, ~~~ Var(X^*) = 1 = E({X^*}^2)
 $$</p>
-<p>It is easy to see by algebra that the two expressions for $\binom{n}{k}$ give the same answer.</p>
-<p>One nice consequence of the second representation is that it can also be used when $k=0$ and gives the natural answer $\binom{n}{0} = 1$. There is only one way to choose 0 elements out of $n$: do nothing.</p>
-<p>Recall that $0!$ is defined to be 1. That's to make the formula above work out.</p>
-<p>The numbers $\binom{n}{k}$ appear in many calculations.</p>
-<ul>
-<li>They are the elements of <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal's Triangle</a>.</li>
-<li>They are the coefficients in the <a href="https://en.wikipedia.org/wiki/Binomial_theorem">expansion</a> of $(a + b)^n$. Try it out for $n = 2$ and see!</li>
-</ul>
-<p>For our purposes, the main property of $\binom{n}{k}$ is that it is the number of ways you can choose a subset of $k$ elements out of a set of $n$.</p>
+<p>So also $E(Y^*) = 0$ and $E({Y^*}^2) = 1$.</p>
+<p>We know the expected squares, and what we need is a bound on the expected product $E(X^*Y^*)$. A result that connects the squares and the product of two numbers is $(a+b)^2 = a^2 + 2ab + b^2$.</p>
+<p>So let's find $E\big{(}(X^* + Y^*)^2\big{)}$ and see what that gives us.</p>
+<p>$$
+\begin{align*}
+E\big{(}(X^* + Y^*)^2\big{)} ~ &amp;= ~ E({X^*}^2) + 2E(X^*Y^*) + E({Y^*}^2) \\
+&amp;= ~ 2 + 2E(X^*Y^*)
+\end{align*}
+$$</p>
+<p>Since $E\big{(}(X^* + Y^*)^2\big{)} \ge 0$, we have</p>
+<p>$$
+2 + 2E(X^*Y^*) \ge 0
+$$</p>
+<p>which is the same as</p>
+<p>$$
+E(X^*Y^*) \ge -1
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Upper-Bound">Upper Bound<a class="anchor-link" href="#Upper-Bound"> </a></h3><p>Play the same game with $E\big{(}(X^* - Y^*)^2\big{)}$ to see that</p>
+<p>$$
+2 - 2E(X^*Y^*) \ge 0
+$$</p>
+<p>which is the same as</p>
+<p>$$
+E(X^*Y^*) \le 1
+$$</p>
+<p>because division by $-2$ flips the direction of the inequality.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Other-Properties">Other Properties<a class="anchor-link" href="#Other-Properties"> </a></h3><p>As you know from Data 8, correlation measures linear association. In exercises you will show that if $Y$ is a linear function of $X$ then $r(X, Y)$ is either $1$ or $-1$.</p>
+<p>You will also find the relation between $r(X, Y)$ and $r(X, W)$ where $W$ is a linear function of $Y$.</p>
+<p>In the next section we will return to regression and formalize the idea that correlation measures clustering about a straight line. Our result will imply that if $r(X, Y)$ is either $1$ or $-1$, then the relation between $X$ and $Y$ must be perfectly linear.</p>
 
 </div>
 </div>
@@ -2175,15 +2199,15 @@ $$</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_02/06_Exercises.html">
-      〈 <span class="u-margin-right-tiny"></span> Exercises
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html">
+      〈 <span class="u-margin-right-tiny"></span> Least Squares Linear Regression
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_03/01_Success_and_Failure.html">
-      Success and Failure <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_11/05_The_Error_in_Regression.html">
+      The Error in Regression <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
