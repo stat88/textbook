@@ -293,6 +293,16 @@
     not_numbered: False
   - title: Exercises
     url: /notebooks/Chapter_11/06_Exercises
+- title: Inference in Regression
+  url: /notebooks/Chapter_12/00_Inference_in_Regression
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: The Simple Linear Regression Model
+    url: /notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model
+    not_numbered: False
+  - title: The Distribution of the Estimated Slope
+    url: /notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
   
     
  
