@@ -303,6 +303,10 @@
     not_numbered: False
   - title: The Distribution of the Estimated Slope
     url: /notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
+    not_numbered: False
+  - title: Towards Multiple Regression
+    url: /notebooks/Chapter_12/03_Towards_Multiple_Regression
+    not_numbered: False
   
     
  

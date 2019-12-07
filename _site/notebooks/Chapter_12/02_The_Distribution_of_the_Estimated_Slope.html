@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html",
   "headline": "The Distribution of the Estimated Slope",
-  "datePublished": "2019-12-06T09:25:20-06:00",
-  "dateModified": "2019-12-06T09:25:20-06:00",
+  "datePublished": "2019-12-07T11:41:18-06:00",
+  "dateModified": "2019-12-07T11:41:18-06:00",
   "description": "The Distribution of the Estimated Slope Our estimate of the signal $Y = \beta_0 + \beta_1x$ is the corresponding point on the regression line:$$\hat{Y} ~ = ~...",
   "author": {
     "@type": "Person",
@@ -2129,6 +2129,25 @@ initFunction(initPrint)
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_12/03_Towards_Multiple_Regression.html"
+                >
+                  
+                    12.3
+                  
+                  Towards Multiple Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
         
       </li>
@@ -2175,6 +2194,13 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
               <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
 
 <div class="cell border-box-sizing code_cell rendered">
 
@@ -2265,7 +2291,7 @@ $$</p>
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_5_0.png"
+<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_6_0.png"
 >
 </div>
 
@@ -2285,7 +2311,7 @@ $$</p>
 <p>$$
 \hat{\beta}_1 ~ \pm ~ 2SD(\hat{\beta}_1)
 $$</p>
-<p>is an approximate 95% confidence interval for $\beta_1$.</p>
+<p>is a 95% confidence interval for $\beta_1$.</p>
 
 </div>
 </div>
@@ -2325,8 +2351,8 @@ $$</p>
 <p>$$
 T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 $$</p>
-<p>is approximately normal.</p>
-<p>Almost all programming languages and statistical systems come with modules or routines that carry out regression calculations. They will provide you with numerical values of $\hat{\beta}_1$ and $SE(\hat{\beta}_1)$. We will see some examples in the next section.</p>
+<p>is approximately standard normal.</p>
+<p>Almost all programming languages and statistical systems come with modules or routines that carry out regression calculations. They will provide you with numerical values of $\hat{\beta}_1$ and $SE(\hat{\beta}_1)$. Here is an example.</p>
 
 </div>
 </div>
@@ -2337,99 +2363,533 @@ $$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="$t$-Statistic">$t$ Statistic<a class="anchor-link" href="#$t$-Statistic"> </a></h3><p>It turns out that it is possible to identify the exact distribution of $T$ for any sample size $n$. It is one of a family of bell-shaped distributions called the <em>$t$ distributions</em>.</p>
+<h3 id="Pulse-Rates">Pulse Rates<a class="anchor-link" href="#Pulse-Rates"> </a></h3><p>The table <code>pulse</code> from the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/Stat2Data/Pulse.html">R project</a> contains data on the pulse rates of $232$ students before and after exercise. The first two columns are the active and resting pulse rates.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE </span>
+
+<span class="n">pulse</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;../../data/Pulse.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pulse</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Active</th> <th>Rest</th> <th>Smoke</th> <th>Sex</th> <th>Exercise</th> <th>Hgt</th> <th>Wgt</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>97    </td> <td>78  </td> <td>0    </td> <td>1   </td> <td>1       </td> <td>63  </td> <td>119 </td>
+        </tr>
+        <tr>
+            <td>82    </td> <td>68  </td> <td>1    </td> <td>0   </td> <td>3       </td> <td>70  </td> <td>225 </td>
+        </tr>
+        <tr>
+            <td>88    </td> <td>62  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>72  </td> <td>175 </td>
+        </tr>
+        <tr>
+            <td>106   </td> <td>74  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>72  </td> <td>170 </td>
+        </tr>
+        <tr>
+            <td>78    </td> <td>63  </td> <td>0    </td> <td>1   </td> <td>3       </td> <td>67  </td> <td>125 </td>
+        </tr>
+        <tr>
+            <td>109   </td> <td>65  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>74  </td> <td>188 </td>
+        </tr>
+        <tr>
+            <td>66    </td> <td>43  </td> <td>0    </td> <td>1   </td> <td>3       </td> <td>67  </td> <td>140 </td>
+        </tr>
+        <tr>
+            <td>68    </td> <td>65  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>70  </td> <td>200 </td>
+        </tr>
+        <tr>
+            <td>100   </td> <td>63  </td> <td>0    </td> <td>0   </td> <td>1       </td> <td>70  </td> <td>165 </td>
+        </tr>
+        <tr>
+            <td>70    </td> <td>59  </td> <td>0    </td> <td>1   </td> <td>2       </td> <td>65  </td> <td>115 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (222 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our goal is to predict the active pulse rate based on the resting pulse rate.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pulse</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Rest&#39;</span><span class="p">,</span> <span class="s1">&#39;Active&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The scatter plot of the active rate versus the resting rate shows a linear relation. The plot is a bit wider in the middle than it is elsewhere, which indicates that the regression model's assumption of equal error variances for all individuals might not be satisfied. However, we can use the model as a rough approximation of reality.</p>
+<p>To use Python to perform the regression, we must first get the data in an appropriate form. One way is to extract the values of the response and predictor variables as arrays.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">pulse</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">resting</span> <span class="o">=</span> <span class="n">pulse</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The call <code>stats.linregress(x, y)</code> performs the simple linear regression of the array <code>y</code> on the array <code>x</code>. That means $y$ is the response and $x$ the predictor variable.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">resting</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">active</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LinregressResult(slope=1.142879681904831, intercept=13.182572776013345, rvalue=0.6041870881060092, pvalue=1.7861044071652305e-24, stderr=0.09938884436389145)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's a bit of a mess. Let's assign each element of the output to a name. Note that <code>stderr</code> is the SE of the slope.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">se_slope</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">resting</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">active</span><span class="p">)</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">se_slope</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1.142879681904831,
+ 13.182572776013345,
+ 0.6041870881060092,
+ 1.7861044071652305e-24,
+ 0.09938884436389145)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The numbers in the output are the observed values of:</p>
+<ul>
+<li>the estimated slope $\hat{\beta}_1$</li>
+<li>the estimated intercept $\hat{\beta_0}$</li>
+<li>the correlation $r$</li>
+<li>the $p$-value of a test that we will describe below</li>
+<li>the standard error of the estimated slope, $SE(\hat{\beta}_1)$.</li>
+</ul>
+<p>The sample size is large ($232$), so the distribution of $\hat{\beta}_1$ is approximately normal with mean $\beta_1$ and SD approximately equal to $SE(\hat{\beta}_1)$. Therefore the calculation below results in an approximate 95% confidence interval for the true slope $\beta_1$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Approximate 95% confidence interval for the true slope</span>
+
+<span class="n">slope</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">se_slope</span><span class="p">,</span> <span class="n">slope</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">se_slope</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.9441019931770481, 1.341657370632614)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A fundamentally important question is whether the true slope $\beta_1$ is $0$. If it is $0$ then the resting pulse rate isn't involved in the prediction of the active pulse rate, according to the regression model.</p>
+<p>The 95% confidence interval for the slope doesn't contain 0, so we can conclude (at the 5% level) that the true slope isn't 0. We can also carry out a formal test of hypotheses as follows.</p>
+<ul>
+<li>$H_0$: $\beta_1 = 0$</li>
+<li>$H_A$: $\beta_1 \ne 0$</li>
+</ul>
+<p>Under the null hypothesis, the distribution of the standardized slope</p>
+<p>$$
+T ~ = ~ \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)}
+$$</p>
+<p>is approximately standard normal. The observed value of the test statistic is $11.5$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># observed statistic under H_0:</span>
+
+<span class="p">(</span><span class="n">slope</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">se_slope</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>11.499074058255635</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The observed slope is $11.5$ standard errors above the expected slope of $0$ under the null hypothesis. That's a whole lot of standard errors away from expectation. The data are not consistent with $H_0$; they favor the alternative hypothesis that the true slope is not $0$.</p>
+<p>The output of <code>stats.linregress</code> provides the $p$-value of this test. Not surprisingly, it is microscopically small.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># p-value</span>
+
+<span class="n">p</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.7861044071652305e-24</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$t$-Statistic">$t$ Statistic<a class="anchor-link" href="#$t$-Statistic"> </a></h3><p>The calculation above relies on the sample size being large enough so that $SE(\hat{\beta}_1)$ is almost certain to be essentially equal to $SD(\hat{\beta}_1)$. When the sample size is small or moderate, this might not be a good assumption.</p>
+<p>Fortunately, it turns out that it is possible to identify the exact distribution of $T$ for any sample size $n$. It is one of a family of bell-shaped distributions called the <em>$t$ distributions</em>.</p>
 <p>All $t$ distributions are symmetric around 0, just as the standard normal distribution is.</p>
 <p>The family of $t$ distributions is indexed by the positive integers: there's the $t$-distribution Number 1, the $t$-distribution Number 2, and so on. For reasons we won't go into, statisticians refer to the index as the <em>degrees of freedom</em> of the distribution.</p>
-<p>Also for reasons we won't go into, the exact distribution of the standardized slope $T$ is $t$ Number $n-2$. That is, for all $n$, the standardized slope</p>
+<p>The $t$ density looks like the standard normal curve, except that it has fatter tails. In the figure below, the red curve is the standard normal density and the blue curve is the $t$ density with $3$ degrees of freedom.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_28_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see that the $t$ distribution has a bit more weight in the tails than the standard normal does. It gives us just the right additional amount of wiggle room to account for the fact that we are estimating the unknown error variance $\sigma^2$ based on the data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When the degrees of freedom are larger then the $t$ distributions are almost indistinguishable from the standard normal as you can see below. So it's fine to use normal approximations the estimated slope when the sample size is large.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_31_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For reasons we won't go into, under the regression model the exact distribution of the standardized slope $T$ is $t$ Number $n-2$ when the sample size is $n$. That is, for any sample size $n$, the standardized slope</p>
 <p>$$
 T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 $$</p>
 <p>has the $t$ distribution with $n-2$ degrees of freedom.</p>
-<p>To remember the number of degrees of freedom, remember that we are basing our estimate of the response $Y$ on the two estimated parameters $\hat{\beta}_0$ and $\hat{\beta}_1$. Start with degrees of freedom equal to the sample size, and then lose one degree of freedom each for the intercept and slope. This rule can be extended to the case of multiple regression, as we will see in the next section.</p>
-<p>The $t$ density looks like the standard normal curve, except that it has fatter tails. In the figure below, the red curve is the standard normal density and the blue curve is the $t$ density with $4$ degrees of freedom.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_10_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You can see that the $t$ distribution has a bit more weight in the tails than the standard normal does. It gives us just the right additional amount of wiggle room to account for the fact that we are estimating the unknown error variance $\sigma^2$ from the data.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>When the degrees of freedom are larger (corresponding to larger sample sizes in our case), then the $t$ distributions are almost indistinguishable from the standard normal as you can see below. So it's fine to use normal approximations the estimated slope when the sample size is large.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_remove_input">
-
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope_13_0.png"
->
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the next section (the final one in this book!) we will use Python and the theory we have developed to carry out some regression analyses.</p>
+<p>When the sample size $n$ is large, so is $n-2$, so we might as well use the normal curve. When the sample is size is small, using the appropriate $t$ curve gives more accurate answers.</p>
+<p>To remember the number of degrees of freedom, keep in mind that we are basing our estimate of the response $Y$ on the two estimated parameters $\hat{\beta}_0$ and $\hat{\beta}_1$. Start with degrees of freedom equal to the sample size, and then lose one degree of freedom each for the intercept and slope. This rule can be extended to the case of multiple regression, as we will see in the next section.</p>
 
 </div>
 </div>
@@ -2450,8 +2910,8 @@ $$</p>
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="">
-       <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/notebooks/Chapter_12/03_Towards_Multiple_Regression.html">
+      Towards Multiple Regression <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
