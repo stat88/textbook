@@ -206,7 +206,7 @@ $$</p>
 $$</p>
 <p>Notice that the answer is a fraction of a fraction of a fraction ... and so on. Each time you impose a new condition – for example, "Card 3 has to be a heart too" – you reduce the chance of getting what you want.</p>
 <p>The extension can be proved easily by induction; we will leave that to another class.</p>
-<p><strong>Question 2:</strong> What is the chance that all four cards are of the same suit?</p>
+<p><strong>Question 2:</strong> What is the chance that all five cards are of the same suit?</p>
 <p><strong>Answer:</strong> This kind of hand is called a flush. Resist the impulse to say that the answer is the same as that in Question 1. Before you calculate, compare the two events:</p>
 <ul>
 <li>all five cards are hearts</li>
@@ -216,7 +216,7 @@ $$</p>
 <p>This observation leads to one natural way to solve the problem: <strong>Partition</strong> the event into smaller pieces (that is, make an exhaustive list of distinct ways it can happen), and add up the chances of the pieces.</p>
 <p>$$
 \begin{align*}
-&amp;P(\text{all five cards are hearts}) \\
+&amp;P(\text{all five cards are same suit}) \\
 &amp;= ~ P(\text{all hearts or all diamonds or all spades or all clubs}) \\
 &amp;= ~ 4 \times \frac{13}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48} ~~~~~~~~~~~~~~~~~~~~~ \text{(addition rule)}
 \end{align*}
@@ -230,7 +230,7 @@ $$</p>
 </ul>
 <p>So</p>
 <p>$$
-P(\text{all five cards are hearts}) ~ = ~ \frac{52}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48}
+P(\text{all five cards are same suit}) ~ = ~ \frac{52}{52} \cdot \frac{12}{51} \cdot \frac{11}{50} \cdot \frac{10}{49} \cdot \frac{9}{48}
 $$</p>
 <p>which is the same as the answer we got by partitioning.</p>
 
