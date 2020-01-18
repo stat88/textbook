@@ -17,7 +17,7 @@
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Distribution of the Estimated Slope" />
 <meta property="og:description" content="The Distribution of the Estimated Slope Our estimate of the signal $Y = \beta_0 + \beta_1x$ is the corresponding point on the regression line:$$\hat{Y} ~ = ~..." />
-<meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
+<meta property="og:image"       content="http://0.0.0.0:4000/textbook/content/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
 
@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html",
   "headline": "The Distribution of the Estimated Slope",
-  "datePublished": "2019-12-07T11:41:18-06:00",
-  "dateModified": "2019-12-07T11:41:18-06:00",
+  "datePublished": "2020-01-18T10:21:49-06:00",
+  "dateModified": "2020-01-18T10:21:49-06:00",
   "description": "The Distribution of the Estimated Slope Our estimate of the signal $Y = \beta_0 + \beta_1x$ is the corresponding point on the regression line:$$\hat{Y} ~ = ~...",
   "author": {
     "@type": "Person",
@@ -64,7 +64,7 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/content/images/stat88_logo_small.png">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
@@ -504,7 +504,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://stat88.github.io/"><img src="/textbook/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://stat88.github.io/"><img src="/textbook/content/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Stat 88 Textbook</h2>
   <ul class="c-sidebar__chapters">
     
@@ -2148,6 +2148,25 @@ initFunction(initPrint)
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_12/04_Exercises.html"
+                >
+                  
+                    12.4
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
         
       </li>
@@ -2347,7 +2366,7 @@ SD(\hat{\beta}_1) ~ = ~ \frac{\sigma}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}}
 $$</p>
 <p>but we can't get a numerical value for this SD since $\sigma$ is unknown.</p>
 <p>So we estimate $\sigma$ based on the data, by using the SD of the residuals instead. When the standard deviation of an estimator is estimated from the data, it is sometimes called the <em>standard error</em> of the estimator. We will denote the standard error of $\hat{\beta}_1$ by $SE(\hat{\beta}_1)$.</p>
-<p>The larger $n$, the better the estimate of $\sigma$. So for large $n$, the distribution of the standardized slope</p>
+<p>The larger $n$ is, the better the estimate of $\sigma$. So for large $n$, the distribution of the standardized slope</p>
 <p>$$
 T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 $$</p>
@@ -2370,21 +2389,9 @@ $$</p>
 </div>
 </div>
 
-<div class="jb_cell">
+<div class="jb_cell tag_remove_input">
 
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NO CODE </span>
-
-<span class="n">pulse</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;../../data/Pulse.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 </div>
 </div>

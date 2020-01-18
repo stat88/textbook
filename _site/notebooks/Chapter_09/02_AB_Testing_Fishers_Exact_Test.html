@@ -17,7 +17,7 @@
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="A/B Testing: Fisher&#39;s Exact Test" />
 <meta property="og:description" content="A/B Testing: Fisher's Exact Test A/B testing is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. A..." />
-<meta property="og:image"       content="http://0.0.0.0:4000/textbook/images/stat88_logo.png" />
+<meta property="og:image"       content="http://0.0.0.0:4000/textbook/content/images/stat88_logo.png" />
 
 <meta name="twitter:card" content="summary">
 
@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000/textbook/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html",
   "headline": "A/B Testing: Fisher&#39;s Exact Test",
-  "datePublished": "2019-12-07T11:41:18-06:00",
-  "dateModified": "2019-12-07T11:41:18-06:00",
+  "datePublished": "2020-01-18T10:21:49-06:00",
+  "dateModified": "2020-01-18T10:21:49-06:00",
   "description": "A/B Testing: Fisher's Exact Test A/B testing is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. A...",
   "author": {
     "@type": "Person",
@@ -64,7 +64,7 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/textbook/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/textbook/content/images/stat88_logo_small.png">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
@@ -504,7 +504,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://stat88.github.io/"><img src="/textbook/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://stat88.github.io/"><img src="/textbook/content/images/stat88_logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Stat 88 Textbook</h2>
   <ul class="c-sidebar__chapters">
     
@@ -2148,6 +2148,25 @@ initFunction(initPrint)
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/notebooks/Chapter_12/04_Exercises.html"
+                >
+                  
+                    12.4
+                  
+                  Exercises
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
         
       </li>
@@ -2256,7 +2275,7 @@ P_{H_0}(T \ge 3.68) ~ &amp;= ~ P(\vert X - 5.32 \vert \ge 3.68) \\
 &amp;= ~ P(X \le 5.32 - 3.68) + P(X \ge 5.32 + 3.68) \\
 &amp;= ~ P(X \le 1.64) + P(X \ge 9) \\
 &amp;= ~ P(X \le 1) + P(X \ge 9) \\ \\
-&amp;= ~ \sum_{g=0}^1 \frac{\binom{11}{g}\binom{19}{15-g}}{\binom{31}{15}} ~ + ~ \sum_{g=9}^{11} \frac{\binom{11}{g}\binom{19}{15-g}}{\binom{31}{15}} \\ \\
+&amp;= ~ \sum_{g=0}^1 \frac{\binom{11}{g}\binom{20}{15-g}}{\binom{31}{15}} ~ + ~ \sum_{g=9}^{11} \frac{\binom{11}{g}\binom{20}{15-g}}{\binom{31}{15}} \\ \\
 &amp;\approx ~ 0.00915
 \end{align*}
 $$</p>
