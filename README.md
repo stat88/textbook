@@ -155,4 +155,6 @@ There are a few lingering issues with the textbook that I did not have the exper
 
 	However, you can turn on the download button temporarily if the professor wants to download a copy of the textbook. 
 
-	Go to the `_config.yml` file. Find the comment that says `# Download settings`. Underneath, change `use_download_button:` to `True`. Follow steps 5 and 6 of "Updating Textbook" above. Note: If the download button doesn't appear, that means the `.html` files didn't update, so delete the contents of the `_build` folder and redo steps 5 and 6. 
+	Go to the `_config.yml` file. Find the comment that says `# Download settings`. Underneath, change `use_download_button:` to `True`. Follow steps 5 and 6 of "Updating Textbook" above. Note: If the download button doesn't appear, that means the `.html` files didn't update, so delete the contents of the `_build` folder and redo steps 5 and 6.
+	
+	Once you have the download button turned on, you'll be able to download pdfs of each section of the textbook. I do not know of a way to download the entire book at once unfortunately. 
