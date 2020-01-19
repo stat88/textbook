@@ -109,7 +109,9 @@ This section details the process that undertaken everytime the textbook needs to
 	
 ## Miscellaneous Notes
 1. If you want to hide conents of a cell, but display the output of a cell (for example, hiding the code that generated a graph, but displaying the resulting graph), then you need to edit the meta-data of the cell.
+
 	a. In your jupyter notebook of the section, go to the header and click `View` -> `Cell Toolbar` -> `Edit Metadata`. Each cell should have a button in the upper right hand corner to edit that cells meta data. 
+	
 	
 	b. In any cell that is marked with `#NO CODE` (e.g. want to hide code), replace the meta data with
 	```
@@ -120,3 +122,19 @@ This section details the process that undertaken everytime the textbook needs to
           "trusted": true
         }
 	```
+	
+2. If you want to release the textbook section by section, this is an easy task once you've followed the initial set up tasks above. 
+
+	a. Open the `_data/toc.yml` file. 
+	
+	b. Comment out (with a `#`) the lines corresponding to a section. For example, if you wanted to comment out section 1.3 "Fundamental Rules", you would need to comment out
+	```
+	- title: Fundamental Rules
+    	   url: /notebooks/Chapter_01/03_Fundamental_Rules
+           not_numbered: False
+	```
+	Do **NOT** delete any lines, simply comment them out. Don't undo all the work I did in Fall 2019 semester. 
+	
+	c. Repeat steps 5 & 6 of "Updating the Textbook" above. 
+	
+	One note: I'm not sure the jupyter book software will delete the `.html` files if you comment out a section. If the section is still appearing after commenting in the `toc.yml` file, then go to the `_build` folder in the textbook directory, navigate to the `.html`file corresponding to the section you want to remove, and delete the file. Then repush to github
