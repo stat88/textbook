@@ -1,4 +1,5 @@
 # Stat 88 Textbook
+Author: Francie McQuarrie
 
 This textbook was built with Jupyter Books, using the following [tutorial](https://jupyter.org/jupyter-book/guide/01_overview.html).
 
@@ -138,3 +139,20 @@ This section details the process that undertaken everytime the textbook needs to
 	c. Repeat steps 5 & 6 of "Updating the Textbook" above. 
 	
 	One note: I'm not sure the jupyter book software will delete the `.html` files if you comment out a section. If the section is still appearing after commenting in the `toc.yml` file, then go to the `_build` folder in the textbook directory, navigate to the `.html`file corresponding to the section you want to remove, and delete the file. Then repush to github
+
+## Known Issues
+There are a few lingering issues with the textbook that I did not have the expertise to solve in the fall 2019 semester. Future leads should investigate
+
+1. **LaTeX not immediately rendering**. Currently, when you first open a textbook section, the LaTeX remains unrendered (with bare $$). Refreshing the page fixes the issue, and you only need to do this when you first open the textbook in a session. But it would be great if the math could render immediately, like in the Prob 140 textbook. 
+
+	Dibya Gosh (the first maintainer of the Prob 140 textbook) diagnosed the issue as Mathjax (the software the renders math on websites) "arriving" before the page itself does. Thus Mathjax checks for math to render, and finds none. Then the page arrives and the math is not rendered. 
+
+	However, Dibya couldn't remember how he fixed this issue in the Prob 140 textbook (which used to have the same issue in the spring 2017 semester). We think there's a small piece of code somewhere in the Prob 140 repo that is not in the Stat 88 repo. If you find this difference, or know how to fix the rendering issue, please do. 
+
+2. **Dollar Signs in LaTeX**. The Jupyter Book tutorial reminds you to escape `\$` within LaTeX determinators ($), but there's one instance in the middle of the textbook where all manners of trying to escape a $ still results in a weird result rendering. 
+
+3. **Downloading PDFs of Textbook Sections**. Originally, we had the download button turned on for each section. But Professor Adhikari became concerned that pieces of this textbook she wrote were floating around without authorship information. We figured out a way to include an author and license in the pdf printout. However, while the author note appeared on downloads from my computer and many others, it would not appear on Professor Adhikari's attempts. Thus I turned off the download button for everyone. I do not recommend leaving the download button on unless you ensure the authorship note always appears. 
+
+	However, you can turn on the download button temporarily if the professor wants to download a copy of the textbook. 
+
+	Go to the `_config.yml` file. Find the comment that says `# Download settings`. Underneath, change `use_download_button:` to `True`. Follow steps 5 and 6 of "Updating Textbook" above. Note: If the download button doesn't appear, that means the `.html` files didn't update, so delete the contents of the `_build` folder and redo steps 5 and 6. 
