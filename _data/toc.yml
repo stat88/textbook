@@ -58,258 +58,258 @@
 # - header: 
 #####
 
-# # A chapter w/ a collection of sections beneath it
-# - title: The Basics # Chapter title
-#   # path in repo after content/ to what should be displayed when chapter is clicked instead of section
-#   # i.e. the "intro" page to the chapter
-#   url: /notebooks/Chapter_01/00_The_Basics
-#   not_numbered: False # Number this section 
-#   expand_sections: True
-#   sections:
-#   - title: Probabilities as Proportions # Section title
-#     # path in repo after content/ to what should be displayed when this section is clicked on
-#     url: /notebooks/Chapter_01/01_Probabilities_as_Proportions
-#     not_numbered: False
-#   - title: Exact Calculation or Bound # Section title
-#     # path in repo after content/ to what should be displayed when this section is clicked on
-#     url: /notebooks/Chapter_01/02_Exact_Calculation_or_Bound 
-#     not_numbered: False
-#   - title: Fundamental Rules
-#     url: /notebooks/Chapter_01/03_Fundamental_Rules
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_01/04_Exercises
-#     not_numbered: False
+# A chapter w/ a collection of sections beneath it
+- title: The Basics # Chapter title
+  # path in repo after content/ to what should be displayed when chapter is clicked instead of section
+  # i.e. the "intro" page to the chapter
+  url: /notebooks/Chapter_01/00_The_Basics
+  not_numbered: False # Number this section 
+  expand_sections: True
+  sections:
+  - title: Probabilities as Proportions # Section title
+    # path in repo after content/ to what should be displayed when this section is clicked on
+    url: /notebooks/Chapter_01/01_Probabilities_as_Proportions
+    not_numbered: False
+  - title: Exact Calculation or Bound # Section title
+    # path in repo after content/ to what should be displayed when this section is clicked on
+    url: /notebooks/Chapter_01/02_Exact_Calculation_or_Bound 
+    not_numbered: False
+  - title: Fundamental Rules
+    url: /notebooks/Chapter_01/03_Fundamental_Rules
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_01/04_Exercises
+    not_numbered: False
     
-# - title: Intersections and Conditioning 
-#   url: /notebooks/Chapter_02/00_Intersections_and_Conditioning
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: The Chance of an Intersection
-#     url: /notebooks/Chapter_02/01_The_Chance_of_an_Intersection
-#     not_numbered: False
-#   - title: Symmetry in Simple Random Sampling
-#     url: /notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
-#     not_numbered: False
-#   - title: "Bayes' Rule"
-#     url: /notebooks/Chapter_02/03_Bayes_Rule
-#     not_numbered: False
-#   - title: Use and Interpretation
-#     url: /notebooks/Chapter_02/04_Use_and_Interpretation
-#     not_numbered: False
-#   - title: Independence
-#     url: /notebooks/Chapter_02/05_Independence
-#     not_numbered: False  
-#   - title: Exercises
-#     url: /notebooks/Chapter_02/06_Exercises
-#     not_numbered: false
+- title: Intersections and Conditioning 
+  url: /notebooks/Chapter_02/00_Intersections_and_Conditioning
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: The Chance of an Intersection
+    url: /notebooks/Chapter_02/01_The_Chance_of_an_Intersection
+    not_numbered: False
+  - title: Symmetry in Simple Random Sampling
+    url: /notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
+    not_numbered: False
+  - title: "Bayes' Rule"
+    url: /notebooks/Chapter_02/03_Bayes_Rule
+    not_numbered: False
+  - title: Use and Interpretation
+    url: /notebooks/Chapter_02/04_Use_and_Interpretation
+    not_numbered: False
+  - title: Independence
+    url: /notebooks/Chapter_02/05_Independence
+    not_numbered: False  
+  - title: Exercises
+    url: /notebooks/Chapter_02/06_Exercises
+    not_numbered: false
     
-# - title: Random Counts
-#   url: /notebooks/Chapter_03/00_Random_Counts
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Success and Failure
-#     url: /notebooks/Chapter_03/01_Success_and_Failure
-#     not_numbered: False
-#   - title: Random Variables
-#     url: /notebooks/Chapter_03/02_Random_Variables
-#     not_numbered: False
-#   - title: The Binomial Distribution
-#     url: /notebooks/Chapter_03/03_The_Binomial_Distribution
-#     not_numbered: False
-#   - title: The Hypergeometric Distribution
-#     url: /notebooks/Chapter_03/04_The_Hypergeometric_Distribution
-#     not_numbered: False
-#   - title: Examples
-#     url: /notebooks/Chapter_03/05_Examples
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_03/06_Exercises
-#     not_numbered: False
-# - title: Infinitely Many Values
-#   url: /notebooks/Chapter_04/00_Infinitely_Many_Values
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Cumulative Distribution Function (CDF)
-#     url: /notebooks/Chapter_04/01_Cumulative_Distribution_Function
-#     not_numbered: False
-#   - title: Waiting Times
-#     url: /notebooks/Chapter_04/02_Waiting_Times
-#     not_numbered: False
-#   - title: Exponential Approximations
-#     url: /notebooks/Chapter_04/03_Exponential_Approximations
-#     not_numbered: False
-#   - title: The Poisson Distribution
-#     url: /notebooks/Chapter_04/04_The_Poisson_Distribution
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_04/05_Exercises
-#     not_numbered: False
-# - title: Expectation
-#   url: /notebooks/Chapter_05/00_Expectation
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Definition
-#     url: /notebooks/Chapter_05/01_Definition
-#     not_numbered: False
-#   - title: Functions of Random Variables
-#     url: /notebooks/Chapter_05/02_Functions_of_Random_Variables
-#     not_numbered: False
-#   - title: Method of Indicators
-#     url: /notebooks/Chapter_05/03_Method_of_Indicators
-#     not_numbered: False
-#   - title: Unbiased Estimators
-#     url: /notebooks/Chapter_05/04_Unbiased_Estimators
-#     not_numbered: False
-#   - title: Conditional Expectation
-#     url: /notebooks/Chapter_05/05_Conditional_Expectation
-#     not_numbered: False
-#   - title: Expectation by Conditioning
-#     url: /notebooks/Chapter_05/06_Expectation_by_Conditioning
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_05/07_Exercises
-#     not_numbered: False
-# - title: Measuring Variability
-#   url: /notebooks/Chapter_06/00_Measuring_Variability
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Variance and Standard Deviation
-#     url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation
-#     not_numbered: False
-#   - title: Simplifying the Calculation
-#     url: /notebooks/Chapter_06/02_Simplifying_the_Calculation
-#     not_numbered: False
-#   - title: "Markov's Inequality"
-#     url: /notebooks/Chapter_06/03_Markovs_Inequality
-#     not_numbered: False
-#   - title: "Chebyshev's Inequality"
-#     url: /notebooks/Chapter_06/04_Chebyshevs_Inequality
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_06/05_Exercises
-#     not_numbered: False
-# - title: The Variance of a Sum
-#   url: /notebooks/Chapter_07/00_The_Variance_of_a_Sum
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Sums of Independent Random Variables
-#     url: /notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables
-#     not_numbered: False
-#   - title: Sampling Without Replacement
-#     url: /notebooks/Chapter_07/02_Sampling_Without_Replacement
-#     not_numbered: False
-#   - title: The Law of Averages
-#     url: /notebooks/Chapter_07/03_The_Law_of_Averages
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_07/04_Exercises
-#     not_numbered: False
-# - title: The Central Limit Theorem
-#   url: /notebooks/Chapter_08/00_Central_Limit_Theorem
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Distribution of a Sample Sum
-#     url: /notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum
-#     not_numbered: False
-#   - title: Standard Normal Curve
-#     url: /notebooks/Chapter_08/02_Standard_Normal_Curve
-#     not_numbered: False
-#   - title: Normal Approximation
-#     url: /notebooks/Chapter_08/03_Normal_Approximation
-#     not_numbered: False
-#   - title: How Large is Large
-#     url: /notebooks/Chapter_08/04_How_Large_is_Large
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_08/05_Exercises
-#     not_numbered: False
-# - title: Inference
-#   url: /notebooks/Chapter_09/00_Inference
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Testing Hypotheses
-#     url: /notebooks/Chapter_09/01_Testing_Hypotheses
-#     not_numbered: False
-#   - title: "A/B Testing: Fisher's Exact Test"
-#     url: /notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test
-#     not_numbered: False
-#   - title: "Confidence Intervals: Method"
-#     url: /notebooks/Chapter_09/03_Confidence_Intervals_Method
-#     not_numbered: False
-#   - title: "Confidence Intervals: Interpretation"
-#     url: /notebooks/Chapter_09/04_Confidence_Intervals_Interpretation
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_09/05_Exercises
-#     not_numbered: False
-# - title: Probability Density
-#   url: /notebooks/Chapter_10/00_Probability_Density
-#   not_numbered: False
-#   expand_sections: True 
-#   sections:
-#   - title: Density
-#     url: /notebooks/Chapter_10/01_Density
-#     not_numbered: False
-#   - title: Expectation and Variance
-#     url: /notebooks/Chapter_10/02_Expectation_and_Variance
-#     not_numbered: False
-#   - title: The Exponential Distribution
-#     url: /notebooks/Chapter_10/03_The_Exponential_Distribution
-#     not_numbered: False
-#   - title: The Normal Distribution
-#     url: /notebooks/Chapter_10/04_The_Normal_Distribution
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_10/05_Exercises
-#     not_numbered: False
-# - title: "Bias, Variance, and Least Squares"
-#   url: /notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: Bias and Variance
-#     url: /notebooks/Chapter_11/01_Bias_and_Variance
-#     not_numbered: False
-#   - title: "The German Tank Problem, Revisited"
-#     url: /notebooks/Chapter_11/02_German_Tank_Problem_Revisited
-#     not_numbered: False
-#   - title: Least Squares Linear Regression
-#     url: /notebooks/Chapter_11/03_Least_Squares_Linear_Regression
-#     not_numbered: False
-#   - title: Bounds on Correlation
-#     url: /notebooks/Chapter_11/04_Bounds_on_Correlation
-#     not_numbered: False
-#   - title: The Error in Regression
-#     url: /notebooks/Chapter_11/05_The_Error_in_Regression
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_11/06_Exercises
-# - title: Inference in Regression
-#   url: /notebooks/Chapter_12/00_Inference_in_Regression
-#   not_numbered: False
-#   expand_sections: True
-#   sections:
-#   - title: The Simple Linear Regression Model
-#     url: /notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model
-#     not_numbered: False
-#   - title: The Distribution of the Estimated Slope
-#     url: /notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
-#     not_numbered: False
-#   - title: Towards Multiple Regression
-#     url: /notebooks/Chapter_12/03_Towards_Multiple_Regression
-#     not_numbered: False
-#   - title: Exercises
-#     url: /notebooks/Chapter_12/04_Exercises
-#     not_numbered: False
+- title: Random Counts
+  url: /notebooks/Chapter_03/00_Random_Counts
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Success and Failure
+    url: /notebooks/Chapter_03/01_Success_and_Failure
+    not_numbered: False
+  - title: Random Variables
+    url: /notebooks/Chapter_03/02_Random_Variables
+    not_numbered: False
+  - title: The Binomial Distribution
+    url: /notebooks/Chapter_03/03_The_Binomial_Distribution
+    not_numbered: False
+  - title: The Hypergeometric Distribution
+    url: /notebooks/Chapter_03/04_The_Hypergeometric_Distribution
+    not_numbered: False
+  - title: Examples
+    url: /notebooks/Chapter_03/05_Examples
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_03/06_Exercises
+    not_numbered: False
+- title: Infinitely Many Values
+  url: /notebooks/Chapter_04/00_Infinitely_Many_Values
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Cumulative Distribution Function (CDF)
+    url: /notebooks/Chapter_04/01_Cumulative_Distribution_Function
+    not_numbered: False
+  - title: Waiting Times
+    url: /notebooks/Chapter_04/02_Waiting_Times
+    not_numbered: False
+  - title: Exponential Approximations
+    url: /notebooks/Chapter_04/03_Exponential_Approximations
+    not_numbered: False
+  - title: The Poisson Distribution
+    url: /notebooks/Chapter_04/04_The_Poisson_Distribution
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_04/05_Exercises
+    not_numbered: False
+- title: Expectation
+  url: /notebooks/Chapter_05/00_Expectation
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Definition
+    url: /notebooks/Chapter_05/01_Definition
+    not_numbered: False
+  - title: Functions of Random Variables
+    url: /notebooks/Chapter_05/02_Functions_of_Random_Variables
+    not_numbered: False
+  - title: Method of Indicators
+    url: /notebooks/Chapter_05/03_Method_of_Indicators
+    not_numbered: False
+  - title: Unbiased Estimators
+    url: /notebooks/Chapter_05/04_Unbiased_Estimators
+    not_numbered: False
+  - title: Conditional Expectation
+    url: /notebooks/Chapter_05/05_Conditional_Expectation
+    not_numbered: False
+  - title: Expectation by Conditioning
+    url: /notebooks/Chapter_05/06_Expectation_by_Conditioning
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_05/07_Exercises
+    not_numbered: False
+- title: Measuring Variability
+  url: /notebooks/Chapter_06/00_Measuring_Variability
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Variance and Standard Deviation
+    url: /notebooks/Chapter_06/01_Variance_and_Standard_Deviation
+    not_numbered: False
+  - title: Simplifying the Calculation
+    url: /notebooks/Chapter_06/02_Simplifying_the_Calculation
+    not_numbered: False
+  - title: "Markov's Inequality"
+    url: /notebooks/Chapter_06/03_Markovs_Inequality
+    not_numbered: False
+  - title: "Chebyshev's Inequality"
+    url: /notebooks/Chapter_06/04_Chebyshevs_Inequality
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_06/05_Exercises
+    not_numbered: False
+- title: The Variance of a Sum
+  url: /notebooks/Chapter_07/00_The_Variance_of_a_Sum
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Sums of Independent Random Variables
+    url: /notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables
+    not_numbered: False
+  - title: Sampling Without Replacement
+    url: /notebooks/Chapter_07/02_Sampling_Without_Replacement
+    not_numbered: False
+  - title: The Law of Averages
+    url: /notebooks/Chapter_07/03_The_Law_of_Averages
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_07/04_Exercises
+    not_numbered: False
+- title: The Central Limit Theorem
+  url: /notebooks/Chapter_08/00_Central_Limit_Theorem
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Distribution of a Sample Sum
+    url: /notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum
+    not_numbered: False
+  - title: Standard Normal Curve
+    url: /notebooks/Chapter_08/02_Standard_Normal_Curve
+    not_numbered: False
+  - title: Normal Approximation
+    url: /notebooks/Chapter_08/03_Normal_Approximation
+    not_numbered: False
+  - title: How Large is Large
+    url: /notebooks/Chapter_08/04_How_Large_is_Large
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_08/05_Exercises
+    not_numbered: False
+- title: Inference
+  url: /notebooks/Chapter_09/00_Inference
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Testing Hypotheses
+    url: /notebooks/Chapter_09/01_Testing_Hypotheses
+    not_numbered: False
+  - title: "A/B Testing: Fisher's Exact Test"
+    url: /notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test
+    not_numbered: False
+  - title: "Confidence Intervals: Method"
+    url: /notebooks/Chapter_09/03_Confidence_Intervals_Method
+    not_numbered: False
+  - title: "Confidence Intervals: Interpretation"
+    url: /notebooks/Chapter_09/04_Confidence_Intervals_Interpretation
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_09/05_Exercises
+    not_numbered: False
+- title: Probability Density
+  url: /notebooks/Chapter_10/00_Probability_Density
+  not_numbered: False
+  expand_sections: True 
+  sections:
+  - title: Density
+    url: /notebooks/Chapter_10/01_Density
+    not_numbered: False
+  - title: Expectation and Variance
+    url: /notebooks/Chapter_10/02_Expectation_and_Variance
+    not_numbered: False
+  - title: The Exponential Distribution
+    url: /notebooks/Chapter_10/03_The_Exponential_Distribution
+    not_numbered: False
+  - title: The Normal Distribution
+    url: /notebooks/Chapter_10/04_The_Normal_Distribution
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_10/05_Exercises
+    not_numbered: False
+- title: "Bias, Variance, and Least Squares"
+  url: /notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: Bias and Variance
+    url: /notebooks/Chapter_11/01_Bias_and_Variance
+    not_numbered: False
+  - title: "The German Tank Problem, Revisited"
+    url: /notebooks/Chapter_11/02_German_Tank_Problem_Revisited
+    not_numbered: False
+  - title: Least Squares Linear Regression
+    url: /notebooks/Chapter_11/03_Least_Squares_Linear_Regression
+    not_numbered: False
+  - title: Bounds on Correlation
+    url: /notebooks/Chapter_11/04_Bounds_on_Correlation
+    not_numbered: False
+  - title: The Error in Regression
+    url: /notebooks/Chapter_11/05_The_Error_in_Regression
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_11/06_Exercises
+- title: Inference in Regression
+  url: /notebooks/Chapter_12/00_Inference_in_Regression
+  not_numbered: False
+  expand_sections: True
+  sections:
+  - title: The Simple Linear Regression Model
+    url: /notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model
+    not_numbered: False
+  - title: The Distribution of the Estimated Slope
+    url: /notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
+    not_numbered: False
+  - title: Towards Multiple Regression
+    url: /notebooks/Chapter_12/03_Towards_Multiple_Regression
+    not_numbered: False
+  - title: Exercises
+    url: /notebooks/Chapter_12/04_Exercises
+    not_numbered: False
   
     
  

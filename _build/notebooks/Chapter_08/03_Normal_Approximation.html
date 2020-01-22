@@ -1,0 +1,436 @@
+---
+redirect_from:
+  - "/notebooks/chapter-08/03-normal-approximation"
+interact_link: content/notebooks/Chapter_08/03_Normal_Approximation.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Normal Approximation
+prev_page:
+  url: /notebooks/Chapter_08/02_Standard_Normal_Curve.html
+  title: |-
+    Standard Normal Curve
+next_page:
+  url: /notebooks/Chapter_08/04_How_Large_is_Large.html
+  title: |-
+    How Large is Large
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Normal-Approximation">Normal Approximation<a class="anchor-link" href="#Normal-Approximation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section we will use the Central Limit Theorem and the standard normal curve to approximate probabilities.</p>
+<p>To get started, note that whether a histogram looks bell-shaped or whether it is skewed in one direction or another doesn't depend on the units in which the variable is measured. So data scientists use a special scale that doesn't depend on the units of measurement and can be used for measuring any random quantity.</p>
+<p>This scale is called the <em>standard units</em> scale.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Standard-Units">Standard Units<a class="anchor-link" href="#Standard-Units"> </a></h3><p>Let $X$ be any random variable with $E(X) = \mu$ and $SD(X) = \sigma$. We will now create a random variable $X^*$ that is $X$ in new units of measurement. The new units are defined as follows:</p>
+<ul>
+<li>$E(X)$ becomes the new origin</li>
+<li>$SD(X)$ becomes the new unit distance</li>
+</ul>
+<p>Thus while $X$ could be the answer to "How many pounds?" or "How many miles?", $X^*$ is the answer to "How many SDs above the expected value?"</p>
+<p>The new random variable $X^*$ is called $X$ in <em>standard units</em>, and is defined by</p>
+<p>$$
+X^* = \frac{X - \mu}{\sigma}
+$$</p>
+<p>The relation above allows you to convert $X$ to standard units. You can invert this to recover the value of $X$ from standard units:</p>
+<p>$$
+X =  X^*\sigma + \mu
+$$</p>
+<p>This simply expresses what $X^*$ measures: if $X$ in standard units is $X^*$, then the value of $X$ is $X^*$ SDs above the expected value.</p>
+<p>The figure below shows the correspondence between the two scales.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/03_Normal_Approximation_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example, suppose $X$ is a random weight in pounds, with $E(X) = 150$ pounds and $SD(X) = 20$ pounds. If $X^*$ is $X$ in standard units, then:</p>
+<ul>
+<li>$X = 170$ pounds is equivalent to $X^* = 1$.</li>
+<li>$X = 100$ pounds is equivalent to $X^* = \frac{100 - 150}{20} = -2.5$.</li>
+<li>$X^* = 1.2$ is equivalent to $X = 1.2(20) + 150 = 174$ pounds.</li>
+</ul>
+<h4 id="Properties-of-Standard-Units">Properties of Standard Units<a class="anchor-link" href="#Properties-of-Standard-Units"> </a></h4><ul>
+<li>If the value of $X$ is below the expectation, then $X^*$ is negative.</li>
+<li>$X^*$ is a linear transformation of $X$. It follows that $E(X^*) = 0$ and $SD(X^*) = 1$.</li>
+<li>By Chebyshev's inequality, values of $X^*$ are very likely to be in the range $-5$ to $5$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Standard-Normal-Curve,-Revisited">Standard Normal Curve, Revisited<a class="anchor-link" href="#Standard-Normal-Curve,-Revisited"> </a></h3><p>If a random variable has a bell-shaped distribution and has been measured in standard units, then its histogram looks like the standard normal curve.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/03_Normal_Approximation_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the standard normal curve,</p>
+<ul>
+<li>the area between $-1$ and $1$ is about 68%</li>
+<li>the area between $-2$ and $2$ is about 95%</li>
+<li>the area between $-3$ and $3$ is about 99.73%</li>
+</ul>
+<p>Thus if a random variable $X$ has a <strong>bell-shaped distribution</strong> with $E(X) = \mu$ and $SD(X) = \sigma$, then</p>
+<ul>
+<li>the chance that $X$ is in the range $\mu \pm \sigma$ is about 68%</li>
+<li>the chance that $X$ is in the range $\mu \pm 2\sigma$ is about 95%</li>
+<li>the chance that $X$ is in the range $\mu \pm 3\sigma$ is about 99.73%</li>
+</ul>
+<p>These percents are in general not valid for other shapes of distributions. Notice that they are consistent with Chebyshev's bounds but are quite a bit better. That's because we are working with a known shape of distribution – the bell shape – and Chebyshev's inequality doesn't assume any particular shape.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Applying-the-Central-Limit-Theorem">Applying the Central Limit Theorem<a class="anchor-link" href="#Applying-the-Central-Limit-Theorem"> </a></h3><p>An example in an earlier section started with a university that has tens of thousands of undergraduates. We knew that the average number of textbooks bought by the undergraduates this semester is 3 with an SD of 2.</p>
+<p>If you draw a simple random sample of 400 undergraduates, you might as well be drawing with replacement, so the draws are essentially iid. Because the sample size is large, the Central Limit Theorem says that the distribution of the total number of textbooks bought this semester by the sampled students looks roughly normal, regardless of the distribution of the numbers of textbooks bought by any random student.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/03_Normal_Approximation_10_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let the total number of textbooks be $S$. We noted that the values on the horizontal axis are derived from the following calculations:</p>
+<ul>
+<li>$E(S) = 400 \times 3 = 1200$</li>
+<li>$SD(S) = \sqrt{400} \times 2 = 40$</li>
+</ul>
+<p>What is the chance that the total number of textbooks is more than 1260?</p>
+<p>We can't find this chance exactly. But the Central Limit Theorem gives us an approximation.</p>
+<p>The graph below shows the area we want to find. The curve is drawn on the original scale of $S$, measuring the number of books. Below that you see the standard units scale and the value 1260 in standard units:</p>
+<p>$$
+\frac{1260 - 1200}{40}  =  1.5
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/03_Normal_Approximation_12_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The normal approximation to $P(S &gt; 1260)$ is therefore</p>
+<p>$$
+1 - \Phi(1.5) ~ \approx ~ 6.7\%
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.06680720126885809</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remember that $\Phi$ is the cdf of the <em>standard</em> normal curve, so you have to convert your value on the horizontal axis to standard units before applying $\Phi$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Average-Rent">Average Rent<a class="anchor-link" href="#Average-Rent"> </a></h3><p>Suppose that the rents paid by a random group of 900 people are i.i.d., each with expectation 1500 dollars and SD 810 dollars.</p>
+<p>Fill in the blank: There is about 90% chance that the average rent of the 900 people is in the range 1500 dollars plus or minus $\underline{~~~~~~~~~~~~~~}$ dollars.</p>
+<p>Let $A_{900}$ be the average rent paid by the 900 people. Then $E(A_{900}) = 1500$ and $SD(A_{900}) = \frac{810}{\sqrt{900}} = 27$.</p>
+<p>We don't know the shape of the distribution of any individual's rent. But since the sample size is large, the Central Limit Theorem says that the distribution of the total rent paid by the sampled people is approximately normal. The average rent is the total rent divided by the constant 900, so it's just a change of units of measurement. The distribution of the average rents is thus also approximately normal.</p>
+<p>Our goal is to find the distance $d$ shown in the figure below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/03_Normal_Approximation_17_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Each of the two tails has area 5%, so $z_2$ is the 95th percentile of the standard normal curve. That is,</p>
+<p>$$
+z_2  =  \Phi^{-1}(0.95)  \approx 1.645
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.6448536269514722</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This tells us that the right-most point $1500 + d$ is $1.645$ SDs above the center.</p>
+<p>Since $SD(A_n) = 27$, we have $d = 1.645 \times 27 \approx 44.42$.</p>
+<p>With chance about 90%, the average rent of the sampled individuals is in the range $1500 \pm 44.42$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Don't worry about how many decimal places you should provide. The Central Limit Theorem only says that the distribution of a large random sample sum (or average) is <em>approximately</em> normal, so the answer is an approximation anyway.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

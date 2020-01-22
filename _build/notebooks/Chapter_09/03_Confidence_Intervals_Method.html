@@ -1,0 +1,277 @@
+---
+redirect_from:
+  - "/notebooks/chapter-09/03-confidence-intervals-method"
+interact_link: content/notebooks/Chapter_09/03_Confidence_Intervals_Method.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Confidence Intervals: Method
+prev_page:
+  url: /notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html
+  title: |-
+    A/B Testing: Fisher's Exact Test
+next_page:
+  url: /notebooks/Chapter_09/04_Confidence_Intervals_Interpretation.html
+  title: |-
+    Confidence Intervals: Interpretation
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Confidence-Intervals:-Method">Confidence Intervals: Method<a class="anchor-link" href="#Confidence-Intervals:-Method"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <em>confidence interval</em> is an interval of estimates of a fixed but unknown parameter, based on data in a random sample. In this section we will construct confidence intervals for an unknown population mean, based on a large i.i.d. sample drawn from the population.</p>
+<p>Proportions are means of zeros and ones. So, as a special case of our method, we will also be able to construct confidence intervals for unknown population proportions.</p>
+<p>First let's recall from Data 8 why we use intervals to estimate an unknown number, instead of just providing one number as the estimate. Suppose that you are trying to estimate an unknown parameter $\mu$, and suppose that based on your random sample you think $\mu$ is 4. Why not just say that your estimate is 4, and be done with it?</p>
+<p>It is because your estimate 4 is based on observations in a random sample, and you know that <em>the sample could have come out differently</em>. If the sample had come out differently, you might have come up with an estimate that was different from 4. Just saying that the estimate is 4 doesn't take that into account.</p>
+<p>You have to give yourself some wiggle room to allow for the fact that different random samples would have led to different estimates of the parameter. So you should provide an interval of estimates instead of just one number.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Confidence-Interval-for-a-Population-Mean">Confidence Interval for a Population Mean<a class="anchor-link" href="#Confidence-Interval-for-a-Population-Mean"> </a></h3><p>Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$. We will call $\mu$ the "underlying mean" or the "population mean".</p>
+<p>Data scientists often don't know the value of $\mu$ and would like to estimate it. For example, if each $X_i$ is the annual income of a randomly picked U.S. household then $\mu$ is the average annual income in all U.S. households, which the data scientists might not know. It could also be that the model is more abstract and $\mu$ is an abstract quantity whose exact value is unknowable. For example, if each $X_i$ is a measurement of length and the object being measured has length $\mu$, we will never be able to know the value of $\mu$ with infinite precision. All measuring processes, no matter how sophisticated, have some error.</p>
+<p>We do know, however, that the sample mean $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$ is an unbiased estimate of $\mu$. We also know that $SD(\bar{X}) = \frac{\sigma}{\sqrt{n}}$ where $\sigma = SD(X_i)$ for every $i$.</p>
+<p>If $n$ is large, the Central Limit Theorem tells us that the distribution of $\bar{X}$ is roughly normal. Therefore, for large $n$,</p>
+<p>$$
+P(\mu - 2\frac{\sigma}{\sqrt{n}} &lt; \bar{X} &lt; \mu + 2\frac{\sigma}{\sqrt{n}}) ~ \approx ~ 0.95
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_09/03_Confidence_Intervals_Method_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can rewrite this to get an interval of estimates of $\mu$.</p>
+<p>$$
+\begin{align*}
+&amp;P\big{(}\mu - 2\frac{\sigma}{\sqrt{n}} &lt; \bar{X} &lt; \mu + 2\frac{\sigma}{\sqrt{n}}\big{)} ~ \approx ~ 0.95 \\
+\iff ~ &amp;P\big{(}\bar{X} - 2\frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \bar{X} + 2\frac{\sigma}{\sqrt{n}}\big{)} ~ \approx ~ 0.95 \\
+\iff ~ &amp;P\big{(}\mu \in (\bar{X} - 2\frac{\sigma}{\sqrt{n}}, ~ \bar{X} + 2\frac{\sigma}{\sqrt{n}})\big{)} ~ \approx ~ 0.95
+\end{align*}
+$$</p>
+<p>The random interval</p>
+<p>$$
+(\bar{X} - 2\frac{\sigma}{\sqrt{n}}, ~ \bar{X} + 2\frac{\sigma}{\sqrt{n}})
+$$</p>
+<p>is called an <em>approximate 95% confidence interval for $\mu$</em>. It is a random interval because its endpoints depend on the sample mean $\bar{X}$ which is a random variable whose value varies across samples.</p>
+<p>Our calculation showed that the chance that this <em>random interval</em> contains the <em>fixed parameter</em> is about 95%.</p>
+<p>In practice, we only get one observed instance of the random interval.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mean-Commute-Distance">Mean Commute Distance<a class="anchor-link" href="#Mean-Commute-Distance"> </a></h3><p>In a simple random sample of 600 workers taken in a large city, the commute distances of the sampled workers have an average of 19 miles and an SD of 13 miles.</p>
+<p>We can use these data to construct an approximate 95% confidence interval for the average commute distance of all workers in the city.</p>
+<p>First note that while a sample of size 600 is large in absolute terms, it is pretty small in comparison to the total number of workers in the city. So we can think of the sample as essentially drawn with replacement and hence i.i.d.</p>
+<p>Now our method says that our observed approximate 95% confidence interval for the population mean commute distance $\mu$ is given by</p>
+<p>$$
+19 ~ \pm ~ 2\frac{\sigma}{\sqrt{600}}
+$$</p>
+<p>where $\sigma$ is the SD of the commute distances in the population. We don't know $\sigma$, but by an argument that we have seen before,</p>
+<p>$$
+\frac{\sigma}{\sqrt{600}} ~ \approx ~ \frac{\text{sample SD}}{\sqrt{600}} ~ = ~ \frac{13}{\sqrt{600}} ~ \approx ~ 0.53
+$$</p>
+<p>So an approximate 95% confidence interval for the average commute distance (in miles) of workers in the city is given by</p>
+<p>$$
+19 \pm 2 \times 0.53 ~ = ~ (17.94, 20.06)
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Proportion-of-Undecided-Voters">Proportion of Undecided Voters<a class="anchor-link" href="#Proportion-of-Undecided-Voters"> </a></h3><p>In a simple random sample of 400 voters in a state, 23% are undecided about which way they will vote.</p>
+<p>We can use these data to construct an approximate 95% confidence interval for the proportion of undecided voters in the state, following the process we developed above.</p>
+<p>Remember that the population proportion of undecided voters, which we will denote by $p$, is the mean of the zeros and ones in the population. Here undecided voters are coded as 1 and all others as 0. So also that sample proportion of undecided voters, 0.23, is the observed sample mean.</p>
+<p>Our observed approximate 95% confidence interval for the proportion of undecided voters in the state is given by</p>
+<p>$$
+0.23 \pm 2 \frac{\sigma}{\sqrt{400}}
+$$</p>
+<p>where $\sigma$ is the SD of the zeros and ones in the population. We know that $\sigma = \sqrt{pq}$ where $q = 1-p$, so</p>
+<p>$$
+\frac{\sigma}{\sqrt{400}} ~ = ~ \frac{\sqrt{pq}}{\sqrt{400}} ~ \approx ~ \frac{\sqrt{0.23 \times 0.77}}{\sqrt{400}} ~ \approx ~ 0.021
+$$</p>
+<p>So an an approximate 95% confidence interval for the proportion of undecided voters in the population is</p>
+<p>$$
+0.23 \pm 2 \times 0.021 ~ = (0.188, 0.272)
+$$</p>
+<p>In other words, our 95% confidence interval for the percent of undecided voters in the population goes from 18.8% to 27.2%.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Confidence-Level">Confidence Level<a class="anchor-link" href="#Confidence-Level"> </a></h3><p>The confidence intervals in this section all have the form</p>
+<p>$$
+\text{sample mean} ~ \pm ~ zSD(\text{sample mean})
+$$</p>
+<p>We took $z = 2$ because the <em>confidence level</em> of the each of the intervals was 95% and we know that the area under the standard normal curve between $-2$ and $2$ is about 95%.</p>
+<p>If we had wanted a different level of confidence, say 99%, we would only have had to change the value of $z$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_09/03_Confidence_Intervals_Method_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The area of each tail in the diagram above is $0.005$, so $\Phi(z) = 0.995$. The value of $z$ is therefore</p>
+<p>$$
+z ~ = ~ \Phi^{-1}(0.995) ~ \approx ~ 2.576
+$$</p>
+<p>You can get the numerical value by using <code>stats.norm.ppf</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.995</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5758293035489004</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus an approximate 99% confidence interval for the mean commute distance of all workers in the city in the first example is</p>
+<p>$$
+19 \pm 2.576 \times 0.53 ~ = ~ (17.63, 20.36)
+$$</p>
+<p>The 99% confidence interval is wider than the 95% confidence interval $(17.94, 20.06)$.</p>
+<p>We asked for 99% confidence instead of 95%. For this increased confidence based on the same sample as before, we had to give the estimate more wiggle room.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,462 @@
+---
+redirect_from:
+  - "/notebooks/chapter-07/03-the-law-of-averages"
+interact_link: content/notebooks/Chapter_07/03_The_Law_of_Averages.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  The Law of Averages
+prev_page:
+  url: /notebooks/Chapter_07/02_Sampling_Without_Replacement.html
+  title: |-
+    Sampling Without Replacement
+next_page:
+  url: /notebooks/Chapter_07/04_Exercises.html
+  title: |-
+    Exercises
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Law-of-Averages">The Law of Averages<a class="anchor-link" href="#The-Law-of-Averages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Informally, the <em>law of averages</em> is the familiar statement that if you toss a coin many times you get about half heads and half tails.</p>
+<p>The main reason for studying the law of averages is to begin to understand why large random samples are the basis for inference in data science. In this section we will take a close look at the informal statement of the law and try to make it more precise. In the process, we will confirm some intuition about probabilities and also come across a fact that may be surprising.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Sample-Sum">The Sample Sum<a class="anchor-link" href="#The-Sample-Sum"> </a></h3><p>Before we get to averages let's take a look at sums. Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and SD $\sigma$, and let $S_n = X_1 + X_2 + \ldots + X_n$.</p>
+<p>Then $E(S_n) = n\mu$, as we have known for some time. As the sample size $n$ gets larger, $E(S_n)$ also gets larger. This tells us that the distribution of $S_n$ places its mass further and further to the right as $n$ increases.</p>
+<p>We also know that $Var(S_n) = n\sigma^2$ and hence $SD(S_n) = \sqrt{n}\sigma$. As $n$ increases, the distribution of $S_n$ is more widely dispersed around its mean.</p>
+<p>To visualize these properties, let's take $X_1, X_2, \ldots, X_n$ to be the indicators of heads on successive tosses of a coin.</p>
+<p>Then $S_n$ is the number of heads in $n$ tosses and has the binomial $(n, 1/2)$ distribution with expectation $n/2$ and SD $\sqrt{n}(1/2)$.</p>
+<p>The figure below shows the probability histograms of $S_{100}$ and $S_{400}$. You can see that the distribution of $S_{400}$ is wider and to the right of the distribution of $S_{100}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because the distribution of $S_{400}$ is wider and the areas of both the histograms are 1, the histogram of $S_{400}$ is lower than that of $S_{100}$. As the sample size $n$ gets larger, the distribution of the sample sum shifts to the right and gets lower and more spread out.</p>
+<p>This observation raises an interesting question. The histograms above indicate that the chance of 200 heads in 400 tosses is <em>less</em> than the chance of 50 heads in 100 tosses. Is that right? If so, how can it be consistent with the law of averages?</p>
+<p>Let us try to answer these questions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exactly-Half-Heads">Exactly Half Heads<a class="anchor-link" href="#Exactly-Half-Heads"> </a></h3><p>The chance of exactly half heads is the chance of $n$ heads in $2n$ tosses, which we can calculate using the binomial formula.</p>
+<p>$$
+P(n \text{ heads in } 2n \text{ tosses } ~ = ~ 
+\binom{2n}{n}\big{(}\frac{1}{2}\big{)}^n\big{(}\frac{1}{2}\big{)}^n
+$$</p>
+<p>Here is a table of some of these values.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">p_half_heads</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Assumes m is even and returns </span>
+<span class="sd">    P(m/2 heads in m tosses)&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">even</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;2n&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="n">prob_half</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_half_heads</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">even</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;P(n heads in 2n tosses)&#39;</span><span class="p">,</span> <span class="n">prob_half</span><span class="p">)</span>
+<span class="n">even</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>2n</th> <th>P(n heads in 2n tosses)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>100 </td> <td>0.0795892              </td>
+        </tr>
+        <tr>
+            <td>150 </td> <td>0.0650385              </td>
+        </tr>
+        <tr>
+            <td>200 </td> <td>0.0563485              </td>
+        </tr>
+        <tr>
+            <td>250 </td> <td>0.0504122              </td>
+        </tr>
+        <tr>
+            <td>300 </td> <td>0.0460275              </td>
+        </tr>
+        <tr>
+            <td>350 </td> <td>0.0426183              </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>0.0398693              </td>
+        </tr>
+        <tr>
+            <td>450 </td> <td>0.0375917              </td>
+        </tr>
+        <tr>
+            <td>500 </td> <td>0.0356646              </td>
+        </tr>
+        <tr>
+            <td>550 </td> <td>0.0340065              </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (9 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first row tells us that the chance of 50 heads in 100 tosses is about 8%. The row corresponding to 400 tosses tells us that the chance of 200 heads in 400 tosses is about 4%. Both of these chances are consistent with the peaks of the histograms of $S_{100}$ and $S_{400}$.</p>
+<p>The entries in the chance column <em>decrease</em> as the number of tosses increases, ending at about 2.5% for the chance of 500 heads in 1000 tosses.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">even</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>2n</th> <th>P(n heads in 2n tosses)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1000</td> <td>0.025225               </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is clear from these calculations that the chance of getting <em>exactly</em> half heads decreases as the number of tosses increases.</p>
+<p>Indeed, it can be shown that the chance decreases to 0.</p>
+<p>Why does this not contradict the law of averages? To understand this, look closely at the informal statment of the law: "If you toss a coin many times you get <em>about</em> half heads and half tails."</p>
+<p>The crucial word is <em>about</em>. You expect to get <em>about</em> half heads, not <em>exactly</em> half heads.</p>
+<p>Now let's try to understand "about" a bit better.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Sample-Average">The Sample Average<a class="anchor-link" href="#The-Sample-Average"> </a></h3><p>As before, let $S_n = X_1 + X_2 + \ldots + X_n$ be the sum of i.i.d random variables that have mean $\mu$ and SD $\sigma$. Now let $A_n = S_n / n$ be the sample average.</p>
+<p>When the $X_i$s are indicators, $A_n$ is the sample proportion of successes.</p>
+<p>But for the moment, we won't specialize to indicators. Instead we will develop two general facts that are consequences of the linear relation $A_n = S_n/n$.</p>
+<p>$$
+E(A_n) ~ = ~ \frac{1}{n}E(S_n) ~ = ~ \frac{1}{n} n\mu ~ = ~ \mu
+$$</p>
+<p>$$
+SD(A_n) ~ = ~ \frac{1}{n}SD(S_n) ~ = ~ \frac{1}{n}\sqrt{n}\sigma ~ = ~ \frac{\sigma}{\sqrt{n}}
+$$</p>
+<p>No matter what the sample size, the distribution of the sample mean balances at the population mean. As the sample size increases, the SD of the sample mean gets smaller.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Square-Root-Law">The Square Root Law<a class="anchor-link" href="#The-Square-Root-Law"> </a></h3><p>As you know, the sample mean $A_n$ is an unbiased estimator of the population mean. In the language of estimation, the <em>accuracy</em> of an unbiased estimator can be measured by its SD: the smaller the SD, the more accurate the estimator.</p>
+<p>Let's compare $SD(A_{100})$ and $SD(A_{400})$. We know that $SD(A_{400})$ is smaller, but by how much?</p>
+<p>$$
+SD(A_{400}) ~ = ~ \frac{\sigma}{\sqrt{400}} ~ = ~ \frac{\sigma}{\sqrt{4}\sqrt{100}} ~ = ~ \frac{1}{2}SD(A_{100})
+$$</p>
+<p>We say that $A_{400}$ is <em>twice as accurate</em> as $A_{100}$. The factor of $2$ comes from the relation between the square roots of the two sample sizes: $\sqrt{400} = 20$ is twice as large as $\sqrt{100} = 10$.</p>
+<p>Accuracy doesn't come cheap. For double the accuracy, we have to multiply the sample size by a factor of $2^2 = 4$. For 5 times the accuracy, we would have to multiply the sample size by a factor of $5^2 = 25$.</p>
+<p>In other words, if you multiply the sample size by a factor, the accuracy only goes up by the square root of the factor. This is called the <strong>square root law</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Concentration-of-Probabilities">Concentration of Probabilities<a class="anchor-link" href="#Concentration-of-Probabilities"> </a></h3><p>In the figure below, $A_n$ is proportion of heads in $n$ tosses of a coin. That is, $A_n$ is the average of i.i.d. $X_1, X_2, \ldots, X_n$ where each $X_i$ is an indicator that is 1 with chance $1/2$.</p>
+<p>The histograms show the distribution of $A_{100}$ and $A_{400}$. Notice that both distributions balance at 0.5, and the distribution of $A_{400}$ is more concentrated around 0.5.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In general, the larger the sample size $n$, the more likely it is that the sample average $A_n$ will be close to the population average $\mu$.</p>
+<p>Formally, let $c &gt; 0$ be any number. Then</p>
+<p>$$
+P(\mu - c &lt; A_n &lt; \mu + c) ~ = ~ P(\vert A_n - \mu \vert &lt; c) ~ \to ~ 1 ~~~ \text{ as } n \to \infty
+$$</p>
+<p>No matter how small $c$ is, when the sample size is large enough the sample mean is almost certain to be in the interval $\mu \pm c$.</p>
+<p>This result is called the <strong>Weak Law of Large Numbers</strong> and you can prove it using Chebyshev's inequality. We will be most interested in the special case where $A_n$ is a proportion.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Law-of-Averages">The Law of Averages<a class="anchor-link" href="#The-Law-of-Averages"> </a></h3><p>Let $X_1, X_2, \ldots, X_n$ be i.i.d. indicators, each equal to 1 with probability $p$. Let $A_n$ be the sample proportion of 1's, that is, let $A_n = S_n/n$ be the sample average.</p>
+<p>The formal statement of the <em>law of averages</em> is that for each fixed $c &gt; 0$, no matter how small,</p>
+<p>$$
+P(p - c &lt; A_n &lt; p + c) ~ = ~ P(\vert A_n - p \vert &lt; c) ~ \to ~ 1 ~~~ \text{ as } n \to \infty
+$$</p>
+<p>The law of averages says that when the sample size is large, the sample proportion of 1's is hugely likely to be in a small interval around $p$.</p>
+<p>But the sample proportion is unlikely to be exactly equal to $p$, as we have seen in examples when $p = 0.5$.</p>
+<p>The law of averages implies that as you keep rolling a die:</p>
+<ul>
+<li>There is greater chance that the proportion of sixes is in any fixed interval that contains $1/6$. For example, as the number of rolls gets larger there is greater chance that the proportion of sixes will be in the range 15% to 18%.</li>
+<li>There is less chance that the proportion of sixes is in any fixed interval that doesn't contain $1/6$. For example, as the number of rolls gets larger there is less chance that the proportion of sixes will be less than 16%.</li>
+</ul>
+<p>There is nothing special about sixes in the discussion above. You could replace "six" with any other face of the die. The result is the same: in a large number of rolls, it is hugely likely that the observed proportion of times the face appears is close to $1/6$.</p>
+<p>That is why when you repeatedly simulate rolling a die, the entire <em>empirical histogram</em> of the simulated results starts to look like the uniform distribution on 1, 2, 3, 4, 5, 6.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">one_die</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">die_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">one_die</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">die_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability Histogram of the Face on One Roll&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_17_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">simulations</span> <span class="o">=</span> <span class="n">one_die</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">simulations</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Face&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">die_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Empirical Histogram of 10,000 Rolls&#39;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/03_The_Law_of_Averages_18_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+

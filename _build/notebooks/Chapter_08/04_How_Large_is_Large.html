@@ -1,0 +1,230 @@
+---
+redirect_from:
+  - "/notebooks/chapter-08/04-how-large-is-large"
+interact_link: content/notebooks/Chapter_08/04_How_Large_is_Large.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  How Large is Large
+prev_page:
+  url: /notebooks/Chapter_08/03_Normal_Approximation.html
+  title: |-
+    Normal Approximation
+next_page:
+  url: /notebooks/Chapter_08/05_Exercises.html
+  title: |-
+    Exercises
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-Large-is-&quot;Large&quot;?">How Large is "Large"?<a class="anchor-link" href="#How-Large-is-&quot;Large&quot;?"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X_1, X_2, \ldots, X_n$ be i.i.d. with mean $\mu$ and SD $\sigma$, and let $S_n = X_1 + X_2 + \cdots + X_n$. The Central Limit Theorem says that no matter what the distribution of $X_1$, after some large enough $n$ the distribution of $S_n$ looks roughly normal.</p>
+<p>This raises the question of how large is "large enough". We have seen in examples that the answer depends on the distribution of $X_1$. If the distribution of $X_1$ is smooth and symmetric, the distribution of the sample sum can start looking normal even when the sample size $n$ is moderate. If the distribution of $X_1$ is skewed or has gaps, then the sample size might have to get larger before the normal approximation is good.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Approximations-to-the-Binomial">Approximations to the Binomial<a class="anchor-link" href="#Approximations-to-the-Binomial"> </a></h3><p>A binomial $(n, p)$ random variable is the sum of $n$ i.i.d. Bernoulli $(p)$ random variables. By the Central Limit Theorem, the binomial $(n, p)$ distribution should look roughly normal for large enough $n$.</p>
+<p>And indeed for $n = 100$ and $p = 0.5$, the binomial $(n, p)$ distribution looks beautifully normal.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/04_How_Large_is_Large_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A sample size of 100 seems pretty large. Let's take a look at the binomial $(100, 0.01)$ distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/04_How_Large_is_Large_6_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's definitely not normal. It's close to Poisson with parameter $\mu = 100 \times 0.01 = 1$, as you have seen earlier.</p>
+<p>Does this contradict the Central Limit Theorem?</p>
+<p>No – it just demonstrates that the sample size needed for the normal approximation to start working depends on the distribution you start with.</p>
+<p>A binomial $(100, 0.5)$ random variable is the sum of 100 i.i.d. Bernoulli $(0.5)$ random variables. Each indicator has the uniform distribution on the two values $0$ and $1$. There's no skewness or lack of smoothness in that distribution, and $n = 100$ is enough for the normal approximation to work.</p>
+<p>But a binomial $(100, 0.01)$ random variable is the sum of 100 i.i.d. Bernoulli $(0.01)$ random variables. Each indicator has chance $99/100$ of being $0$ and chance only $1/100$ of being $1$. That's pretty skewed, and the sample size of $n = 100$ isn't large enough for the normal approximation to work.</p>
+<p>When $n = 1000$, you see the normal curve start to appear.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/04_How_Large_is_Large_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When $n = 5000$ the normal approximation is excellent.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_08/04_How_Large_is_Large_10_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The interplay between the expectation and the SD affects the shape. For a distribution to look normal, the possible values have to stretch for three or fours SDs on both sides of the mean.</p>
+<p>When $n$ is large but $p$ is so small that $np$ is near the minimum possible value $0$, the distribution is squeezed up against a barrier and has little room to spread out below the mean. This leads to the typical Poisson "count of rare events" shape.</p>
+<p>For the same small $p$, you can keep increasing $n$ till the mean $np$ is much bigger than the SD $\sqrt{npq}$. That's when the normal curve starts appearing.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ways-to-Decide-If-$n$-is-Large-Enough">Ways to Decide If $n$ is Large Enough<a class="anchor-link" href="#Ways-to-Decide-If-$n$-is-Large-Enough"> </a></h3><p>In the general case when the random variables being added are not indicators, there are no universal rules about how large the sample size has to be for the normal approximation to work. You can consider two ways of making the decision.</p>
+<ul>
+<li><p>If you have the entire sample, as you did in Data 8, you can bootstrap the sample sum. Just create numerous bootstrap samples and compute the sum each time. If the distribution of all your bootstrapped sums looks roughly normal, go ahead and use the normal approximation.</p>
+</li>
+<li><p>If you just have the population mean $\mu$ and SD $\sigma$, and a sample size $n$ that seems large, then draw a normal curve with center $n\mu$ and points of inflection at a distance $\sqrt{n}\sigma$ on either side of the mean. Make sure you draw the normal curve all the way out to three or four SDs on either side. If you don't start hitting impossible values (such as negative numbers for a variable that's non-negative, or values bigger than 100 for a variable that's a percent), then as far as this course is concerned you can assume the Central Limit Theorem has kicked in for the distribution of the sample sum.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

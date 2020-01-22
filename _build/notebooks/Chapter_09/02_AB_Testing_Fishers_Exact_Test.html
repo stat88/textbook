@@ -1,0 +1,146 @@
+---
+redirect_from:
+  - "/notebooks/chapter-09/02-ab-testing-fishers-exact-test"
+interact_link: content/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  A/B Testing: Fisher's Exact Test
+prev_page:
+  url: /notebooks/Chapter_09/01_Testing_Hypotheses.html
+  title: |-
+    Testing Hypotheses
+next_page:
+  url: /notebooks/Chapter_09/03_Confidence_Intervals_Method.html
+  title: |-
+    Confidence Intervals: Method
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A/B-Testing:-Fisher's-Exact-Test">A/B Testing: Fisher's Exact Test<a class="anchor-link" href="#A/B-Testing:-Fisher's-Exact-Test"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>A/B testing</em> is a term used to describe tests of hypotheses that involve comparing the distributions of two random samples. Although the term is relatively new, the ideas and methods have been used by statisticians for a very long time.</p>
+<p>In this section we revisit a test of hypotheses performed in Data 8 using random permutations. We will show how the test can be performed using a method devised by Sir Ronald Fisher early in the 20th century.</p>
+<p>Recall a <a href="https://www.inferentialthinking.com/chapters/12/3/Causality.html">randomized controlled experiment</a> to study a potential treatment for chronic back pain. The treatment was the botulinum toxin A, a very potent toxin that can be used as medication in tiny doses.</p>
+<p>A total of 31 patients participated in the study. Of these, a simple random sample of 15 were assigned to the treatment group and the remaining 16 to the control group. Eight weeks after treatment, 9 of the 15 in the treatment group had pain relief compared to 2 out of 16 in the control group.</p>
+<p>In other words, of the 11 patients who had pain relief, 9 were in the treatment group and 2 in the control group. What does this tell us about the treatment?</p>
+<p>We can answer this question by performing a test of hypotheses. In scientific experiments, the hypotheses must be posed before the experiment is run, so that they are not biased by the observed data. Therefore the hypotheses are:</p>
+<ul>
+<li><p>$H_0$: The treatment does nothing; any difference between the two groups is due to the random assignment of patients to treatment and control.</p>
+</li>
+<li><p>$H_A$: The treatment does something. Note that the "something" could be good or bad; we are not specifying the nature of the effect.</p>
+</li>
+</ul>
+<p>These are the same hypotheses we tested in Data 8, and also the same as in the paper.</p>
+<p>We now have to come up with a test statistic. It is natural to start by considering the number of treated patients who have pain relief. Let's call this number $X$. We might have to adjust it to get our test statistic, but let's see what we can say about it first.</p>
+<p>We will start by finding the distribution of $X$ under $H_0$.</p>
+<p>Under $H_0$, the treatment does nothing different from the control. So among the 31 patients in the study, 11 would have had pain relief anyway, regardless of the group to which they were assigned. Among those 11, $X$ would end up in the treatment group due to the random assignment of patients to groups.</p>
+<p>The treatment group consists of a simple random sample of 15 of the 31 patients. Therefore under $H_0$, the distribution of $X$ is hypergeometric with the following parameters:</p>
+<ul>
+<li>N = 31, the population size</li>
+<li>G = 11, the total number of "pain relief" patients</li>
+<li>n = 15, the size of the treatment group</li>
+</ul>
+<p>Therefore</p>
+<p>$$
+E_{H_0}(X) ~ = ~ 15 \times \frac{11}{31} ~ \approx ~ 5.32
+$$</p>
+<p>If the null hypothesis were true we would expect to get 5.32 "pain relief" patients in the treatment group. To distinguish between the null and alternative hypotheses, a good statistic to use is</p>
+<p>$$
+T ~ = ~ \vert X - 5.32 \vert
+$$</p>
+<p>This statistic $T$ is the distance between the observed count and the expected count under the null hypothesis. Large values of $T$ favor the alternative hypothesis.</p>
+<p>The observed value of the test statistic is</p>
+<p>$$
+\vert 9 - 5.32 \vert ~ = ~ 3.68
+$$</p>
+<p>Therefore the $p$-value is</p>
+<p>$$
+\begin{align*}
+P_{H_0}(T \ge 3.68) ~ &amp;= ~ P(\vert X - 5.32 \vert \ge 3.68) \\
+&amp;= ~ P(X \le 5.32 - 3.68) + P(X \ge 5.32 + 3.68) \\
+&amp;= ~ P(X \le 1.64) + P(X \ge 9) \\
+&amp;= ~ P(X \le 1) + P(X \ge 9) \\ \\
+&amp;= ~ \sum_{g=0}^1 \frac{\binom{11}{g}\binom{20}{15-g}}{\binom{31}{15}} ~ + ~ \sum_{g=9}^{11} \frac{\binom{11}{g}\binom{20}{15-g}}{\binom{31}{15}} \\ \\
+&amp;\approx ~ 0.00915
+\end{align*}
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.009147039383534013</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's a very small $p$-value, which implies that the data support the alternative hypothesis more than they support the null. The conclusion is that treatment did something – it wasn't just the same as the control.</p>
+<p>This is consistent with the conclusion of the researchers and also with our own analysis in Data 8. But the approach to getting the $p$-value is different in the three analyses.</p>
+<ul>
+<li>The calculations in the research paper involve some approximations. The reported $p$-value is $0.009$.</li>
+<li>In Data 8 we simulated the difference between the two group proportions under the null hypothesis, by pooling the two groups and randomly permuting the pooled sample. Our conclusion was based on an empirical, approximate $p$-value of $0.0085$.</li>
+<li>Our calculation in this section requires neither simulation nor approximation and produces the exact $p$-value.</li>
+</ul>
+<p>The method we have used is called <em>Fisher's exact test</em>. That's the same Sir Ronald Fisher who formalized tests of hypotheses, suggested cutoffs for $p$-values, and so on. The method can be used for any sample size and any randomized controlled experiment with a binary response.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

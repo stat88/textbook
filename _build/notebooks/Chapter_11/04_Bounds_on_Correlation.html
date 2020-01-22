@@ -1,0 +1,112 @@
+---
+redirect_from:
+  - "/notebooks/chapter-11/04-bounds-on-correlation"
+interact_link: content/notebooks/Chapter_11/04_Bounds_on_Correlation.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Bounds on Correlation
+prev_page:
+  url: /notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html
+  title: |-
+    Least Squares Linear Regression
+next_page:
+  url: /notebooks/Chapter_11/05_The_Error_in_Regression.html
+  title: |-
+    The Error in Regression
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bounds-on-Correlation">Bounds on Correlation<a class="anchor-link" href="#Bounds-on-Correlation"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a random pair $(X, Y)$, the correlation $r(X, Y)$ is defined as</p>
+<p>$$
+r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{(}\frac{Y-\mu_Y}{\sigma_Y}\big{)} \Big{)} ~ = ~ E(X^*Y^*)
+$$</p>
+<p>where $X^*$ and $Y^*$ are respectively $X$ and $Y$ measured in standard units.</p>
+<p>Thus by definition, correlation is a pure number and has no units.</p>
+<p>You have seen several properties of correlation in Data 8. Some are obvious, such as $r(X, Y) = r(Y, X)$. Some require proof.</p>
+<p>In this brief section we will prove one principal property, which is that correlation is a number between $-1$ and $1$. You will prove a few other properties in exercises. In the next section we will specify the sense in which correlation measures clustering about a straight line.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Lower-Bound">Lower Bound<a class="anchor-link" href="#Lower-Bound"> </a></h3><p>As a preliminary, recall that</p>
+<p>$$
+E(X^*) = 0, ~~~ Var(X^*) = 1 = E({X^*}^2)
+$$</p>
+<p>So also $E(Y^*) = 0$ and $E({Y^*}^2) = 1$.</p>
+<p>We know the expected squares, and what we need is a bound on the expected product $E(X^*Y^*)$. A result that connects the squares and the product of two numbers is $(a+b)^2 = a^2 + 2ab + b^2$.</p>
+<p>So let's find $E\big{(}(X^* + Y^*)^2\big{)}$ and see what that gives us.</p>
+<p>$$
+\begin{align*}
+E\big{(}(X^* + Y^*)^2\big{)} ~ &amp;= ~ E({X^*}^2) + 2E(X^*Y^*) + E({Y^*}^2) \\
+&amp;= ~ 2 + 2E(X^*Y^*)
+\end{align*}
+$$</p>
+<p>Since $E\big{(}(X^* + Y^*)^2\big{)} \ge 0$, we have</p>
+<p>$$
+2 + 2E(X^*Y^*) \ge 0
+$$</p>
+<p>which is the same as</p>
+<p>$$
+E(X^*Y^*) \ge -1
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Upper-Bound">Upper Bound<a class="anchor-link" href="#Upper-Bound"> </a></h3><p>Play the same game with $E\big{(}(X^* - Y^*)^2\big{)}$ to see that</p>
+<p>$$
+2 - 2E(X^*Y^*) \ge 0
+$$</p>
+<p>which is the same as</p>
+<p>$$
+E(X^*Y^*) \le 1
+$$</p>
+<p>because division by $-2$ flips the direction of the inequality.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Other-Properties">Other Properties<a class="anchor-link" href="#Other-Properties"> </a></h3><p>As you know from Data 8, correlation measures linear association. In exercises you will show that if $Y$ is a linear function of $X$ then $r(X, Y)$ is either $1$ or $-1$.</p>
+<p>You will also find the relation between $r(X, Y)$ and $r(X, W)$ where $W$ is a linear function of $Y$.</p>
+<p>In the next section we will return to regression and formalize the idea that correlation measures clustering about a straight line. Our result will imply that if $r(X, Y)$ is either $1$ or $-1$, then the relation between $X$ and $Y$ must be perfectly linear.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

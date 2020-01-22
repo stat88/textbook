@@ -1,0 +1,336 @@
+---
+redirect_from:
+  - "/notebooks/chapter-03/02-random-variables"
+interact_link: content/notebooks/Chapter_03/02_Random_Variables.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Random Variables
+prev_page:
+  url: /notebooks/Chapter_03/01_Success_and_Failure.html
+  title: |-
+    Success and Failure
+next_page:
+  url: /notebooks/Chapter_03/03_The_Binomial_Distribution.html
+  title: |-
+    The Binomial Distribution
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Random-Variables">Random Variables<a class="anchor-link" href="#Random-Variables"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Random numerical quantities such as "the number of heads in ten tosses of a coin" are called random variables. The terminology and notation of random variables helps reduce the amount of writing involved in phrases like "the chance that there are no more than 4 heads in ten tosses of a coin."</p>
+<p>Formally, suppose you have an outcome space $\Omega$. A <em>random variable</em> is a numerical function on $\Omega$. That is, a random variable is a function whose domain is $\Omega$ and whose range is the number line.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Number-of-Heads-in-Three-Tosses">Number of Heads in Three Tosses<a class="anchor-link" href="#Number-of-Heads-in-Three-Tosses"> </a></h3><p>As our first example, we will formally define a random count: the number of heads in three tosses of a coin.</p>
+<p>The outcome space is</p>
+<p>$$
+\Omega ~ = ~ \{ HHH, HHT, HTH, THH, HTT, THT, TTH, TTT \}
+$$</p>
+<p>Random variables are typically denoted by upper case letters, often late letters in the alphabet.</p>
+<p>So let the random variable $X$ be the number of heads in three tosses. For every outcome, $X$ counts the number of heads in the outcome, as shown in the table below.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">$\text{outcome}$</th>
+<th style="text-align:right">$X(\text{outcome})$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HHH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~3$</td>
+</tr>
+<tr>
+<td style="text-align:center">HHT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+</tr>
+<tr>
+<td style="text-align:center">HTH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+</tr>
+<tr>
+<td style="text-align:center">THH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+</tr>
+<tr>
+<td style="text-align:center">HTT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+</tr>
+<tr>
+<td style="text-align:center">THT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+</tr>
+<tr>
+<td style="text-align:center">TTH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+</tr>
+<tr>
+<td style="text-align:center">TTT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~0$</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>possible values</em> of $X$ are $0, 1, 2, 3$, because those are the numbers of heads you can get if you toss a coin three times.</p>
+<p>Now let's introduce probabilities. The coin is fair, so all outcomes are equally likely.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">$\text{outcome}$</th>
+<th style="text-align:right">$X(\text{outcome})$</th>
+<th style="text-align:center">$\text{Probability}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HHH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~3$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">HHT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">HTH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">THH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~2$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">HTT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">THT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">TTH</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~1$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+<tr>
+<td style="text-align:center">TTT</td>
+<td style="text-align:right">$~~~~~~~~~~~~~~~~~~~~~~0$</td>
+<td style="text-align:center">1/8</td>
+</tr>
+</tbody>
+</table>
+<p>There is only one outcome (HHH) for which the number of heads is 3. The chance of that outcome is 1/8, so we say, "The chance of three heads is 1/8." And we write</p>
+<p>$$
+P(X = 3) ~ = ~ 1/8
+$$</p>
+<p>There are three outcomes (HHT, HTH, THH) for which the number of heads is two. The chance of getting two heads is the <em>total chance</em> of these three outcomes:</p>
+<p>$$
+P(X = 2) ~ = ~ 3/8
+$$</p>
+<p>Similarly,</p>
+<p>$$
+P(X = 1) ~ = ~ 3/8
+$$</p>
+<p>and</p>
+<p>$$
+P(X = 0) ~ = ~ 1/8
+$$</p>
+<p>We can display all this information more compactly in a <em>probability distribution table</em> for $X$, known for short as a distribution table.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$\text{Possible value } x$</th>
+<th style="text-align:center">$~~0~~$</th>
+<th style="text-align:center">$~~1~~$</th>
+<th style="text-align:center">$~~2~~$</th>
+<th style="text-align:center">$~~3~~$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$P(X = x)$</td>
+<td style="text-align:center">$1/8$</td>
+<td style="text-align:center">$3/8$</td>
+<td style="text-align:center">$3/8$</td>
+<td style="text-align:center">$1/8$</td>
+</tr>
+</tbody>
+</table>
+<p>Notice the lower case letter $x$ as notation for a generic possible value of $X$. Keep in mind that $X$ is the name of the random variable whereas $x$ is a number.</p>
+<p>For the generic value of $X$, you don't have to use $x$ as the notation. You can use any letter you like, but it should be lower case as upper case is used for events and random variables.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Distribution-(pmf)">Distribution (pmf)<a class="anchor-link" href="#Distribution-(pmf)"> </a></h3><p>The <em>probability distribution</em> of a random variable, or distribution for short, is the set of all possible values of the random variables along with all of the corresponding probabilities.</p>
+<p>When random variables have a finite number of possible values, as in the case of our example $X$, the distribution can be displayed in a table. The probabilities can also be written in a formula, as we will see in the next section.</p>
+<p>The probabilities in a distribution must add up to 1.</p>
+<p>This is clear because $X$ has to have one of the possible values and it can't have two values at once. So by the addition rule, the total chance of all the values should be the chance of the set of all outcomes, which is 1.</p>
+<p>The distribution of a random variable is sometimes called a <em>probability mass function</em>, abbreviated to <em>pmf</em>. That is because some probabilists like to visualize probabilities as masses attached to the possible values.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Probability-Histogram">Probability Histogram<a class="anchor-link" href="#Probability-Histogram"> </a></h3><p>The probability histogram is a natural way to visualize the distribution of a random variable. In a histogram, the areas of the bars represent probabilities. Later in the course we will see why this is important.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_03/02_Random_Variables_6_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Probabilities">Probabilities<a class="anchor-link" href="#Probabilities"> </a></h3><p>Once you have the distribution of a random variable, you can find the chance of any event determined by the random variable. Just identify the possible values that are in the event, and add up all their chances.</p>
+<p>For example,</p>
+<p>$$
+\begin{align*}
+P(X &gt; 0) ~ &amp;= ~ P(X = 1) + P(X = 2) + P(X = 3)\\
+&amp;= ~ \frac{3}{8} + \frac{3}{8} + \frac{1}{8} ~ = ~ \frac{7}{8}
+\end{align*}
+$$</p>
+<p>This could also have been calculated as</p>
+<p>$$
+P(X &gt; 0) ~ = ~ 1 - P(X = 0) ~ = ~ 1 - \frac{1}{8} ~ = ~ \frac{7}{8}
+$$</p>
+<p>As you can see, the only thing new in these calculations is the notation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_03/02_Random_Variables_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Equality">Equality<a class="anchor-link" href="#Equality"> </a></h3><p>There is one important new idea to keep in mind when studying random variables, which is that random variables have two different kinds of equality.</p>
+<p>Rather than talk in generalities, let's look at an example. Consider rolling two dice. Let $D_1$ be the number on the first roll and $D_2$ the number on the second. For example, if the outcome of the two rolls is the pair $(4, 3)$ then $D_1((4, 3)) = 4$ and $D_2((4, 3)) = 3$.</p>
+<p>This shows that as functions on the outcome space, $D_1$ and $D_2$ are <em>not equal</em>. For the outcome $(4, 3)$, the value of $D_1$ is different from the value of $D_2$.</p>
+<p>However, $D_1$ and $D_2$ clearly have something in common. <em>They have the same distribution,</em> shown in the table below.</p>
+<table>
+<thead><tr>
+<th style="text-align:right">$\text{Possible value }$</th>
+<th style="text-align:center">$~~1~~$</th>
+<th style="text-align:center">$~~2~~$</th>
+<th style="text-align:center">$~~3~~$</th>
+<th style="text-align:center">$~~4~~$</th>
+<th style="text-align:center">$~~5~~$</th>
+<th style="text-align:center">$~~6~~$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">$\text{Probability}$</td>
+<td style="text-align:center">$1/6$</td>
+<td style="text-align:center">$1/6$</td>
+<td style="text-align:center">$1/6$</td>
+<td style="text-align:center">$1/6$</td>
+<td style="text-align:center">$1/6$</td>
+<td style="text-align:center">$1/6$</td>
+</tr>
+</tbody>
+</table>
+<p>This is called the <em>uniform distribution</em> on $\{1, 2, 3, 4, 5, 6 \}$.</p>
+<p>We say that $D_1$ and $D_2$ are equal in distribution. But remember: they are not equal.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

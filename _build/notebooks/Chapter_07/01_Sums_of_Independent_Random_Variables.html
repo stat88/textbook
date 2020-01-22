@@ -1,0 +1,377 @@
+---
+redirect_from:
+  - "/notebooks/chapter-07/01-sums-of-independent-random-variables"
+interact_link: content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Sums of Independent Random Variables
+prev_page:
+  url: /notebooks/Chapter_07/00_The_Variance_of_a_Sum.html
+  title: |-
+    The Variance of a Sum
+next_page:
+  url: /notebooks/Chapter_07/02_Sampling_Without_Replacement.html
+  title: |-
+    Sampling Without Replacement
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sums-of-Independent-Random-Variables">Sums of Independent Random Variables<a class="anchor-link" href="#Sums-of-Independent-Random-Variables"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For two random variables $X$ and $Y$, the additivity property $E(X+Y) = E(X) + E(Y)$ is true regardless of the dependence or independence of $X$ and $Y$.</p>
+<p>But variance doesn't behave quite like this. Let's look at an example.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Two-Rolls-of-a-Die">Two Rolls of a Die<a class="anchor-link" href="#Two-Rolls-of-a-Die"> </a></h3><p>Suppose a die is rolled two times. Let $D_1$ and $D_2$ be the numbers on Rolls 1 and 2.</p>
+<p>Then $D_1$ and $D_2$ have the same distribution: both are uniform on $1, 2, 3, 4, 5, 6$. So $E(D_1) = E(D_2) = 3.5$.</p>
+<p>Define two sums as follows:</p>
+<ul>
+<li>$V = D_1 + D_1$</li>
+<li>$W = D_1 + D_2$</li>
+</ul>
+<p>In each case we are adding two random variables that have the uniform distribution on the integers $1$ through $6$.</p>
+<p>The two sums also have the same expectation, because by additivity, $E(V) = 7 = E(W)$.</p>
+<p>But their distributions are quite different from each other. The possible values of $W$ are the integers 2 through 12, whereas the possible values of $V$ are the even integers $2, 4, 6, 8, 10, 12$.</p>
+<p>The figure below show the probability distributions of $V$ and $W$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The figure shows that the distribution of $V$ (the blue histogram) has a larger spread than that of $W$ (the gold histogram). Both distributions are centered at 7 but the blue distribution has more mass on the extreme values.</p>
+<p>Clearly, this difference in spread is connected with the fact that $W = D_1 + D_2$ is the sum of two <em>independent</em> rolls of a die whereas $V = D_1 + D_1$ is just twice the first roll.</p>
+<p>To see why dependence matters when you are thinking about variance, notice that if $D_1$ is large then $V$ must be large but $W$ can be moderate if $D_2$ is small. The variability of the sum depends on the relation between the two variables being added.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Adding-Independent-Random-Variables">Adding Independent Random Variables<a class="anchor-link" href="#Adding-Independent-Random-Variables"> </a></h3><p>It <a href="http://prob140.org/textbook/Chapter_13/00_Variance_Via_Covariance.html">can be shown</a> that</p>
+<p>$$
+Var(X + Y) ~ = ~ Var(X) + Var(Y) ~~~ \text{ if } X \text{ and } Y \text{ are independent}
+$$</p>
+<p>In this course, the proof isn't of primary importance. It is more important for you to understand that unlike expectation, variance is not additive in general. Additivity of variance is true if the random variables being added are independent of each other.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sums-of-IID-Random-Variables">Sums of IID Random Variables<a class="anchor-link" href="#Sums-of-IID-Random-Variables"> </a></h3><p>The most important application of the formula above is to the sum of a random sample. Let $X_1, X_2, \ldots, X_n$ be i.i.d. with expectation $\mu$ and SD $\sigma$.</p>
+<p>Let $S_n = X_1 + X_2 + \ldots + X_n$.</p>
+<p>We already know that by additivity of expectation,</p>
+<p>$$
+E(S_n) ~ = ~ n\mu
+$$</p>
+<p>By our new result about the variance of a sum of independent random variables, we have</p>
+<p>$$
+Var(S_n) ~ = ~ Var(X_1) + Var(X_2) + \cdots + Var(X_n) = n\sigma^2
+$$</p>
+<p>Therefore</p>
+<p>$$
+SD(S_n) ~ = ~ \sqrt{n}\sigma
+$$</p>
+<p>Notice that the expectation of the sample sum $S_n$ grows linearly in $n$, but the SD grows slower. In later section we will study some important consequences of this property.</p>
+<p>In our example about two rolls of a die, the random variable $W = D_1 + D_2$ is the sum of two i.i.d. random variables. So we can apply our new formula to find its SD.</p>
+<p>Because $D_1$ is uniform on the integers $1$ through $6$, we know from an <a href="http://stat88.org/textbook/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">earlier section</a> that $SD(D_1) = 1.71$; this number is correct to two decimal places.</p>
+<p>Thus $SD(W) = \sqrt{2}\times1.71$.</p>
+<p>But $SD(V) = SD(D_1 + D_1) = SD(2D_1) = 2SD(D_1) = 2\times1.71$.</p>
+<p>This agrees with what we had concluded earlier based on the probability histograms of $V$ and $W$: the spread of $V$ is greater than that of $W$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SD-of-the-Binomial">SD of the Binomial<a class="anchor-link" href="#SD-of-the-Binomial"> </a></h3><p>Let $X$ have the binomial $(n, p)$ distribution. We know that $E(X) = np$. We can now find $SD(X)$ as well.</p>
+<p>Recall that to find $E(X)$ we said that as $X$ is the number of successes in $n$ independent Bernoulli $(p)$ trials,</p>
+<p>$$
+X ~ = ~ I_1 + I_2 + \cdots + I_n
+$$</p>
+<p>where $I_j$ is the indicator of success on Trial $j$.</p>
+<p>The distribution of $I_1$ is given by</p>
+<table>
+<thead><tr>
+<th style="text-align:right">value</th>
+<th style="text-align:center">$0$</th>
+<th style="text-align:center">$1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>probability</strong></td>
+<td style="text-align:center">$(1-p)$</td>
+<td style="text-align:center">$p$</td>
+</tr>
+</tbody>
+</table>
+<p>Hence</p>
+<ul>
+<li>$E(I_1) = p$</li>
+<li>$E(I_1^2) = 0^2(1-p) + 1^2p = p$</li>
+<li>$Var(I_1) = p - p^2 = p(1-p) = pq$ where $q = 1-p$</li>
+<li>$SD(I_1) = \sqrt{pq}$</li>
+</ul>
+<p>Now $X$ is the sum of $n$ <em>independent</em> indicators, each with the same distribution as $I_1$.</p>
+<p>So $SD(X) = \sqrt{n}\sqrt{pq} = \sqrt{npq}$.</p>
+<p>Thus if $X$ has the binomial $(n, p)$ distribution, then $E(X) = np$ and $SD(X) = \sqrt{npq}$.</p>
+<p>For example, if $X$ is the number of heads in 100 tosses of a coin then $X$ has the binomial $(100, 0.5)$ distribution so $E(X) = 50$ and $SD(X) = \sqrt{100 \times 0.5 \times 0.5} = 5$.</p>
+<p>The figure below shows the probability histogram of $X$. The red arrow is at $E(X) = 50$ and the red arrows are at $E(X) \pm SD(X)$, that is, at 45 and 55.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Varying-$p$">Varying $p$<a class="anchor-link" href="#Varying-$p$"> </a></h3><p>The function $g(p) = pq = p(1-p)$ is a quadratic function of $p$ and is maximized at $p = 1/2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since $pq \le 0.25$, we have $\sqrt{pq} \le 0.5$. We will sometimes use $0.5$ as an upper bound for $\sqrt{pq}$ if we don't know $p$.</p>
+<p>Because of this bound, we say that the fair coin is the most variable. For example, here are the histograms of the binomial $(10, 0.5)$ and binomial $(10, 0.1)$ distributions. The latter is clearly less spread out.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SD-of-the-Poisson">SD of the Poisson<a class="anchor-link" href="#SD-of-the-Poisson"> </a></h3><p>When random variables can't be easily expressed as sums, SD calculations can get complicated as they involve expectations of squares. For example, if $X$ has the Poisson $(\mu)$ distribution then we showed that $E(X) = \mu$, but the calculation of the SD is more complicated.</p>
+<p>So we will just state the result that $SD(X) = \sqrt{\mu}$, and try to understand why that is a reasonable value.</p>
+<p>Recall that one way in which the Poisson distribution arises is as an approximation to the binomial $(n, p)$ distribution when $n$ is large and $p$ is small. The parameter of the approximating Poisson distribution is $\mu = np$, obtained by equating means.</p>
+<p>Now the SD of the binomial random variable is $\sqrt{npq}$. When $p$ is small, $q$ is close to 1. And so the SD of the binomial random variable is $\sqrt{npq} \approx \sqrt{np} = \sqrt{\mu}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Waiting-Till-the-Tenth-Success">Waiting Till the Tenth Success<a class="anchor-link" href="#Waiting-Till-the-Tenth-Success"> </a></h3><p>The SD of a geometric random variable also is requires a bit of calculation. We will just provide it for you and then use it.</p>
+<p>Suppose we are running i.i.d. Bernoulli $(p)$ trials, that is, success/failure trials with success probability $p$. Let $T$ be the number of trials required to get the first success. Then:</p>
+<ul>
+<li>$T$ has the geometric $(p)$ distribution on $1, 2, 3, \ldots $</li>
+<li>$E(T) = 1/p$</li>
+<li>$Var(T) = \frac{q}{p^2}$ and $SD(T) = \frac{\sqrt{q}}{p}$</li>
+</ul>
+<p>We won't prove that last fact, but we can use it as in the following example.</p>
+<p>Suppose we roll a die until we see a total of 10 sixes. Let $R$ be the number of rolls required. Then</p>
+<p>$$
+R ~ = ~ X_1 + X_2 + \cdots + X_{10}
+$$</p>
+<p>where each $X_i$ is the number of trials after the $i-1$th six till we get the $i$th six.</p>
+<p>$X_1, X_2, \ldots X_{10}$ are i.i.d. geometric $(1/6)$ random variables, so</p>
+<p>$$
+E(R) ~ = ~ 10\cdot\frac{1}{1/6} ~ = ~ 60
+$$</p>
+<p>and</p>
+<p>$$
+SD(R) ~ = ~ \sqrt{10} \cdot \frac{\sqrt{5/6}}{1/6} ~ \approx ~ 17.32
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
+<span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">p</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>17.320508075688775</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
