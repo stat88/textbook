@@ -4,8 +4,8 @@ prev_page:
   url: http://stat88.org/
   title: 'Course Home'
 next_page:
-  url: /notebooks/Chapter_01/00_The_Basics.html
-  title: 'The Basics'
+  url: 
+  title: ''
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # STAT 88
