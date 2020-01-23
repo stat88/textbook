@@ -3,6 +3,9 @@ Author: Francie McQuarrie
 
 This textbook was built with Jupyter Books, using the following [tutorial](https://jupyter.org/jupyter-book/guide/01_overview.html).
 
+## Version
+This book is running on version `0.5.3dev0` (as of 1/23/20). You can download the "development" version of the software, rather than the stable version, by following the second bullet point of [this link](https://jupyterbook.org/intro.html#Installation).
+
 ## Structure
 
 Only three folders need to be edited:
