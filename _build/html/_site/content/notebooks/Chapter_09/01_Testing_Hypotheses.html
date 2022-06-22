@@ -1,0 +1,968 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Testing Hypotheses &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/_site/content/notebooks/Chapter_09/01_Testing_Hypotheses.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-speed-of-light">
+   The Speed of Light
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#emily-rosa-s-experiment">
+   Emily Rosa’s Experiment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note">
+     Note
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Testing Hypotheses</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-speed-of-light">
+   The Speed of Light
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#emily-rosa-s-experiment">
+   Emily Rosa’s Experiment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note">
+     Note
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<section id="testing-hypotheses">
+<h1>Testing Hypotheses<a class="headerlink" href="#testing-hypotheses" title="Permalink to this headline">#</a></h1>
+<p>You know from Data 8 that statistical tests of hypotheses help us use data to make conclusions about the process that generated the data. For example, you might be able to use the ethnic composition of jury panel to see if it was selected at random from the eligible population.</p>
+<p>As you know, tests of hypotheses have a few main steps. Here is a brief review.</p>
+<ul class="simple">
+<li><p>State the null hypothesis. In Data 8, this was described as “the hypothesis under which you can simulate data.” Here we will describe it as the hypothesis under which you can calculate probabilities.</p></li>
+<li><p>State the alternative hypothesis. This might not involve chances. For example, it might say that the jury selection is biased, or that results aren’t like tossing a coin.</p></li>
+<li><p>Select a test statistic to help you decide which of the two hypotheses is better supported by the data. We recommend that you choose a statistic such that large values of the statistic make you lean towards the alternative. Or you could pick a statistic such that small values make you lean towards the alternative. Just try to avoid the scenario in which large and small values both indicate the alternative; it can sometimes be confusing.</p></li>
+<li><p>Figure out the distribution of your test statistic under the null hypothesis. This is your prediction of how the statistic would behave if the null were true.</p></li>
+<li><p>Find the observed value of the test statistic and see if it seems consistent with the distribution above. If it does, then the data are consistent with the null hypothesis. If it doesn’t, then the data support the alternative hypothesis more than they support the null.</p></li>
+</ul>
+<p>“Consistent” is defined by tail probabilities called <em>observed significance levels</em> or <em><span class="math notranslate nohighlight">\(p\)</span>-values</em>. The <span class="math notranslate nohighlight">\(p\)</span>-value is the chance, assuming that the null hypothesis is true, of getting a test statistic equal to the one that was observed or even more in the direction of the alternative.</p>
+<p>If the <span class="math notranslate nohighlight">\(p\)</span>-value is small, then the data are unlikely under the null hypothesis and hence are inconsistent with the null.</p>
+<p>“Small” is up to you to define. The cutoff you use for “small” is called the <em>significance level</em> or simply <em>level</em> of the test. Commonly used levels are 5% and 1%. You saw in Data 8 that these are the values that Sir Ronald Fisher found convenient to use back in the 1920’s.</p>
+<p>If the <span class="math notranslate nohighlight">\(p\)</span>-value is less than 5%, the result of the test is called <em>statistically significant</em>. If the <span class="math notranslate nohighlight">\(p\)</span>-value is less than 1% the result is called <em>highly statistically significant</em>. The use of <em>significant</em> does not imply that something important must have happened. It just means that the <span class="math notranslate nohighlight">\(p\)</span>-value is small.</p>
+<p>Let’s carry out some tests of hypotheses.</p>
+<section id="the-speed-of-light">
+<h2>The Speed of Light<a class="headerlink" href="#the-speed-of-light" title="Permalink to this headline">#</a></h2>
+<p>The speed of light in vacuum is one of the most important constants in physics. It’s the <span class="math notranslate nohighlight">\(c\)</span> that appears in Einstein’s equation <span class="math notranslate nohighlight">\(E = mc^2\)</span>, and its numerical value is 299,792.458 km/sec.</p>
+<p>In the early part of the 20th century, the physicist <a class="reference external" href="https://en.wikipedia.org/wiki/Albert_A._Michelson">A.A. Michelson</a> made fundamentally important contributions to finding the numerical value of the speed of light and became the first American to win a Nobel Prize in science. Berkeley students might be interested to know that Michelson was a graduate of Lowell High School in San Francisco.</p>
+<p>Michelson performed numerous experiments to measure the speed of light <span class="math notranslate nohighlight">\(c\)</span>. In 1926 he reported a value of 299,796 km/sec for <span class="math notranslate nohighlight">\(c\)</span>. Not bad for measurements made without electronics or lasers!</p>
+<p>Suppose 150 such measurements on the speed of light have an average of 299,796 km/sec and an SD of 50 km/sec. Are these data consistent with the model that measurements are i.i.d. with mean equal to the currently accepted value of <span class="math notranslate nohighlight">\(c = 299,792.458\)</span>? Or are they too big?</p>
+<p>To answer this, we can test these two hypotheses.</p>
+<p>The <em>null hypothesis</em>, denoted <span class="math notranslate nohighlight">\(H_0\)</span>, says that the model is good. In random variable notation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: The measurements are observations on random variables <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_{150}\)</span> that are i.i.d. with mean <span class="math notranslate nohighlight">\(299,792.458\)</span>.</p></li>
+</ul>
+<p>The <em>alternative hypothesis</em>, denoted <span class="math notranslate nohighlight">\(H_A\)</span>, expresses the opposing position:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_A\)</span>: The measurements are too big to be consistent with the model in the null hypothesis.</p></li>
+</ul>
+<p>The alternative says nothing about why or how the measurements are too big. It just says they’re too big.</p>
+<p>We now have to identify a <em>test statistic</em> that will help us choose between <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_A\)</span>. The sample mean <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{n}\sum_{i=1}^{150} X_i\)</span> is a natural candidate. Large values of <span class="math notranslate nohighlight">\(\bar{X}\)</span> favor the alternative.</p>
+<p>Under the null hypothesis, the distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> is approximately normal by the Central Limit Theorem. We also know that <span class="math notranslate nohighlight">\(E_{H_0}(\bar{X}) = 299792.458\)</span>. Notice that we are using the subscript <span class="math notranslate nohighlight">\(H_0\)</span> to remind us that the calculations are being done under the null hypothesis.</p>
+<p>In order to completely specify the distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> under the null hypothesis, we need another quantity: the SD of <span class="math notranslate nohighlight">\(\bar{X}\)</span>. Under <span class="math notranslate nohighlight">\(H_0\)</span> we have an i.i.d. sample and so</p>
+<div class="math notranslate nohighlight">
+\[
+SD_{H_0}(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{150}} ~~~~~~~ \text{where } \sigma = SD(X_1)
+\]</div>
+<p>We don’t know <span class="math notranslate nohighlight">\(\sigma\)</span>. But we do know that the SD of a large i.i.d. sample is most likely a good approximation to the SD of the underlying population. Moreover, the error in the approximation will get divided by <span class="math notranslate nohighlight">\(\sqrt{150}\)</span> and end up being negligible.</p>
+<p>The SD of the sample is 50 km/sec, and the sample is likely to be representative of the population. The distribution of <span class="math notranslate nohighlight">\(X_1\)</span> is just the underlying distribution of the population, so <span class="math notranslate nohighlight">\(SD(X_1) \approx 50\)</span> km/sec. We now have the approximation</p>
+<div class="math notranslate nohighlight">
+\[
+SD_{H_0}(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{150}} ~ \approx ~ \frac{50}{\sqrt{150}} ~ \approx ~ 4.08 \text{ km/sec}
+\]</div>
+<p>Therefore under <span class="math notranslate nohighlight">\(H_0\)</span> the distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> looks like the figure below. The red dot is at the observed value of <span class="math notranslate nohighlight">\(\bar{X}\)</span> which is <span class="math notranslate nohighlight">\(299,796\)</span> km/sec.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../../_images/01_Testing_Hypotheses_4_0.png" src="../../../../_images/01_Testing_Hypotheses_4_0.png" />
+</div>
+</div>
+<p>The observed value 299,796 is right in the heart of the distribution of the test statistic under the null hypothesis. In other words, the data are visibly consistent with the null hypothesis.</p>
+<p>No further calculation is needed. But if you want, you can compute the <span class="math notranslate nohighlight">\(p\)</span>-value, see whether it’s large or small, and pick one of the hypotheses accordingly.</p>
+<p>The <em><span class="math notranslate nohighlight">\(p\)</span>-value</em> is the chance, assuming that the null hypothesis is true, of getting a test statistic equal to the one that was observed or even more in the direction of the alternative.</p>
+<p>The “direction of the alternative” corresponds to large values of the test statistic <span class="math notranslate nohighlight">\(\bar{X}\)</span>. The <span class="math notranslate nohighlight">\(p\)</span>-value is therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P_{H_0}(\bar{X} \ge 299796) ~ &amp;\approx ~ 
+1 - \Phi \big{(} \frac{299796 - 299792.458}{4.08} \big{)} \\
+&amp;\approx ~ 1 - \Phi(0.87) \\
+&amp;\approx ~ 0.1927
+\end{align*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># p-value</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">299796</span> <span class="o">-</span> <span class="mf">299792.458</span><span class="p">)</span><span class="o">/</span><span class="mf">4.08</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.19265959918231235
+</pre></div>
+</div>
+</div>
+</div>
+<p>Under the null hypothesis there is almost a 20% chance of getting data like the data that were observed. That’s a substantial chance (certainly bigger than 5%, if that’s the cutoff you want to use).</p>
+<p>The data are consistent with the null hypothesis.</p>
+</section>
+<section id="emily-rosa-s-experiment">
+<h2>Emily Rosa’s Experiment<a class="headerlink" href="#emily-rosa-s-experiment" title="Permalink to this headline">#</a></h2>
+<p>In 1998, Emily Rosa’s article in the Journal of the American Medical Association made news. Not only did the article contain an interesting statistical analysis, <a class="reference external" href="https://en.wikipedia.org/wiki/Emily_Rosa">Emily</a> was 11 years old.</p>
+<p>As part of her fourth grade science project, the nine-year-old Emily had performed an experiment on practitioners of the <em>therapeutic touch</em> (TT). These people claimed that every human body emanates an “energy field” which the practitioners could feel and manipulate by placing their hands near but not on the body.</p>
+<p>Emily performed an experiment to test this claim. She reasoned that if practitioners’ hands could feel an “energy field” emanating from a body, then the hands should be able to feel the presence of a body even if the body wasn’t visible. The picture below is taken from her <a class="reference external" href="https://jamanetwork.com/journals/jama/fullarticle/187390">paper</a> (co-authored by her parents, among others) and shows how each trial of the experiment worked.</p>
+<p><img alt="Emily Rosa's experiment" src="../../../../_images/emily_rosa.png" /></p>
+<p>That’s Emily on the right and a TT practitioner on the left, separated by a tall screen. The screen has two holes cut out at the bottom, through which the practitioner puts her hands out, palms upwards. On the other side, Emily places her right hand above one of the two upturned hands picked at random. The practitioner has to say whether Emily’s hand is hovering over their left hand or their right.</p>
+<p>The experiment was done in several stages, the first of which involved 150 trials. The TT practitioners picked the correct hand on 70 of those trials. Emily’s analysis compared these results to random guessing.</p>
+<p>Are the results like those you would get by tossing a coin, or do they seem different? We can answer this question by carrying out a test of hypotheses.</p>
+<p><span class="math notranslate nohighlight">\(H_0\)</span>: The trials can be modeled by i.i.d. Bernoulli <span class="math notranslate nohighlight">\((0.5)\)</span> random variables <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_{150}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(H_A\)</span>: The model in the null hypothesis isn’t good.</p>
+<p>Let <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{150} \sum_{i=1}^{150} X_i\)</span> be the proportion of successes. We are trying to decide whether the results are or are not like tossing a coin, so a natural statistic is <span class="math notranslate nohighlight">\(\vert \bar{X} - 0.5 \vert\)</span>. Large values of this statistic will favor the alternative.</p>
+<p>Equivalently, we can convert to counts and use the statistic <span class="math notranslate nohighlight">\(T = \vert X - 75 \vert\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is the number of successes.</p>
+<p>The observed value of <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(5\)</span>.</p>
+<p>Under <span class="math notranslate nohighlight">\(H_0\)</span>, the distribution of <span class="math notranslate nohighlight">\(X\)</span> is binomial <span class="math notranslate nohighlight">\((150, 0.5)\)</span>. The <span class="math notranslate nohighlight">\(p\)</span>-value is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P_{H_0}(T \ge 5) ~ &amp;= ~ P_{H_0}(\vert X - 75 \vert \ge 5) \\
+&amp;= ~ P_{H_0}(X \le 70) + P_{H_0}(X \ge 80) \\
+&amp;= ~ \sum_{k=0}^{70} \binom{150}{k}0.5^k0.5^{150-k} ~ + ~ \sum_{k=80}^{150} \binom{150}{k}0.5^k0.5^{150-k}
+\end{align*}
+\end{split}\]</div>
+<p>The numerical value of this probability can be computed using the cdf of the binomial <span class="math notranslate nohighlight">\((150, 0.5)\)</span> distribution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># p-value</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46254951786683063
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(p\)</span>-value is approximately 46%, which is very large. The data are consistent with tossing a coin.</p>
+<p>Not only did Therapeutic Touch do no better than tossing a coin, the number of successes was <em>less</em> than expected by random guessing. This happened again in a second series of trials: the practitioners guessed correctly on only 53 out of 130 trials. The expected number of heads in 130 tosses of a coin is 65.</p>
+<p>Let’s use the second set of trials to test whether Therapeutic Touch is actually worse than tossing a coin.</p>
+<p><span class="math notranslate nohighlight">\(H_0\)</span>: The new trials can be modeled by i.i.d. Bernoulli <span class="math notranslate nohighlight">\((0.5)\)</span> random variables <span class="math notranslate nohighlight">\(Y_1, Y_2, \ldots, Y_{130}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(H_A\)</span>: Therapeutic Touch is worse than tossing a coin, in that it gets fewer than 50% correct results.</p>
+<p>Now the number of successes <span class="math notranslate nohighlight">\(Y = \sum_{i=1}^{130} Y_i\)</span> can be used as the test statistic. Small values of <span class="math notranslate nohighlight">\(Y\)</span> favor the alternative.</p>
+<p>The observed value of <span class="math notranslate nohighlight">\(Y\)</span> is <span class="math notranslate nohighlight">\(53\)</span>.</p>
+<p>Under <span class="math notranslate nohighlight">\(H_0\)</span>, the distribution of <span class="math notranslate nohighlight">\(Y\)</span> is binomial <span class="math notranslate nohighlight">\((130, 0.5)\)</span>. So the <span class="math notranslate nohighlight">\(p\)</span>-value is</p>
+<div class="math notranslate nohighlight">
+\[
+P_{H_0}(Y \le 53) ~ = ~ \sum_{k=0}^{53} \binom{130}{k} 0.5^k0.5^{130-k}
+\]</div>
+<p>That’s the binomial <span class="math notranslate nohighlight">\((130, 0.5)\)</span> cdf evaluated at 53:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># p-value</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021627565392914345
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(p\)</span>-value is about 2.2%, which is pretty small. In particular, it’s less than 5% so the result is statistically significant.</p>
+<p>The data support the alternative more than they support the null. The indications are that Therapeutic Touch did worse than random guessing.</p>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h3>
+<p>Emily’s experiment was clean and the results were compelling. The Therapeutic Touch practitioners protested, claiming bias of various kinds. The paper rebuts these claims but it does contain indications of the authors’ perspective – even the sketch reproduced above is drawn by a member of the Skeptics Society.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./_site/content/notebooks/Chapter_09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
