@@ -1,0 +1,1039 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7.1. Sums of Independent Random Variables &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7.2. Sampling Without Replacement" href="02_Sampling_Without_Replacement.html" />
+    <link rel="prev" title="7. The Variance of a Sum" href="00_The_Variance_of_a_Sum.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-rolls-of-a-die">
+   7.1.1. Two Rolls of a Die
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-independent-random-variables">
+   7.1.2. Adding Independent Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sums-of-iid-random-variables">
+   7.1.3. Sums of IID Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sd-of-the-binomial">
+   7.1.4. SD of the Binomial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varying-p">
+   7.1.5. Varying
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sd-of-the-poisson">
+   7.1.6. SD of the Poisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-till-the-tenth-success">
+   7.1.7. Waiting Till the Tenth Success
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Sums of Independent Random Variables</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-rolls-of-a-die">
+   7.1.1. Two Rolls of a Die
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-independent-random-variables">
+   7.1.2. Adding Independent Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sums-of-iid-random-variables">
+   7.1.3. Sums of IID Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sd-of-the-binomial">
+   7.1.4. SD of the Binomial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varying-p">
+   7.1.5. Varying
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sd-of-the-poisson">
+   7.1.6. SD of the Poisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-till-the-tenth-success">
+   7.1.7. Waiting Till the Tenth Success
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<section id="sums-of-independent-random-variables">
+<h1><span class="section-number">7.1. </span>Sums of Independent Random Variables<a class="headerlink" href="#sums-of-independent-random-variables" title="Permalink to this headline">#</a></h1>
+<p>For two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the additivity property <span class="math notranslate nohighlight">\(E(X+Y) = E(X) + E(Y)\)</span> is true regardless of the dependence or independence of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>But variance doesn’t behave quite like this. Let’s look at an example.</p>
+<section id="two-rolls-of-a-die">
+<h2><span class="section-number">7.1.1. </span>Two Rolls of a Die<a class="headerlink" href="#two-rolls-of-a-die" title="Permalink to this headline">#</a></h2>
+<p>Suppose a die is rolled two times. Let <span class="math notranslate nohighlight">\(D_1\)</span> and <span class="math notranslate nohighlight">\(D_2\)</span> be the numbers on Rolls 1 and 2.</p>
+<p>Then <span class="math notranslate nohighlight">\(D_1\)</span> and <span class="math notranslate nohighlight">\(D_2\)</span> have the same distribution: both are uniform on <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5, 6\)</span>. So <span class="math notranslate nohighlight">\(E(D_1) = E(D_2) = 3.5\)</span>.</p>
+<p>Define two sums as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V = D_1 + D_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(W = D_1 + D_2\)</span></p></li>
+</ul>
+<p>In each case we are adding two random variables that have the uniform distribution on the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(6\)</span>.</p>
+<p>The two sums also have the same expectation, because by additivity, <span class="math notranslate nohighlight">\(E(V) = 7 = E(W)\)</span>.</p>
+<p>But their distributions are quite different from each other. The possible values of <span class="math notranslate nohighlight">\(W\)</span> are the integers 2 through 12, whereas the possible values of <span class="math notranslate nohighlight">\(V\)</span> are the even integers <span class="math notranslate nohighlight">\(2, 4, 6, 8, 10, 12\)</span>.</p>
+<p>The figure below show the probability distributions of <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/01_Sums_of_Independent_Random_Variables_4_01.png" src="../../../_images/01_Sums_of_Independent_Random_Variables_4_01.png" />
+</div>
+</div>
+<p>The figure shows that the distribution of <span class="math notranslate nohighlight">\(V\)</span> (the blue histogram) has a larger spread than that of <span class="math notranslate nohighlight">\(W\)</span> (the gold histogram). Both distributions are centered at 7 but the blue distribution has more mass on the extreme values.</p>
+<p>Clearly, this difference in spread is connected with the fact that <span class="math notranslate nohighlight">\(W = D_1 + D_2\)</span> is the sum of two <em>independent</em> rolls of a die whereas <span class="math notranslate nohighlight">\(V = D_1 + D_1\)</span> is just twice the first roll.</p>
+<p>To see why dependence matters when you are thinking about variance, notice that if <span class="math notranslate nohighlight">\(D_1\)</span> is large then <span class="math notranslate nohighlight">\(V\)</span> must be large but <span class="math notranslate nohighlight">\(W\)</span> can be moderate if <span class="math notranslate nohighlight">\(D_2\)</span> is small. The variability of the sum depends on the relation between the two variables being added.</p>
+</section>
+<section id="adding-independent-random-variables">
+<h2><span class="section-number">7.1.2. </span>Adding Independent Random Variables<a class="headerlink" href="#adding-independent-random-variables" title="Permalink to this headline">#</a></h2>
+<p>It <a class="reference external" href="http://prob140.org/textbook/Chapter_13/00_Variance_Via_Covariance.html">can be shown</a> that</p>
+<div class="math notranslate nohighlight">
+\[
+Var(X + Y) ~ = ~ Var(X) + Var(Y) ~~~ \text{ if } X \text{ and } Y \text{ are independent}
+\]</div>
+<p>In this course, the proof isn’t of primary importance. It is more important for you to understand that unlike expectation, variance is not additive in general. Additivity of variance is true if the random variables being added are independent of each other.</p>
+</section>
+<section id="sums-of-iid-random-variables">
+<h2><span class="section-number">7.1.3. </span>Sums of IID Random Variables<a class="headerlink" href="#sums-of-iid-random-variables" title="Permalink to this headline">#</a></h2>
+<p>The most important application of the formula above is to the sum of a random sample. Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be i.i.d. with expectation <span class="math notranslate nohighlight">\(\mu\)</span> and SD <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \ldots + X_n\)</span>.</p>
+<p>We already know that by additivity of expectation,</p>
+<div class="math notranslate nohighlight">
+\[
+E(S_n) ~ = ~ n\mu
+\]</div>
+<p>By our new result about the variance of a sum of independent random variables, we have</p>
+<div class="math notranslate nohighlight">
+\[
+Var(S_n) ~ = ~ Var(X_1) + Var(X_2) + \cdots + Var(X_n) = n\sigma^2
+\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+SD(S_n) ~ = ~ \sqrt{n}\sigma
+\]</div>
+<p>Notice that the expectation of the sample sum <span class="math notranslate nohighlight">\(S_n\)</span> grows linearly in <span class="math notranslate nohighlight">\(n\)</span>, but the SD grows slower. In later section we will study some important consequences of this property.</p>
+<p>In our example about two rolls of a die, the random variable <span class="math notranslate nohighlight">\(W = D_1 + D_2\)</span> is the sum of two i.i.d. random variables. So we can apply our new formula to find its SD.</p>
+<p>Because <span class="math notranslate nohighlight">\(D_1\)</span> is uniform on the integers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(6\)</span>, we know from an <a class="reference external" href="http://stat88.org/textbook/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">earlier section</a> that <span class="math notranslate nohighlight">\(SD(D_1) = 1.71\)</span>; this number is correct to two decimal places.</p>
+<p>Thus <span class="math notranslate nohighlight">\(SD(W) = \sqrt{2}\times1.71\)</span>.</p>
+<p>But <span class="math notranslate nohighlight">\(SD(V) = SD(D_1 + D_1) = SD(2D_1) = 2SD(D_1) = 2\times1.71\)</span>.</p>
+<p>This agrees with what we had concluded earlier based on the probability histograms of <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span>: the spread of <span class="math notranslate nohighlight">\(V\)</span> is greater than that of <span class="math notranslate nohighlight">\(W\)</span>.</p>
+</section>
+<section id="sd-of-the-binomial">
+<h2><span class="section-number">7.1.4. </span>SD of the Binomial<a class="headerlink" href="#sd-of-the-binomial" title="Permalink to this headline">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution. We know that <span class="math notranslate nohighlight">\(E(X) = np\)</span>. We can now find <span class="math notranslate nohighlight">\(SD(X)\)</span> as well.</p>
+<p>Recall that to find <span class="math notranslate nohighlight">\(E(X)\)</span> we said that as <span class="math notranslate nohighlight">\(X\)</span> is the number of successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials,</p>
+<div class="math notranslate nohighlight">
+\[
+X ~ = ~ I_1 + I_2 + \cdots + I_n
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of success on Trial <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>The distribution of <span class="math notranslate nohighlight">\(I_1\)</span> is given by</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>value</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(0\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(1\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><strong>probability</strong></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\((1-p)\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Hence</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E(I_1) = p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E(I_1^2) = 0^2(1-p) + 1^2p = p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(I_1) = p - p^2 = p(1-p) = pq\)</span> where <span class="math notranslate nohighlight">\(q = 1-p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SD(I_1) = \sqrt{pq}\)</span></p></li>
+</ul>
+<p>Now <span class="math notranslate nohighlight">\(X\)</span> is the sum of <span class="math notranslate nohighlight">\(n\)</span> <em>independent</em> indicators, each with the same distribution as <span class="math notranslate nohighlight">\(I_1\)</span>.</p>
+<p>So <span class="math notranslate nohighlight">\(SD(X) = \sqrt{n}\sqrt{pq} = \sqrt{npq}\)</span>.</p>
+<p>Thus if <span class="math notranslate nohighlight">\(X\)</span> has the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution, then <span class="math notranslate nohighlight">\(E(X) = np\)</span> and <span class="math notranslate nohighlight">\(SD(X) = \sqrt{npq}\)</span>.</p>
+<p>For example, if <span class="math notranslate nohighlight">\(X\)</span> is the number of heads in 100 tosses of a coin then <span class="math notranslate nohighlight">\(X\)</span> has the binomial <span class="math notranslate nohighlight">\((100, 0.5)\)</span> distribution so <span class="math notranslate nohighlight">\(E(X) = 50\)</span> and <span class="math notranslate nohighlight">\(SD(X) = \sqrt{100 \times 0.5 \times 0.5} = 5\)</span>.</p>
+<p>The figure below shows the probability histogram of <span class="math notranslate nohighlight">\(X\)</span>. The red arrow is at <span class="math notranslate nohighlight">\(E(X) = 50\)</span> and the red arrows are at <span class="math notranslate nohighlight">\(E(X) \pm SD(X)\)</span>, that is, at 45 and 55.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/01_Sums_of_Independent_Random_Variables_9_01.png" src="../../../_images/01_Sums_of_Independent_Random_Variables_9_01.png" />
+</div>
+</div>
+</section>
+<section id="varying-p">
+<h2><span class="section-number">7.1.5. </span>Varying <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#varying-p" title="Permalink to this headline">#</a></h2>
+<p>The function <span class="math notranslate nohighlight">\(g(p) = pq = p(1-p)\)</span> is a quadratic function of <span class="math notranslate nohighlight">\(p\)</span> and is maximized at <span class="math notranslate nohighlight">\(p = 1/2\)</span>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/01_Sums_of_Independent_Random_Variables_11_01.png" src="../../../_images/01_Sums_of_Independent_Random_Variables_11_01.png" />
+</div>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(pq \le 0.25\)</span>, we have <span class="math notranslate nohighlight">\(\sqrt{pq} \le 0.5\)</span>. We will sometimes use <span class="math notranslate nohighlight">\(0.5\)</span> as an upper bound for <span class="math notranslate nohighlight">\(\sqrt{pq}\)</span> if we don’t know <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Because of this bound, we say that the fair coin is the most variable. For example, here are the histograms of the binomial <span class="math notranslate nohighlight">\((10, 0.5)\)</span> and binomial <span class="math notranslate nohighlight">\((10, 0.1)\)</span> distributions. The latter is clearly less spread out.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/01_Sums_of_Independent_Random_Variables_13_01.png" src="../../../_images/01_Sums_of_Independent_Random_Variables_13_01.png" />
+</div>
+</div>
+</section>
+<section id="sd-of-the-poisson">
+<h2><span class="section-number">7.1.6. </span>SD of the Poisson<a class="headerlink" href="#sd-of-the-poisson" title="Permalink to this headline">#</a></h2>
+<p>When random variables can’t be easily expressed as sums, SD calculations can get complicated as they involve expectations of squares. For example, if <span class="math notranslate nohighlight">\(X\)</span> has the Poisson <span class="math notranslate nohighlight">\((\mu)\)</span> distribution then we showed that <span class="math notranslate nohighlight">\(E(X) = \mu\)</span>, but the calculation of the SD is more complicated.</p>
+<p>So we will just state the result that <span class="math notranslate nohighlight">\(SD(X) = \sqrt{\mu}\)</span>, and try to understand why that is a reasonable value.</p>
+<p>Recall that one way in which the Poisson distribution arises is as an approximation to the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution when <span class="math notranslate nohighlight">\(n\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small. The parameter of the approximating Poisson distribution is <span class="math notranslate nohighlight">\(\mu = np\)</span>, obtained by equating means.</p>
+<p>Now the SD of the binomial random variable is <span class="math notranslate nohighlight">\(\sqrt{npq}\)</span>. When <span class="math notranslate nohighlight">\(p\)</span> is small, <span class="math notranslate nohighlight">\(q\)</span> is close to 1. And so the SD of the binomial random variable is <span class="math notranslate nohighlight">\(\sqrt{npq} \approx \sqrt{np} = \sqrt{\mu}\)</span>.</p>
+</section>
+<section id="waiting-till-the-tenth-success">
+<h2><span class="section-number">7.1.7. </span>Waiting Till the Tenth Success<a class="headerlink" href="#waiting-till-the-tenth-success" title="Permalink to this headline">#</a></h2>
+<p>The SD of a geometric random variable also is requires a bit of calculation. We will just provide it for you and then use it.</p>
+<p>Suppose we are running i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials, that is, success/failure trials with success probability <span class="math notranslate nohighlight">\(p\)</span>. Let <span class="math notranslate nohighlight">\(T\)</span> be the number of trials required to get the first success. Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T\)</span> has the geometric <span class="math notranslate nohighlight">\((p)\)</span> distribution on <span class="math notranslate nohighlight">\(1, 2, 3, \ldots \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E(T) = 1/p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(T) = \frac{q}{p^2}\)</span> and <span class="math notranslate nohighlight">\(SD(T) = \frac{\sqrt{q}}{p}\)</span></p></li>
+</ul>
+<p>We won’t prove that last fact, but we can use it as in the following example.</p>
+<p>Suppose we roll a die until we see a total of 10 sixes. Let <span class="math notranslate nohighlight">\(R\)</span> be the number of rolls required. Then</p>
+<div class="math notranslate nohighlight">
+\[
+R ~ = ~ X_1 + X_2 + \cdots + X_{10}
+\]</div>
+<p>where each <span class="math notranslate nohighlight">\(X_i\)</span> is the number of trials after the <span class="math notranslate nohighlight">\(i-1\)</span>th six till we get the <span class="math notranslate nohighlight">\(i\)</span>th six.</p>
+<p><span class="math notranslate nohighlight">\(X_1, X_2, \ldots X_{10}\)</span> are i.i.d. geometric <span class="math notranslate nohighlight">\((1/6)\)</span> random variables, so</p>
+<div class="math notranslate nohighlight">
+\[
+E(R) ~ = ~ 10\cdot\frac{1}{1/6} ~ = ~ 60
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+SD(R) ~ = ~ \sqrt{10} \cdot \frac{\sqrt{5/6}}{1/6} ~ \approx ~ 17.32
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
+<span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.320508075688775
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/notebooks/Chapter_07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="00_The_Variance_of_a_Sum.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>The Variance of a Sum</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_Sampling_Without_Replacement.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Sampling Without Replacement</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
