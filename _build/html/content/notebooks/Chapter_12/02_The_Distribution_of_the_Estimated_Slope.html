@@ -1,0 +1,1150 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>12.2. The Distribution of the Estimated Slope &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="12.3. Towards Multiple Regression" href="03_Towards_Multiple_Regression.html" />
+    <link rel="prev" title="12.1. The Simple Linear Regression Model" href="01_The_Simple_Linear_Regression_Model.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimated-slope">
+   12.2.1. Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expectation-of-the-estimated-slope">
+   12.2.2. Expectation of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-of-the-estimated-slope">
+   12.2.3. Variance of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-error-of-the-estimated-slope">
+   12.2.4. Standard Error of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pulse-rates">
+   12.2.5. Pulse Rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-statistic">
+   12.2.6.
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   Statistic
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Distribution of the Estimated Slope</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimated-slope">
+   12.2.1. Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expectation-of-the-estimated-slope">
+   12.2.2. Expectation of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-of-the-estimated-slope">
+   12.2.3. Variance of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-error-of-the-estimated-slope">
+   12.2.4. Standard Error of the Estimated Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pulse-rates">
+   12.2.5. Pulse Rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-statistic">
+   12.2.6.
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   Statistic
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<div class="cell tag_remove_input docutils container">
+</div>
+<section id="the-distribution-of-the-estimated-slope">
+<h1><span class="section-number">12.2. </span>The Distribution of the Estimated Slope<a class="headerlink" href="#the-distribution-of-the-estimated-slope" title="Permalink to this headline">#</a></h1>
+<p>Our estimate of the signal <span class="math notranslate nohighlight">\(Y = \beta_0 + \beta_1x\)</span> is the corresponding point on the regression line:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{Y} ~ = ~ \hat{\beta}_0 + \hat{\beta}_1x
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is the slope of the regression line (we called it <span class="math notranslate nohighlight">\(\hat{a}\)</span> in our earlier calculations) and <span class="math notranslate nohighlight">\(\hat{\beta_0}\)</span> is the intercept (we called it <span class="math notranslate nohighlight">\(\hat{b}\)</span>) of the regression line.</p>
+<p>Recall that when we derived the formula for the best slope <span class="math notranslate nohighlight">\(\hat{a}\)</span>, we first obtained</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{a} ~ = ~ \frac{E(D_XD_Y)}{\sigma_X^2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(D_X\)</span> and <span class="math notranslate nohighlight">\(D_Y\)</span> were the deviations of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. In our current context, we must apply this formula to the empirical distribution of the data. That’s easier than it sounds. For example, the variance <span class="math notranslate nohighlight">\(\sigma_X^2\)</span> is by definition the mean squared deviation, which becomes <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2\)</span>. The mean product of deviations <span class="math notranslate nohighlight">\(E(D_XD_Y)\)</span> becomes <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(Y_i - \bar{Y})\)</span>.</p>
+<section id="estimated-slope">
+<h2><span class="section-number">12.2.1. </span>Estimated Slope<a class="headerlink" href="#estimated-slope" title="Permalink to this headline">#</a></h2>
+<p>The least-squares estimate of the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span> is the slope of the regression line, given by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta}_1 ~ = ~ \frac{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(Y_i - \bar{Y})}{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2}
+\]</div>
+<p>The average response <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is a linear combination of the independent normal random variables <span class="math notranslate nohighlight">\(Y_1, Y_2, \ldots, Y_n\)</span>. Therefore so is the <span class="math notranslate nohighlight">\(i\)</span>th deviation <span class="math notranslate nohighlight">\(\bar{Y_i} - \bar{Y}\)</span> for each <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Thus <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is a linear combination of the independent normal random variables <span class="math notranslate nohighlight">\(Y_1, Y_2, \ldots, Y_n\)</span>. Therefore the distribution of <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is normal.</p>
+</section>
+<section id="expectation-of-the-estimated-slope">
+<h2><span class="section-number">12.2.2. </span>Expectation of the Estimated Slope<a class="headerlink" href="#expectation-of-the-estimated-slope" title="Permalink to this headline">#</a></h2>
+<p>To identify the mean of the distribution of <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span>, recall that <span class="math notranslate nohighlight">\(E(Y_i) = \beta_0 + \beta_1x_i\)</span> and <span class="math notranslate nohighlight">\(E(\bar{Y}) = \beta_0 + \beta_1\bar{x}\)</span>. So</p>
+<div class="math notranslate nohighlight">
+\[
+E(Y_i - \bar{Y}) ~ = ~ \beta_1(x_i - \bar{x})
+\]</div>
+<p>Now</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(\hat{\beta_1}) ~ &amp;= ~ \frac{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})E(Y_i - \bar{Y})}{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2} \\ \\
+&amp;= ~ \frac{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})\beta_1(x_i - \bar{x})}{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2} \\ \\
+&amp;= ~ \frac{\beta_1\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2}{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2} \\ \\
+&amp;= ~ \beta_1
+\end{align*}
+\end{split}\]</div>
+<p>We have shown that <span class="math notranslate nohighlight">\(\hat{\beta_1}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+<p>The distribution of the estimated slope <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is normal, centered at the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_The_Distribution_of_the_Estimated_Slope_6_01.png" src="../../../_images/02_The_Distribution_of_the_Estimated_Slope_6_01.png" />
+</div>
+</div>
+<p>If we can find <span class="math notranslate nohighlight">\(Var(\hat{\beta}_1)\)</span> then we can use this normal curve for inference. For example,</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta}_1 ~ \pm ~ 2SD(\hat{\beta}_1)
+\]</div>
+<p>is a 95% confidence interval for <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+</section>
+<section id="variance-of-the-estimated-slope">
+<h2><span class="section-number">12.2.3. </span>Variance of the Estimated Slope<a class="headerlink" href="#variance-of-the-estimated-slope" title="Permalink to this headline">#</a></h2>
+<p>To find <span class="math notranslate nohighlight">\(Var(\hat{\beta}_1)\)</span> is helps to know how to find variances of sums of dependent random variables, which is outside the scope of this class. So we will simply state that</p>
+<div class="math notranslate nohighlight">
+\[
+Var(\hat{\beta}_1) ~ = ~ \frac{\sigma^2}{\sum_{i=1}^n (x_i - \bar{x})^2}
+\]</div>
+<p>In fact we will not use the exact formula for the variance. It is enough to notice that:</p>
+<ul class="simple">
+<li><p>The numerator is the constant error variance. The denominator gets larger (there are more terms) when <span class="math notranslate nohighlight">\(n\)</span> increases. So the more data we have, the closer the estimated slope <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> will be to the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span>, most likely.</p></li>
+<li><p>The expression for <span class="math notranslate nohighlight">\(Var(\hat{\beta}_1)\)</span> involves the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, but no other unknown parameter is involved.</p></li>
+</ul>
+</section>
+<section id="standard-error-of-the-estimated-slope">
+<h2><span class="section-number">12.2.4. </span>Standard Error of the Estimated Slope<a class="headerlink" href="#standard-error-of-the-estimated-slope" title="Permalink to this headline">#</a></h2>
+<p>We know that</p>
+<div class="math notranslate nohighlight">
+\[
+SD(\hat{\beta}_1) ~ = ~ \frac{\sigma}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}}
+\]</div>
+<p>but we can’t get a numerical value for this SD since <span class="math notranslate nohighlight">\(\sigma\)</span> is unknown.</p>
+<p>So we estimate <span class="math notranslate nohighlight">\(\sigma\)</span> based on the data, by using the SD of the residuals instead. When the standard deviation of an estimator is estimated from the data, it is sometimes called the <em>standard error</em> of the estimator. We will denote the standard error of <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> by <span class="math notranslate nohighlight">\(SE(\hat{\beta}_1)\)</span>.</p>
+<p>The larger <span class="math notranslate nohighlight">\(n\)</span> is, the better the estimate of <span class="math notranslate nohighlight">\(\sigma\)</span>. So for large <span class="math notranslate nohighlight">\(n\)</span>, the distribution of the standardized slope</p>
+<div class="math notranslate nohighlight">
+\[
+T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
+\]</div>
+<p>is approximately standard normal.</p>
+<p>Almost all programming languages and statistical systems come with modules or routines that carry out regression calculations. They will provide you with numerical values of <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> and <span class="math notranslate nohighlight">\(SE(\hat{\beta}_1)\)</span>. Here is an example.</p>
+</section>
+<section id="pulse-rates">
+<h2><span class="section-number">12.2.5. </span>Pulse Rates<a class="headerlink" href="#pulse-rates" title="Permalink to this headline">#</a></h2>
+<p>The table <code class="docutils literal notranslate"><span class="pre">pulse</span></code> from the <a class="reference external" href="https://vincentarelbundock.github.io/Rdatasets/doc/Stat2Data/Pulse.html">R project</a> contains data on the pulse rates of <span class="math notranslate nohighlight">\(232\)</span> students before and after exercise. The first two columns are the active and resting pulse rates.</p>
+<div class="cell tag_remove_input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pulse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Active</th> <th>Rest</th> <th>Smoke</th> <th>Sex</th> <th>Exercise</th> <th>Hgt</th> <th>Wgt</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>97    </td> <td>78  </td> <td>0    </td> <td>1   </td> <td>1       </td> <td>63  </td> <td>119 </td>
+        </tr>
+        <tr>
+            <td>82    </td> <td>68  </td> <td>1    </td> <td>0   </td> <td>3       </td> <td>70  </td> <td>225 </td>
+        </tr>
+        <tr>
+            <td>88    </td> <td>62  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>72  </td> <td>175 </td>
+        </tr>
+        <tr>
+            <td>106   </td> <td>74  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>72  </td> <td>170 </td>
+        </tr>
+        <tr>
+            <td>78    </td> <td>63  </td> <td>0    </td> <td>1   </td> <td>3       </td> <td>67  </td> <td>125 </td>
+        </tr>
+        <tr>
+            <td>109   </td> <td>65  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>74  </td> <td>188 </td>
+        </tr>
+        <tr>
+            <td>66    </td> <td>43  </td> <td>0    </td> <td>1   </td> <td>3       </td> <td>67  </td> <td>140 </td>
+        </tr>
+        <tr>
+            <td>68    </td> <td>65  </td> <td>0    </td> <td>0   </td> <td>3       </td> <td>70  </td> <td>200 </td>
+        </tr>
+        <tr>
+            <td>100   </td> <td>63  </td> <td>0    </td> <td>0   </td> <td>1       </td> <td>70  </td> <td>165 </td>
+        </tr>
+        <tr>
+            <td>70    </td> <td>59  </td> <td>0    </td> <td>1   </td> <td>2       </td> <td>65  </td> <td>115 </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (222 rows omitted)</p></div></div>
+</div>
+<p>Our goal is to predict the active pulse rate based on the resting pulse rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pulse</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Rest&#39;</span><span class="p">,</span> <span class="s1">&#39;Active&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_The_Distribution_of_the_Estimated_Slope_14_01.png" src="../../../_images/02_The_Distribution_of_the_Estimated_Slope_14_01.png" />
+</div>
+</div>
+<p>The scatter plot of the active rate versus the resting rate shows a linear relation. The plot is a bit wider in the middle than it is elsewhere, which indicates that the regression model’s assumption of equal error variances for all individuals might not be satisfied. However, we can use the model as a rough approximation of reality.</p>
+<p>To use Python to perform the regression, we must first get the data in an appropriate form. One way is to extract the values of the response and predictor variables as arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">pulse</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">resting</span> <span class="o">=</span> <span class="n">pulse</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The call <code class="docutils literal notranslate"><span class="pre">stats.linregress(x,</span> <span class="pre">y)</span></code> performs the simple linear regression of the array <code class="docutils literal notranslate"><span class="pre">y</span></code> on the array <code class="docutils literal notranslate"><span class="pre">x</span></code>. That means <span class="math notranslate nohighlight">\(y\)</span> is the response and <span class="math notranslate nohighlight">\(x\)</span> the predictor variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">resting</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">active</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=1.1428796819048308, intercept=13.182572776013359, rvalue=0.60418708810600918, pvalue=1.7861044071652305e-24, stderr=0.099388844363891435, intercept_stderr=6.8644300361667909)
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s a bit of a mess. Let’s assign each element of the output to a name. Note that <code class="docutils literal notranslate"><span class="pre">stderr</span></code> is the SE of the slope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">se_slope</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">resting</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">active</span><span class="p">)</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">se_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1428796819048308,
+ 13.182572776013359,
+ 0.60418708810600918,
+ 1.7861044071652305e-24,
+ 0.099388844363891435)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The numbers in the output are the observed values of:</p>
+<ul class="simple">
+<li><p>the estimated slope <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span></p></li>
+<li><p>the estimated intercept <span class="math notranslate nohighlight">\(\hat{\beta_0}\)</span></p></li>
+<li><p>the correlation <span class="math notranslate nohighlight">\(r\)</span></p></li>
+<li><p>the <span class="math notranslate nohighlight">\(p\)</span>-value of a test that we will describe below</p></li>
+<li><p>the standard error of the estimated slope, <span class="math notranslate nohighlight">\(SE(\hat{\beta}_1)\)</span>.</p></li>
+</ul>
+<p>The sample size is large (<span class="math notranslate nohighlight">\(232\)</span>), so the distribution of <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is approximately normal with mean <span class="math notranslate nohighlight">\(\beta_1\)</span> and SD approximately equal to <span class="math notranslate nohighlight">\(SE(\hat{\beta}_1)\)</span>. Therefore the calculation below results in an approximate 95% confidence interval for the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Approximate 95% confidence interval for the true slope</span>
+
+<span class="n">slope</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">se_slope</span><span class="p">,</span> <span class="n">slope</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">se_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9441019931770479, 1.3416573706326136)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A fundamentally important question is whether the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span> is <span class="math notranslate nohighlight">\(0\)</span>. If it is <span class="math notranslate nohighlight">\(0\)</span> then the resting pulse rate isn’t involved in the prediction of the active pulse rate, according to the regression model.</p>
+<p>The 95% confidence interval for the slope doesn’t contain 0, so we can conclude (at the 5% level) that the true slope isn’t 0. We can also carry out a formal test of hypotheses as follows.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\beta_1 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H_A\)</span>: <span class="math notranslate nohighlight">\(\beta_1 \ne 0\)</span></p></li>
+</ul>
+<p>Under the null hypothesis, the distribution of the standardized slope</p>
+<div class="math notranslate nohighlight">
+\[
+T ~ = ~ \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)}
+\]</div>
+<p>is approximately standard normal. The observed value of the test statistic is <span class="math notranslate nohighlight">\(11.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># observed statistic under H_0:</span>
+
+<span class="p">(</span><span class="n">slope</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">se_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.499074058255635
+</pre></div>
+</div>
+</div>
+</div>
+<p>The observed slope is <span class="math notranslate nohighlight">\(11.5\)</span> standard errors above the expected slope of <span class="math notranslate nohighlight">\(0\)</span> under the null hypothesis. That’s a whole lot of standard errors away from expectation. The data are not consistent with <span class="math notranslate nohighlight">\(H_0\)</span>; they favor the alternative hypothesis that the true slope is not <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">stats.linregress</span></code> provides the <span class="math notranslate nohighlight">\(p\)</span>-value of this test. Not surprisingly, it is microscopically small.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># p-value</span>
+
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7861044071652305e-24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="t-statistic">
+<h2><span class="section-number">12.2.6. </span><span class="math notranslate nohighlight">\(t\)</span> Statistic<a class="headerlink" href="#t-statistic" title="Permalink to this headline">#</a></h2>
+<p>The calculation above relies on the sample size being large enough so that <span class="math notranslate nohighlight">\(SE(\hat{\beta}_1)\)</span> is almost certain to be essentially equal to <span class="math notranslate nohighlight">\(SD(\hat{\beta}_1)\)</span>. When the sample size is small or moderate, this might not be a good assumption.</p>
+<p>Fortunately, it turns out that it is possible to identify the exact distribution of <span class="math notranslate nohighlight">\(T\)</span> for any sample size <span class="math notranslate nohighlight">\(n\)</span>. It is one of a family of bell-shaped distributions called the <em><span class="math notranslate nohighlight">\(t\)</span> distributions</em>.</p>
+<p>All <span class="math notranslate nohighlight">\(t\)</span> distributions are symmetric around 0, just as the standard normal distribution is.</p>
+<p>The family of <span class="math notranslate nohighlight">\(t\)</span> distributions is indexed by the positive integers: there’s the <span class="math notranslate nohighlight">\(t\)</span>-distribution Number 1, the <span class="math notranslate nohighlight">\(t\)</span>-distribution Number 2, and so on. For reasons we won’t go into, statisticians refer to the index as the <em>degrees of freedom</em> of the distribution.</p>
+<p>The <span class="math notranslate nohighlight">\(t\)</span> density looks like the standard normal curve, except that it has fatter tails. In the figure below, the red curve is the standard normal density and the blue curve is the <span class="math notranslate nohighlight">\(t\)</span> density with <span class="math notranslate nohighlight">\(3\)</span> degrees of freedom.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_The_Distribution_of_the_Estimated_Slope_28_01.png" src="../../../_images/02_The_Distribution_of_the_Estimated_Slope_28_01.png" />
+</div>
+</div>
+<p>You can see that the <span class="math notranslate nohighlight">\(t\)</span> distribution has a bit more weight in the tails than the standard normal does. It gives us just the right additional amount of wiggle room to account for the fact that we are estimating the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> based on the data.</p>
+<p>When the degrees of freedom are larger then the <span class="math notranslate nohighlight">\(t\)</span> distributions are almost indistinguishable from the standard normal as you can see below. So it’s fine to use normal approximations the estimated slope when the sample size is large.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_The_Distribution_of_the_Estimated_Slope_31_01.png" src="../../../_images/02_The_Distribution_of_the_Estimated_Slope_31_01.png" />
+</div>
+</div>
+<p>For reasons we won’t go into, under the regression model the exact distribution of the standardized slope <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(t\)</span> Number <span class="math notranslate nohighlight">\(n-2\)</span> when the sample size is <span class="math notranslate nohighlight">\(n\)</span>. That is, for any sample size <span class="math notranslate nohighlight">\(n\)</span>, the standardized slope</p>
+<div class="math notranslate nohighlight">
+\[
+T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
+\]</div>
+<p>has the <span class="math notranslate nohighlight">\(t\)</span> distribution with <span class="math notranslate nohighlight">\(n-2\)</span> degrees of freedom.</p>
+<p>When the sample size <span class="math notranslate nohighlight">\(n\)</span> is large, so is <span class="math notranslate nohighlight">\(n-2\)</span>, so we might as well use the normal curve. When the sample is size is small, using the appropriate <span class="math notranslate nohighlight">\(t\)</span> curve gives more accurate answers.</p>
+<p>To remember the number of degrees of freedom, keep in mind that we are basing our estimate of the response <span class="math notranslate nohighlight">\(Y\)</span> on the two estimated parameters <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> and <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span>. Start with degrees of freedom equal to the sample size, and then lose one degree of freedom each for the intercept and slope. This rule can be extended to the case of multiple regression, as we will see in the next section.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/notebooks/Chapter_12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="01_The_Simple_Linear_Regression_Model.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">12.1. </span>The Simple Linear Regression Model</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_Towards_Multiple_Regression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12.3. </span>Towards Multiple Regression</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
