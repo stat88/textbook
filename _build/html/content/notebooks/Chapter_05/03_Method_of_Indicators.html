@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5.3. Method of Indicators &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.4. Unbiased Estimators" href="04_Unbiased_Estimators.html" />
+    <link rel="prev" title="5.2. Functions of Random Variables" href="02_Functions_of_Random_Variables.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_Expectation.html">
+   5. Expectation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter_05/03_Method_of_Indicators.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-counts">
+   5.3.1. Random Counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indicators">
+   5.3.2. Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial">
+   5.3.3. Binomial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypergeometric">
+   5.3.4. Hypergeometric
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-classes">
+   5.3.5. Missing Classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-method-of-indicators">
+   5.3.6. The Method of Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#birthday-emails">
+   5.3.7. Birthday Emails
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Method of Indicators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-counts">
+   5.3.1. Random Counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indicators">
+   5.3.2. Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial">
+   5.3.3. Binomial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypergeometric">
+   5.3.4. Hypergeometric
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-classes">
+   5.3.5. Missing Classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-method-of-indicators">
+   5.3.6. The Method of Indicators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#birthday-emails">
+   5.3.7. Birthday Emails
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<section id="method-of-indicators">
+<h1><span class="section-number">5.3. </span>Method of Indicators<a class="headerlink" href="#method-of-indicators" title="Permalink to this headline">#</a></h1>
+<p>The additivity property of expectation says that for any two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> defined on the same space,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X+Y) ~ = ~ E(X) + E(Y)
+\]</div>
+<p>regardless of the joint distribution of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>In particular, expectation is additive regardless of the dependence or independence of the two random variables being added.</p>
+<p>Remember that throughout this course, you can assume that there are no problems with the existence of expectations of random variables that have infinitely many values. In more advanced courses you will have to be careful about infinities in the statement of additivity.</p>
+<section id="random-counts">
+<h2><span class="section-number">5.3.1. </span>Random Counts<a class="headerlink" href="#random-counts" title="Permalink to this headline">#</a></h2>
+<p>In this section we will use additivity to find expectations of random counts such as the number of sixes in rolls of a die, the number of aces in a poker hand, the number of categories of individuals that appear in a random sample, and so on.</p>
+<p>We can do this because of a fundamental property of counting:</p>
+<p><strong>Counting is the same as adding zeros and ones.</strong> Use the Boolean value 1 as a code for each element you are counting, and 0 as a code for all the others. Then the count is the same as the sum of all the zeros and ones.</p>
+<p>For example, suppose you are trying to count the number of times the color red appears in the list below:</p>
+<p>blue, red, red, green, blue, red, blue, blue</p>
+<p>Code the list as 0, 1, 1, 0, 0, 1, 0, 0, using 1 for red and 0 for everything else.</p>
+<p>Then the sum of the coded list is 3, which is the number of times red appears in the list.</p>
+<p>In Python too you can count in two ways:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">booleans</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">booleans</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">booleans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus any random count can be written as a sum of <em>indicator</em> random variables.</p>
+</section>
+<section id="indicators">
+<h2><span class="section-number">5.3.2. </span>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">#</a></h2>
+<p>Recall from an earlier section that the <em>indicator</em> of an event <span class="math notranslate nohighlight">\(A\)</span> is a random variable that has the value 1 if <span class="math notranslate nohighlight">\(A\)</span> occurs and 0 if <span class="math notranslate nohighlight">\(A\)</span> doesn’t occur. You can think of the indicator of <span class="math notranslate nohighlight">\(A\)</span> as a Boolean that indicates whether <span class="math notranslate nohighlight">\(A\)</span> is true or false.</p>
+<p>Let <span class="math notranslate nohighlight">\(I_A\)</span> denote the indicator of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+E(I_A) ~ = ~ 1\cdot P(A) + 0(1 - P(A)) ~ = ~ P(A)
+\]</div>
+<p>as we have seen before.</p>
+<p>We can write a random count as a sum of indicators, and the expectation of an indicator is the probability that it is 1. By additivity, this will give us the expectation of the random count. Let’s see how.</p>
+</section>
+<section id="binomial">
+<h2><span class="section-number">5.3.3. </span>Binomial<a class="headerlink" href="#binomial" title="Permalink to this headline">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution. We will use indicators to find the expectation of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>We know that <span class="math notranslate nohighlight">\(X\)</span> can be thought of as the number of successes in <span class="math notranslate nohighlight">\(n\)</span> independent repeated success/failure trials with probability <span class="math notranslate nohighlight">\(p\)</span> of success on each trial. More succinctly, we say that <span class="math notranslate nohighlight">\(X\)</span> is the number of 1’s in <span class="math notranslate nohighlight">\(n\)</span> i.i.d. Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> trials.</p>
+<p>Write the random count <span class="math notranslate nohighlight">\(X\)</span> as the sum of indicators, one indicator per trial.</p>
+<div class="math notranslate nohighlight">
+\[
+X ~ = ~ I_1 + I_2 + \cdots + I_n
+\]</div>
+<p>where for each <span class="math notranslate nohighlight">\(j\)</span>, the random variable <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of a success on Trial <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>By additivity of expectation,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ E(I_1) + E(I_2) + \cdots + E(I_n)
+\]</div>
+<p>The expectation of an indicator is the probability that the indicator has the value 1. For each <span class="math notranslate nohighlight">\(j\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+P(I_j = 1) ~ = ~  P(\text{Trial } j \text{ is a success}) ~ = ~ p
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ p + p + \cdots + p ~ = ~ np
+\]</div>
+<p>This formalizes our intuition that we expect a proportion <span class="math notranslate nohighlight">\(p\)</span> of the <span class="math notranslate nohighlight">\(n\)</span> trials to be successes and hence we expect the count of successes to be <span class="math notranslate nohighlight">\(np\)</span>.</p>
+<p>Here are some applications of this result.</p>
+<ul class="simple">
+<li><p>The number of heads in 100 tosses of a coin has the binomial <span class="math notranslate nohighlight">\((100, 1/2)\)</span> distribution, so the expected number of heads is <span class="math notranslate nohighlight">\(100 \times \frac{1}{2} = 50\)</span>.</p></li>
+<li><p>The expected number of heads in 25 tosses of a coin is <span class="math notranslate nohighlight">\(25 \times \frac{1}{2} = 12.5\)</span>. Remember that expectation doesn’t have to be a possible value of the random variable.</p></li>
+<li><p>The number of sixes in 30 rolls or a die has the binomial <span class="math notranslate nohighlight">\((30, 1/6)\)</span> distribution, so the expected number of sixes is <span class="math notranslate nohighlight">\(30 \times \frac{1}{6} = 5\)</span>.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(n\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small, we can approximate the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution by the Poisson distribution with parameter <span class="math notranslate nohighlight">\(\mu = np\)</span>. Remember that the parameter <span class="math notranslate nohighlight">\(\mu\)</span> of a Poisson random variable is its expectation. You can now see that we construct the approximating Poisson distribution by equating expectations: the expectation <span class="math notranslate nohighlight">\(\mu\)</span> of the approximating Poisson distribution is taken to be equal to <span class="math notranslate nohighlight">\(np\)</span>, the expectation of the exact binomial distribution. Thus for example in 1000 independent repeated trials with chance <span class="math notranslate nohighlight">\(1/1000\)</span> of success on each trial, the distribution of the number of successes is exactly binomial <span class="math notranslate nohighlight">\((1000, 1/1000)\)</span> and approximately Poisson <span class="math notranslate nohighlight">\((1)\)</span>.</p></li>
+</ul>
+<p>Not only does this calculation by indicators give us an important result, it also <em>never used the independence</em> of the indicators. Additvity of expectation doesn’t require independence.</p>
+<p>So we can use the same method in settings where the indicators are not independent, as in the examples below.</p>
+</section>
+<section id="hypergeometric">
+<h2><span class="section-number">5.3.4. </span>Hypergeometric<a class="headerlink" href="#hypergeometric" title="Permalink to this headline">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> have the hypergeometric <span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution. We will use indicators to find the expectation of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>We know that <span class="math notranslate nohighlight">\(X\)</span> can be thought of as the number of good elements in a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> drawn from a population of <span class="math notranslate nohighlight">\(N\)</span> elements of which <span class="math notranslate nohighlight">\(G\)</span> are good. Once again, <span class="math notranslate nohighlight">\(X\)</span> is the sum of <span class="math notranslate nohighlight">\(n\)</span> Bernoulli random variables.</p>
+<p>Write the random count <span class="math notranslate nohighlight">\(X\)</span> as the sum of indicators, one indicator per draw.</p>
+<div class="math notranslate nohighlight">
+\[
+X ~ = ~ I_1 + I_2 + \cdots + I_n
+\]</div>
+<p>where for each <span class="math notranslate nohighlight">\(j\)</span>, the random variable <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of drawing a good element on Draw <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>These indicators are not independent, but additivity still applies.</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ E(I_1) + E(I_2) + \cdots + E(I_n)
+\]</div>
+<p>For each <span class="math notranslate nohighlight">\(j\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[
+E(I_j) ~ = ~ P(I_j = 1) ~ = ~  P(\text{Draw } j \text{ yields a good element}) ~ = ~ \frac{G}{N}
+\]</div>
+<p>by a now-familiar symmetry argument in random sampling without replacement. So</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ \frac{G}{N} + \frac{G}{N} + \cdots + \frac{G}{N} ~ = ~ n\frac{G}{N}
+\]</div>
+<p>This formalizes our intuition that we expect a proportion <span class="math notranslate nohighlight">\(\frac{G}{N}\)</span> of the <span class="math notranslate nohighlight">\(n\)</span> draws to be good and hence we expect the number of good elements in the sample to be <span class="math notranslate nohighlight">\(n\frac{G}{N}\)</span>.</p>
+<p>Applications:</p>
+<ul class="simple">
+<li><p>The number of aces in a 5-card poker hand dealt from a standard deck has the hypergeometric <span class="math notranslate nohighlight">\((52, 4, 5)\)</span> distribution, so the expected number of aces in the hand is <span class="math notranslate nohighlight">\(5 \times \frac{4}{52} \approx 0.3846\)</span>. You shouldn’t expect a lot of aces in a poker hand!</p></li>
+<li><p>If a simple random sample of 65 participants forms the treatment group in a randomized controlled experiment in which 30 of the 100 participants are Californians, then the expected number of Californians in the treatement group is <span class="math notranslate nohighlight">\(65 \times \frac{30}{100} = 19.5\)</span>.</p></li>
+<li><p>In the example above, suppose the 65 draws had been made at random <em>with</em> replacement instead of without. Then the number of times Californians appeared among the draws would have had the binomial <span class="math notranslate nohighlight">\((65, 30/100)\)</span> distribution, and the expected number of times Californians appeared in the sample would still have been <span class="math notranslate nohighlight">\(65 \times \frac{30}{100} = 19.5\)</span>. On average, sampling with replacement produces the same number of successes as sampling without replacement. The difference is in the variability of the count, as we will see later in the course.</p></li>
+</ul>
+</section>
+<section id="missing-classes">
+<h2><span class="section-number">5.3.5. </span>Missing Classes<a class="headerlink" href="#missing-classes" title="Permalink to this headline">#</a></h2>
+<p>No, this is not an example about not going to class. Instead, consider a population in which each element belongs to one of three classes. Suppose 40% of the elements are in Class 1, 35% in Class 2, and 25% in Class 3.</p>
+<p>If you draw <span class="math notranslate nohighlight">\(n\)</span> times at random with replacement from the population, what is the expected number of classes that don’t appear in the sample?</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of classes that don’t appear. Then <span class="math notranslate nohighlight">\(X\)</span> is a random count <em>of classes</em>. So write <span class="math notranslate nohighlight">\(X\)</span> as a sum of three indicators, <em>one indicator per class</em>.</p>
+<div class="math notranslate nohighlight">
+\[
+X ~ = ~ I_1 + I_2 + I_3
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of the event that Class <span class="math notranslate nohighlight">\(j\)</span> doesn’t appear in the sample.</p>
+<p>The indicators are not independent (for example, they can’t all be 1), but additivity still works:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(X) ~ &amp;=~ E(I_1) + E(I_2) + E(I_3) \\
+&amp;= ~ P(\text{Class 1 doesn't appear}) + P(\text{Class 2 doesn't appear}) + P(\text{Class 3 doesn't appear}) \\
+&amp;= ~ 0.6^n + 0.65^n + 0.75^n
+\end{align*}
+\end{split}\]</div>
+<p>The answer goes to 0 as <span class="math notranslate nohighlight">\(n\)</span> gets large. That makes sense. In a very large sample, you expect all classes to appear.</p>
+<p>The number of classes that <em>do</em> appear in the sample is <span class="math notranslate nohighlight">\(Y = 3 - X\)</span>. The expected number of classes that appear is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+E(Y) ~ = ~ 3 - E(X) ~ = 3 - \big{(} 0.6^n + 0.65^n + 0.75^n \big{)}
+\]</div>
+<p>Notice the use of additivity in the first equality above, applied to <span class="math notranslate nohighlight">\(Y = 3 + (-X)\)</span>. In the next section we will make some general observations about expectations of linear functions.</p>
+</section>
+<section id="the-method-of-indicators">
+<h2><span class="section-number">5.3.6. </span>The Method of Indicators<a class="headerlink" href="#the-method-of-indicators" title="Permalink to this headline">#</a></h2>
+<p>All the examples above have been applications of the <em>method of indicators</em>. The method is intended for finding the expectation of a random count that has an upper limit (not counts that can be arbitrarily large). In the binomial and hypergeometric examples, the count could be at most <span class="math notranslate nohighlight">\(n\)</span>. In the random classes example, the count could be at most 3.</p>
+<p>The method is highly recommended when you just want the expectation of a random count, not the entire distribution of the count. To set up the right indicators to use, look carefully at what is being counted. If for example it is the number of <em>classes</em> that have a specified property, then use one indicator per class.</p>
+<p>We end the section with another example of the decision process and calculation.</p>
+</section>
+<section id="birthday-emails">
+<h2><span class="section-number">5.3.7. </span>Birthday Emails<a class="headerlink" href="#birthday-emails" title="Permalink to this headline">#</a></h2>
+<p>A company has 50 employees. Each month, the company sends out a “happy birthday” email to each employee whose birthday is in that month. If there is a month in which no employee has a birthday, no birthday email is sent that month.</p>
+<p>Suppose each employee’s birthday is equally likely to be in any of the 12 months of the year, independently of the birthdays of all others. In a year, what is the expected number of months in which the company sends out more than one birthday email?</p>
+<p><strong>Answer:</strong> The question asks for an expected count: the expected number of months that have a specified property. So let’s try the method of indicators.</p>
+<p>We are counting months, so it’s a good idea to use one indicator per month. In a year, the count can be at most 12.</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of months in which the company sends out more than one birthday email. Then</p>
+<div class="math notranslate nohighlight">
+\[
+X ~ = ~ I_1 + I_2 + \cdots + I_{12}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_j\)</span> is the indicator of the event that the company sends more than one birthday email in Month <span class="math notranslate nohighlight">\(j\)</span>. That’s the same as the event that more than one employee’s birthday is in Month <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>For each <span class="math notranslate nohighlight">\(j\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(I_j) ~ &amp;= ~ P(\text{more than one birthday in Month }j) \\
+&amp;=~ 1 - \big{(} \binom{50}{0}(1/12)^0(11/12)^{50} + \binom{50}{1}(1/12)^1(11/12)^{49} \big{)}
+\end{align*}
+\end{split}\]</div>
+<p>and hence</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~  12\big{(} 1 - \big{(} \binom{50}{0}(1/12)^0(11/12)^{50} + \binom{50}{1}(1/12)^1(11/12)^{49} \big{)} \big{)}
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+E(X) ~ = ~ 12 \big{(} \sum_{k=2}^{50} \binom{50}{k}(1/12)^k(11/12)^{50-k} \big{)}
+\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/notebooks/Chapter_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_Functions_of_Random_Variables.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5.2. </span>Functions of Random Variables</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_Unbiased_Estimators.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Unbiased Estimators</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

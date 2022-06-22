@@ -1,0 +1,946 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Probabilities as Proportions &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/_site/content/notebooks/Chapter_01/01_Probabilities_as_Proportions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology">
+   Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assumption-of-equally-likely-outcomes">
+   Assumption of Equally Likely Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proportions">
+   Proportions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teen-use-of-online-platforms">
+   Teen Use of Online Platforms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution">
+   Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complements">
+   Complements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditioning">
+   Conditioning
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Probabilities as Proportions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology">
+   Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assumption-of-equally-likely-outcomes">
+   Assumption of Equally Likely Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proportions">
+   Proportions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teen-use-of-online-platforms">
+   Teen Use of Online Platforms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution">
+   Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complements">
+   Complements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditioning">
+   Conditioning
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="probabilities-as-proportions">
+<h1>Probabilities as Proportions<a class="headerlink" href="#probabilities-as-proportions" title="Permalink to this headline">#</a></h1>
+<p>You can think of probability as a numerical measure of uncertainty. Exactly what this means is the subject of considerable philosophical debate which we will touch on from time to time. For now, it is reassuring to note that almost all sides in the debate agree on some basic computational principles. Indeed, these principles have been known to gamblers through the ages.</p>
+<p>To state the principles it helps to have some terminology and notation. In this section we’ll just set these up informally and get a taste of some of the considerations that are involved in calculating chances. In later sections we will work more formally and in greater generality.</p>
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">#</a></h2>
+<p>An <em>experiment</em> is any activity that involves an element of chance. When you perform the experiment there is an <em>outcome</em> which is the result of the experiment.</p>
+<p>Thus for example rolling a six-sided die once is an experiment. You can think of the outcome as an integer in the range 1 through 6, corresponding to the number of spots on the face of the die that appears on the roll.</p>
+<p>An <em>event</em> is a description of the result of the experiment, which could be more broad than just a single outcome. For example, “the die shows a multiple of 3” is an event. This event happens if the die shows either 3 or 6.</p>
+<p><strong>Language note:</strong> The word <em>die</em> is singular. The word <em>dice</em> is the plural of <em>die</em>. You can have one die or two dice. But you cannot have one dice.</p>
+</section>
+<section id="assumption-of-equally-likely-outcomes">
+<h2>Assumption of Equally Likely Outcomes<a class="headerlink" href="#assumption-of-equally-likely-outcomes" title="Permalink to this headline">#</a></h2>
+<p>Here’s a question for you:</p>
+<p>What is the chance that the die shows a multiple of 3?</p>
+<p>Did you answer, “2 out of 6, or 1/3, because it’s two faces out of six faces”?</p>
+<p>If you did, pause for a second and examine what you hid in that answer. Notice that <strong>you assumed that all six faces have the same chance, and that the chance is just a simple proportion.</strong></p>
+<p>That’s a fine way to start, but it is important always to be aware that <strong>probabilities depend on the assumptions that have been made, and if the assumptions are wrong then the answers can’t be trusted</strong>.</p>
+<p>After all, you haven’t seen the die. It might be a trick die that is loaded in some way to show some faces more often than others.</p>
+<p>But for now let’s assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word “die” used without any qualification will mean “fair six-sided die”.</p>
+</section>
+<section id="proportions">
+<h2>Proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">#</a></h2>
+<p>Gamblers through the ages would agree with your calculation of “2 out of 6” for the chance that the die shows an even number, assuming that the die is fair.</p>
+<p>In general, <em>if an experiment has a finite number of equally likely outcomes,</em> then the probability of an event is defined as <em>the proportion of outcomes that are included in the event</em>.</p>
+<p>No matter whether the die is fair or loaded, the event “the die shows a multiple of 3” consists of two outcomes: 3 and 6. If the die is fair then the probability of the event is the proportion 2/6 by the definition above.</p>
+<p>We will usually shorten this to <span class="math notranslate nohighlight">\(P(\text{die shows a multiple of 3}) = 2/6\)</span>. That’s <span class="math notranslate nohighlight">\(P\)</span> for probability, of course.</p>
+<p>You are welcome to write the answer as “2 out of 6” or “1/3” or “33.333…%” or “0.333…” or any equivalent way of representing the proportion.</p>
+</section>
+<section id="teen-use-of-online-platforms">
+<h2>Teen Use of Online Platforms<a class="headerlink" href="#teen-use-of-online-platforms" title="Permalink to this headline">#</a></h2>
+<p>Coins, dice, cards, and other games of chance provide wonderful examples that illuminate properties of probability. We will use them frequently for that purpose. But data scientists typically work in other settings. Ideas developed in the context of games of chance can be translated, with appropriate care, into those settings to help data scientists gain insights about the data.</p>
+<p>The <a class="reference external" href="https://www.pewresearch.org/">Pew Research Center</a> is an organization that conducts surveys on the opinions and choices of people in the U.S. In Spring 2018 it <a class="reference external" href="https://www.pewinternet.org/2018/05/31/teens-social-media-technology-2018/">surveyed U.S. teens</a> (ages 13 through 17) about their use of online platforms such as YouTube and Facebook.</p>
+<p>The graphic below displays some of the results of the survey. For now, set aside questions about the accuracy of the survey across the U.S; we will discuss sampling accuracy later in the course. Just consider a population of teens whose online platform usage is summarized by these graphs.</p>
+<p><img alt="online platform_use" src="../../../../_images/online_platforms.png" /></p>
+<p>There are two bar charts. Each displays percents of teens over categories that are online platforms. Note “None of the above” as the category at the bottom of both. The teens in those bars are the same in both charts and constitute 3% of all the teens.</p>
+</section>
+<section id="distribution">
+<h2>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline">#</a></h2>
+<p>Though the two bar charts cover the same categories, there is an important difference between them. Read the Note that the Pew Research Center included below the graphs.</p>
+<p>The chart on the right displays the answer to a question that asked which <em>one</em> of the platforms was most commonly used by the teen respondent. Each teen picked one and only one such platform. <em>Thus each teen is represented in exactly one of the bars.</em> For example, the group that said they used Facebook most often has no members in common with the group that said they used Twitter most often.</p>
+<p>That is why the percents in the bars of the right hand chart add up to 100 (apart from rounding). We say that the chart represents a <em>distribution</em> of teens over the categories. In a distribution, each individual appears in one and only one category.</p>
+<p>In the chart on the left, teens can appear in more than one category because they were identifying which platforms they used and were allowed to list more than one. Because the groups in the different categories overlap, the percents add up to more than 100. This bar chart does not represent a distribution.</p>
+</section>
+<section id="complements">
+<h2>Complements<a class="headerlink" href="#complements" title="Permalink to this headline">#</a></h2>
+<p>Now assume you are picking one teen at random from the population represented in these charts. That is short for assuming that each teen has the same chance of being picked as every other teen in the population.</p>
+<p>Because all the outcomes (teens!) are equally likely, probabilities are just percents of teens. Let’s use the charts to find some chances.</p>
+<p><strong>Question 1:</strong> What is the chance that the chosen teen used Facebook most often?</p>
+<p><strong>Answer:</strong> This can be read off the right hand chart: <span class="math notranslate nohighlight">\(P(\text{used Facebook most often}) ~ = ~ 0.1\)</span></p>
+<p><strong>Question 2:</strong> What is the chance that the chosen teen did not use Facebook most often?</p>
+<p><strong>Answer:</strong> The group that did not use Facebook most often consists of everyone but those who used Facebook most often. In the language of set theory, these two groups are called <em>complements</em> of each other. Their two proportions must add up to 1. So: <span class="math notranslate nohighlight">\(P(\text{did not use Facebook most often}) ~ = ~ 1 - 0.1 ~ = ~ 0.9\)</span></p>
+<p><strong>Question 3:</strong> What is the chance that the student used Facebook but used some other platform more often?</p>
+<p><strong>Answer:</strong> Now we have to use the information in both graphs. The left hand graph says that 51% of the teens used Facebook. We already saw that 10% of the teens used Facebook most often. <em>This group used Facebook</em>, so it is part of the 51% that used Facebook.</p>
+<p>Who were the other 41%? That’s right – they used Facebook, but not most often. That’s exactly the group whose proportion we are trying to find. It can be thought of as the complement of those who used Facebook most often <em>but only among those who used Facebook</em>.</p>
+<p>In summary,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; P(\text{used Facebook but used some other platform more often}) \\
+&amp;= ~ 0.51 - 0.1 ~ = ~ 0.41
+\end{align*}
+\end{split}\]</div>
+</section>
+<section id="conditioning">
+<h2>Conditioning<a class="headerlink" href="#conditioning" title="Permalink to this headline">#</a></h2>
+<p>Probabilities of events can be affected by information about the occurrence of other events. For example, suppose as before that someone picks a teen at random from the population represented in the charts. And now suppose that they tell you that the teen used Facebook.</p>
+<p><strong>Question 4:</strong> Given this information, what is the chance that the teen used Facebook most often?</p>
+<p><strong>Answer:</strong> Go back and look at the left hand chart. You know that the selected teen is in the Facebook bar of the chart. So you can forget all the other bars. <em>You are now working with a restricted set of outcomes:</em> the outcomes corresponding to the given information, which is that the teen used Facebook.</p>
+<p>The teens who used Facebook most often are a subset of this group, as observed earlier and shown in the figure below. It’s just a rough Venn diagram that uses circles instead of bars. We’ll be sketching a lot of these, and you should too.</p>
+<p><img alt="Venn diagram" src="../../../../_images/venn_conditioning.png" /></p>
+<p>The total number of outcomes is now the “used FB” group, which comprises 51% of the original total number of teens. If you prefer counts to percents, you can pretend that there were 100 teens in all, and that thus there were 51 teens who used Facebook.</p>
+<p>The right hand chart says that the teens who used Facebook most often are 10% of the entire population, that is, 10 out of 100 imagined teens.</p>
+<p>We can now put all these observations together to find the chance in question. Given that the selected teen used Facebook, the chance that they used Facebook most often is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\text{10% of original total}}{\text{51% of original total}} ~ = ~ \frac{0.1}{0.51} ~ = ~ \frac{10}{51} ~ \approx ~ 0.196 
+\]</div>
+<p>This is called the <em>conditional probability that the teen used Facebook most often, given that they used Facebook</em>. That’s pretty long, so some notation is helpful. This conditional probability is written as</p>
+<div class="math notranslate nohighlight">
+\[
+P(\text{used Facebook most often} \mid \text{used Facebook})
+\]</div>
+<p>The vertical bar is read as “given that”.</p>
+<p>To find a conditional probability:</p>
+<ul class="simple">
+<li><p>First restrict the set of all outcomes as well as the event to only the outcomes that satisfy the given condition</p></li>
+<li><p>Then calculate proportions accordingly</p></li>
+</ul>
+<p>Compare the answers to Questions 1 and 4 to see how additional information about the outcome affects the probability of an event.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(\text{used Facebook most often}) = 0.1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\text{used Facebook most often} \mid \text{used Facebook}) \approx 0.196 \approx 0.2\)</span></p></li>
+</ul>
+<p>The second answer is about double the first.</p>
+<p>The answer to Question 1 is 10% (out of the original population). The answer to Question 4 is that same 10% relative to about half of the original population, because about half the original population used Facebook. That makes the answer to Question 4 about double the answer to Question 1.</p>
+<p>The probability of “used Facebook most often” changes based on the given information, because knowing that the selected teen used Facebook restricts the possible outcomes to about half of the original population.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./_site/content/notebooks/Chapter_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
