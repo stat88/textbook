@@ -1,21 +1,22 @@
-# Book settings
+# Book configuration
 # Learn more at https://jupyterbook.org/customize/config.html
 
 #######################################################################################
-# Book information
+# Book settings
 title: Stat 88 Textbook
 author: Ani Adhikari
 email: adhikari@berkeley.edu
+logo: content/images/stat88_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
 
+# Don't run these files.
 exclude_patterns: ["LICENSE.md"]
 
-# Website settings
-logo: content/images/stat88_logo.png
+# Favicon
 html:
   favicon: content/images/favicon.ico
 
