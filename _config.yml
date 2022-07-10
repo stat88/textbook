@@ -15,74 +15,102 @@
 # in the templates via {{ site.myvariable }}.
 
 #######################################################################################
-# Jekyll site settings
+# Book settings
 title: Stat 88 Textbook
 author: Ani Adhikari
+logo: content/images/stat88_logo.png
+execute:
+  execute_notebooks: force
 email: adhikari@berkeley.edu
 description: >-
-  The course textbook for Stat88
+  The course textbook for Stat 88
 
-baseurl: /textbook       # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: https://stat88.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /textbook                                  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: https://stat88.github.io/                      # the base hostname & protocol for your site, e.g. http://example.com
+
+
+#######################################################################################
+# Files not to execute
+exclude_patterns: ["LICENSE.md"]
+
+# License info
+html:
+  favicon: content/images/favicon.ico
+  extra_footer: |
+    <p>
+    License: CC BY-NC-ND 4.0
+    </p>
 
 
 #######################################################################################
 # Jupyter Book settings
 
 # Main page settings
-footer_text: This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The
-  Jupyter Book Community</a>
+footer_text: ''
 
 # Sidebar settings
-show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
-collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo: content/images/stat88_logo.png             # A logo to be displayed at the top of your textbook sidebar. Should be square
-textbook_logo_link: https://stat88.github.io/                            # A link for the logo.
-sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
-  Book</a>
-number_toc_chapters: true         # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
+show_sidebar: true                                  # Show the sidebar. Only set to false if your only wish to host a single page.
+collapse_inactive_chapters: false                   # Whether to collapse the inactive chapters in the Sidebar
+collapse_inactive_sections: false
+sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
+number_toc_chapters: true                           # Whether to add numbers to chapters in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
 
 # Search settings
-search_max_words_in_content: 100   # In the search function, use at most this many words (too many words will make search slow)
+search_max_words_in_content: 100                    # In the search function, use at most this many words (too many words will make search slow)
+
+# Controlling page information
+page_titles: infer                                  # Either `None`, `infer`, or `toc`
+page_authors: None                                  # Either `None` or `infer`
+filename_title_split_character: _                   # If inferring titles based on filename, splt on this character.
+
+# Math settings
+number_equations: false                             # Whether to automatically number all block equations with MathJax
+
 
 #######################################################################################
 # Interact link settings
 
+# Tells Jupyter Book to add JupyterHub links to pages
+# launch_buttons:
+#   notebook_interface: classic
+#   jupyterhub_url: 'https://datahub.berkeley.edu'
+
+# Remove the launch button.
+sphinx:
+  config:
+    html_theme_options:
+      launch_buttons: {}
+
 # General interact settings
-use_jupyterlab: false                     # If 'true', interact links will use JupyterLab as the interface
+use_jupyterlab: false                               # If 'true', interact links will use JupyterLab as the interface
 
 # Jupyterhub link settings
-use_jupyterhub_button: false              # If 'true', display a button that will direct users to a JupyterHub (that you provide)
-jupyterhub_url: ''                     # The URL for your JupyterHub. If no URL, use ""
-jupyterhub_interact_text: Interact             # The text that interact buttons will contain.
+use_jupyterhub_button: false                        # If 'true', display a button that will direct users to a JupyterHub (that you provide)
+jupyterhub_url: ''                                  # The URL for your JupyterHub. If no URL, use ""
+jupyterhub_interact_text: Interact                  # The text that interact buttons will contain.
 
 # Binder link settings
-use_binder_button: false                 # If 'true', add a binder button for interactive links
-binderhub_url: https://mybinder.org                        # The URL for your BinderHub. If no URL, use ""
-binder_repo_base: https://github.com/                     # The site on which the textbook repository is hosted
-binder_repo_org: YOUR-ORG                     # The username or organization that owns this repository
-binder_repo_name: YOUR-REPO                        # The name of the repository on the web
-binder_repo_branch: gh-pages                   # The branch on which your textbook is hosted.
-binderhub_interact_text: Interact              # The text that interact buttons will contain.
+use_binder_button: false                            # If 'true', add a binder button for interactive links
+binderhub_url: ''                                   # The URL for your BinderHub. If no URL, use ""
+binder_repo_base: https://github.com/               # The site on which the textbook repository is hosted
+binder_repo_org: stat88                             # The username or organization that owns this repository
+binder_repo_name: textbook                          # The name of the repository on the web
+binder_repo_branch: gh-pages                        # The branch on which your textbook is hosted.
+binderhub_interact_text: Interact                   # The text that interact buttons will contain.
 
 # Thebelab settings
-use_thebelab_button: false               # If 'true', display a button to allow in-page running code cells with Thebelab
-thebelab_button_text: Thebelab                 # The text to display inside the Thebelab initialization button
-codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
+use_thebelab_button: false                          # If 'true', display a button to allow in-page running code cells with Thebelab
+thebelab_button_text: Thebelab                      # The text to display inside the Thebelab initialization button
+codemirror_theme: abcdef                            # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 
 # nbinteract settings
-use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
+use_show_widgets_button: false                      # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
-use_download_button: false               # If 'true', display a button to download a zip file for the notebook
-download_button_text: ''                # The text that download buttons will contain
+use_download_button: true                           # If 'true', display a button to download a zip file for the notebook
+download_button_text: ''                            # The text that download buttons will contain
 download_page_header: "This a section from 'Theory Meets Data' by Ani Adhikari; This book is licensed for free consumption under the following license: (CC BY-NC-ND 4.0)" # A header that will be displayed at the top of and PDF-printed page
-#######################################################################################
-# Jupyter book extensions and additional features
 
-# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
-scholar:
-  style: apa
 
 #######################################################################################
 # Option to add a Goggle analytics tracking code
@@ -91,136 +119,7 @@ scholar:
 google_analytics:
   mytrackingcode:
 
-#######################################################################################
-# Jupyter book settings you probably don't need to change
-
-content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
-images_url: /assets/images                   # Path to static image files
-css_url: /assets/css                      # Path to static CSS files
-js_url: /assets/js                       # Path to JS files
-custom_static_url: /assets/custom            # Path to user's custom CSS/JS files
-
 
 #######################################################################################
-# Jekyll build settings (only modify if you know what you're doing)
-
-# Site settings
-defaults:
-- scope:
-    path: ''
-  values:
-    layout: default
-    toc: true
-    toc_label: '  On this page'
-    toc_icon: list-ul
-
-#favicon_path: images/logo/favicon.ico
-
-# Markdown Processing
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-sass:
-  style: compressed
-
-collections:
-  build:
-    output: true
-    permalink: /:path.html
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-- scripts/
-- Gemfile
-- Gemfile.lock
-- node_modules
-- vendor/bundle/
-- vendor/cache/
-- vendor/gems/
-- vendor/ruby/
-
-plugins:
-- jekyll-redirect-from
-- jekyll-scholar
-
-# Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
-jupyter_book_version: 0.5.3dev0
-
-
-#######################################################################################
-# Jupyter book extensions and additional features
-
-# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
-scholar:
-  style: apa
-
-#######################################################################################
-# Option to add a Goggle analytics tracking code
-
-# Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
-google_analytics:
-  mytrackingcode:
-
-#######################################################################################
-# Jupyter book settings you probably don't need to change
-
-content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
-images_url: /assets/images                   # Path to static image files
-css_url: /assets/css                      # Path to static CSS files
-js_url: /assets/js                       # Path to JS files
-custom_static_url: /assets/custom            # Path to user's custom CSS/JS files
-
-
-#######################################################################################
-# Jekyll build settings (only modify if you know what you're doing)
-
-# Site settings
-defaults:
-- scope:
-    path: ''
-  values:
-    layout: default
-    toc: true
-    toc_label: '  On this page'
-    toc_icon: list-ul
-
-#favicon_path: images/logo/favicon.ico
-favicon_path: content/images/stat88_logo_small.png
-
-# Markdown Processing
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-sass:
-  style: compressed
-
-collections:
-  build:
-    output: true
-    permalink: /:path.html
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-- scripts/
-- Gemfile
-- Gemfile.lock
-- node_modules
-- vendor/bundle/
-- vendor/cache/
-- vendor/gems/
-- vendor/ruby/
-
-plugins:
-- jekyll-redirect-from
-- jekyll-scholar
-
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
 jupyter_book_version: 0.5.3dev0
