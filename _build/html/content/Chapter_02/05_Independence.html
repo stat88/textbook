@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.5. Independence &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.6. Exercises" href="06_Exercises.html" />
+    <link rel="prev" title="2.4. Use and Interpretation" href="04_Use_and_Interpretation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
+     3.1. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
+     3.2. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
+     3.3. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.4. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/05_Examples.html">
+     3.5. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
+     3.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.1. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
+     4.2. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
+     4.3. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
+     4.4. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
+     4.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Chapter_02/05_Independence.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dice-versus-cards">
+   2.5.1. Dice Versus Cards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-special-case-of-the-multiplication-rule">
+   2.5.2. A Special Case of the Multiplication Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#people-v-collins-1968">
+   2.5.3. People v. Collins, 1968
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regina-v-clark-2003">
+   2.5.4. Regina v. Clark, 2003
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Independence</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dice-versus-cards">
+   2.5.1. Dice Versus Cards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-special-case-of-the-multiplication-rule">
+   2.5.2. A Special Case of the Multiplication Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#people-v-collins-1968">
+   2.5.3. People v. Collins, 1968
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regina-v-clark-2003">
+   2.5.4. Regina v. Clark, 2003
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="independence">
+<h1><span class="section-number">2.5. </span>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">#</a></h1>
+<p>Events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>independent</em> if the information that one of them occurred does not change the chance of the other.</p>
+<ul class="simple">
+<li><p>If you don’t know whether <span class="math notranslate nohighlight">\(A\)</span> has occurred, then the chance of <span class="math notranslate nohighlight">\(B\)</span> is just <span class="math notranslate nohighlight">\(P(B)\)</span>.</p></li>
+<li><p>If you do know that <span class="math notranslate nohighlight">\(A\)</span> occurred, then you have to update the chance of <span class="math notranslate nohighlight">\(B\)</span> to <span class="math notranslate nohighlight">\(P(B \mid A)\)</span>, the conditional chance of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+<p>The definition of independence says that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent if <span class="math notranslate nohighlight">\(P(B \mid A) = P(B)\)</span>.</p>
+<p>For example, suppose you roll a die once and see an odd number. What does that tell you about the chance that the next roll is a 2? If your answer is, “Nothing – the chance that the next roll is a 2 is still 1/6,” then you have said that the two events “first roll is an odd number” and “second roll is 2” are independent.</p>
+<section id="dice-versus-cards">
+<h2><span class="section-number">2.5.1. </span>Dice Versus Cards<a class="headerlink" href="#dice-versus-cards" title="Permalink to this headline">#</a></h2>
+<p>Suppose you are rolling a die twice. Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp;P(2 \text{ on the second roll} \mid \text{odd number on the first roll}) \\
+&amp;= ~ P(2 \text{ on the second roll}) ~ = ~ \frac{1}{6}
+\end{align*}
+\end{split}\]</div>
+<p>Independence is a natural assumption about successive rolls of a die. But when cards are dealt (at random without replacement, as we consistently assume) from a deck, then the situation is different.</p>
+<p>Suppose two cards are dealt from a standard deck in which four out of 52 cards are aces. We know that by symmetry,</p>
+<div class="math notranslate nohighlight">
+\[
+P(\text{second card is an ace}) ~ = ~ \frac{4}{52}
+\]</div>
+<p>It’s worth reviewing the reason for this: since we have no other information, all 52 cards are equally likely to be appear on the second draw, and four of them are aces.</p>
+<p>However,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P(\text{second card is an ace} \mid \text{first card is an ace})~ &amp;= ~ \frac{3}{51} \\ 
+&amp;\neq ~ P(\text{second card is an ace})
+\end{align*}
+\end{split}\]</div>
+<p>The information that the first card is an ace <em>changes the probability</em> that the second card is an ace. The events “the first card is an ace” and “the second card is an ace” are not independent. Knowing that the first card is an ace eliminates an ace from the deck, and probabilities have to be recalculated accordingly.</p>
+</section>
+<section id="a-special-case-of-the-multiplication-rule">
+<h2><span class="section-number">2.5.2. </span>A Special Case of the Multiplication Rule<a class="headerlink" href="#a-special-case-of-the-multiplication-rule" title="Permalink to this headline">#</a></h2>
+<p>Suppose you deal two cards. By the multiplication rule,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; P(\text{both cards are aces}) \\
+&amp;= ~ P(\text{first card is an ace})P(\text{second card is an ace} \mid \text{first card is an ace}) \\
+&amp;= ~ \frac{4}{52} \times \frac{3}{51}
+\end{align*}
+\end{split}\]</div>
+<p>If you roll two dice, then by the multiplication rule again,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; P(\text{odd number on the first roll and } 2 \text{ on the second roll}) \\
+&amp;= ~ P(\text{odd number on the first roll})P(2 \text{ on the second roll} \mid \text{odd number on the first roll}) \\
+&amp;= ~ \frac{3}{6} \times \frac{1}{6}
+\end{align*}
+\end{split}\]</div>
+<p>The second factor in the product is not affected by the condition that the first roll was an odd number.</p>
+<p>What we have observed in the example above can be generalized as follows.</p>
+<p>The multiplication rule says that for any two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(AB) ~ = ~ P(A)P(B \mid A)
+\]</div>
+<p>In the case of independent events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> the second factor in the multiplication rule is the same as the unconditional chance of <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(AB) ~ = ~ P(A)P(B) ~~ \text{if } A \text{ and } B \text{ are independent}
+\]</div>
+<p>Notice that if you are trying to find the chance of an intersection, then independence does not affect <em>whether</em> you multiply chances. Independence only affects <em>what</em> you multiply.</p>
+<p>It is simplest to just remember the general multiplication rule. Independence is then an easy special case.</p>
+<p>Return to the example of rolling a die twice. We have</p>
+<div class="math notranslate nohighlight">
+\[
+P(\text{ odd number on the first roll and } 2 \text{ on the second roll}) ~ = ~ 
+\frac{3}{6} \times \frac{1}{6} ~ = ~ \frac{3}{36}
+\]</div>
+<p>We can now check that the assumption of independence is consistent with an assumption that we have made all along: that all 36 outcomes of the two rolls are equally likely. Under that assumption, we would have solved the problem by saying that three pairs <span class="math notranslate nohighlight">\((1, 2)\)</span>, <span class="math notranslate nohighlight">\((3, 2)\)</span>, and <span class="math notranslate nohighlight">\((5, 2)\)</span> form the event and hence the chance is <span class="math notranslate nohighlight">\(3/36\)</span>. That’s the same as what we got by using independence.</p>
+<p>The definition of independence extends to multiple events. A collection of events are <em>mutually independent</em> if knowing that any group of them has occurred doesn’t affect the chances of the others.</p>
+</section>
+<section id="people-v-collins-1968">
+<h2><span class="section-number">2.5.3. </span>People v. Collins, 1968<a class="headerlink" href="#people-v-collins-1968" title="Permalink to this headline">#</a></h2>
+<p>In 1964, the married couple Michael and Janet Collins were arrested for robbery in California. A jury found them guilty, based in part on a probability calculation.</p>
+<p>Michael Collins appealed the conviction to the California Supreme Court. In 1968 the Court overturned the jury’s conviction.</p>
+<p>In the <a class="reference external" href="https://law.justia.com/cases/california/supreme-court/2d/68/319.html">statement</a> of the majority opinion, Justice Raymond Sullivan wrote, “We deal here with the novel question whether evidence of mathematical probability has been properly introduced and used by the prosecution in a criminal case. While we discern no inherent incompatibility between the disciplines of law and mathematics and intend no general disapproval or disparagement of the latter as an auxiliary in the fact-finding processes of the former, we cannot uphold the technique employed in the instant case.”</p>
+<p>To see what the Justices could not uphold, we start with their summary of the incident that led to the arrest. We apologize that the quote includes the term used to describe a black person in the statement as well as during the trial.</p>
+<p>“On June 18, 1964, about 11:30 a.m. Mrs. Juanita Brooks, who had been shopping, was walking home along an alley in the San Pedro area of the City of Los Angeles. She was pulling behind her a wicker basket carryall containing groceries and had her purse on top of the packages. She was using a cane. As she stooped down to pick up an empty carton, she was suddenly pushed to the ground by a person whom she neither saw nor heard approach. She was stunned by the fall and felt some pain. She managed to look up and saw a young woman running from the scene. According to Mrs. Brooks the latter appeared to weigh about 145 pounds, was wearing “something dark,” and had hair “between a dark blond and a light blond,” but lighter than the color of defendant Janet Collins’ hair as it appeared at trial. Immediately after the incident, Mrs. Brooks discovered that her purse, containing between \<span class="math notranslate nohighlight">\(35 and \\\)</span>40 was missing.</p>
+<p>About the same time as the robbery, John Bass, who lived on the street at the end of the alley, was in front of his house watering his lawn. His attention was attracted by “a lot of crying and screaming” coming from the alley. As he looked in that direction, he saw a woman run out of the alley and enter a yellow automobile parked across the street from him. He was unable to give the make of the car. The car started off immediately and pulled wide around another parked vehicle so that in the narrow street it passed within 6 feet of Bass. The latter then saw that it was being driven by a male Negro, wearing a mustache and beard. At the trial Bass identified defendant as the driver of the yellow automobile. However, an attempt was made to impeach his identification by his admission that at the preliminary hearing he testified to an uncertain identification at the police lineup shortly after the attack on Mrs. Brooks, when defendant was beardless.</p>
+<p>In his testimony Bass described the woman who ran from the alley as a Caucasian, slightly over 5 feet tall, of ordinary build, with her hair in a dark blonde ponytail, and wearing dark clothing. He further testified that her ponytail was “just like” one which Janet had in a police photograph taken on June 22, 1964.”</p>
+<p>In the jury trial, the prosecutor had provided a table of probabilities:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Characteristic</p></th>
+<th class="text-align:right head"><p>Individual Probability</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>A. Partly yellow automobile</p></td>
+<td class="text-align:right"><p>1/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>B. Man with mustache</p></td>
+<td class="text-align:right"><p>1/4</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>C. Girl with ponytail</p></td>
+<td class="text-align:right"><p>1/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>D. Girl with blond hair</p></td>
+<td class="text-align:right"><p>1/3</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>E. Negro man with beard</p></td>
+<td class="text-align:right"><p>1/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>F. Interracial couple in car</p></td>
+<td class="text-align:right"><p>1/1000</p></td>
+</tr>
+</tbody>
+</table>
+<p>The prosecutor had then multiplied all the probabilities together to get an answer of about 1 in 12,000,000. Quoting again from the Supreme Court’s statement, “Applying the product rule to his own factors the prosecutor arrived at a probability that there was but one chance in 12 million that any couple possessed the distinctive characteristics of the defendants.”</p>
+<p>Though the jury had been swayed by this calculation, the Supreme Court understood the importance of checking assumptions.</p>
+<ul class="simple">
+<li><p>First, they objected to the fact that the prosecution had provided no basis for arriving at the probabilities in the table: “[W]e find the record devoid of any evidence relating to any of the six individual probability factors.”</p></li>
+<li><p>Second, they did not accept the assumption of independence of the factors. They pointed out the difficulty of believing that having a beard and having a mustache are independent. It is not hard to come up with other examples of this difficulty. Treating characteristics D, E, and F as independent is hard to justify.</p></li>
+</ul>
+<p>When probability theory is used in practice, it is important to make sure that the assumptions of the theory are reasonable before doing calculations. Otherwise the analysis might be just as weak as the one in the Collins case, which “lacked an adequate foundation both in evidence and in statistical theory”.</p>
+</section>
+<section id="regina-v-clark-2003">
+<h2><span class="section-number">2.5.4. </span>Regina v. Clark, 2003<a class="headerlink" href="#regina-v-clark-2003" title="Permalink to this headline">#</a></h2>
+<p>The lessons learned in the Collins case have been widely broadcast and appear in many statistics textbooks – but clearly not the ones read by expert witnesses in the case of Sally Clark in the United Kingdom.</p>
+<p>Two of Clark’s apparently healthy sons died in infancy. On both occasions, Clark was alone with her baby at the time of death, and there was no evidence of injury. After the second death, Clark was arrested for murder. Her defence was that the babies had died of Sudden Infant Death Syndrome (SIDS), referred to in the UK as Sudden Unexplained Death in Infancy (SUDI) or “cot death”. But she was found guilty.</p>
+<p>Clark’s conviction was overturned on a second appeal, after she had served three years of her prison sentence. Among the reasons for the reversal were the acknowledgment by the court that there had been serious misuse of statistical reasoning.</p>
+<p>In particular, a medical expert witness claimed that the chance of Clark’s two babies dying of SIDS was about 1 in 73 million. He arrived at this figure in two steps:</p>
+<ul class="simple">
+<li><p>First he estimated the chance of a cot death in a family like Clark’s. The estimate was based on a large-scale multidisciplinary analysis of SIDS that reported an overall SIDS death rate of 1 in 1303 live births in the UK. Clark was a lawyer and the family did not have financial struggles. After taking such factors into account, the expert set the rate at 1 in 8543, arguing that SIDS deaths were less likely in families like Clark’s than in the general population.</p></li>
+<li><p>Then he found the chance of two SIDs deaths in Clark’s family by the calculation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{8543} \times \frac{1}{8543} = \frac{1}{72982849}
+\]</div>
+<p>That’s about 1 in 73 million.</p>
+<p>The Royal Statistical Society (RSS) <a class="reference external" href="https://web.archive.org/web/20110824151124/http://www.rss.org.uk/uploadedfiles/documentlibrary/744.pdf">objected</a> vigorously to this calculation on the grounds that the assumption of independence is hard to justify. Given that there is one SIDS death in a family, the risk to other babies in the family might be larger.</p>
+<p>“There may well be unknown genetic or environmental factors that predispose families to SIDS, so that a second case within the family becomes much more
+likely,” the RSS wrote. “The well-publicised figure of 1 in 73 million thus has no statistical basis. Its use cannot reasonably be justified as a “ballpark” figure because the error involved is likely to be very large, and in one particular direction. The true frequency of families with two cases of SIDS may be very much less incriminating than the figure presented to the jury at trial.”</p>
+<p>The Society also pointed out that the media had misinterpreted the erroneous figure of 1 in 73 million to be the chance that Clark was innocent. The error was an instance of the Prosecutor’s Fallacy in which the likelihood of the evidence given innocence was confused with the chance of innocence given the evidence.</p>
+<p>Thirty-five years after the Collins case, another unjustifiable assumption of independence made by a prosecution witness resulted in a wrongful conviction for Clark. The Sally Clark case is regarded as a great miscarriage of justice and had devastating consequences. Though Clark was strongly supported by her husband throughout, she was in the end unable to cope with the loss of her sons and the injustice she suffered. She died in 2007.</p>
+<p>Apart from statistical error, a serious flaw in the prosecution’s case was that another of its medical experts withheld blood test reports showing that the second baby had harmful bacteria in several places in his body including the cerebro-spinal fluid. After Clark’s conviction was overturned, the Journal of the Royal Society of Medicine (JRSM) <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC539414/">addressed</a> the questions the case raised about the conduct of medical expert witnesses.</p>
+<p>The JRSM urged more appropriate investigation of SIDS deaths. It also made an important general recommendation. “[W]hen giving evidence to the police or to the court doctors would be wise to acknowledge the limitations in their understanding. They should present all relevant facts in a balanced manner, offer opinions only within their sphere of expertise and take care not to overstate their case. Wrong conclusions in either direction may be disastrous.”</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Chapter_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_Use_and_Interpretation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2.4. </span>Use and Interpretation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="06_Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

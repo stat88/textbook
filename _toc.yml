@@ -1,92 +1,97 @@
 format: jb-book
-root: content/notebooks/intro
+root: content/intro
 title: Authors and License
-options:
+parts:
+- caption: About
+  chapters:
+  - url: http://stat88.org
+    title: Course Home
+- caption: Chapters
   numbered: true
-chapters:
-- file: content/notebooks/Chapter_01/00_The_Basics
-  sections:
-  - file: content/notebooks/Chapter_01/01_Probabilities_as_Proportions
-  - file: content/notebooks/Chapter_01/02_Exact_Calculation_or_Bound
-  - file: content/notebooks/Chapter_01/03_Fundamental_Rules
-  - file: content/notebooks/Chapter_01/04_Exercises
-- file: content/notebooks/Chapter_02/00_Intersections_and_Conditioning
-  sections:
-  - file: content/notebooks/Chapter_02/01_The_Chance_of_an_Intersection
-  - file: content/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
-  - file: content/notebooks/Chapter_02/03_Bayes_Rule
-  - file: content/notebooks/Chapter_02/04_Use_and_Interpretation
-  - file: content/notebooks/Chapter_02/05_Independence
-  - file: content/notebooks/Chapter_02/06_Exercises
-- file: content/notebooks/Chapter_03/00_Random_Counts
-  sections:
-  - file: content/notebooks/Chapter_03/01_Success_and_Failure
-  - file: content/notebooks/Chapter_03/02_Random_Variables
-  - file: content/notebooks/Chapter_03/03_The_Binomial_Distribution
-  - file: content/notebooks/Chapter_03/04_The_Hypergeometric_Distribution
-  - file: content/notebooks/Chapter_03/05_Examples
-  - file: content/notebooks/Chapter_03/06_Exercises
-- file: content/notebooks/Chapter_04/00_Infinitely_Many_Values
-  sections:
-  - file: content/notebooks/Chapter_04/01_Cumulative_Distribution_Function
-  - file: content/notebooks/Chapter_04/02_Waiting_Times
-  - file: content/notebooks/Chapter_04/03_Exponential_Approximations
-  - file: content/notebooks/Chapter_04/04_The_Poisson_Distribution
-  - file: content/notebooks/Chapter_04/05_Exercises
-- file: content/notebooks/Chapter_05/00_Expectation
-  sections:
-  - file: content/notebooks/Chapter_05/01_Definition
-  - file: content/notebooks/Chapter_05/02_Functions_of_Random_Variables
-  - file: content/notebooks/Chapter_05/03_Method_of_Indicators
-  - file: content/notebooks/Chapter_05/04_Unbiased_Estimators
-  - file: content/notebooks/Chapter_05/05_Conditional_Expectation
-  - file: content/notebooks/Chapter_05/06_Expectation_by_Conditioning
-  - file: content/notebooks/Chapter_05/07_Exercises
-- file: content/notebooks/Chapter_06/00_Measuring_Variability
-  sections: 
-  - file: content/notebooks/Chapter_06/01_Variance_and_Standard_Deviation
-  - file: content/notebooks/Chapter_06/02_Simplifying_the_Calculation
-  - file: content/notebooks/Chapter_06/03_Markovs_Inequality
-  - file: content/notebooks/Chapter_06/04_Chebyshevs_Inequality
-  - file: content/notebooks/Chapter_06/05_Exercises
-- file: content/notebooks/Chapter_07/00_The_Variance_of_a_Sum
-  sections:
-  - file: content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables
-  - file: content/notebooks/Chapter_07/02_Sampling_Without_Replacement
-  - file: content/notebooks/Chapter_07/03_The_Law_of_Averages
-  - file: content/notebooks/Chapter_07/04_Exercises
-- file: content/notebooks/Chapter_08/00_Central_Limit_Theorem
-  sections:
-  - file: content/notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum
-  - file: content/notebooks/Chapter_08/02_Standard_Normal_Curve
-  - file: content/notebooks/Chapter_08/03_Normal_Approximation
-  - file: content/notebooks/Chapter_08/04_How_Large_is_Large
-  - file: content/notebooks/Chapter_08/05_Exercises
-- file: content/notebooks/Chapter_09/00_Inference
-  sections:
-  - file: content/notebooks/Chapter_09/01_Testing_Hypotheses
-  - file: content/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test
-  - file: content/notebooks/Chapter_09/03_Confidence_Intervals_Method
-  - file: content/notebooks/Chapter_09/04_Confidence_Intervals_Interpretation
-  - file: content/notebooks/Chapter_09/05_Exercises
-- file: content/notebooks/Chapter_10/00_Probability_Density
-  sections:
-  - file: content/notebooks/Chapter_10/01_Density
-  - file: content/notebooks/Chapter_10/02_Expectation_and_Variance
-  - file: content/notebooks/Chapter_10/03_The_Exponential_Distribution
-  - file: content/notebooks/Chapter_10/04_The_Normal_Distribution
-  - file: content/notebooks/Chapter_10/05_Exercises
-- file: content/notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares
-  sections:
-  - file: content/notebooks/Chapter_11/01_Bias_and_Variance
-  - file: content/notebooks/Chapter_11/02_German_Tank_Problem_Revisited
-  - file: content/notebooks/Chapter_11/03_Least_Squares_Linear_Regression
-  - file: content/notebooks/Chapter_11/04_Bounds_on_Correlation
-  - file: content/notebooks/Chapter_11/05_The_Error_in_Regression
-  - file: content/notebooks/Chapter_11/06_Exercises
-- file: content/notebooks/Chapter_12/00_Inference_in_Regression
-  sections:
-  - file: content/notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model
-  - file: content/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
-  - file: content/notebooks/Chapter_12/03_Towards_Multiple_Regression
-  - file: content/notebooks/Chapter_12/04_Exercises
+  chapters:
+  - file: content/Chapter_01/00_The_Basics
+    sections:
+    - file: content/Chapter_01/01_Probabilities_as_Proportions
+    - file: content/Chapter_01/02_Exact_Calculation_or_Bound
+    - file: content/Chapter_01/03_Fundamental_Rules
+    - file: content/Chapter_01/04_Exercises
+  - file: content/Chapter_02/00_Intersections_and_Conditioning
+    sections:
+    - file: content/Chapter_02/01_The_Chance_of_an_Intersection
+    - file: content/Chapter_02/02_Symmetry_in_Simple_Random_Sampling
+    - file: content/Chapter_02/03_Bayes_Rule
+    - file: content/Chapter_02/04_Use_and_Interpretation
+    - file: content/Chapter_02/05_Independence
+    - file: content/Chapter_02/06_Exercises
+  - file: content/Chapter_03/00_Random_Counts
+    sections:
+    - file: content/Chapter_03/01_Success_and_Failure
+    - file: content/Chapter_03/02_Random_Variables
+    - file: content/Chapter_03/03_The_Binomial_Distribution
+    - file: content/Chapter_03/04_The_Hypergeometric_Distribution
+    - file: content/Chapter_03/05_Examples
+    - file: content/Chapter_03/06_Exercises
+  - file: content/Chapter_04/00_Infinitely_Many_Values
+    sections:
+    - file: content/Chapter_04/01_Cumulative_Distribution_Function
+    - file: content/Chapter_04/02_Waiting_Times
+    - file: content/Chapter_04/03_Exponential_Approximations
+    - file: content/Chapter_04/04_The_Poisson_Distribution
+    - file: content/Chapter_04/05_Exercises
+  - file: content/Chapter_05/00_Expectation
+    sections:
+    - file: content/Chapter_05/01_Definition
+    - file: content/Chapter_05/02_Functions_of_Random_Variables
+    - file: content/Chapter_05/03_Method_of_Indicators
+    - file: content/Chapter_05/04_Unbiased_Estimators
+    - file: content/Chapter_05/05_Conditional_Expectation
+    - file: content/Chapter_05/06_Expectation_by_Conditioning
+    - file: content/Chapter_05/07_Exercises
+  - file: content/Chapter_06/00_Measuring_Variability
+    sections: 
+    - file: content/Chapter_06/01_Variance_and_Standard_Deviation
+    - file: content/Chapter_06/02_Simplifying_the_Calculation
+    - file: content/Chapter_06/03_Markovs_Inequality
+    - file: content/Chapter_06/04_Chebyshevs_Inequality
+    - file: content/Chapter_06/05_Exercises
+  - file: content/Chapter_07/00_The_Variance_of_a_Sum
+    sections:
+    - file: content/Chapter_07/01_Sums_of_Independent_Random_Variables
+    - file: content/Chapter_07/02_Sampling_Without_Replacement
+    - file: content/Chapter_07/03_The_Law_of_Averages
+    - file: content/Chapter_07/04_Exercises
+  - file: content/Chapter_08/00_Central_Limit_Theorem
+    sections:
+    - file: content/Chapter_08/01_Distribution_of_a_Sample_Sum
+    - file: content/Chapter_08/02_Standard_Normal_Curve
+    - file: content/Chapter_08/03_Normal_Approximation
+    - file: content/Chapter_08/04_How_Large_is_Large
+    - file: content/Chapter_08/05_Exercises
+  - file: content/Chapter_09/00_Inference
+    sections:
+    - file: content/Chapter_09/01_Testing_Hypotheses
+    - file: content/Chapter_09/02_AB_Testing_Fishers_Exact_Test
+    - file: content/Chapter_09/03_Confidence_Intervals_Method
+    - file: content/Chapter_09/04_Confidence_Intervals_Interpretation
+    - file: content/Chapter_09/05_Exercises
+  - file: content/Chapter_10/00_Probability_Density
+    sections:
+    - file: content/Chapter_10/01_Density
+    - file: content/Chapter_10/02_Expectation_and_Variance
+    - file: content/Chapter_10/03_The_Exponential_Distribution
+    - file: content/Chapter_10/04_The_Normal_Distribution
+    - file: content/Chapter_10/05_Exercises
+  - file: content/Chapter_11/00_Bias_Variance_and_Least_Squares
+    sections:
+    - file: content/Chapter_11/01_Bias_and_Variance
+    - file: content/Chapter_11/02_German_Tank_Problem_Revisited
+    - file: content/Chapter_11/03_Least_Squares_Linear_Regression
+    - file: content/Chapter_11/04_Bounds_on_Correlation
+    - file: content/Chapter_11/05_The_Error_in_Regression
+    - file: content/Chapter_11/06_Exercises
+  - file: content/Chapter_12/00_Inference_in_Regression
+    sections:
+    - file: content/Chapter_12/01_The_Simple_Linear_Regression_Model
+    - file: content/Chapter_12/02_The_Distribution_of_the_Estimated_Slope
+    - file: content/Chapter_12/03_Towards_Multiple_Regression
+    - file: content/Chapter_12/04_Exercises
