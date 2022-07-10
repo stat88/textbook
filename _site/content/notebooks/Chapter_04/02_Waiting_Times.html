@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Waiting Times &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_05/00_Expectation.html">
+   5. Expectation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/04_Unbiased_Estimators.html">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_05/07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../content/notebooks/Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../content/notebooks/Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/_site/content/notebooks/Chapter_04/02_Waiting_Times.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-time-till-the-first-success">
+   Waiting Time Till the First Success
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-time-till-the-rth-success">
+   Waiting Time Till the
+   <span class="math notranslate nohighlight">
+    \(r\)
+   </span>
+   th Success
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Waiting Times</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-time-till-the-first-success">
+   Waiting Time Till the First Success
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#waiting-time-till-the-rth-success">
+   Waiting Time Till the
+   <span class="math notranslate nohighlight">
+    \(r\)
+   </span>
+   th Success
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<section id="waiting-times">
+<h1>Waiting Times<a class="headerlink" href="#waiting-times" title="Permalink to this headline">#</a></h1>
+<p>Suppose you are running a sequence of trials. The <em>waiting time</em> of an event is the number of trials that you run till the event takes place.</p>
+<p>For example, suppose you roll are rolling a die. The waiting time till you see a six is the number of trials up to and including the trial that produced the first six.</p>
+<p>The waiting time till you see 10 sixes is the number of trials up to and including the trial that produced the tenth six.</p>
+<p>In this section we will find the distribution of the waiting time till a fixed number of successes in independent, repeated success/failure trials. The calculations are applications of independence and the binomial distribution. You have already done them in exercises in the previous chapter.</p>
+<p>Please don’t try to memorize the formulas. Instead, understand the logic. You will then be able to derive the formulas yourself when you need them, and you will know when to apply them.</p>
+<section id="waiting-time-till-the-first-success">
+<h2>Waiting Time Till the First Success<a class="headerlink" href="#waiting-time-till-the-first-success" title="Permalink to this headline">#</a></h2>
+<p>Consider a sequence of independent and identically distributed (i.i.d.) trials, each of which results in success or failure. Let <span class="math notranslate nohighlight">\(p\)</span> be the chance of success on any given trial. To avoid trivial cases, assume <span class="math notranslate nohighlight">\(0 &lt; p &lt; 1\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(T_1\)</span> be the number of trials till the first success. In this course, “till the first success” will mean “up to and including the trial that produced the first success.”</p>
+<p>The possible values of <span class="math notranslate nohighlight">\(T_1\)</span> are <span class="math notranslate nohighlight">\(1, 2, 3, \ldots \)</span>. There is no upper limit, hence there are infinitely many possible values.</p>
+<p>For <span class="math notranslate nohighlight">\(k \ge 1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp;P(T_1 = k)\\
+&amp;= ~ P(\text{the first } k-1 \text{ trials are failures and trial } k \text{ is a success}) \\
+&amp;= ~ (1-p)^{k-1}p ~~~~~ \text{by independence}
+\end{align*}
+\end{split}\]</div>
+<p>The quantity <span class="math notranslate nohighlight">\(1-p\)</span> appears frequently in calculations involving <span class="math notranslate nohighlight">\(p\)</span>, so probabilists often shorten it to <span class="math notranslate nohighlight">\(q\)</span>. In the rest of this section you can assume that <span class="math notranslate nohighlight">\(q = 1-p\)</span>.</p>
+<p>The distribution of <span class="math notranslate nohighlight">\(T_1\)</span> is called the <em>geometric <span class="math notranslate nohighlight">\((p)\)</span> distribution on</em> <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots \}\)</span> and is given by</p>
+<div class="math notranslate nohighlight">
+\[
+P(T_1 = k) ~ = ~ q^{k-1}p, ~~~~~ k \ge 1
+\]</div>
+<p>Just to be sure that we do have a probability distribution, let’s check that the probabilities sum to 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{k=1}^\infty q^{k-1}p ~ = ~ p \sum_{k=1}^\infty q^{k-1} ~ = ~ p \cdot \frac{1}{1-q} ~ = ~ p \cdot \frac{1}{p} ~ = ~ 1
+\]</div>
+<p>Here is a histogram of the geometric <span class="math notranslate nohighlight">\((1/6)\)</span> distribution on <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots \}\)</span>. It is the distribution of the number of rolls of a die till the first six appears. Notice how the area of each bar is a fraction <span class="math notranslate nohighlight">\(q = 5/6\)</span> of the previous bar. Also note that within about 30 rolls you are almost certain to see a six.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../../_images/02_Waiting_Times_3_0.png" src="../../../../_images/02_Waiting_Times_3_0.png" />
+</div>
+</div>
+<p>The <em>right hand tail</em> probabilities of a distribution are probabilities of the form <span class="math notranslate nohighlight">\(P(X &gt; k)\)</span>. The gold area in the figure below shows <span class="math notranslate nohighlight">\(P(X &gt; 7)\)</span> when <span class="math notranslate nohighlight">\(X\)</span> has the geometric <span class="math notranslate nohighlight">\((1/6)\)</span> distribution shown above. You can see the reason for the term “right hand tail”.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../../_images/02_Waiting_Times_5_0.png" src="../../../../_images/02_Waiting_Times_5_0.png" />
+</div>
+</div>
+<p>Right hand tail probabilities for waiting times are often straightforward to find. The tail probability at <span class="math notranslate nohighlight">\(k\)</span> is the chance that the event you are waiting for hasn’t happened yet by trial <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(T_1\)</span> be the waiting time till the first success, as in the calculations above. For <span class="math notranslate nohighlight">\(k \ge 1\)</span> the right hand tail probability <span class="math notranslate nohighlight">\(P(X &gt; k)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+P(T_1 &gt; k) ~ = ~ P(\text{first } k \text{ trials are failures}) ~ = ~ q^k
+\]</div>
+<p>The cdf of <span class="math notranslate nohighlight">\(T_1\)</span> can now be found by complementation. Let <span class="math notranslate nohighlight">\(F_{T_1}\)</span> denote the cdf of <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+F_{T_1}(k) ~ = ~ P(T_1 \le k) ~ = ~ 1 - P(T_1 &gt; k) ~ = ~ 1 - q^k
+\]</div>
+<p>The tail probability and cdf can also be found by adding the appropriate terms in the distribution. But the method above is far easier! Understanding the events helps reduce calculation.</p>
+<p>As an example, suppose there is a bet that I win with chance 1/100 every time I place the bet, independent of all other times. Let <span class="math notranslate nohighlight">\(W\)</span> be the number of bets I place till I win for the first time. Find <span class="math notranslate nohighlight">\(P(W &gt; 50)\)</span> and <span class="math notranslate nohighlight">\(P(W = 50)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(W\)</span> has the geometric <span class="math notranslate nohighlight">\((0.01)\)</span> distribution on <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots \}\)</span>, we know that</p>
+<div class="math notranslate nohighlight">
+\[
+P(W &gt; 50) ~ = ~ P(\text{lose first 50 bets}) ~ = ~ 0.99^{50} ~ \approx ~ 60.5\%
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+P(W = 50) ~ = ~ P(\text{lose first 49 bets, then win}) ~ = ~ 0.99^{49} \cdot 0.01 ~ \approx ~ 0.6111\%
+\]</div>
+</section>
+<section id="waiting-time-till-the-rth-success">
+<h2>Waiting Time Till the <span class="math notranslate nohighlight">\(r\)</span>th Success<a class="headerlink" href="#waiting-time-till-the-rth-success" title="Permalink to this headline">#</a></h2>
+<p>The assumptions throughout this section are that you are running a sequence of i.i.d. success/failure trials with chance <span class="math notranslate nohighlight">\(p\)</span> of success on each trial.</p>
+<p>Fix a positive integer <span class="math notranslate nohighlight">\(r\)</span> and suppose you run the trials until you see <span class="math notranslate nohighlight">\(r\)</span> successes. Let <span class="math notranslate nohighlight">\(T_r\)</span> be the number of trials that you make.</p>
+<p>We have already studied the case when you are waiting for just the first success and hence <span class="math notranslate nohighlight">\(r = 1\)</span>. Now we will generalize the calculation for the case when we are waiting for more than one success.</p>
+<p>To find the distribution of <span class="math notranslate nohighlight">\(T_r\)</span>, we will start as always with the possible values. The smallest that <span class="math notranslate nohighlight">\(T_r\)</span> can be is <span class="math notranslate nohighlight">\(r\)</span>, which happens when the first <span class="math notranslate nohighlight">\(r\)</span> trials are successes. There is no upper limit to the values, so the possible values of <span class="math notranslate nohighlight">\(T_r\)</span> are <span class="math notranslate nohighlight">\(k \ge r\)</span>, an infinite set.</p>
+<p>For <span class="math notranslate nohighlight">\(k \ge r\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp;P(T_r = k) \\
+&amp;= ~ P(r-1 \text{ of the first } k-1 \text{ trials are successes and trial } k \text{ is a success}) \\
+&amp;= ~ \binom{k-1}{r-1}p^{r-1}q^{k-1-(r-1)} \cdot p \\
+&amp;= ~ \binom{k-1}{r-1}p^{r-1}q^{k-r} \cdot p
+\end{align*}
+\end{split}\]</div>
+<p>The right hand tail probability of <span class="math notranslate nohighlight">\(T_r\)</span> at <span class="math notranslate nohighlight">\(k\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp;P(T_r &gt; k) \\
+&amp;= ~ P(\text{at most } r-1 \text{ successes in the first } k \text{ trials}) \\
+&amp;= ~ \sum_{j=0}^{r-1} \binom{k}{j}p^jq^{k-j}
+\end{align*}
+\end{split}\]</div>
+<p>This is the cdf of the binomial <span class="math notranslate nohighlight">\((k, p)\)</span> distribution, evaluated at <span class="math notranslate nohighlight">\(r-1\)</span>.</p>
+<p>Notice a duality: the <em>right</em> hand tail probability of <span class="math notranslate nohighlight">\(T_r\)</span> is a <em>left</em> hand probability (cdf) of a binomial distribution.</p>
+<p>As an example, suppose you bet repeatedly on a “split” at roulette. Your chance of winning is <span class="math notranslate nohighlight">\(2/38\)</span> each time, independently of all other times. What is the chance that you need more than 200 bets to win 10 times?</p>
+<p>This is the chance of winning at most 9 of the first 200 bets. By the binomial formula, this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+P(\text{at most 9 wins in the first 200 bets}) ~ = ~ 
+\sum_{j=0}^9 \binom{200}{j} (2/38)^j(36/38)^{200-j} ~ \approx ~ 38.92\%
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">38</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38917804358004127
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./_site/content/notebooks/Chapter_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

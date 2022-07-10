@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5.4. Unbiased Estimators &#8212; Stat 88 Textbook</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.5. Conditional Expectation" href="05_Conditional_Expectation.html" />
+    <link rel="prev" title="5.3. Method of Indicators" href="03_Method_of_Indicators.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/stat88_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Stat 88 Textbook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
+   1. The Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
+     1.1. Probabilities as Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
+     1.2. Exact Calculation, or Bound?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
+     1.3. Fundamental Rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
+     1.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">
+   2. Intersections and Conditioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">
+     2.1. The Chance of an Intersection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
+     2.2. Symmetry in Simple Random Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">
+     2.3. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">
+     2.4. Use and Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/05_Independence.html">
+     2.5. Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_02/06_Exercises.html">
+     2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
+   3. Random Counts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
+     3.3. Success and Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
+     3.4. Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
+     3.5. The Binomial Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
+     3.6. The Hypergeometric Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/05_Examples.html">
+     3.7. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
+     3.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
+   4. Infinitely Many Values
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
+     4.2. Cumulative Distribution Function (CDF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
+     4.3. Waiting Times
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
+     4.4. Exponential Approximations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
+     4.5. The Poisson Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_Expectation.html">
+   5. Expectation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Definition.html">
+     5.1. Definition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Functions_of_Random_Variables.html">
+     5.2. Functions of Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Method_of_Indicators.html">
+     5.3. Method of Indicators
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.4. Unbiased Estimators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_Conditional_Expectation.html">
+     5.5. Conditional Expectation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_Expectation_by_Conditioning.html">
+     5.6. Expectation by Conditioning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_Exercises.html">
+     5.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
+   6. Measuring Variability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
+     6.1. Variance and Standard Deviation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
+     6.2. Simplifying the Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
+     6.3. Markov’s Inequality##
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
+     6.4. Chebyshev’s Inequality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">
+   7. The Variance of a Sum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">
+     7.1. Sums of Independent Random Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">
+     7.2. Sampling Without Replacement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">
+     7.3. The Law of Averages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
+   8. Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
+     8.1. The Distribution of a Sample Sum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
+     8.2. Standard Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
+     8.3. Normal Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
+     8.4. How Large is “Large”?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
+     8.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_09/00_Inference.html">
+   9. Inference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/01_Testing_Hypotheses.html">
+     9.1. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/02_AB_Testing_Fishers_Exact_Test.html">
+     9.2. A/B Testing: Fisher’s Exact Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/03_Confidence_Intervals_Method.html">
+     9.3. Confidence Intervals: Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/04_Confidence_Intervals_Interpretation.html">
+     9.4. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
+     9.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
+   10. Probability Density
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/01_Density.html">
+     10.1. Density
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
+     10.2. Expectation and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
+     10.3. Exponential Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
+     10.4. The Normal Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
+   11. Bias, Variance, and Least Squares
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
+     11.1. Bias and Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/02_German_Tank_Problem_Revisited.html">
+     11.2. The German Tank Problem, Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
+     11.3. Least Squares Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
+     11.4. Bounds on Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
+     11.5. The Error in Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
+     11.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter_12/00_Inference_in_Regression.html">
+   12. Inference in Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/01_The_Simple_Linear_Regression_Model.html">
+     12.1. The Simple Linear Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/02_The_Distribution_of_the_Estimated_Slope.html">
+     12.2. The Distribution of the Estimated Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/03_Towards_Multiple_Regression.html">
+     12.3. Towards Multiple Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter_12/04_Exercises.html">
+     12.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter_05/04_Unbiased_Estimators.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary-linear-function-rule">
+   5.4.1. Preliminary: Linear Function Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology">
+   5.4.2. Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unbiased-estimator">
+   5.4.3. Unbiased Estimator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-mean">
+   5.4.4. Sample Mean
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-proportion">
+   5.4.5. Sample Proportion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-largest-possible-value">
+   5.4.6. Estimating the Largest Possible Value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#world-war-ii-tanks">
+   5.4.7. World War II Tanks
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unbiased Estimators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary-linear-function-rule">
+   5.4.1. Preliminary: Linear Function Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology">
+   5.4.2. Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unbiased-estimator">
+   5.4.3. Unbiased Estimator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-mean">
+   5.4.4. Sample Mean
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-proportion">
+   5.4.5. Sample Proportion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-largest-possible-value">
+   5.4.6. Estimating the Largest Possible Value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#world-war-ii-tanks">
+   5.4.7. World War II Tanks
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_remove_input docutils container">
+</div>
+<section id="unbiased-estimators">
+<h1><span class="section-number">5.4. </span>Unbiased Estimators<a class="headerlink" href="#unbiased-estimators" title="Permalink to this headline">#</a></h1>
+<p>Data scientists often use information in random samples to estimate unknown numercial quantities. For example, they might estimate the unknown average income in a large population by using incomes in a random sample drawn from the population. In this section we will examine one criterion for a good estimate.</p>
+<p>First let’s note a straightforward but extremely handy property of expectation.</p>
+<section id="preliminary-linear-function-rule">
+<h2><span class="section-number">5.4.1. </span>Preliminary: Linear Function Rule<a class="headerlink" href="#preliminary-linear-function-rule" title="Permalink to this headline">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable and let <span class="math notranslate nohighlight">\(Y = aX + b\)</span>. Then <span class="math notranslate nohighlight">\(Y\)</span> is a linear function of <span class="math notranslate nohighlight">\(X\)</span>. By our method for finding the expectation of a function of a random variable,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(Y) ~ = ~ E(aX + b) ~ &amp;= ~ \sum_{\text{all }x} (ax+b)P(X=x) \\
+&amp;= ~ a\sum_{\text{all }x} xP(X=x) ~ + ~ b \sum_{\text{all }x} P(X=x) \\
+&amp;= ~ aE(X) + b
+\end{align*}
+\end{split}\]</div>
+<p>Thus the <em>linear function rule</em> is that the expectation of a linear function of a random variable is equal to the linear function of the expectation.</p>
+<p>This switching of functions and expectations is in general false for non-linear functions, as we saw earlier. But the fact that it is true for linear functions makes calculations easier.</p>
+<p>For example, <span class="math notranslate nohighlight">\(E(10 - X) = 10 - E(X)\)</span>, <span class="math notranslate nohighlight">\(E((X-2)/3) = (E(X)-2)/3\)</span>, and so on.</p>
+</section>
+<section id="terminology">
+<h2><span class="section-number">5.4.2. </span>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">#</a></h2>
+<p>In the context of estimation, a <em>parameter</em> is a fixed number associated with the population. That’s the same as the way we have used the term before: the parameter is a constant in the distribution of each sampled element.</p>
+<p>For example, if the population consists of all U.S. adults, the parameter could be the average annual income in the population. We will denote this parameter by <span class="math notranslate nohighlight">\(\mu\)</span> for “mean”. Data scientists commonly use <span class="math notranslate nohighlight">\(\mu\)</span> to represent means, in vastly different contexts. When you read the description of a model or an analysis and see the notation <span class="math notranslate nohighlight">\(\mu\)</span>, make sure you understand exactly how it is defined in that context.</p>
+<p>Now suppose you draw a random sample from the population. A <em>statistic</em> is any number computed based on the data in the sample. Thus for example the average income of the sampled people is a statistic.</p>
+<p>In general, if <span class="math notranslate nohighlight">\(X_i\)</span> represents the <span class="math notranslate nohighlight">\(i\)</span>th element in the sample, then a statistic is a function <span class="math notranslate nohighlight">\(g(X_1, X_2, \ldots, X_n)\)</span>. The sample average is the statistic <span class="math notranslate nohighlight">\(\bar{X}\)</span> defined as the function</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{X} ~ = ~ \frac{1}{n} \sum_{i=1}^n X_i
+\]</div>
+<p>One important difference between a parameter and a statistic, as they have been defined above, is that a parameter is a fixed but possibly unknown number, whereas a statistic is a random variable. The value of the statistic depends on the elements that get randomly selected to be in the sample.</p>
+<p>In our example about incomes, the parameter <span class="math notranslate nohighlight">\(\mu\)</span> is the average income in the whole population. Even if we don’t know what it is, it’s a fixed number. The statistic <span class="math notranslate nohighlight">\(\bar{X}\)</span> is the average income in the sample. This is a random quantity since it depends on <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> which are all random variables.</p>
+<p>If a statistic is being used to estimate a parameter, the statistic is sometimes called an <em>estimator</em> of the parameter.</p>
+<p>Thus if you use the sample mean <span class="math notranslate nohighlight">\(\bar{X}\)</span> to estimate the population mean <span class="math notranslate nohighlight">\(\mu\)</span>, then <span class="math notranslate nohighlight">\(\bar{X}\)</span> is an estimator of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>This section is about a property that is often – but not always – considered desirable in an estimator.</p>
+</section>
+<section id="unbiased-estimator">
+<h2><span class="section-number">5.4.3. </span>Unbiased Estimator<a class="headerlink" href="#unbiased-estimator" title="Permalink to this headline">#</a></h2>
+<p>An unbiased estimator of a parameter is an estimator whose expected value is equal to the parameter.</p>
+<p>That is, if the estimator <span class="math notranslate nohighlight">\(S\)</span> is being used to estimate a parameter <span class="math notranslate nohighlight">\(\theta\)</span>, then <span class="math notranslate nohighlight">\(S\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span> if <span class="math notranslate nohighlight">\(E(S) = \theta\)</span>.</p>
+<p>Remember that expectation can be thought of as a long-run average value of a random variable. If an estimator <span class="math notranslate nohighlight">\(S\)</span> is unbiased, then on average it is equal to the number it is trying to estimate. Here “on average” involves imagining repeated samples, as follows:</p>
+<ul class="simple">
+<li><p>Draw one random sample; compute the value of <span class="math notranslate nohighlight">\(S\)</span> based on that sample.</p></li>
+<li><p>Draw another random sample of the same size, independently of the first one; compute the value of <span class="math notranslate nohighlight">\(S\)</span> based on this sample.</p></li>
+<li><p>Repeat the step above as many times as you can.</p></li>
+<li><p>You will now have lots of observed values of <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ul>
+<p>If <span class="math notranslate nohighlight">\(S\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span>, then on average, these values will neither be greater than <span class="math notranslate nohighlight">\(\theta\)</span> nor smaller than <span class="math notranslate nohighlight">\(\theta\)</span>. On average in the long run they will be just right: equal to <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>This seems like a good property for an estimator to have. In many settings, natural estimators turn out to be unbiased. Let’s look at some examples.</p>
+</section>
+<section id="sample-mean">
+<h2><span class="section-number">5.4.4. </span>Sample Mean<a class="headerlink" href="#sample-mean" title="Permalink to this headline">#</a></h2>
+<p>Suppose you want to estimate the mean of a population based on a sample <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> drawn at random with replacement from the population.</p>
+<p>It is natural to want to use the sample mean <span class="math notranslate nohighlight">\(\bar{X}\)</span> as an estimator of the population mean <span class="math notranslate nohighlight">\(\mu\)</span>. To see whether <span class="math notranslate nohighlight">\(\bar{X}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span> we have to calculate its expectation. We can do this by using the linear function rule and additivity.</p>
+<div class="math notranslate nohighlight">
+\[
+E(\bar{X}) ~ = ~ E\big{(} \frac{1}{n}\sum_{i=1}^n X_i \big{)} ~ = ~ \frac{1}{n}\sum_{i=1}^n E(X_i) ~ = ~ \frac{1}{n} \cdot n\mu ~ = ~ \mu
+\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(\bar{X}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>Notice that in the calculation above we have also discovered many other unbiased estimators of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>For example, <span class="math notranslate nohighlight">\(X_1\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span> because <span class="math notranslate nohighlight">\(E(X_1) = \mu\)</span>. Indeed if you fix any <span class="math notranslate nohighlight">\(i\)</span> then <span class="math notranslate nohighlight">\(X_i\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>Even though both <span class="math notranslate nohighlight">\(\bar{X}\)</span> and <span class="math notranslate nohighlight">\(X_1\)</span> are unbiased estimators, it seems like a better idea to use <span class="math notranslate nohighlight">\(\bar{X}\)</span> to estimate <span class="math notranslate nohighlight">\(\mu\)</span> than to use just <span class="math notranslate nohighlight">\(X_1\)</span>. Why throw away the rest of the data?</p>
+<p>This intution is correct: it is indeed better to use <span class="math notranslate nohighlight">\(\bar{X}\)</span>, because it is likely to be closer to <span class="math notranslate nohighlight">\(\mu\)</span> than <span class="math notranslate nohighlight">\(X_1\)</span>. We will show this later in the course. For now, just note that the same sample can be used to construct more than one unbiased estimator for the parameter.</p>
+</section>
+<section id="sample-proportion">
+<h2><span class="section-number">5.4.5. </span>Sample Proportion<a class="headerlink" href="#sample-proportion" title="Permalink to this headline">#</a></h2>
+<p>An important special case of the sample mean is when the population consists of zeros and ones.</p>
+<p>You know that the sum of a sequence of zeros and ones is equal to the number of ones in the sequence. It follows that the average of a sequence of zeros and ones is the proportion of ones in the sequence.</p>
+<p>Suppose a population has a proportion <span class="math notranslate nohighlight">\(p\)</span> of ones and <span class="math notranslate nohighlight">\(1-p\)</span> of zeros. Then the mean of the population is <span class="math notranslate nohighlight">\(p\)</span>, the population proportion of ones.</p>
+<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be draws at random with replacement from the population. Then <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are independent identically distributed indicator random variables, each with chance <span class="math notranslate nohighlight">\(p\)</span> of being 1.</p>
+<p>The sample mean <span class="math notranslate nohighlight">\(\bar{X}\)</span> is the <em>sample proportion</em> of ones, and is an unbiased estimator of the population proportion of ones.</p>
+<p>Note that in this case the <em>sample sum</em> <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \ldots + X_n\)</span> is the number of ones in the sample and has the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution. The sample mean is <span class="math notranslate nohighlight">\(\bar{X} = S_n/n\)</span>.</p>
+<p>The graph below shows the relation between the sample proportion <span class="math notranslate nohighlight">\(\bar{X}\)</span> and the population proportion <span class="math notranslate nohighlight">\(p\)</span> in an example.</p>
+<p>Suppose you roll a die 30 times and find the sample proportion of sixes. The histogram below shows the results of 20,000 repetitions of this experiment. On average, the 20,000 sample proportions are almost indistinguishable from <span class="math notranslate nohighlight">\(p = 1/6\)</span>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 30
+p = 0.1667
+Average of observed sample proportions = 0.1672
+</pre></div>
+</div>
+<img alt="../../../_images/04_Unbiased_Estimators_8_1.png" src="../../../_images/04_Unbiased_Estimators_8_1.png" />
+</div>
+</div>
+</section>
+<section id="estimating-the-largest-possible-value">
+<h2><span class="section-number">5.4.6. </span>Estimating the Largest Possible Value<a class="headerlink" href="#estimating-the-largest-possible-value" title="Permalink to this headline">#</a></h2>
+<p>Suppose <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are independent and identically distributed (i.i.d.), each uniform on <span class="math notranslate nohighlight">\(1, 2, 3, \ldots, N\)</span> for some fixed but unknown <span class="math notranslate nohighlight">\(N\)</span>. Let us construct an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>The population mean is <span class="math notranslate nohighlight">\((N+1)/2\)</span>. If <span class="math notranslate nohighlight">\(\bar{X}\)</span> is the sample mean then</p>
+<div class="math notranslate nohighlight">
+\[
+E(\bar{X}) ~ = ~ \frac{N+1}{2}
+\]</div>
+<p>so <span class="math notranslate nohighlight">\(\bar{X}\)</span> is not an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>. We wouldn’t expect it to be, because <span class="math notranslate nohighlight">\(N\)</span> is the largest any of the sampled elements could be whereas <span class="math notranslate nohighlight">\(\bar{X}\)</span> is likely to be somewhere in the middle of the sample.</p>
+<p>But we can see that</p>
+<div class="math notranslate nohighlight">
+\[
+2E(\bar{X}) - 1 ~ = ~ N
+\]</div>
+<p>By the linear function rule,</p>
+<div class="math notranslate nohighlight">
+\[
+2E(\bar{X}) - 1 ~ = ~ E(2\bar{X} - 1)
+\]</div>
+<p>So the statistic <span class="math notranslate nohighlight">\(T = 2\bar{X} - 1\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</section>
+<section id="world-war-ii-tanks">
+<h2><span class="section-number">5.4.7. </span>World War II Tanks<a class="headerlink" href="#world-war-ii-tanks" title="Permalink to this headline">#</a></h2>
+<p>The calculation above stems from a problem the Allied forces faced in World War II. Germany had a seemingly never-ending fleet of Panzer tanks, and the Allies needed to estimate how many they had. They decided to base their estimates on the serial numbers of the tanks that they saw.</p>
+<p>Here is a picture of one from <a class="reference external" href="https://en.wikipedia.org/wiki/Panzer_IV">Wikipedia</a>.</p>
+<p><img alt="Panzer Tank" src="../../../_images/panzer1.png" /></p>
+<p>Notice the serial number on the top left. When tanks were disabled or destroyed, it was discovered that their parts had serial numbers too. The ones from the gear boxes proved very useful.</p>
+<p>The idea was to model the observed serial numbers as random draws from <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span> and then estimate <span class="math notranslate nohighlight">\(N\)</span>. This is of course a very simplified model of reality, and we will make some additional simplifications. But estimates based on even such simple probabilistic models proved to be quite a bit <a class="reference external" href="https://en.wikipedia.org/wiki/German_tank_problem#Specific_data">more accurate</a> than those based on the intelligence gathered by the Allies. For example, in August 1942, intelligence estimates were that Germany was producing 1,550 tanks per month. The prediction based on the probability model was 327 per month. After the war, German records showed that the actual production rate was 342 per month.</p>
+<p>The model was that the draws were made at random without replacement from the integers 1 through <span class="math notranslate nohighlight">\(N\)</span>. But for even more simplicity, let’s pretend that the draws were made with replacement. That is, if we saw the same tank twice then we would record it twice.</p>
+<p>In the example above, we constructed the random variable <span class="math notranslate nohighlight">\(T\)</span> to be an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>The Allied statisticians instead started with <span class="math notranslate nohighlight">\(M\)</span>, the sample maximum:</p>
+<div class="math notranslate nohighlight">
+\[
+M ~ = ~ \max\{X_1, X_2, \ldots, X_n\}
+\]</div>
+<p>The sample maximum <span class="math notranslate nohighlight">\(M\)</span> is not an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>, because we know that its value is always less than or equal to <span class="math notranslate nohighlight">\(N\)</span>. Its average value therefore will be somewhat less than <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>But how much less? The histograms below show a comparison of the two estimates in the case where <span class="math notranslate nohighlight">\(N=300\)</span> and the sample size is <span class="math notranslate nohighlight">\(n=30\)</span>, based on 5,000 repetitions of the sampling process. Of course the Allies didn’t know <span class="math notranslate nohighlight">\(N\)</span>. But simulating the sample for “pretend” values of <span class="math notranslate nohighlight">\(N\)</span> helps us understand how the estimators behave.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 300
+n = 30
+5000 repetitions
+</pre></div>
+</div>
+<img alt="../../../_images/04_Unbiased_Estimators_11_1.png" src="../../../_images/04_Unbiased_Estimators_11_1.png" />
+</div>
+</div>
+<p>The histograms show that both estimators have pros and cons.</p>
+<p>In one sense, <span class="math notranslate nohighlight">\(T\)</span> looks like a better estimator than <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<ul class="simple">
+<li><p>The gold histogram shows the simulated distribution of <span class="math notranslate nohighlight">\(T = 2\bar{X} - 1\)</span>. The histogram is centered at 300, which is <span class="math notranslate nohighlight">\(N\)</span>. That’s because <span class="math notranslate nohighlight">\(T\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
+<li><p>The blue histogram shows the simulated distribution of <span class="math notranslate nohighlight">\(M = \max\{X_1, X_2, \ldots, X_n\}\)</span>. This estimate is biased: the entire histogram is at or to the left of <span class="math notranslate nohighlight">\(N = 300\)</span>.</p></li>
+</ul>
+<p>On the other hand:</p>
+<ul class="simple">
+<li><p>The distribution of <span class="math notranslate nohighlight">\(T\)</span> is quite wide. The Allies would only see one sample, not 5,000 as have been simulated here. The graph shows that their estimate could be quite a bit too high or quite a bit too low, even though the average value of all 5,000 estimates is just about right.</p></li>
+<li><p>The distribution of <span class="math notranslate nohighlight">\(M\)</span> is much narrower. Even though <span class="math notranslate nohighlight">\(M\)</span> could be an under-estimate, it doesn’t look as though it underestimates by much.</p></li>
+</ul>
+<p>That is justification for using <span class="math notranslate nohighlight">\(M\)</span> in place of <span class="math notranslate nohighlight">\(T\)</span> even though <span class="math notranslate nohighlight">\(T\)</span> is unbiased and <span class="math notranslate nohighlight">\(M\)</span> is not. Unbiasedness is a good property, but so is low variability.</p>
+<p>In many situations, such as this one, lower bias tends to go with higher variability and vice versa. Data scientists call this the <em>bias-variance tradeoff.</em> We will examine it more carefully later in the course.</p>
+<p>The Allied statisticians did better than we have done here. They used sampling without replacement as their model, and then used symmetry in simple random sampling to estimate the gap between <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(N\)</span>. Thus they got an even better estimate by adding that estimated gap to <span class="math notranslate nohighlight">\(M\)</span>. Their estimates were remarkably close to the actual production rates obtained from German records after the war.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/notebooks/Chapter_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="03_Method_of_Indicators.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5.3. </span>Method of Indicators</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_Conditional_Expectation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Conditional Expectation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
