@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -818,7 +835,7 @@ title="Print to PDF"
 <p>For the random point <span class="math notranslate nohighlight">\((X, Y)\)</span>, the mean squared error of a linear predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span> depends on the slope <span class="math notranslate nohighlight">\(a\)</span> and intercept <span class="math notranslate nohighlight">\(b\)</span> of the line used. So let us define <span class="math notranslate nohighlight">\(MSE(a, b)\)</span> to be the mean squared error when we use the line <span class="math notranslate nohighlight">\(aX + b\)</span> to predict <span class="math notranslate nohighlight">\(Y\)</span>. That is,</p>
 <div class="math notranslate nohighlight">
 \[
-MSE(a, b) ~ = ~ E\big{(} (Y - (aX+b))^2 \big{)}
+MSE(a, b) ~ = ~ E\left( (Y - (aX+b))^2 \right)
 \]</div>
 <p>We have to find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> that minimize this function. We will do that by calculus, in two stages.</p>
 </section>
@@ -833,9 +850,9 @@ Y - (aX+b) ~ = ~ (Y-aX) - b
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-MSE_a(b) ~ &amp;= ~ E\big{(} ((Y-aX) - b)^2 \big{)} \\
-&amp;= ~ E\big{(} (Y-aX)^2 - 2b(Y-aX) + b^2 \big{)} \\
-&amp;= ~ E\big{(} (Y-aX)^2\big{)} -2bE(Y-aX) + b^2
+MSE_a(b) ~ &amp;= ~ E\left( ((Y-aX) - b)^2 \right) \\
+&amp;= ~ E\left( (Y-aX)^2 - 2b(Y-aX) + b^2 \right) \\
+&amp;= ~ E\left( (Y-aX)^2\right) -2bE(Y-aX) + b^2
 \end{align*}
 \end{split}\]</div>
 <p>Now</p>
@@ -874,7 +891,7 @@ Y - (aX+\hat{b}_a) ~ &amp;= Y - (aX + \mu_Y - a\mu_X) \\
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-MSE(a) ~ &amp;= ~ E\big{(} (D_Y - aD_X)^2 \big{)} \\
+MSE(a) ~ &amp;= ~ E\left( (D_Y - aD_X)^2 \right) \\
 &amp;= ~ E(D_Y^2) -2aE(D_XD_Y) + a^2E(D_X^2) \\
 &amp;= ~ \sigma_Y^2 -2aE(D_XD_Y) + a^2\sigma_X^2
 \end{align*}
@@ -897,7 +914,7 @@ MSE(a) ~ &amp;= ~ E\big{(} (D_Y - aD_X)^2 \big{)} \\
 <p>One way to deal with this problem is to first divide each deviation by the corresponding SD, to get a pure number. This converts each variable to standard units. The expected product of standard units is called the <em>correlation coefficient</em> of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, or just correlation for short. We will denote it by <span class="math notranslate nohighlight">\(r(X, Y)\)</span> or just <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
-r ~ = ~ r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X - \mu_X}{\sigma_X}\big{)}\big{(}\frac{Y - \mu_Y}{\sigma_Y}\big{)} \Big{)}
+r ~ = ~ r(X, Y) ~ = ~ E\Bigg( \left(\frac{X - \mu_X}{\sigma_X}\right)\left(\frac{Y - \mu_Y}{\sigma_Y}\right)\Bigg)
 \]</div>
 <p>This agrees with the <a class="reference external" href="https://www.inferentialthinking.com/chapters/15/1/Correlation.html#Calculating-%24r%24">Data 8 definition</a> of correlation, which says, “<span class="math notranslate nohighlight">\(r\)</span> is the average of the products of the two variables, when both variables are measured in standard units.”</p>
 <p>We now have</p>

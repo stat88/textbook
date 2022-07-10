@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4.2. Cumulative Distribution Function (CDF) &#8212; Stat 88 Textbook</title>
+    <title>4.1. Cumulative Distribution Function (CDF) &#8212; Stat 88 Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.3. Waiting Times" href="02_Waiting_Times.html" />
+    <link rel="next" title="4.2. Waiting Times" href="02_Waiting_Times.html" />
     <link rel="prev" title="4. Infinitely Many Values" href="00_Infinitely_Many_Values.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -697,12 +714,12 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graph-of-the-cdf">
-   4.2.1. Graph of the CDF
+   4.1.1. Graph of the CDF
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computation">
-   4.2.2. Computation
+   4.1.2. Computation
   </a>
  </li>
 </ul>
@@ -726,12 +743,12 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graph-of-the-cdf">
-   4.2.1. Graph of the CDF
+   4.1.1. Graph of the CDF
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computation">
-   4.2.2. Computation
+   4.1.2. Computation
   </a>
  </li>
 </ul>
@@ -747,7 +764,7 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="cumulative-distribution-function-cdf">
-<h1><span class="section-number">4.2. </span>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.1. </span>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this headline">#</a></h1>
 <p>There are many ways of specifying distributions. We have sometimes used a table to display the distribution of a random variable <span class="math notranslate nohighlight">\(X\)</span>. At other times we have written <span class="math notranslate nohighlight">\(P(X = k)\)</span> as a formula for each possible value <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Another useful function that encapsulates all the information about the distribution of <span class="math notranslate nohighlight">\(X\)</span> is called the <em>cumulative distribution function</em> of <span class="math notranslate nohighlight">\(X\)</span>. That’s a real mouthful, so it is usually abbreviated to the cdf of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Let’s see what the cdf is in an example.</p>
@@ -819,7 +836,7 @@ P(X = x) ~ = ~ P(X \le x) - P(X \le x-1) ~ = ~ F(x) - F(x-1)
 \]</div>
 <p>These calculations show that if you know the distribution of <span class="math notranslate nohighlight">\(X\)</span> then you know the cdf of <span class="math notranslate nohighlight">\(X\)</span>, and vice versa. The distribution and the cdf contain the same information.</p>
 <section id="graph-of-the-cdf">
-<h2><span class="section-number">4.2.1. </span>Graph of the CDF<a class="headerlink" href="#graph-of-the-cdf" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.1. </span>Graph of the CDF<a class="headerlink" href="#graph-of-the-cdf" title="Permalink to this headline">#</a></h2>
 <p>The graph of every cdf has some properties that are easy to see:</p>
 <ul class="simple">
 <li><p>The graph is non-decreasing.</p></li>
@@ -839,7 +856,7 @@ P(X = x) ~ = ~ P(X \le x) - P(X \le x-1) ~ = ~ F(x) - F(x-1)
 </ul>
 </section>
 <section id="computation">
-<h2><span class="section-number">4.2.2. </span>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.2. </span>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">#</a></h2>
 <p>We will have many uses for the cdf in this course. In fact, we have already used it several times without giving it a name.</p>
 <p>For example, the chance of at most 3 sixes in 20 rolls of a die is given by the binomial formula and the addition rule:</p>
 <div class="math notranslate nohighlight">
@@ -939,7 +956,7 @@ P(\text{at most 3 sixes in 20 rolls}) ~ = ~ \sum_{k=0}^3 \binom{20}{k}(1/6)^k(5/
     <a class='right-next' id="next-link" href="02_Waiting_Times.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.3. </span>Waiting Times</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>Waiting Times</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

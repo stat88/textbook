@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -702,10 +719,10 @@ title="Print to PDF"
 <p>The main axiom of probability specifies the chance of the union of mutually exclusive events. As you have seen, when events are not mutually exclusive we have to understand their overlap or <em>intersection</em> in order to find the chance of the union.</p>
 <p>Probabilists and data scientists are often interested in chances of intersections. The chance that we lose all our bets, or that a randomly picked person is at risk for a disease and doesn’t have health insurance, are just two examples. So when it comes to intersections, probabilists have shortened even the standard notation of set theory.</p>
 <p>In the figure below, the deeper blue region is the event <span class="math notranslate nohighlight">\(A \cap B\)</span>, the intersection of the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>. It consists of the outcomes that are in <span class="math notranslate nohighlight">\(A\)</span> as well as in <span class="math notranslate nohighlight">\(B\)</span>. We are too lazy to write the <span class="math notranslate nohighlight">\(\cap\)</span> and just denote the intersection <span class="math notranslate nohighlight">\(AB\)</span>. Keep in mind that this does <em>not</em> denote a product of the two events.</p>
-<p><img alt="intersection" src="images/intersection.png" /></p>
+<p><img alt="intersection" src="../../_images/intersection.png" /></p>
 <p>In this chapter we will see how to find the chance of an intersection of events and hence also of a union of overlapping events. In doing so we will give a general definition of conditional probability and see how the probability of an event changes based on information related to the event.</p>
 <p>Bayes’ Rule is the data scientist’s fundamental method of updating probabilities based on new information. We will end this chapter with Bayes’ Rule and some of its implications. For now, just enjoy a <a class="reference external" href="https://blogs.scientificamerican.com/cross-check/bayes-s-theorem-what-s-the-big-deal/">Scientific American blog post</a> about what Bayes’ Rule can do. Or at least just look at the picture that it starts out with: Sheldon of the Big Bang Theory has written Bayes’ Rule at the top of the board, just above another probability fact that you will recognize.</p>
-<p><img alt="Sheldon and Bayes" src="images/sheldon.png" /></p>
+<p><img alt="Sheldon and Bayes" src="../../_images/sheldon.png" /></p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

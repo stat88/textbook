@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -760,7 +777,7 @@ title="Print to PDF"
 </div>
 <section id="the-german-tank-problem-revisited">
 <h1><span class="section-number">11.2. </span>The German Tank Problem, Revisited<a class="headerlink" href="#the-german-tank-problem-revisited" title="Permalink to this headline">#</a></h1>
-<p>Earlier in the course we examined the <a class="reference external" href="http://stat88.org/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html#World-War-II-Tanks">German tank problem</a> in which statisticians helped the Allies estimate the number of tanks the Germans were manufacturing in World War II.</p>
+<p>Earlier in the course we examined the <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html#ch5-4-7"><span class="std std-ref">German tank problem</span></a> in which statisticians helped the Allies estimate the number of tanks the Germans were manufacturing in World War II.</p>
 <p>In our discussion we had assumed a simpler model than the one the Allies had used. We had started by assuming, as the Allies had, that the tanks were numbered sequentially from 1 through <span class="math notranslate nohighlight">\(N\)</span>. The goal was to estimate <span class="math notranslate nohighlight">\(N\)</span> from the serial numbers on the tanks that were observed. Our model had said that these numbers were like draws <em>with</em> replacement from <span class="math notranslate nohighlight">\(1, 2, 3, \ldots, N\)</span>. But that’s not a great model for serial numbers observed on tanks that have been captured or destroyed.</p>
 <p>So we will now assume, as the Allies did, that the serial numbers of the observed tanks are random variables <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> drawn uniformly at random <em>without</em> replacement from <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots, N\}\)</span>. That is, we have a simple random sample of size <span class="math notranslate nohighlight">\(n\)</span> from the population <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots, N\}\)</span>, and we have to estimate <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>By the symmetry of simple random sampling, each <span class="math notranslate nohighlight">\(X_i\)</span> has the same distribution as the others. The distribution is uniform on <span class="math notranslate nohighlight">\(\{1, 2, 3, \ldots, N\}\)</span>, so for each <span class="math notranslate nohighlight">\(i\)</span> we have</p>
@@ -798,7 +815,7 @@ T_1 ~ = ~ 2\bar{X} - 1
 <section id="the-bias-of-the-sample-maximum">
 <h2><span class="section-number">11.2.1. </span>The Bias of the Sample Maximum<a class="headerlink" href="#the-bias-of-the-sample-maximum" title="Permalink to this headline">#</a></h2>
 <p>To calculate the bias of <span class="math notranslate nohighlight">\(M\)</span>, it helps to imagine a row of <span class="math notranslate nohighlight">\(N\)</span> spots for the serial numbers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(N\)</span>, with marks at the spots corresponding to the observed serial numbers. The visualization below shows an outcome in the case <span class="math notranslate nohighlight">\(N= 20\)</span> and <span class="math notranslate nohighlight">\(n = 3\)</span>.</p>
-<p><img alt="gaps" src="images/all_gaps.png" /></p>
+<p><img alt="gaps" src="../../_images/all_gaps.png" /></p>
 <ul class="simple">
 <li><p>There are <span class="math notranslate nohighlight">\(N = 20\)</span> spots in all.</p></li>
 <li><p>From these, we take a simple random sample of size <span class="math notranslate nohighlight">\(n = 3\)</span>. Those are the gold spots.</p></li>
@@ -839,18 +856,18 @@ E(M) - N ~ = ~ \frac{-(N-n)}{n+1}
 <p>Hence</p>
 <div class="math notranslate nohighlight">
 \[
-E(M) ~ = ~ n\big{(}\frac{N-n}{n+1}\big{)} + n ~ = ~ \frac{n}{n+1}(N + 1)
+E(M) ~ = ~ n\left(\frac{N-n}{n+1}\right) + n ~ = ~ \frac{n}{n+1}(N + 1)
 \]</div>
 <p>after a little algebra.</p>
 <p>This is a linear function of <span class="math notranslate nohighlight">\(N\)</span>, so you can isolate <span class="math notranslate nohighlight">\(N\)</span> to create an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span> just as we did earlier in the section. Isolating <span class="math notranslate nohighlight">\(N\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[
-N ~ = ~ E(M)\big{(}\frac{n+1}{n}\big{)} - 1
+N ~ = ~ E(M)\left(\frac{n+1}{n}\right) - 1
 \]</div>
 <p>and so it follows that</p>
 <div class="math notranslate nohighlight">
 \[
-T_3 ~ = ~  M\big{(}\frac{n+1}{n}\big{)} - 1
+T_3 ~ = ~  M\left(\frac{n+1}{n}\right) - 1
 \]</div>
 <p>is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>. We will call this the “augmented maximum” for reasons that will become clear at the end of this section.</p>
 <p>Since <span class="math notranslate nohighlight">\(T_3\)</span> is a linear function of <span class="math notranslate nohighlight">\(M\)</span>, we have</p>
@@ -863,10 +880,10 @@ SD(T_3) ~ = ~ \frac{n+1}{n}SD(M) ~ &gt; ~ SD(M)
 <p>The simulation below gives you a sense of the relative sizes of all these quantities. The parameter <span class="math notranslate nohighlight">\(N\)</span> and the sample size <span class="math notranslate nohighlight">\(n\)</span> are the same as in the simulation shown earlier in the section.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average of Augmented Maxes: 300.13834
-SD of of Augmented Maxes: 9.29771802588
-Average of Maxes: 291.4242
-SD of Maxes: 8.99779163795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average of Augmented Maxes: 299.98024
+SD of of Augmented Maxes: 9.28538697741
+Average of Maxes: 291.2712
+SD of Maxes: 8.98585836523
 </pre></div>
 </div>
 <img alt="../../_images/02_German_Tank_Problem_Revisited_8_1.png" src="../../_images/02_German_Tank_Problem_Revisited_8_1.png" />
@@ -877,7 +894,7 @@ SD of Maxes: 8.99779163795
 <h2><span class="section-number">11.2.3. </span>Understanding the Augmented Maximum<a class="headerlink" href="#understanding-the-augmented-maximum" title="Permalink to this headline">#</a></h2>
 <p>We gave an algebraic derivation of the augmented maximum <span class="math notranslate nohighlight">\(T_3\)</span>, but there is another good way to understand the formula.</p>
 <p>The reason the sample maximum <span class="math notranslate nohighlight">\(M\)</span> is biased is that in the sample we can see all but the last gap, as in the figure below in the case <span class="math notranslate nohighlight">\(n = 3\)</span>. The red question mark reminds you that the gap to the right of <span class="math notranslate nohighlight">\(M\)</span> is invisible to us.</p>
-<p><img alt="mystery gap" src="images/mystery_gap.png" /></p>
+<p><img alt="mystery gap" src="../../_images/mystery_gap.png" /></p>
 <p>If we could see the gap to the right of <span class="math notranslate nohighlight">\(M\)</span>, we would see <span class="math notranslate nohighlight">\(N\)</span>. But we can’t. So we can try to do the next best thing, which is to augment <span class="math notranslate nohighlight">\(M\)</span> by the estimated size of that gap.</p>
 <p>Since we can see all of the spots and their colors up to and including <span class="math notranslate nohighlight">\(M\)</span>, we can see <span class="math notranslate nohighlight">\(n\)</span> out of the <span class="math notranslate nohighlight">\(n+1\)</span> gaps. The lengths of the gaps all have the same distribution by symmetry, so we can estimate the length of a single gap by the average length of all the gaps that we can see.</p>
 <p>We can see <span class="math notranslate nohighlight">\(M\)</span> spots, of which <span class="math notranslate nohighlight">\(n\)</span> are the sampled values. So the total length of all <span class="math notranslate nohighlight">\(n\)</span> visible gaps is <span class="math notranslate nohighlight">\(M-n\)</span>. Therefore</p>
@@ -893,7 +910,7 @@ M + \frac{M-n}{n}
 <p>instead. Now</p>
 <div class="math notranslate nohighlight">
 \[
-M + \frac{M-n}{n} ~ = ~ M\big{(}\frac{n+1}{n}\big{)} - 1 ~ = T_3
+M + \frac{M-n}{n} ~ = ~ M\left(\frac{n+1}{n}\right) - 1 ~ = T_3
 \]</div>
 <p>Our new estimator is the same as the unbiased estimator <span class="math notranslate nohighlight">\(T_3\)</span> we derived earlier. That is why we have called <span class="math notranslate nohighlight">\(T_3\)</span> the augmented maximum: it is the sample maximum plus one estimated gap.</p>
 <p>It is possible for the augmented maximum to overestimate <span class="math notranslate nohighlight">\(N\)</span>. For example, if the observed value of <span class="math notranslate nohighlight">\(M\)</span> happens to be <span class="math notranslate nohighlight">\(N\)</span>, in the calculation of <span class="math notranslate nohighlight">\(T_3\)</span> we will have added a gap that we didn’t need to add and therefore we will overestimate <span class="math notranslate nohighlight">\(N\)</span>.</p>

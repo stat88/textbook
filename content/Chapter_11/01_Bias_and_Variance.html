@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -760,12 +777,12 @@ title="Print to PDF"
 <p>To assess the quality of an estimator, we have to examine how its values compare with the parameter being estimated. We will first do a qualitative analysis and then move on to formal definitions.</p>
 <p>Each figure below corresponds to a different estimator. In each case, the parameter <span class="math notranslate nohighlight">\(\theta\)</span> is at the red dot on the number line. We have generated a few values of the estimator and have plotted them in blue.</p>
 <table><tr>
-<td> <img src="../../images/ubias_lvar.png" alt="unbiased, low variance" style="width: 400px;"/> </td>
-<td> <img src="../../images/ubias_hvar.png" alt="unbiased, high variance" style="width: 400px;"/> </td>
+<td> <img src="../../_images/ubias_lvar.png" alt="unbiased, low variance" style="width: 400px;"/> </td>
+<td> <img src="../../_images/ubias_hvar.png" alt="unbiased, high variance" style="width: 400px;"/> </td>
 </tr></table>
 <table><tr>
-<td> <img src="../../images/bias_lvar.png" alt="biased, low variance" style="width: 400px;"/> </td>
-<td> <img src="../../images/lbias_lvar.png" alt="low bias, low variance" style="width: 400px;"/> </td>
+<td> <img src="../../_images/bias_lvar.png" alt="biased, low variance" style="width: 400px;"/> </td>
+<td> <img src="../../_images/lbias_lvar.png" alt="low bias, low variance" style="width: 400px;"/> </td>
 </tr></table><ul class="simple">
 <li><p>The figure on the top left corresponds to an estimator that is unbiased and has low variance. Its values are tightly clustered around the red dot. This kind of estimator is desirable: it is rarely far from the parameter, and it doesn’t systematically overestimate or underestimate.</p></li>
 <li><p>The figure on the bottom left corresponds to an estimator that has low variance but is <em>biased</em>. We will give a formal definition of bias later in this section; for now, just think of bias as a systematic overestimation or underestimation. The estimator in this figure overestimates by quite a bit compared to the estimators in the other figures.</p></li>
@@ -778,7 +795,7 @@ title="Print to PDF"
 <p>The error in our estimate is <span class="math notranslate nohighlight">\(T - \theta\)</span>. The <em>mean squared error</em> of the estimator <span class="math notranslate nohighlight">\(T\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
 \[
-MSE_\theta(T) ~ = ~ E_\theta\big{(}(T - \theta)^2\big{)}
+MSE_\theta(T) ~ = ~ E_\theta\left((T - \theta)^2\right)
 \]</div>
 <p>We are using <span class="math notranslate nohighlight">\(\theta\)</span> as a subscript to remind us that the expectation is calculated under the assumption that <span class="math notranslate nohighlight">\(\theta\)</span> is the true value of the parameter.</p>
 <p>The mean squared error can be used to assess the quality of an estimator: lower is better.</p>
@@ -809,7 +826,7 @@ T - \theta ~ &amp;= ~ \big{(}T - E_\theta(T)\big{)} + \big{(} E_\theta(T) - \the
 \end{align*}
 \end{split}\]</div>
 <p>The figure below illustrates the decomposition. The green segment represents the deviation and the red segment is the bias.</p>
-<p><img alt="error decomposition" src="images/error_decomp.png" /></p>
+<p><img alt="error decomposition" src="../../_images/error_decomp.png" /></p>
 </section>
 <section id="bias-variance-decomposition">
 <h2><span class="section-number">11.1.3. </span>Bias-Variance Decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this headline">#</a></h2>
@@ -817,9 +834,9 @@ T - \theta ~ &amp;= ~ \big{(}T - E_\theta(T)\big{)} + \big{(} E_\theta(T) - \the
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-MSE_\theta (T) ~ &amp;= ~ E_\theta \big{(} (T - \theta)^2 \big{)} \\
-&amp;= ~ E_\theta \big{(} (D_\theta(T) + B_\theta(T))^2 \big{)} \\
-&amp;= ~ E_\theta \big{(} D_\theta^2(T) + 2D_\theta(T)B_\theta(T) + B_\theta^2(T) \big{)} \\
+MSE_\theta (T) ~ &amp;= ~ E_\theta \left( (T - \theta)^2 \right) \\
+&amp;= ~ E_\theta \left( (D_\theta(T) + B_\theta(T))^2 \right) \\
+&amp;= ~ E_\theta \left( D_\theta^2(T) + 2D_\theta(T)B_\theta(T) + B_\theta^2(T) \right) \\
 &amp;= ~ E_\theta(D_\theta^2(T)) + 2B_\theta(T)E_\theta(D_\theta(T)) + B_\theta^2(T) \\
 &amp;= ~ Var_\theta(T) + B_\theta^2(T)
 \end{align*}

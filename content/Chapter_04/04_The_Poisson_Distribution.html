@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4.5. The Poisson Distribution &#8212; Stat 88 Textbook</title>
+    <title>4.4. The Poisson Distribution &#8212; Stat 88 Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.6. Exercises" href="05_Exercises.html" />
-    <link rel="prev" title="4.4. Exponential Approximations" href="03_Exponential_Approximations.html" />
+    <link rel="next" title="4.5. Exercises" href="05_Exercises.html" />
+    <link rel="prev" title="4.3. Exponential Approximations" href="03_Exponential_Approximations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -697,22 +714,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-bombing-of-london">
-   4.5.1. The Bombing of London
+   4.4.1. The Bombing of London
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defective-drives">
-   4.5.2. Defective Drives
+   4.4.2. Defective Drives
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sums-of-independent-poisson-random-variables">
-   4.5.3. Sums of Independent Poisson Random Variables
+   4.4.3. Sums of Independent Poisson Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-law-of-small-numbers">
-   4.5.4. The Law of Small Numbers
+   4.4.4. The Law of Small Numbers
   </a>
  </li>
 </ul>
@@ -736,22 +753,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-bombing-of-london">
-   4.5.1. The Bombing of London
+   4.4.1. The Bombing of London
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defective-drives">
-   4.5.2. Defective Drives
+   4.4.2. Defective Drives
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sums-of-independent-poisson-random-variables">
-   4.5.3. Sums of Independent Poisson Random Variables
+   4.4.3. Sums of Independent Poisson Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-law-of-small-numbers">
-   4.5.4. The Law of Small Numbers
+   4.4.4. The Law of Small Numbers
   </a>
  </li>
 </ul>
@@ -767,7 +784,7 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="the-poisson-distribution">
-<h1><span class="section-number">4.5. </span>The Poisson Distribution<a class="headerlink" href="#the-poisson-distribution" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.4. </span>The Poisson Distribution<a class="headerlink" href="#the-poisson-distribution" title="Permalink to this headline">#</a></h1>
 <p>Data scientists use probability distributions as <em>models</em> for how their data are generated. In this context a model is a set of assumptions involving probabilities. Almost invariably, models are simplified representations of complex real scenarios.</p>
 <p>The <em>Poisson</em> distribution is sometimes used to model the number of times a rare event occurs. It is named after its originator, the French mathematician, scientist, and engineer <a class="reference external" href="https://en.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson">Siméon Denis Poisson</a>. The parameter of the Poisson distribution is a positive number which we will call <span class="math notranslate nohighlight">\(\mu\)</span>. A random variable <span class="math notranslate nohighlight">\(X\)</span> has the Poisson distribution with parameter <span class="math notranslate nohighlight">\(\mu\)</span> if</p>
 <div class="math notranslate nohighlight">
@@ -797,13 +814,13 @@ P(X = k) ~ = ~ e^{-\mu} \frac{\mu^k}{k!}, ~~~ k = 0, 1, 2, \ldots
 </div>
 <p>The histograms show why you might want to use these distributions as models for random counts that tend to be small.</p>
 <section id="the-bombing-of-london">
-<h2><span class="section-number">4.5.1. </span>The Bombing of London<a class="headerlink" href="#the-bombing-of-london" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4.1. </span>The Bombing of London<a class="headerlink" href="#the-bombing-of-london" title="Permalink to this headline">#</a></h2>
 <p>During World War II the German air force launched a massive bombing attack on Britain and on London in particular. The British press called this attack the Blitz, the German word for lightning.</p>
 <p>A classic probability <a class="reference external" href="https://archive.org/details/AnIntroductionToProbabilityTheoryAndItsApplicationsVolume1">text by William Feller</a> provides data about the number of times bombs fell in different parts of London. The data were recorded as follows.</p>
 <p>The city was divided into 576 sub-regions which we will call locations. Officials recorded the number of times each location was hit by a bomb. The distribution is shown in the histogram below. It shows that about 40% of the locations did not suffer a hit. But about 60% did, and some were hit multiple times. A small percent of locations were hit five or more times. Those are not visible on the scale of this graph.</p>
-<p><img alt="Number of bomb hits" src="images/blitz_dist.png" /></p>
+<p><img alt="Number of bomb hits" src="../../_images/blitz_dist.png" /></p>
 <p>Feller’s book shows how this distribution is well approximated by the Poisson distribution with parameter <span class="math notranslate nohighlight">\(\mu = 0.93\)</span>. In the next chapter, we will see how the parameter was calculated. For now, see how closely the Poisson (0.93) distribution resembles the distribution of the data.</p>
-<p><img alt="Blitz Poisson approximation" src="images/blitz_poisson.png" /></p>
+<p><img alt="Blitz Poisson approximation" src="../../_images/blitz_poisson.png" /></p>
 <p>The numerical values of the Poisson probabilities have been calculated using a call that should come as no surprise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +839,7 @@ P(X = k) ~ = ~ e^{-\mu} \frac{\mu^k}{k!}, ~~~ k = 0, 1, 2, \ldots
 </div>
 </section>
 <section id="defective-drives">
-<h2><span class="section-number">4.5.2. </span>Defective Drives<a class="headerlink" href="#defective-drives" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4.2. </span>Defective Drives<a class="headerlink" href="#defective-drives" title="Permalink to this headline">#</a></h2>
 <p>You can work with Poisson distributions just as you worked with all the other distributions that we have studied. Here is an example.</p>
 <p>A manufacturing process produces large cases of USB flash drives. In each case, the number of defective drives has the Poisson (2.5) distribution, independent of all other cases.</p>
 <p>What is the chance that all of the next five cases contain more than one defective drive?</p>
@@ -862,7 +879,7 @@ P(X = k) ~ = ~ e^{-\mu} \frac{\mu^k}{k!}, ~~~ k = 0, 1, 2, \ldots
 </div>
 </section>
 <section id="sums-of-independent-poisson-random-variables">
-<h2><span class="section-number">4.5.3. </span>Sums of Independent Poisson Random Variables<a class="headerlink" href="#sums-of-independent-poisson-random-variables" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4.3. </span>Sums of Independent Poisson Random Variables<a class="headerlink" href="#sums-of-independent-poisson-random-variables" title="Permalink to this headline">#</a></h2>
 <p>A useful property of the Poisson distribution is that if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are random variables such that</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent,</p></li>
@@ -892,7 +909,7 @@ P(S \le 10) ~ = ~ \sum_{k=0}^{10} e^{-6} \frac{6^k}{k!} ~ \approx ~ 95.74\%
 </div>
 </section>
 <section id="the-law-of-small-numbers">
-<h2><span class="section-number">4.5.4. </span>The Law of Small Numbers<a class="headerlink" href="#the-law-of-small-numbers" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4.4. </span>The Law of Small Numbers<a class="headerlink" href="#the-law-of-small-numbers" title="Permalink to this headline">#</a></h2>
 <p>You may have noticed that the histograms of the Poisson distributions in this section don’t look very different from histograms of the binomial distribution when the success probability <span class="math notranslate nohighlight">\(p\)</span> is small. Indeed, one way in which the Poisson distribution arises in practice is as an approximation to a binomial distribution that has a large <span class="math notranslate nohighlight">\(n\)</span> and a small <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> have the binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution where <span class="math notranslate nohighlight">\(n\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small. Let <span class="math notranslate nohighlight">\(\mu = np\)</span>. We saw in the previous section that</p>
 <div class="math notranslate nohighlight">
@@ -954,13 +971,13 @@ P(X = 1) ~ = ~ \binom{n}{1}p(1-p)^{n-1} ~ &amp;= ~ np\frac{(1-p)^n}{1-p} \\
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4.4. </span>Exponential Approximations</p>
+            <p class="prev-next-title"><span class="section-number">4.3. </span>Exponential Approximations</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="05_Exercises.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.6. </span>Exercises</p>
+        <p class="prev-next-title"><span class="section-number">4.5. </span>Exercises</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3.6. The Hypergeometric Distribution &#8212; Stat 88 Textbook</title>
+    <title>3.4. The Hypergeometric Distribution &#8212; Stat 88 Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.7. Examples" href="05_Examples.html" />
-    <link rel="prev" title="3.5. The Binomial Distribution" href="03_The_Binomial_Distribution.html" />
+    <link rel="next" title="3.5. Examples" href="05_Examples.html" />
+    <link rel="prev" title="3.3. The Binomial Distribution" href="03_The_Binomial_Distribution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -697,22 +714,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-probabilities">
-   3.6.1. Hypergeometric Probabilities
+   3.4.1. Hypergeometric Probabilities
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-distribution">
-   3.6.2. Hypergeometric Distribution
+   3.4.2. Hypergeometric Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-probabilities-in-python">
-   3.6.3. Hypergeometric Probabilities in Python
+   3.4.3. Hypergeometric Probabilities in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-approximation">
-   3.6.4. Binomial Approximation
+   3.4.4. Binomial Approximation
   </a>
  </li>
 </ul>
@@ -736,22 +753,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-probabilities">
-   3.6.1. Hypergeometric Probabilities
+   3.4.1. Hypergeometric Probabilities
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-distribution">
-   3.6.2. Hypergeometric Distribution
+   3.4.2. Hypergeometric Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-probabilities-in-python">
-   3.6.3. Hypergeometric Probabilities in Python
+   3.4.3. Hypergeometric Probabilities in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-approximation">
-   3.6.4. Binomial Approximation
+   3.4.4. Binomial Approximation
   </a>
  </li>
 </ul>
@@ -767,7 +784,7 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="the-hypergeometric-distribution">
-<h1><span class="section-number">3.6. </span>The Hypergeometric Distribution<a class="headerlink" href="#the-hypergeometric-distribution" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3.4. </span>The Hypergeometric Distribution<a class="headerlink" href="#the-hypergeometric-distribution" title="Permalink to this headline">#</a></h1>
 <p>When you are sampling at random from a finite population, it is more natural to draw without replacement than with replacement. In this section, we imagine a population of elements each of which is in one of two categories. The goal is to study the number of sampled elements in one category.</p>
 <p>We will stick with the probabilists’ tradition of calling the two categories “good” and “bad”. You could also call them “success” and “failure,” in parallel with the previous section.</p>
 <p>Consider a population of <span class="math notranslate nohighlight">\(N\)</span> elements, <span class="math notranslate nohighlight">\(G\)</span> of which are good and the remaining <span class="math notranslate nohighlight">\(N-G\)</span> are bad.</p>
@@ -778,7 +795,7 @@ title="Print to PDF"
 <li><p>If you are interested in the number of Independent voters in a simple random sample of 2000 voters taken from a population of one million voters of whom 1% are Independent, then the population consists of <span class="math notranslate nohighlight">\(N = 1,000,000\)</span> voters of whom <span class="math notranslate nohighlight">\(G = 10,000\)</span> are good (Independent) and the remaining <span class="math notranslate nohighlight">\(N-G = 1,000,000 - 10,000 = 990,000\)</span> are bad. The simple random sample size is <span class="math notranslate nohighlight">\(n = 2000\)</span> and <span class="math notranslate nohighlight">\(X\)</span> is the number of good elements in the sample.</p></li>
 </ul>
 <section id="hypergeometric-probabilities">
-<h2><span class="section-number">3.6.1. </span>Hypergeometric Probabilities<a class="headerlink" href="#hypergeometric-probabilities" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4.1. </span>Hypergeometric Probabilities<a class="headerlink" href="#hypergeometric-probabilities" title="Permalink to this headline">#</a></h2>
 <p>A simple random sample is a subset consisting of <span class="math notranslate nohighlight">\(n\)</span> elements drawn at random from the population.</p>
 <p>The number of different samples we could draw is therefore <span class="math notranslate nohighlight">\(\binom{N}{n}\)</span>.</p>
 <p>Let us find <span class="math notranslate nohighlight">\(P(X = g)\)</span>, the chance of getting <span class="math notranslate nohighlight">\(g\)</span> good elements in the sample. For this we have to count the number of simple random samples that contain <span class="math notranslate nohighlight">\(g\)</span> good elements and <span class="math notranslate nohighlight">\(n-g\)</span> bad elements.</p>
@@ -801,7 +818,7 @@ P(\text{2 aces in 5-card poker hand}) ~ = ~ \frac{\binom{4}{2}\binom{48}{3}}{\bi
 \]</div>
 </section>
 <section id="hypergeometric-distribution">
-<h2><span class="section-number">3.6.2. </span>Hypergeometric Distribution<a class="headerlink" href="#hypergeometric-distribution" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4.2. </span>Hypergeometric Distribution<a class="headerlink" href="#hypergeometric-distribution" title="Permalink to this headline">#</a></h2>
 <p>The distribution of <span class="math notranslate nohighlight">\(X\)</span>, the number of good elements in the sample, is called the <em>hypergeometric distribution</em>. It has three parameters:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N\)</span>, the population size</p></li>
@@ -823,7 +840,7 @@ P(X = g) ~ = ~ \frac{\binom{G}{g}\binom{N-G}{n-g}}{\binom{N}{n}}, ~~~ 0 \le g \l
 <p>Not surprisingly, 0 is the most likely number of aces in the hand. Though it is possible to get 4 aces, the chance is so small that the bar over the value 4 is not visible.</p>
 </section>
 <section id="hypergeometric-probabilities-in-python">
-<h2><span class="section-number">3.6.3. </span>Hypergeometric Probabilities in Python<a class="headerlink" href="#hypergeometric-probabilities-in-python" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4.3. </span>Hypergeometric Probabilities in Python<a class="headerlink" href="#hypergeometric-probabilities-in-python" title="Permalink to this headline">#</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">stats</span></code> module of <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> to calculate hypergeometric probabilities, just as you used it to calculate binomial probabilities.</p>
 <p>The expression <code class="docutils literal notranslate"><span class="pre">stats.hypergeom.pmf(g,</span> <span class="pre">N,</span> <span class="pre">G,</span> <span class="pre">n)</span></code> evaluates to <span class="math notranslate nohighlight">\(P(X = g)\)</span> if <span class="math notranslate nohighlight">\(X\)</span> has the hypergeometric <span class="math notranslate nohighlight">\((N, G, n)\)</span> distribution described above.</p>
 <p>The numerical value of the chance of 2 aces in a 5-card poker hand is</p>
@@ -876,7 +893,7 @@ P(\text{2 aces in 5-card poker hand}) ~ = ~ \frac{\binom{4}{2}\binom{48}{3}}{\bi
 </div>
 </section>
 <section id="binomial-approximation">
-<h2><span class="section-number">3.6.4. </span>Binomial Approximation<a class="headerlink" href="#binomial-approximation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4.4. </span>Binomial Approximation<a class="headerlink" href="#binomial-approximation" title="Permalink to this headline">#</a></h2>
 <p>At the start of this section we considered an example where <span class="math notranslate nohighlight">\(X\)</span> is the number of Independent voters in a simple random sample of 2000 voters drawn from a population of one million voters of whom 1% are Independent.</p>
 <p>We know that <span class="math notranslate nohighlight">\(X\)</span> has the hypergeometric distribution with parameters <span class="math notranslate nohighlight">\(N = 1,000,000\)</span>, <span class="math notranslate nohighlight">\(G = 10,000\)</span>, and <span class="math notranslate nohighlight">\(n = 2000\)</span>.</p>
 <p>Suppose instead we had drawn the sample <em>with</em> replacement. Then the sample would consist of 2000 independent draws, each of which would be a success with chance 1%. The distribution of <span class="math notranslate nohighlight">\(X\)</span> would then be binomial <span class="math notranslate nohighlight">\((2000, 0.01)\)</span>.</p>
@@ -923,13 +940,13 @@ P(\text{2 aces in 5-card poker hand}) ~ = ~ \frac{\binom{4}{2}\binom{48}{3}}{\bi
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.5. </span>The Binomial Distribution</p>
+            <p class="prev-next-title"><span class="section-number">3.3. </span>The Binomial Distribution</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="05_Examples.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.7. </span>Examples</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Examples</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

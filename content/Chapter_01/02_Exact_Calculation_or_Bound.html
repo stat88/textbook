@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -778,14 +795,14 @@ title="Print to PDF"
 <h1><span class="section-number">1.2. </span>Exact Calculation, or Bound?<a class="headerlink" href="#exact-calculation-or-bound" title="Permalink to this headline">#</a></h1>
 <p>All of the questions we asked in the previous section could be answered based on the information given. But sometimes the information at hand is not enough for us to be able to find the probability of an event of interest. Let’s look at an example of this and then see if there is anything useful we can say in situations where we can’t find an answer exactly.</p>
 <p>As a reminder, here is the Pew Research Center graphic again. The experiment is to pick one teen at random from the population represented in the charts.</p>
-<p><img alt="online platform usage" src="images/online_platforms.png" /></p>
+<p><img alt="online platform usage" src="../../_images/online_platforms.png" /></p>
 <section id="facebook-or-twitter-question-1">
 <h2><span class="section-number">1.2.1. </span>Facebook or Twitter: Question 1<a class="headerlink" href="#facebook-or-twitter-question-1" title="Permalink to this headline">#</a></h2>
 <p>What is the chance that the selected teen used Facebook or Twitter most often?</p>
 <p>This question has an exact answer based on the right hand chart. Each teen is in exactly one bar of that chart. The teens who used FB most often are an entirely distinct group from those who used Twitter most often.</p>
 <p>Here is a Venn diagram representation of this. The number shown in each disc is the percent of teens in that category.</p>
 <p>If you think of proportions as areas (a very good idea, as you will soon see), the green area is the proportion in question: the proportion of all teens who used FB or Twitter the most. The area is clearly 13% because there is no overlap between the two discs.</p>
-<p><img alt="Venn diagram: mutually exclusive" src="images/venn_mut_excl.png" /></p>
+<p><img alt="Venn diagram: mutually exclusive" src="../../_images/venn_mut_excl.png" /></p>
 <p>Because the discs are disjoint from each other, the answer for a randomly selected teen is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -822,16 +839,16 @@ P(\text{used Facebook or Twitter most often}) ~ = ~ 0.1 + 0.03 ~ = ~ 0.13
 <h2><span class="section-number">1.2.4. </span>Lower Bound on the Chance<a class="headerlink" href="#lower-bound-on-the-chance" title="Permalink to this headline">#</a></h2>
 <p>The percent of teens who used Facebook or Twitter must be at least 51% because the group includes all those who used Facebook. So the chance that the selected teen used Facebook or Twitter must be at least 51%.</p>
 <p>Here is a Venn diagram of the extreme case when every teen who used Twitter also used Facebook.</p>
-<p><img alt="first extreme" src="images/venn_extreme1.png" /></p>
+<p><img alt="first extreme" src="../../_images/venn_extreme1.png" /></p>
 <p>In this diagram, the area of the green region is 51%. It is the same as the area of the Facebook region because the Twitter region is completely contained in it.</p>
 </section>
 <section id="upper-bound-on-the-chance">
 <h2><span class="section-number">1.2.5. </span>Upper Bound on the Chance<a class="headerlink" href="#upper-bound-on-the-chance" title="Permalink to this headline">#</a></h2>
 <p>The diagram below shows the other extreme, when the group that used Facebook is entirely distinct from the group that used Twitter.</p>
-<p><img alt="second extreme" src="images/venn_extreme2.png" /></p>
+<p><img alt="second extreme" src="../../_images/venn_extreme2.png" /></p>
 <p>In this diagram the area of the green region is 51% + 32% = 83%.</p>
 <p>That’s the biggest that the chance can be, because the other possible Venn diagrams look something like the one below and thus have a smaller green region.</p>
-<p><img alt="overlap" src="images/venn_overlap.png" /></p>
+<p><img alt="overlap" src="../../_images/venn_overlap.png" /></p>
 <p>We have shown that the chance that the randomly selected teen used Facebook or Twitter is at least 51% and at most 83%.</p>
 <p>Though we don’t have an exact value for the chance, we have done much better than just saying that the chance is between 0% and 100%.</p>
 </section>

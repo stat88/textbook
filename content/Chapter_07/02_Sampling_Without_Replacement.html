@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -814,7 +831,7 @@ E(X) ~ = ~ n\frac{G}{N}
 <p>So let’s get back to basics and try to use</p>
 <div class="math notranslate nohighlight">
 \[
-Var(X) ~ = ~ E(X^2) - (E(X)^2) ~ = ~ E(X^2) - \big{(} n\frac{G}{N} \big{)}^2
+Var(X) ~ = ~ E(X^2) - (E(X)^2) ~ = ~ E(X^2) - \left( n\frac{G}{N} \right)^2
 \]</div>
 <p>To find <span class="math notranslate nohighlight">\(E(X^2)\)</span> note that</p>
 <div class="math notranslate nohighlight">
@@ -839,12 +856,12 @@ E(X^2) ~ = ~ n \frac{G}{N} + n(n-1)\frac{G}{N}\cdot\frac{G-1}{N-1}
 <p>and therefore</p>
 <div class="math notranslate nohighlight">
 \[
-Var(X) ~ = ~ n \frac{G}{N} + n(n-1)\frac{G}{N}\cdot\frac{G-1}{N-1} - \big{(} n\frac{G}{N} \big{)}^2
+Var(X) ~ = ~ n \frac{G}{N} + n(n-1)\frac{G}{N}\cdot\frac{G-1}{N-1} - \left( n\frac{G}{N} \right)^2
 \]</div>
 <p>That looks awful but it’s actually not so bad. Pull out a common factor:</p>
 <div class="math notranslate nohighlight">
 \[
-Var(X) ~ = ~ n\frac{G}{N}\big{(} 1 + (n-1)\frac{G-1}{N-1} - n\frac{G}{N}\big{)}
+Var(X) ~ = ~ n\frac{G}{N}\left( 1 + (n-1)\frac{G-1}{N-1} - n\frac{G}{N}\right)
 \]</div>
 <p>After a little manipulation this becomes</p>
 <div class="math notranslate nohighlight">
@@ -854,7 +871,7 @@ Var(X) ~ = ~ n\frac{G}{N} \cdot \frac{N-G}{N}\cdot\frac{N-n}{N-1}
 <p>The initial part of this formula is the binomial variance <span class="math notranslate nohighlight">\(npq\)</span>. To see this more clearly, write <span class="math notranslate nohighlight">\(B = N-G\)</span> for the number of bad elements. Then</p>
 <div class="math notranslate nohighlight">
 \[
-Var(X) ~ = ~ \big{(} n\frac{G}{N} \cdot \frac{B}{N}\big{)}\frac{N-n}{N-1} 
+Var(X) ~ = ~ \left( n\frac{G}{N} \cdot \frac{B}{N}\right)\frac{N-n}{N-1} 
 \]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">

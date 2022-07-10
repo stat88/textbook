@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -847,7 +864,7 @@ P_{H_0}(\bar{X} \ge 299796) ~ &amp;\approx ~
 <p>In 1998, Emily Rosa’s article in the Journal of the American Medical Association made news. Not only did the article contain an interesting statistical analysis, <a class="reference external" href="https://en.wikipedia.org/wiki/Emily_Rosa">Emily</a> was 11 years old.</p>
 <p>As part of her fourth grade science project, the nine-year-old Emily had performed an experiment on practitioners of the <em>therapeutic touch</em> (TT). These people claimed that every human body emanates an “energy field” which the practitioners could feel and manipulate by placing their hands near but not on the body.</p>
 <p>Emily performed an experiment to test this claim. She reasoned that if practitioners’ hands could feel an “energy field” emanating from a body, then the hands should be able to feel the presence of a body even if the body wasn’t visible. The picture below is taken from her <a class="reference external" href="https://jamanetwork.com/journals/jama/fullarticle/187390">paper</a> (co-authored by her parents, among others) and shows how each trial of the experiment worked.</p>
-<p><img alt="Emily Rosa's experiment" src="images/emily_rosa.png" /></p>
+<p><img alt="Emily Rosa's experiment" src="../../_images/emily_rosa.png" /></p>
 <p>That’s Emily on the right and a TT practitioner on the left, separated by a tall screen. The screen has two holes cut out at the bottom, through which the practitioner puts her hands out, palms upwards. On the other side, Emily places her right hand above one of the two upturned hands picked at random. The practitioner has to say whether Emily’s hand is hovering over their left hand or their right.</p>
 <p>The experiment was done in several stages, the first of which involved 150 trials. The TT practitioners picked the correct hand on 70 of those trials. Emily’s analysis compared these results to random guessing.</p>
 <p>Are the results like those you would get by tossing a coin, or do they seem different? We can answer this question by carrying out a test of hypotheses.</p>

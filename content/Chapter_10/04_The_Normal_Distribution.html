@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -787,54 +804,14 @@ f(x) ~ = ~ \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}\big{(}\frac{x-\mu}{\sigma
 <p>This is the familiar normal curve we have been using for a while.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 11&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">#plt.xlabel(&#39;$x$&#39;)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Normal $(\mu, \sigma^2)$ Density&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/pyplot.py:1876,</span> in <span class="ni">yticks</span><span class="nt">(ticks, labels, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>         <span class="n">l</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1875</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1876</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span> <span class="k">return</span> <span class="n">locs</span><span class="p">,</span> <span class="n">labels</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axes/_base.py:75,</span> in <span class="ni">_axis_method_wrapper.__set_name__.&lt;locals&gt;.wrapper</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1798,</span> in <span class="ni">Axis._set_ticklabels</span><span class="nt">(self, labels, fontdict, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1796</span> <span class="k">if</span> <span class="n">fontdict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1797</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fontdict</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1798</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="n">minor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1720,</span> in <span class="ni">Axis.set_ticklabels</span><span class="nt">(self, ticklabels, minor, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locator</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1717</span>     <span class="c1"># Passing [] as a list of ticklabels is often used as a way to</span>
-<span class="g g-Whitespace">   </span><span class="mi">1718</span>     <span class="c1"># remove all tick labels, so only error for &gt; 0 ticklabels</span>
-<span class="g g-Whitespace">   </span><span class="mi">1719</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1720</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1721</span>             <span class="s2">&quot;The number of FixedLocator locations&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1722</span>             <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span><span class="si">}</span><span class="s2">), usually from a call to&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1723</span>             <span class="s2">&quot; set_ticks, does not match&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1724</span>             <span class="sa">f</span><span class="s2">&quot; the number of ticklabels (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1725</span>     <span class="n">tickd</span> <span class="o">=</span> <span class="p">{</span><span class="n">loc</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">loc</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">,</span> <span class="n">ticklabels</span><span class="p">)}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="n">func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_with_dict</span><span class="p">,</span> <span class="n">tickd</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: The number of FixedLocator locations (5), usually from a call to set_ticks, does not match the number of ticklabels (4).
-</pre></div>
-</div>
-<img alt="../../_images/04_The_Normal_Distribution_3_1.png" src="../../_images/04_The_Normal_Distribution_3_1.png" />
+<img alt="../../_images/04_The_Normal_Distribution_3_0.png" src="../../_images/04_The_Normal_Distribution_3_0.png" />
 </div>
 </div>
 <p>The random variable <span class="math notranslate nohighlight">\(Z\)</span> has the <em>standard normal distribution</em> if the distribution of <span class="math notranslate nohighlight">\(Z\)</span> is normal <span class="math notranslate nohighlight">\((0, 1)\)</span>. The cdf of <span class="math notranslate nohighlight">\(Z\)</span> is the familiar standard normal cdf <span class="math notranslate nohighlight">\(\Phi\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> has the normal <span class="math notranslate nohighlight">\((\mu, \sigma^2)\)</span> distribution then</p>
 <div class="math notranslate nohighlight">
 \[
-P(X &lt; x) ~ = ~ P\big{(}Z &lt; \frac{x - \mu}{\sigma}\big{)}
+P(X &lt; x) ~ = ~ P\left(Z &lt; \frac{x - \mu}{\sigma}\right)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(Z = \frac{X - \mu}{\sigma}\)</span> is what we have been calling “<span class="math notranslate nohighlight">\(X\)</span> in standard units”. As before, conversions back and forth between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> will be useful for calculations. To get from <span class="math notranslate nohighlight">\(Z\)</span> to <span class="math notranslate nohighlight">\(X\)</span>, use <span class="math notranslate nohighlight">\(X = \sigma Z + \mu\)</span>.</p>
 <p>We have been treating the parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> like the mean and the SD of the distribution, and indeed it turns out (after calculations that we will not do) that:</p>
@@ -878,7 +855,7 @@ E(X+Y) ~ = ~ \mu_X + \mu_Y ~~~~~~~~~~~ Var(X+Y) = \sigma^2_X + \sigma^2_Y
 <p>Therefore by the independence of the two samples,</p>
 <div class="math notranslate nohighlight">
 \[
-\bar{X} - \bar{Y} ~ \text{ is approximately normal } \big{(}\mu_X - \mu_Y, \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} \big{)}
+\bar{X} - \bar{Y} ~ \text{ is approximately normal } \left(\mu_X - \mu_Y, \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} \right)
 \]</div>
 <p>So an approximate 95% confidence interval for <span class="math notranslate nohighlight">\(\mu_X - \mu_Y\)</span> is given by</p>
 <div class="math notranslate nohighlight">
@@ -937,14 +914,54 @@ E(X+Y) ~ = ~ \mu_X + \mu_Y ~~~~~~~~~~~ Var(X+Y) = \sigma^2_X + \sigma^2_Y
 <p>The observed value of the statistic is <span class="math notranslate nohighlight">\(80000 - 70000 = 10000\)</span> dollars. This is the red dot on the horizontal axis of the figure below.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_The_Normal_Distribution_11_0.png" src="../../_images/04_The_Normal_Distribution_11_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.01</span><span class="p">),</span> <span class="n">x_tick_labels</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">/</span><span class="mi">2858</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/pyplot.py:1876,</span> in <span class="ni">yticks</span><span class="nt">(ticks, labels, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1874</span>         <span class="n">l</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1875</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1876</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span> <span class="k">return</span> <span class="n">locs</span><span class="p">,</span> <span class="n">labels</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axes/_base.py:75,</span> in <span class="ni">_axis_method_wrapper.__set_name__.&lt;locals&gt;.wrapper</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1798,</span> in <span class="ni">Axis._set_ticklabels</span><span class="nt">(self, labels, fontdict, minor, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1796</span> <span class="k">if</span> <span class="n">fontdict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fontdict</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1798</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="n">minor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.8/site-packages/matplotlib/axis.py:1720,</span> in <span class="ni">Axis.set_ticklabels</span><span class="nt">(self, ticklabels, minor, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locator</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1717</span>     <span class="c1"># Passing [] as a list of ticklabels is often used as a way to</span>
+<span class="g g-Whitespace">   </span><span class="mi">1718</span>     <span class="c1"># remove all tick labels, so only error for &gt; 0 ticklabels</span>
+<span class="g g-Whitespace">   </span><span class="mi">1719</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1720</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1721</span>             <span class="s2">&quot;The number of FixedLocator locations&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span>             <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">)</span><span class="si">}</span><span class="s2">), usually from a call to&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1723</span>             <span class="s2">&quot; set_ticks, does not match&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span>             <span class="sa">f</span><span class="s2">&quot; the number of ticklabels (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ticklabels</span><span class="p">)</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span>     <span class="n">tickd</span> <span class="o">=</span> <span class="p">{</span><span class="n">loc</span><span class="p">:</span> <span class="n">lab</span> <span class="k">for</span> <span class="n">loc</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">locator</span><span class="o">.</span><span class="n">locs</span><span class="p">,</span> <span class="n">ticklabels</span><span class="p">)}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="n">func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_with_dict</span><span class="p">,</span> <span class="n">tickd</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: The number of FixedLocator locations (5), usually from a call to set_ticks, does not match the number of ticklabels (4).
+</pre></div>
+</div>
+<img alt="../../_images/04_The_Normal_Distribution_11_1.png" src="../../_images/04_The_Normal_Distribution_11_1.png" />
 </div>
 </div>
 <p>The observed statistic is out in a tail of the distribution of the test statistic under the null hypothesis. So the data are not consistent with the null hypothesis. They support the hypothesis that City Y has the higher mean income.</p>
 <p>The conclusion is clear from the figure. But if you want to compute a <span class="math notranslate nohighlight">\(p\)</span>-value, it would be approximately</p>
 <div class="math notranslate nohighlight">
 \[
-1 - \Phi(\frac{10000-0}{2858}) ~ = ~ 1 - \Phi(3.5) ~ = ~ 0.02\%
+1 - \Phi\left(\frac{10000-0}{2858}\right) ~ = ~ 1 - \Phi(3.5) ~ = ~ 0.02\%
 \]</div>
 <p>which is tiny. The data support the alternative hypothesis.</p>
 </section>
@@ -959,7 +976,7 @@ E(X+Y) ~ = ~ \mu_X + \mu_Y ~~~~~~~~~~~ Var(X+Y) = \sigma^2_X + \sigma^2_Y
 <p>Then the difference between the two sample proportions is <span class="math notranslate nohighlight">\(\bar{X} - \bar{Y}\)</span> is a natural estimator for <span class="math notranslate nohighlight">\(p_X - p_Y\)</span>, the difference between the two population proportions.</p>
 <div class="math notranslate nohighlight">
 \[
-\bar{X} - \bar{Y} ~ \text{ is approximately normal } \big{(}p_X - p_Y, \frac{p_Xq_X}{n} + \frac{p_Yq_Y}{m} \big{)}
+\bar{X} - \bar{Y} ~ \text{ is approximately normal } \left(p_X - p_Y, \frac{p_Xq_X}{n} + \frac{p_Yq_Y}{m} \right)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(q_X = 1 - p_X\)</span> and <span class="math notranslate nohighlight">\(q_Y = 1 - p_Y\)</span>. We have used the formula <span class="math notranslate nohighlight">\(pq\)</span> for the variance of a Bernoulli <span class="math notranslate nohighlight">\((p)\)</span> random variable. The Bernoulli distribution is so simple – just 0 and 1 as the possible values – that <span class="math notranslate nohighlight">\(p\)</span> determines both the mean and the variance.</p>
 <p>Now suppose we have independent samples from two cities, and:</p>

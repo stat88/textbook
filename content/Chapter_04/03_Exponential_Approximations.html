@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4.4. Exponential Approximations &#8212; Stat 88 Textbook</title>
+    <title>4.3. Exponential Approximations &#8212; Stat 88 Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.5. The Poisson Distribution" href="04_The_Poisson_Distribution.html" />
-    <link rel="prev" title="4.3. Waiting Times" href="02_Waiting_Times.html" />
+    <link rel="next" title="4.4. The Poisson Distribution" href="04_The_Poisson_Distribution.html" />
+    <link rel="prev" title="4.2. Waiting Times" href="02_Waiting_Times.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -697,22 +714,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bootstrap">
-   4.4.1. Bootstrap
+   4.3.1. Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#log-of-a-number-close-to-1">
-   4.4.2. Log of a Number Close to 1
+   4.3.2. Log of a Number Close to 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exponential-approximation-in-the-bootstrap">
-   4.4.3. Exponential Approximation in the Bootstrap
+   4.3.3. Exponential Approximation in the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rare-events">
-   4.4.4. Rare Events
+   4.3.4. Rare Events
   </a>
  </li>
 </ul>
@@ -736,22 +753,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bootstrap">
-   4.4.1. Bootstrap
+   4.3.1. Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#log-of-a-number-close-to-1">
-   4.4.2. Log of a Number Close to 1
+   4.3.2. Log of a Number Close to 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exponential-approximation-in-the-bootstrap">
-   4.4.3. Exponential Approximation in the Bootstrap
+   4.3.3. Exponential Approximation in the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rare-events">
-   4.4.4. Rare Events
+   4.3.4. Rare Events
   </a>
  </li>
 </ul>
@@ -767,11 +784,11 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="exponential-approximations">
-<h1><span class="section-number">4.4. </span>Exponential Approximations<a class="headerlink" href="#exponential-approximations" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.3. </span>Exponential Approximations<a class="headerlink" href="#exponential-approximations" title="Permalink to this headline">#</a></h1>
 <p>Many probabilities are products or powers of fractions. To get a rough sense of the size of such a chance, it is often a good idea to take its logarithm and try to approximate that. This leads to an <em>exponential approximation</em> for the chance.</p>
 <p>An example will help us see how this works.</p>
 <section id="bootstrap">
-<h2><span class="section-number">4.4.1. </span>Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3.1. </span>Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">#</a></h2>
 <p>A <em>bootstrap</em> sample is a sample of size <span class="math notranslate nohighlight">\(n\)</span> drawn at random with replacement from an original sample of <span class="math notranslate nohighlight">\(n\)</span> individuals. Because the sample is drawn with replacement, some individuals may be drawn more than once and some not at all.</p>
 <p>Fix an individual in the original sample. For clarity, let’s call that individual Special. What is the chance that Special appears at least once in the bootstrap sample?</p>
 <p>As before, we will use the complement:</p>
@@ -797,7 +814,7 @@ P(\text{Special does not appear}) ~ = ~ \big{(} \frac{n-1}{n} \big{)}^n
 <p>Let’s see what we can say about the rough size of <span class="math notranslate nohighlight">\(\log\big{(} 1 - \frac{1}{n} \big{)}\)</span> when <span class="math notranslate nohighlight">\(n\)</span> is large. For this we will examine the graph of the function <span class="math notranslate nohighlight">\(y = \log(x)\)</span> for values of <span class="math notranslate nohighlight">\(x\)</span> that are close to 1.</p>
 </section>
 <section id="log-of-a-number-close-to-1">
-<h2><span class="section-number">4.4.2. </span>Log of a Number Close to 1<a class="headerlink" href="#log-of-a-number-close-to-1" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3.2. </span>Log of a Number Close to 1<a class="headerlink" href="#log-of-a-number-close-to-1" title="Permalink to this headline">#</a></h2>
 <p>The blue curve in the figure below is the graph of the function <span class="math notranslate nohighlight">\(y = \log(x)\)</span> for values of <span class="math notranslate nohighlight">\(x\)</span> near 1. The graph crosses the horizontal axis at <span class="math notranslate nohighlight">\(x = 1\)</span> because <span class="math notranslate nohighlight">\(\log(1) = 0\)</span>.</p>
 <p>The red dashed line is the graph of the <span class="math notranslate nohighlight">\(45^\circ\)</span> line at the point <span class="math notranslate nohighlight">\((1, 0)\)</span>. The line is the tangent to the curve <span class="math notranslate nohighlight">\(y = \log(x)\)</span> at the point <span class="math notranslate nohighlight">\(x = 1\)</span>. That is because the slope of the tangent line at <span class="math notranslate nohighlight">\(x\)</span> is given by</p>
 <div class="math notranslate nohighlight">
@@ -825,7 +842,7 @@ P(\text{Special does not appear}) ~ = ~ \big{(} \frac{n-1}{n} \big{)}^n
 <p>A glance at the graphs above should convince you that the approximation is true regardless of whether <span class="math notranslate nohighlight">\(\delta\)</span> is positive or negative, as long as it is small.</p>
 </section>
 <section id="exponential-approximation-in-the-bootstrap">
-<h2><span class="section-number">4.4.3. </span>Exponential Approximation in the Bootstrap<a class="headerlink" href="#exponential-approximation-in-the-bootstrap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3.3. </span>Exponential Approximation in the Bootstrap<a class="headerlink" href="#exponential-approximation-in-the-bootstrap" title="Permalink to this headline">#</a></h2>
 <p>Apply this approximation in our earlier calculation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -866,7 +883,7 @@ P(\text{Special appears at least once}) ~ \approx 1 - e^{-1} ~~~~~ \text{when } 
 </div>
 </section>
 <section id="rare-events">
-<h2><span class="section-number">4.4.4. </span>Rare Events<a class="headerlink" href="#rare-events" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3.4. </span>Rare Events<a class="headerlink" href="#rare-events" title="Permalink to this headline">#</a></h2>
 <p>The example above is a special case of a situation in which a data scientist is studying how many times a rare event occurs. When <span class="math notranslate nohighlight">\(n\)</span> is large, Special being picked on a single draw can be thought of as a rare event because its chance is <span class="math notranslate nohighlight">\(1/n\)</span> which is small.</p>
 <p>On any particular draw, we aren’t expecting Special to be picked. But the number of draws is <span class="math notranslate nohighlight">\(n\)</span>, which is large. This makes it likely that Special is picked at least once, as we have seen.</p>
 <p>In general, suppose we have <span class="math notranslate nohighlight">\(n\)</span> i.i.d. success/failure trials where <span class="math notranslate nohighlight">\(n\)</span> is large and the probability <span class="math notranslate nohighlight">\(p\)</span> of success on a single trial is small.</p>
@@ -952,13 +969,13 @@ P(\text{no successes}) ~ = ~ (1-p)^n
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4.3. </span>Waiting Times</p>
+            <p class="prev-next-title"><span class="section-number">4.2. </span>Waiting Times</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04_The_Poisson_Distribution.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.5. </span>The Poisson Distribution</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>The Poisson Distribution</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

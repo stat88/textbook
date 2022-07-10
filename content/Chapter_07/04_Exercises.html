@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -716,7 +733,7 @@ Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="mat
 <p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(E(X)\)</span> and <span class="math notranslate nohighlight">\(SD(X)\)</span>.</p>
 <p><strong>b)</strong> Find the chance that you come out ahead, that is, your total net gain is positive.</p>
 <p><strong>4.</strong>
-This exercise is about draws made at random with replacement from the integers <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span>. It is the model we used for estimation in the <a class="reference external" href="http://stat88.org/textbook/notebooks/Chapter_05/04_Unbiased_Estimators.html">German tanks problem</a>.</p>
+This exercise is about draws made at random with replacement from the integers <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span>. It is the model we used for estimation in the <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html#ch5-4"><span class="std std-ref">German tanks problem</span></a>.</p>
 <p><strong>a)</strong> In the special case <span class="math notranslate nohighlight">\(N = 6\)</span>, our model represents rolling a die. Let <span class="math notranslate nohighlight">\(X_1\)</span> be the number of spots on one roll of a die. Find <span class="math notranslate nohighlight">\(E(X_1)\)</span> and <span class="math notranslate nohighlight">\(Var(X_1)\)</span>.</p>
 <p><strong>b)</strong> The calculations in Part <strong>a</strong> can be generalized for <span class="math notranslate nohighlight">\(X_1\)</span> uniformly distributed on <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span>, to get <span class="math notranslate nohighlight">\(E(X_1) = (N+1)/2\)</span> as you know, and <span class="math notranslate nohighlight">\(Var(X_1) = (N^2 - 1)/12\)</span>. The formula for variance follows by algebra that you don’t have to do; you can just use the formula.</p>
 <p>Now let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be draws at random with replacement from <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span>, as in the German tanks problem. Denote the sample average by <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i\)</span>. Find <span class="math notranslate nohighlight">\(SD(\bar{X})\)</span>.</p>

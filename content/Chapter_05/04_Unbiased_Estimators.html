@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -873,7 +890,7 @@ E(\bar{X}) ~ = ~ E\big{(} \frac{1}{n}\sum_{i=1}^n X_i \big{)} ~ = ~ \frac{1}{n}\
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 30
 p = 0.1667
-Average of observed sample proportions = 0.1677
+Average of observed sample proportions = 0.1662
 </pre></div>
 </div>
 <img alt="../../_images/04_Unbiased_Estimators_8_1.png" src="../../_images/04_Unbiased_Estimators_8_1.png" />
@@ -902,10 +919,10 @@ E(\bar{X}) ~ = ~ \frac{N+1}{2}
 <p>So the statistic <span class="math notranslate nohighlight">\(T = 2\bar{X} - 1\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </section>
 <section id="world-war-ii-tanks">
-<h2><span class="section-number">5.4.7. </span>World War II Tanks<a class="headerlink" href="#world-war-ii-tanks" title="Permalink to this headline">#</a></h2>
+<span id="ch5-4-7"></span><h2><span class="section-number">5.4.7. </span>World War II Tanks<a class="headerlink" href="#world-war-ii-tanks" title="Permalink to this headline">#</a></h2>
 <p>The calculation above stems from a problem the Allied forces faced in World War II. Germany had a seemingly never-ending fleet of Panzer tanks, and the Allies needed to estimate how many they had. They decided to base their estimates on the serial numbers of the tanks that they saw.</p>
 <p>Here is a picture of one from <a class="reference external" href="https://en.wikipedia.org/wiki/Panzer_IV">Wikipedia</a>.</p>
-<p><img alt="Panzer Tank" src="images/panzer.png" /></p>
+<p><img alt="Panzer Tank" src="../../_images/panzer.png" /></p>
 <p>Notice the serial number on the top left. When tanks were disabled or destroyed, it was discovered that their parts had serial numbers too. The ones from the gear boxes proved very useful.</p>
 <p>The idea was to model the observed serial numbers as random draws from <span class="math notranslate nohighlight">\(1, 2, \ldots, N\)</span> and then estimate <span class="math notranslate nohighlight">\(N\)</span>. This is of course a very simplified model of reality, and we will make some additional simplifications. But estimates based on even such simple probabilistic models proved to be quite a bit <a class="reference external" href="https://en.wikipedia.org/wiki/German_tank_problem#Specific_data">more accurate</a> than those based on the intelligence gathered by the Allies. For example, in August 1942, intelligence estimates were that Germany was producing 1,550 tanks per month. The prediction based on the probability model was 327 per month. After the war, German records showed that the actual production rate was 342 per month.</p>
 <p>The model was that the draws were made at random without replacement from the integers 1 through <span class="math notranslate nohighlight">\(N\)</span>. But for even more simplicity, let’s pretend that the draws were made with replacement. That is, if we saw the same tank twice then we would record it twice.</p>

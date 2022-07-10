@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -767,7 +784,7 @@ P(B \mid A) ~ = ~ \frac{P(AB)}{P(A)}
 \]</div>
 <p>It makes sense to assume <span class="math notranslate nohighlight">\(P(A) &gt; 0\)</span>, not just because <span class="math notranslate nohighlight">\(P(A)\)</span> appears in the denominator but also because if <span class="math notranslate nohighlight">\(P(A)\)</span> were 0 then we could not be given the condition that <span class="math notranslate nohighlight">\(A\)</span> occurred.</p>
 <p>In the figure below, think of the grey rectangle as the whole space <span class="math notranslate nohighlight">\(\Omega\)</span>. The unconditional chances <span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span> are the areas of the corresponding circles relative to the area of the grey rectangle.</p>
-<p><img alt="conditional probability" src="images/cond_prob.png" /></p>
+<p><img alt="conditional probability" src="../../_images/cond_prob.png" /></p>
 <p>But once we are given that <span class="math notranslate nohighlight">\(A\)</span> occurred, the outcome space is restricted to <span class="math notranslate nohighlight">\(A\)</span>. Under this condition, the only way <span class="math notranslate nohighlight">\(B\)</span> can occur is if the outcome is in the intersection <span class="math notranslate nohighlight">\(AB\)</span>.</p>
 <p>Therefore, given that <span class="math notranslate nohighlight">\(A\)</span> has occurred, the conditional chance of <span class="math notranslate nohighlight">\(B\)</span> is the area of the overlap <span class="math notranslate nohighlight">\(AB\)</span> relative to the area of <span class="math notranslate nohighlight">\(A\)</span>. That’s what the definition is saying.</p>
 <p>You have seen many examples where you have quite naturally written down conditional probabilities without using the division rule. In these examples, an experiment had several stages (for example, cards were being dealt one by one) and you were working with conditional probabilities of events at later stages given the results of earlier stages.</p>
@@ -784,7 +801,7 @@ P(B \mid A) ~ = ~ \frac{P(AB)}{P(A)}
 <p>I pick a container at random and then a ball at random from that container. Given that the ball is red, what is the chance I picked the box?</p>
 <p>At a glance, you should guess that the answer is less than half. Given that the ball is red, you should be leaning towards guessing that I picked the jar because it has a higher proportion of red balls than the box does.</p>
 <p>To make this intuition precise, it helps to visualize the details of the experiment in a <em>tree diagram</em>.</p>
-<p><img alt="balls in boxes tree" src="images/tree_balls_in_containers.png" /></p>
+<p><img alt="balls in boxes tree" src="../../_images/tree_balls_in_containers.png" /></p>
 <p>The first level of the tree corresponds to the first stage of the experiment, that is, picking the box. The second level corresponds to picking the ball once the box has been picked.</p>
 <p>The numbers on the branches are probabilities. Let <span class="math notranslate nohighlight">\(J\)</span> be the event that I picked the jar and let <span class="math notranslate nohighlight">\(B\)</span> be the event that I picked the box. Let <span class="math notranslate nohighlight">\(R\)</span> be the event that the selected ball is red and let <span class="math notranslate nohighlight">\(G\)</span> be the event that it is green. The probabilities displayed in the figure are:</p>
 <ul class="simple">

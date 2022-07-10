@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -796,7 +813,7 @@ title="Print to PDF"
 </ul>
 <p>The <em>true positive rate</em> is the rate of positive results among those who do have the disease. The question doesn’t provide this rate. We will assume, as the people surveyed also did, that the test is good and the true positive rate is 100%.</p>
 <p>Here are the data in a tree diagram.</p>
-<p><img alt="Harvard Med School tree diagram" src="images/tree_disease_harvard_1.png" /></p>
+<p><img alt="Harvard Med School tree diagram" src="../../_images/tree_disease_harvard_1.png" /></p>
 <p>The question asks for a chance but doesn’t say how the person is selected. As a first step, let’s assume that the person was selected at random from the population. Then the answer is a straightforward application of Bayes’ Rule:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -853,7 +870,7 @@ P(\text{disease} \mid \text{test positive}) ~ = ~
 <p>The most unsettling aspect of the Bayes’ Rule calculation above is the prior probability of 0.001. It is based on the assumption that the person was picked randomly from the population. But medical tests aren’t given to random members of the public. People get tested when they or their doctors think they might be at risk for the disease. In that case the base rate might not be the right figure to use for the prior probability of disease.</p>
 <p>Suppose instead a person thinks that there is a small chance, say 10%, that they have the disease. If this person’s test result comes out positive, how should they update their probability of disease?</p>
 <p>Since the test remains the same, all that has to change in the tree diagram is the prior probability of having and not having the disease.</p>
-<p><img alt="tree with subjective prior" src="images/tree_disease_harvard_2.png" /></p>
+<p><img alt="tree with subjective prior" src="../../_images/tree_disease_harvard_2.png" /></p>
 <p>The calculation changes to</p>
 <div class="math notranslate nohighlight">
 \[

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3.5. The Binomial Distribution &#8212; Stat 88 Textbook</title>
+    <title>3.3. The Binomial Distribution &#8212; Stat 88 Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.6. The Hypergeometric Distribution" href="04_The_Hypergeometric_Distribution.html" />
-    <link rel="prev" title="3.4. Random Variables" href="02_Random_Variables.html" />
+    <link rel="next" title="3.4. The Hypergeometric Distribution" href="04_The_Hypergeometric_Distribution.html" />
+    <link rel="prev" title="3.2. Random Variables" href="02_Random_Variables.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -697,32 +714,32 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#two-sixes-in-five-rolls">
-   3.5.1. Two Sixes in Five Rolls
+   3.3.1. Two Sixes in Five Rolls
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-distribution">
-   3.5.2. Binomial Distribution
+   3.3.2. Binomial Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#features-of-the-distribution">
-   3.5.3. Features of the Distribution
+   3.3.3. Features of the Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculation">
-   3.5.4. Calculation
+   3.3.4. Calculation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-probabilities-in-python">
-   3.5.5. Binomial Probabilities in Python
+   3.3.5. Binomial Probabilities in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#college-graduates-in-a-random-sample">
-   3.5.6. College Graduates in a Random Sample
+   3.3.6. College Graduates in a Random Sample
   </a>
  </li>
 </ul>
@@ -746,32 +763,32 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#two-sixes-in-five-rolls">
-   3.5.1. Two Sixes in Five Rolls
+   3.3.1. Two Sixes in Five Rolls
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-distribution">
-   3.5.2. Binomial Distribution
+   3.3.2. Binomial Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#features-of-the-distribution">
-   3.5.3. Features of the Distribution
+   3.3.3. Features of the Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculation">
-   3.5.4. Calculation
+   3.3.4. Calculation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binomial-probabilities-in-python">
-   3.5.5. Binomial Probabilities in Python
+   3.3.5. Binomial Probabilities in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#college-graduates-in-a-random-sample">
-   3.5.6. College Graduates in a Random Sample
+   3.3.6. College Graduates in a Random Sample
   </a>
  </li>
 </ul>
@@ -787,7 +804,7 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="the-binomial-distribution">
-<h1><span class="section-number">3.5. </span>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3.3. </span>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Permalink to this headline">#</a></h1>
 <p>We have just seen how to find the distribution of the number of heads in three tosses of a coin. In this section we will generalize the method and find the distribution of the number of heads in any fixed number of tosses of any coin, fair or biased.</p>
 <p>The image of tossing coins (possibly biased) and counting heads is a good way to think about counting successes in repeated independent trials. For example:</p>
 <ul class="simple">
@@ -796,7 +813,7 @@ title="Print to PDF"
 <li><p>Counting the number of college graduates in a sample of size 100 drawn at random with replacement from a population in which 20% of the people are college graduates is like counting the number of heads in 100 tosses of a coin that lands heads with chance <span class="math notranslate nohighlight">\(0.2\)</span>.</p></li>
 </ul>
 <section id="two-sixes-in-five-rolls">
-<h2><span class="section-number">3.5.1. </span>Two Sixes in Five Rolls<a class="headerlink" href="#two-sixes-in-five-rolls" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.1. </span>Two Sixes in Five Rolls<a class="headerlink" href="#two-sixes-in-five-rolls" title="Permalink to this headline">#</a></h2>
 <p>We will figure out the pieces of the calculation in a particular example. After that, generalization will be straightforward.</p>
 <p>Suppose a die is rolled five times. What is the chance of getting two sixes?</p>
 <p>A natural way to approach the question is to say that we have five independent trials, each of which can be a success (six) or failure (not a six). We want the chance of two successes. As always, it is good to start by listing some of the ways the event can happen.</p>
@@ -824,7 +841,7 @@ P(\text{3 sixes in 5 rolls}) ~ = ~ \binom{5}{2} \big{(} \frac{1}{6} \big{)}^2 \b
 \]</div>
 </section>
 <section id="binomial-distribution">
-<h2><span class="section-number">3.5.2. </span>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.2. </span>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">#</a></h2>
 <p>To generalize this calculation, let’s recall the assumptions and define some notation.</p>
 <ul class="simple">
 <li><p>There are <span class="math notranslate nohighlight">\(n\)</span> trials, where <span class="math notranslate nohighlight">\(n\)</span> is a fixed number.</p></li>
@@ -843,7 +860,7 @@ P(X = k) ~ = ~ \binom{n}{k} p^k (1-p)^{n-k}, ~~~ 0 \le k \le n
 <p>The name of the distribution is usually shortened to the <em>binomial <span class="math notranslate nohighlight">\((n, p)\)</span> distribution</em>.</p>
 </section>
 <section id="features-of-the-distribution">
-<h2><span class="section-number">3.5.3. </span>Features of the Distribution<a class="headerlink" href="#features-of-the-distribution" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.3. </span>Features of the Distribution<a class="headerlink" href="#features-of-the-distribution" title="Permalink to this headline">#</a></h2>
 <p>The binomial distribution has many wonderful properties, as we will discover in this course. Here are some basic properties that you can think of as “sanity checks”.</p>
 <p><strong>1.</strong> In <span class="math notranslate nohighlight">\(n\)</span> trials, the smallest possible number of successes is 0 and the largest possible number is <span class="math notranslate nohighlight">\(n\)</span>. That is why the range of possible values <span class="math notranslate nohighlight">\(k\)</span> is <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.</p>
 <p><strong>2.</strong> For <span class="math notranslate nohighlight">\(k = 0\)</span>, the formula says</p>
@@ -856,7 +873,7 @@ P(X = 0) ~ = ~ \binom{n}{0} p^0 (1-p)^n ~ = ~ 1 \cdot 1 \cdot (1-p)^n ~ = ~ (1-p
 <p><strong>3.</strong> The formula does result in a distribution: the terms add up to 1. That is because they are all the terms in the binomial expansion of <span class="math notranslate nohighlight">\((p + (1-p))^n\)</span> and <span class="math notranslate nohighlight">\(p + (1-p) = 1\)</span>.</p>
 </section>
 <section id="calculation">
-<h2><span class="section-number">3.5.4. </span>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.4. </span>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline">#</a></h2>
 <p>Calculating binomial probabilities just involves recalling the calculation of <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> and plugging in the rest of the factors correctly. Here are some examples.</p>
 <p>We started this section with the chance of getting two sixes in five rolls of a die.</p>
 <div class="math notranslate nohighlight">
@@ -871,7 +888,7 @@ P(\text{1 head in 3 tosses}) ~ = ~ \binom{3}{1} \big{(} \frac{1}{2} \big{)}^1 \b
 <p>The factor <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> can be large for even moderate values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span>. For example, <span class="math notranslate nohighlight">\(\binom{20}{10} = 184756\)</span> and is not pleasant to calculate by hand. Fortunately, we have Python!</p>
 </section>
 <section id="binomial-probabilities-in-python">
-<h2><span class="section-number">3.5.5. </span>Binomial Probabilities in Python<a class="headerlink" href="#binomial-probabilities-in-python" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.5. </span>Binomial Probabilities in Python<a class="headerlink" href="#binomial-probabilities-in-python" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SciPy</span></code> is a compendium of Python software that is enormously useful in data science. In particular, its <code class="docutils literal notranslate"><span class="pre">stats</span></code> module contains numerous functions and methods used by data scientists. We will import the module in the cell below, but in future sections it will always have been imported before the start of the section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,7 +963,7 @@ P(\text{1 head in 3 tosses}) ~ = ~ \binom{3}{1} \big{(} \frac{1}{2} \big{)}^1 \b
 <p>It can be shown that all binomial histograms either look like this one in the sense that the probabilities rise and then fall; or the probabilities only rise; or they only fall. But they can’t bob up and down repeatedly like waves.</p>
 </section>
 <section id="college-graduates-in-a-random-sample">
-<h2><span class="section-number">3.5.6. </span>College Graduates in a Random Sample<a class="headerlink" href="#college-graduates-in-a-random-sample" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3.6. </span>College Graduates in a Random Sample<a class="headerlink" href="#college-graduates-in-a-random-sample" title="Permalink to this headline">#</a></h2>
 <p>Suppose you take a sample of 100 people at random with replacement from a population in which 20% of the people are college graduates. What is the chance that you get more than 10 college graduates in your sample?</p>
 <p>The sample is being drawn with replacement. So the draws are <span class="math notranslate nohighlight">\(n = 100\)</span> independent trials, each of which results in a success (college graduate) with chance <span class="math notranslate nohighlight">\(p = 0.2\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be the number of college graduates in the sample. Then <span class="math notranslate nohighlight">\(X\)</span> has the binomial <span class="math notranslate nohighlight">\((100, 0.2)\)</span> distribution.</p>
@@ -1004,13 +1021,13 @@ P(X &gt; 10) ~ = ~ \sum_{k=11}^{100} \binom{100}{k} 0.2^k 0.8^{100-k}
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.4. </span>Random Variables</p>
+            <p class="prev-next-title"><span class="section-number">3.2. </span>Random Variables</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04_The_Hypergeometric_Distribution.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>The Hypergeometric Distribution</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>The Hypergeometric Distribution</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

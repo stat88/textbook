@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -759,7 +776,7 @@ title="Print to PDF"
 <p>For a random pair <span class="math notranslate nohighlight">\((X, Y)\)</span>, the correlation <span class="math notranslate nohighlight">\(r(X, Y)\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
 \[
-r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{(}\frac{Y-\mu_Y}{\sigma_Y}\big{)} \Big{)} ~ = ~ E(X^*Y^*)
+r(X, Y) ~ = ~ E\Bigg( \left(\frac{X-\mu_X}{\sigma_X}\right)\left(\frac{Y-\mu_Y}{\sigma_Y}\right) \Bigg) ~ = ~ E(X^*Y^*)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(X^*\)</span> and <span class="math notranslate nohighlight">\(Y^*\)</span> are respectively <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measured in standard units.</p>
 <p>Thus by definition, correlation is a pure number and has no units.</p>
@@ -770,15 +787,15 @@ r(X, Y) ~ = ~ E\Big{(} \big{(}\frac{X-\mu_X}{\sigma_X}\big{)}\big{(}\frac{Y-\mu_
 <p>As a preliminary, recall that</p>
 <div class="math notranslate nohighlight">
 \[
-E(X^*) = 0, ~~~ Var(X^*) = 1 = E({X^*}^2)
+E(X^*) = 0, ~~~ Var(X^*) = 1 = E\left({X^*}^2\right)
 \]</div>
-<p>So also <span class="math notranslate nohighlight">\(E(Y^*) = 0\)</span> and <span class="math notranslate nohighlight">\(E({Y^*}^2) = 1\)</span>.</p>
+<p>So also <span class="math notranslate nohighlight">\(E(Y^*) = 0\)</span> and <span class="math notranslate nohighlight">\(E\left({Y^*}^2\right) = 1\)</span>.</p>
 <p>We know the expected squares, and what we need is a bound on the expected product <span class="math notranslate nohighlight">\(E(X^*Y^*)\)</span>. A result that connects the squares and the product of two numbers is <span class="math notranslate nohighlight">\((a+b)^2 = a^2 + 2ab + b^2\)</span>.</p>
-<p>So let’s find <span class="math notranslate nohighlight">\(E\big{(}(X^* + Y^*)^2\big{)}\)</span> and see what that gives us.</p>
+<p>So let’s find <span class="math notranslate nohighlight">\(E\left((X^* + Y^*)^2\right)\)</span> and see what that gives us.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-E\big{(}(X^* + Y^*)^2\big{)} ~ &amp;= ~ E({X^*}^2) + 2E(X^*Y^*) + E({Y^*}^2) \\
+E\left((X^* + Y^*)^2\right) ~ &amp;= ~ E\left({X^*}^2\right) + 2E(X^*Y^*) + E\left({Y^*}^2\right) \\
 &amp;= ~ 2 + 2E(X^*Y^*)
 \end{align*}
 \end{split}\]</div>

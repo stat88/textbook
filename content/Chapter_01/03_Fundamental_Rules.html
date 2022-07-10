@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -794,13 +811,13 @@ title="Print to PDF"
 <p>Next, we have to think about how events might combine with each other, and how their probabilities should be combined.</p>
 <p>One way in which we can combine two events is to look at their <em>union</em>. That’s the event that at least one of the two events occurs. An example of such a union is “the teen used Facebook or Twitter”.</p>
 <p>In the Venn diagram below, the individual circles represent the event <span class="math notranslate nohighlight">\(A\)</span> and the event <span class="math notranslate nohighlight">\(B\)</span>. The blue region represents their union. That’s the event that at least one of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> occurs.</p>
-<p><img alt="union" src="images/union_AB.png" /></p>
+<p><img alt="union" src="../../_images/union_AB.png" /></p>
 <p>It’s a great idea to think of probability as a <em>measure</em> like length, area, or volume. Indeed, advanced classes in probability are based on an area of mathematics called “measure theory”. Area is the natural measure when we use Venn diagrams: think of <span class="math notranslate nohighlight">\(P(A)\)</span> as the area of the circle <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>As we have seen, the chance that <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> occurs is <span class="math notranslate nohighlight">\(P(A \cup B)\)</span> and it depends on the extent of the overlap between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>. The main axiom of probability sets out a simple rule in the case of no overlap.</p>
 <p>As you know from set theory, sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> that have no elements in common are called disjoint. In the language of probability, events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> that have no outcomes in common are called <em>mutually exclusive</em>.</p>
 <p>The intersection of two events is the set of outcomes that the two events have in common. Saying that events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive is the same as saying that their intersection is empty: <span class="math notranslate nohighlight">\(A \cap B = \phi\)</span>.</p>
 <p>The axiom says that if events are mutually exclusive then the chance of their union is the sum of their chances. As we observed in an earlier section, this is apparent from the Venn diagram.</p>
-<p><img alt="mutually exclusive union" src="images/mut_excl_AB.png" /></p>
+<p><img alt="mutually exclusive union" src="../../_images/mut_excl_AB.png" /></p>
 </section>
 <section id="the-axioms">
 <h2><span class="section-number">1.3.3. </span>The Axioms<a class="headerlink" href="#the-axioms" title="Permalink to this headline">#</a></h2>
@@ -824,7 +841,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><strong>Difference Rule:</strong> If the event <span class="math notranslate nohighlight">\(B\)</span> implies the event <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(B \subseteq A\)</span>. The <em>set difference</em> <span class="math notranslate nohighlight">\(A \backslash B\)</span> is the set of all outcomes that are in <span class="math notranslate nohighlight">\(A\)</span> and not in <span class="math notranslate nohighlight">\(B\)</span>. This is the blue region in the Venn diagram below.</p></li>
 </ul>
-<p><img alt="set difference" src="images/set_difference.png" /></p>
+<p><img alt="set difference" src="../../_images/set_difference.png" /></p>
 <p>The difference rule says that if <span class="math notranslate nohighlight">\(B \subseteq A\)</span> then <span class="math notranslate nohighlight">\(P(A \backslash B) = P(A) - P(B)\)</span>.</p>
 <p>We used the difference rule when we found the chance that a randomly sampled teen used Facebook but used some other platform more often.</p>
 </section>

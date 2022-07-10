@@ -108,7 +108,24 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://stat88.org">
+   Course Home
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
    1. The Basics
@@ -195,32 +212,32 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.3. Success and Failure
+     3.1. Success and Failure
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.4. Random Variables
+     3.2. Random Variables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.5. The Binomial Distribution
+     3.3. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.6. The Hypergeometric Distribution
+     3.4. The Hypergeometric Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.7. Examples
+     3.5. Examples
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.8. Exercises
+     3.6. Exercises
     </a>
    </li>
   </ul>
@@ -237,27 +254,27 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.2. Cumulative Distribution Function (CDF)
+     4.1. Cumulative Distribution Function (CDF)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.3. Waiting Times
+     4.2. Waiting Times
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.4. Exponential Approximations
+     4.3. Exponential Approximations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.5. The Poisson Distribution
+     4.4. The Poisson Distribution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.6. Exercises
+     4.5. Exercises
     </a>
    </li>
   </ul>
@@ -331,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality##
+     6.3. Markov’s Inequality
     </a>
    </li>
    <li class="toctree-l2">
@@ -742,91 +759,6 @@ title="Print to PDF"
 <p>The data are from a study on the treatment of Hodgkin’s disease, a type of cancer that can affect young people. The good news is that treatments for this cancer have <a class="reference external" href="https://en.wikipedia.org/wiki/Hodgkin_lymphoma#Prognosis">high success rates</a>. The bad news is that the treatments can be rather strong combinations of chemotherapy and radiation, and thus have serious side effects. A goal of the study was to identify combinations of treatments with reduced side effects.</p>
 <p>The table <code class="docutils literal notranslate"><span class="pre">hodgkins</span></code> contains data on a random sample of patients. Each row corresponds to a patient. The columns contain the patient’s height in centimeters, the amount of radiation, the amount of medication used in chemotherapy, and measurements on the health of the patient’s lungs.</p>
 <div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># NO CODE</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">hodgkins</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;../../../data/hodgkins.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">diffs</span> <span class="o">=</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">hodgkins</span> <span class="o">=</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="s1">&#39;difference&#39;</span><span class="p">,</span> <span class="n">diffs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/datascience/tables.py:183,</span> in <span class="ni">Table.read_table</span><span class="nt">(cls, filepath_or_buffer, *args, **vargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>     <span class="k">pass</span>
-<span class="ne">--&gt; </span><span class="mi">183</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">vargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:680,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">680</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:575,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">575</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:933,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">932</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">933</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:1217,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1213</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;rb&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1214</span> <span class="c1"># error: No overload variant of &quot;get_handle&quot; matches argument types</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="c1"># &quot;Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="c1"># , &quot;str&quot;, &quot;bool&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1217</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1218</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1226</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/.local/lib/python3.8/site-packages/pandas/io/common.py:789,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">789</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/hodgkins.csv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,7 +880,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>164</td>
       <td>679</td>
       <td>180</td>
@@ -957,7 +889,7 @@ title="Print to PDF"
       <td>-72.80</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>168</td>
       <td>311</td>
       <td>180</td>
@@ -966,7 +898,7 @@ title="Print to PDF"
       <td>-30.62</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>173</td>
       <td>388</td>
       <td>239</td>
@@ -975,7 +907,7 @@ title="Print to PDF"
       <td>4.29</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>157</td>
       <td>370</td>
       <td>168</td>
@@ -984,7 +916,7 @@ title="Print to PDF"
       <td>-4.13</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>160</td>
       <td>468</td>
       <td>151</td>
@@ -993,7 +925,7 @@ title="Print to PDF"
       <td>11.32</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>170</td>
       <td>341</td>
       <td>96</td>
@@ -1002,7 +934,7 @@ title="Print to PDF"
       <td>-69.54</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>163</td>
       <td>453</td>
       <td>134</td>
@@ -1011,7 +943,7 @@ title="Print to PDF"
       <td>-60.64</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>175</td>
       <td>529</td>
       <td>264</td>
@@ -1020,7 +952,7 @@ title="Print to PDF"
       <td>-30.97</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>185</td>
       <td>392</td>
       <td>240</td>
@@ -1029,7 +961,7 @@ title="Print to PDF"
       <td>-42.85</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>178</td>
       <td>479</td>
       <td>216</td>
@@ -1038,7 +970,7 @@ title="Print to PDF"
       <td>-18.81</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>179</td>
       <td>376</td>
       <td>160</td>
@@ -1047,7 +979,7 @@ title="Print to PDF"
       <td>-15.82</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>181</td>
       <td>539</td>
       <td>196</td>
@@ -1056,7 +988,7 @@ title="Print to PDF"
       <td>-38.97</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>173</td>
       <td>217</td>
       <td>204</td>
@@ -1065,7 +997,7 @@ title="Print to PDF"
       <td>-21.21</td>
     </tr>
     <tr>
-      <td>13</td>
+      <th>13</th>
       <td>166</td>
       <td>456</td>
       <td>192</td>
@@ -1074,7 +1006,7 @@ title="Print to PDF"
       <td>-13.63</td>
     </tr>
     <tr>
-      <td>14</td>
+      <th>14</th>
       <td>170</td>
       <td>252</td>
       <td>150</td>
@@ -1083,7 +1015,7 @@ title="Print to PDF"
       <td>-42.78</td>
     </tr>
     <tr>
-      <td>15</td>
+      <th>15</th>
       <td>165</td>
       <td>622</td>
       <td>162</td>
@@ -1092,7 +1024,7 @@ title="Print to PDF"
       <td>-28.06</td>
     </tr>
     <tr>
-      <td>16</td>
+      <th>16</th>
       <td>173</td>
       <td>305</td>
       <td>213</td>
@@ -1101,7 +1033,7 @@ title="Print to PDF"
       <td>-23.43</td>
     </tr>
     <tr>
-      <td>17</td>
+      <th>17</th>
       <td>174</td>
       <td>566</td>
       <td>198</td>
@@ -1110,7 +1042,7 @@ title="Print to PDF"
       <td>-1.89</td>
     </tr>
     <tr>
-      <td>18</td>
+      <th>18</th>
       <td>173</td>
       <td>322</td>
       <td>119</td>
@@ -1119,7 +1051,7 @@ title="Print to PDF"
       <td>-43.04</td>
     </tr>
     <tr>
-      <td>19</td>
+      <th>19</th>
       <td>173</td>
       <td>270</td>
       <td>160</td>
@@ -1128,7 +1060,7 @@ title="Print to PDF"
       <td>-33.90</td>
     </tr>
     <tr>
-      <td>20</td>
+      <th>20</th>
       <td>183</td>
       <td>259</td>
       <td>241</td>
@@ -1137,7 +1069,7 @@ title="Print to PDF"
       <td>-27.84</td>
     </tr>
     <tr>
-      <td>21</td>
+      <th>21</th>
       <td>188</td>
       <td>238</td>
       <td>252</td>
@@ -1186,7 +1118,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td>height</td>
+      <th>height</th>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -1195,7 +1127,7 @@ title="Print to PDF"
       <td>-0.043394</td>
     </tr>
     <tr>
-      <td>rad</td>
+      <th>rad</th>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -1204,7 +1136,7 @@ title="Print to PDF"
       <td>-0.073453</td>
     </tr>
     <tr>
-      <td>chemo</td>
+      <th>chemo</th>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -1213,7 +1145,7 @@ title="Print to PDF"
       <td>0.346310</td>
     </tr>
     <tr>
-      <td>base</td>
+      <th>base</th>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -1222,7 +1154,7 @@ title="Print to PDF"
       <td>-0.630183</td>
     </tr>
     <tr>
-      <td>month15</td>
+      <th>month15</th>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -1231,7 +1163,7 @@ title="Print to PDF"
       <td>0.288794</td>
     </tr>
     <tr>
-      <td>difference</td>
+      <th>difference</th>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -1279,10 +1211,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.17</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
+  <th>Date:</th>             <td>Sun, 10 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:34:07</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
+  <th>Time:</th>                 <td>04:00:49</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.9</td>
@@ -1321,7 +1253,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 3.069</td> <th>  Cond. No.          </th> <td>    530.</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>There are three blocks of output. We will focus only on the the middle block.</p>
 <ul class="simple">
@@ -1345,7 +1277,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0008339581409629714
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00083395814096297143
 </pre></div>
 </div>
 </div>
@@ -1388,7 +1320,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.8575945170898753, -0.23180548291012454)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.85759451708987533, -0.23180548291012454)
 </pre></div>
 </div>
 </div>
@@ -1431,7 +1363,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td>height</td>
+      <th>height</th>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -1440,7 +1372,7 @@ title="Print to PDF"
       <td>-0.043394</td>
     </tr>
     <tr>
-      <td>rad</td>
+      <th>rad</th>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -1449,7 +1381,7 @@ title="Print to PDF"
       <td>-0.073453</td>
     </tr>
     <tr>
-      <td>chemo</td>
+      <th>chemo</th>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -1458,7 +1390,7 @@ title="Print to PDF"
       <td>0.346310</td>
     </tr>
     <tr>
-      <td>base</td>
+      <th>base</th>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -1467,7 +1399,7 @@ title="Print to PDF"
       <td>-0.630183</td>
     </tr>
     <tr>
-      <td>month15</td>
+      <th>month15</th>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -1476,7 +1408,7 @@ title="Print to PDF"
       <td>0.288794</td>
     </tr>
     <tr>
-      <td>difference</td>
+      <th>difference</th>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -1517,10 +1449,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   11.44</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
+  <th>Date:</th>             <td>Sun, 10 Jul 2022</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:34:31</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
+  <th>Time:</th>                 <td>04:00:49</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   185.6</td>
@@ -1562,7 +1494,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 2.987</td> <th>  Cond. No.          </th> <td>1.36e+03</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>Ignore the scary warning above. There isn’t strong multicollinearity (predictor variables being highly correlated with each other) nor other serious issues.</p>
 <p>Just focus on the middle block of the output. It’s just like the middle block of the simple regression output, with one more line corresponding to <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
@@ -1577,7 +1509,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.03073017186497201, 0.348869828135028)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.030730171864972011, 0.34886982813502798)
 </pre></div>
 </div>
 </div>
@@ -1610,10 +1542,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   5.185</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
+  <th>Date:</th>             <td>Sun, 10 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:50:02</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
+  <th>Time:</th>                 <td>04:00:49</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.5</td>
@@ -1661,7 +1593,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 2.851</td> <th>  Cond. No.          </th> <td>1.46e+04</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>This is not a good idea. We end up with a far more complicated model for no appreciable gain in <code class="docutils literal notranslate"><span class="pre">R-squared</span></code>. The “adjusted <span class="math notranslate nohighlight">\(R^2\)</span>” penalizes us for using more predictor variables: notice that the value of <code class="docutils literal notranslate"><span class="pre">Adj.</span> <span class="pre">R-squared</span></code> is smaller for the regression with all the predictors than for the regression with just <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
 <p>Curious about how to select predictors, or about what makes a good regression? Then take some more statistics classes! This one is complete.</p>
