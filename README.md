@@ -1,6 +1,6 @@
 # Stat 88 Textbook
 
-This textbook was built with [Jupyter Books](https://jupyterbook.org/en/stable/intro.html). The textbook was originally built by Francie McQuarrie. Shahzar updated the textbook to the new Jupyter Books framework.
+This textbook was built with [Jupyter Books](https://jupyterbook.org/en/stable/intro.html). The textbook was originally built by Francie McQuarrie using Jupyter Book. Shahzar reconfigured the textbook for the updated Jupyter Books.
 
 ## Structure
 
