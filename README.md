@@ -37,7 +37,7 @@ These steps detail the process you should go through every time you update the t
 
 ## Notes
 ### Troubleshooting
-The (Jupyter Book)(https://jupyterbook.org/en/stable/intro.html) website has lots of information about Jupyter Book. Some useful pages are:
+The [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) website has lots of information about Jupyter Book. Some useful pages are:
 - [Anatomy of a Jupyter Book](https://jupyterbook.org/en/stable/start/create.html#anatomy-of-a-jupyter-book)
 - [Table of Contents](https://jupyterbook.org/en/stable/structure/configure.html)
 - [Configuration Reference](https://jupyterbook.org/en/stable/customize/config.html)
@@ -78,6 +78,6 @@ For ease of tracking, the sections that load in a dataset from `data` are enumer
 
 ### Issues
 The following is a list of somewhat specific cases of weird behavior throughout the textbook.
-1. The subheaders **Arranging in a Line** and **Choosing Subsets** in `Chapter_03/00_Random_Counts.ipynb` are done using HTML (i.e. `<h3> ... </h3>`) instead of Markdown (`### ... `), since using Markdown makes Jupyter Book label them as Section 13.1 and 13.2 in the textbook (which results in the *actual* Section 13.1 being displayed as Section 13.3 in the sidebar).
+1. The subheaders **Arranging in a Line** and **Choosing Subsets** in `Chapter_03/00_Random_Counts.ipynb` are done using HTML (`<h3> ... </h3>`) instead of Markdown (`### ... ###`), since using Markdown makes Jupyter Book label them as Section 13.1 and 13.2 in the textbook (which results in the *actual* Section 13.1 being displayed as Section 13.3 in the sidebar).
 2. The subheader **IID Trials** in `Chapter_04/00_Infinitely_Many_Values.ipynb` are done using HTML for the same reasons as the files in the above bullet point.
 3. Section 11.1's visual of four different bias/variance cases is done in HTML instead of Markdown so that the images can be displayed in a table format. This is why the `html_image` option is enabled under `myst_enable_extensions` in `_config.yml`. More importantly, when building the textbook, the images `content/images/bias_lvar.png`, `content/images/lbias_lvar.png`, `content/images/ubias_hvar.png`, and `content/images/ubias_lvar.png` **are not** automatically moved to the `_build/html/_images` folder. If those images are deleted in that folder and the textbook is rebuilt, **they must manually be copied from `content/images/` to `_build/html/_images`**.
