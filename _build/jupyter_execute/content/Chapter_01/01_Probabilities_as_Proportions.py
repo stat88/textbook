@@ -46,7 +46,7 @@ import numpy as np
 # But for now let's assume that the die is fair. That is, we will assume that all six faces are equally likely to appear on the roll. In this class, the word "die" used without any qualification will mean "fair six-sided die". 
 
 # ### Proportions ###
-# Gamblers through the ages would agree with your calculation of "2 out of 6" for the chance that the die shows an even number, assuming that the die is fair.
+# Gamblers through the ages would agree with your calculation of "2 out of 6" for the chance that the die shows a multiple of 3, assuming that the die is fair.
 # 
 # In general, *if an experiment has a finite number of equally likely outcomes,* then the probability of an event is defined as *the proportion of outcomes that are included in the event*.
 # 
