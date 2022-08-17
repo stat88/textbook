@@ -1,4 +1,4 @@
-# STAT 88
+# DATA 88S
 
 ## Theory Meets Data
 -------------------------------
