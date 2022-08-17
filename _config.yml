@@ -6,7 +6,7 @@
 title: Stat 88 Textbook
 author: Ani Adhikari
 email: adhikari@berkeley.edu
-logo: content/images/stat88_logo.png
+logo: content/images/data88s_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
