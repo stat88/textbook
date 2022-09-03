@@ -96,7 +96,7 @@ matplotlib.style.use('fivethirtyeight')
 # 
 # For the generic value of $X$, you don't have to use $x$ as the notation. You can use any letter you like, but it should be lower case as upper case is used for events and random variables.
 
-# ### Distribution (pmf) ###
+# ### Distribution ###
 # The *probability distribution* of a random variable, or distribution for short, is the set of all possible values of the random variables along with all of the corresponding probabilities.
 # 
 # When random variables have a finite number of possible values, as in the case of our example $X$, the distribution can be displayed in a table. The probabilities can also be written in a formula, as we will see in the next section.

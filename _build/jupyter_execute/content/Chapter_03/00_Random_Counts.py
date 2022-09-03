@@ -8,6 +8,7 @@
 # In this chapter we will start out with random counts that seem unlikely. We will then develop some general terminology and notation for dealing with random quantities that have numerical values. Our main examples will be random counts when sampling with and without replacement.
 
 # <h3> Arranging in a Line </h3>
+# 
 # It will help to review some of the math involved in counting. Let $n$ be a positive integer and suppose you have a set of $n$ elements. 
 # 
 # Let $k$ be a fixed integer such that $1 \le k \le n$. 
@@ -17,6 +18,7 @@
 # If $k = n$, this is the same as arranging all $n$ elements in a line. Plug $k = n$ into the expression above to see that the number of ways of arranging $n$ elements in a line is $n!$. These are called *permutations* of the $n$ elements.
 
 # <h3>Choosing Subsets </h3>
+# 
 # Suppose now that you want to select $k$ elements from among the $n$ but you are not interested in the order in which they appear. This happens for example when you deal a hand of cards: you hand is the *subset* or group of cards that you got. Subsets are not ordered.
 # 
 # The number of different subset of $k$ elements that you can create out of $n$ elements is the number $\binom{n}{k}$, read as "$n$ choose $k$".
