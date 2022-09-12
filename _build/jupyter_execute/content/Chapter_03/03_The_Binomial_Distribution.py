@@ -58,7 +58,7 @@ matplotlib.style.use('fivethirtyeight')
 # By the addition rule, the total chance is
 # 
 # $$
-# P(\text{3 sixes in 5 rolls}) ~ = ~ \binom{5}{2} \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3
+# P(\text{2 sixes in 5 rolls}) ~ = ~ \binom{5}{2} \big{(} \frac{1}{6} \big{)}^2 \big{(} \frac{5}{6} \big{)}^3
 # $$
 
 # ### Binomial Distribution ###
@@ -71,7 +71,7 @@ matplotlib.style.use('fivethirtyeight')
 # 
 # In our example above, there are $n = 5$ independent trials, each of which is a success (six) with chance $p = 1/6$.
 # 
-# Let $X$ be the number of successes. Suppose we want to find $P(X = k)$. In our example above, $k = 3$. Then
+# Let $X$ be the number of successes. Suppose we want to find $P(X = k)$. In our example above, $k = 2$. Then
 # 
 # $$
 # P(X = k) ~ = ~ \binom{n}{k} p^k (1-p)^{n-k}, ~~~ 0 \le k \le n
