@@ -903,7 +903,7 @@ P(\text{at most 3 sixes in 20 rolls}) ~ = ~ \sum_{k=0}^3 \binom{20}{k}(1/6)^k(5/
 &amp;= ~ 1 - \sum_{k=0}^{5} \frac{\binom{12}{k}\binom{40}{13-k}}{\binom{52}{13}}
 \end{align*}
 \end{split}\]</div>
-<p>Now you can get the numerical value by using <code class="docutils literal notranslate"><span class="pre">stats.hypergeom.pmf</span></code>:</p>
+<p>Now you can get the numerical value by using <code class="docutils literal notranslate"><span class="pre">stats.hypergeom.cdf</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
