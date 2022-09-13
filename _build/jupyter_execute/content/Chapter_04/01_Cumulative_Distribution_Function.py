@@ -159,16 +159,10 @@ stats.binom.cdf(3, 20, 1/6)
 # \end{align*}
 # $$
 # 
-# Now you can get the numerical value by using `stats.hypergeom.pmf`:
+# Now you can get the numerical value by using `stats.hypergeom.cdf`:
 
 # In[6]:
 
 
 1 - stats.hypergeom.cdf(5, 52, 12, 13)
-
-
-# In[ ]:
-
-
-
 
