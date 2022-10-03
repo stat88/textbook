@@ -60,7 +60,7 @@ Plots('V = D_1 + D_1', dist_twice_D1, 'W = D_1 + D_2', dist_S)
 
 # ### Adding Independent Random Variables ###
 # 
-# It [can be shown](http://prob140.org/textbook/Chapter_13/00_Variance_Via_Covariance.html) that 
+# It [can be shown](http://prob140.org/textbook/content/Chapter_13/00_Variance_Via_Covariance.html) that 
 # 
 # $$
 # Var(X + Y) ~ = ~ Var(X) + Var(Y) ~~~ \text{ if } X \text{ and } Y \text{ are independent}
