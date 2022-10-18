@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9.4. Confidence Intervals: Interpretation &#8212; Data 88S Textbook</title>
+    <title>9.2. Confidence Intervals: Interpretation &#8212; Data 88S Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.5. Exercises" href="05_Exercises.html" />
-    <link rel="prev" title="9.3. Confidence Intervals: Method" href="03_Confidence_Intervals_Method.html" />
+    <link rel="next" title="9.3. Testing Hypotheses" href="03_Testing_Hypotheses.html" />
+    <link rel="prev" title="9.1. Confidence Intervals: Method" href="01_Confidence_Intervals_Method.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -443,23 +443,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Testing_Hypotheses.html">
-     9.1. Testing Hypotheses
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_AB_Testing_Fishers_Exact_Test.html">
-     9.2. A/B Testing: Fisher’s Exact Test
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_Confidence_Intervals_Method.html">
-     9.3. Confidence Intervals: Method
+    <a class="reference internal" href="01_Confidence_Intervals_Method.html">
+     9.1. Confidence Intervals: Method
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     9.4. Confidence Intervals: Interpretation
+     9.2. Confidence Intervals: Interpretation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Testing_Hypotheses.html">
+     9.3. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_AB_Testing_Fishers_Exact_Test.html">
+     9.4. A/B Testing: Fisher’s Exact Test
     </a>
    </li>
    <li class="toctree-l2">
@@ -653,7 +653,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/Chapter_09/04_Confidence_Intervals_Interpretation.ipynb"
+        <a href="../../_sources/content/Chapter_09/02_Confidence_Intervals_Interpretation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -714,22 +714,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chance-and-confidence">
-   9.4.1. Chance and Confidence
+   9.2.1. Chance and Confidence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-with-the-bootstrap">
-   9.4.2. Comparison with the Bootstrap
+   9.2.2. Comparison with the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-the-sds-measure">
-   9.4.3. What the SDs Measure
+   9.2.3. What the SDs Measure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-the-confidence-interval-measures">
-   9.4.4. What the Confidence Interval Measures
+   9.2.4. What the Confidence Interval Measures
   </a>
  </li>
 </ul>
@@ -753,22 +753,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chance-and-confidence">
-   9.4.1. Chance and Confidence
+   9.2.1. Chance and Confidence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-with-the-bootstrap">
-   9.4.2. Comparison with the Bootstrap
+   9.2.2. Comparison with the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-the-sds-measure">
-   9.4.3. What the SDs Measure
+   9.2.3. What the SDs Measure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-the-confidence-interval-measures">
-   9.4.4. What the Confidence Interval Measures
+   9.2.4. What the Confidence Interval Measures
   </a>
  </li>
 </ul>
@@ -784,10 +784,10 @@ title="Print to PDF"
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="confidence-intervals-interpretation">
-<h1><span class="section-number">9.4. </span>Confidence Intervals: Interpretation<a class="headerlink" href="#confidence-intervals-interpretation" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9.2. </span>Confidence Intervals: Interpretation<a class="headerlink" href="#confidence-intervals-interpretation" title="Permalink to this headline">#</a></h1>
 <p>Because of the Central Limit Theorem, confidence intervals for population means are easy to compute if the sample is large. This section is a summary of how to interpret the intervals, and how not to.</p>
 <section id="chance-and-confidence">
-<h2><span class="section-number">9.4.1. </span>Chance and Confidence<a class="headerlink" href="#chance-and-confidence" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2.1. </span>Chance and Confidence<a class="headerlink" href="#chance-and-confidence" title="Permalink to this headline">#</a></h2>
 <p>As before, our sample consists of observations on <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> which are i.i.d. with mean <span class="math notranslate nohighlight">\(\mu\)</span> and SD <span class="math notranslate nohighlight">\(\sigma\)</span>. Let <span class="math notranslate nohighlight">\(\bar{X}\)</span> be the sample mean. Then for the random interval <span class="math notranslate nohighlight">\(\bar{X} \pm 2\frac{\sigma}{\sqrt{n}}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -804,7 +804,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 <p>The word <em>confidence</em> is used to distinguish the two situations. We say we have about 95% confidence in the observed interval 17.94 to 20.06, because the random process that generated it has the property <span class="math notranslate nohighlight">\(P(\mu \in \text{ random interval }) ~ \approx 0.95\)</span>.</p>
 </section>
 <section id="comparison-with-the-bootstrap">
-<h2><span class="section-number">9.4.2. </span>Comparison with the Bootstrap<a class="headerlink" href="#comparison-with-the-bootstrap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2.2. </span>Comparison with the Bootstrap<a class="headerlink" href="#comparison-with-the-bootstrap" title="Permalink to this headline">#</a></h2>
 <p>The interpretation of the confidence interval is the same as in Data 8, though we are now able to express it in the more succinct and precise language of probability theory.</p>
 <p>It’s worth checking that the numerical values that we get with our method based on the Central Limit Theorem are close to those we got using the bootstrap in Data 8.</p>
 <div class="cell tag_remove_input docutils container">
@@ -880,7 +880,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Confidence_Intervals_Interpretation_11_0.png" src="../../_images/04_Confidence_Intervals_Interpretation_11_0.png" />
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_11_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_11_0.png" />
 </div>
 </div>
 <p>The sample mean is about 27.23 years and the sample SD is about 5.8 years.</p>
@@ -948,7 +948,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Confidence_Intervals_Interpretation_21_0.png" src="../../_images/04_Confidence_Intervals_Interpretation_21_0.png" />
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_21_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_21_0.png" />
 </div>
 </div>
 <p>Finally, we found the “middle 95%” of the bootstrapped means. That was our empirical bootstrap 95% confidence interval for the population mean.</p>
@@ -961,7 +961,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.902896081771722, 27.551959114139695)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.8824531516184, 27.57069846678024)
 </pre></div>
 </div>
 </div>
@@ -969,11 +969,11 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 <p>This interval is pretty close to the interval <span class="math notranslate nohighlight">\((26.89, 27.57)\)</span> that we got using the Central Limit Theorem.</p>
 </section>
 <section id="what-the-sds-measure">
-<h2><span class="section-number">9.4.3. </span>What the SDs Measure<a class="headerlink" href="#what-the-sds-measure" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2.3. </span>What the SDs Measure<a class="headerlink" href="#what-the-sds-measure" title="Permalink to this headline">#</a></h2>
 <p>Here is the histogram of the sampled ages again for reference. The arrow on the horizontal axis is at the sample average 27.23.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Confidence_Intervals_Interpretation_26_0.png" src="../../_images/04_Confidence_Intervals_Interpretation_26_0.png" />
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_26_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_26_0.png" />
 </div>
 </div>
 <p>The <strong>SD of the sample</strong> is about 5.8 years. That’s the SD of the distribution displayed above. It measures roughly how far the values in the sample are from their mean which is at the arrow.</p>
@@ -990,12 +990,12 @@ SD(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{n}} ~ \approx ~ \frac{5.8}{\sqrt{1174}} ~ 
 <p>The SD of the sample mean measures the rough size of the distance between the two arrows. It’s tiny because the mean of a large sample is most likely pretty close to the mean of the population.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04_Confidence_Intervals_Interpretation_28_0.png" src="../../_images/04_Confidence_Intervals_Interpretation_28_0.png" />
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_28_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_28_0.png" />
 </div>
 </div>
 </section>
 <section id="what-the-confidence-interval-measures">
-<h2><span class="section-number">9.4.4. </span>What the Confidence Interval Measures<a class="headerlink" href="#what-the-confidence-interval-measures" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2.4. </span>What the Confidence Interval Measures<a class="headerlink" href="#what-the-confidence-interval-measures" title="Permalink to this headline">#</a></h2>
 <p>The confidence interval is an interval of estimates of the parameter. In our examples, the confidence interval measures the population mean. It does nothing else.</p>
 <p>For example, we have about 95% confidence that the mean maternal age in the population is in the interval 26.89 years to 27.57 years.</p>
 <p>It is an unfortunate reality that once numbers have been computed, there are people who want to use them in ways that they shouldn’t be used. One common error is to conclude that about 95% of the mothers in the population are between 26.89 and 27.57 years old. But that’s just silly.</p>
@@ -1030,17 +1030,17 @@ SD(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{n}} ~ \approx ~ \frac{5.8}{\sqrt{1174}} ~ 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="03_Confidence_Intervals_Method.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_Confidence_Intervals_Method.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9.3. </span>Confidence Intervals: Method</p>
+            <p class="prev-next-title"><span class="section-number">9.1. </span>Confidence Intervals: Method</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="05_Exercises.html" title="next page">
+    <a class='right-next' id="next-link" href="03_Testing_Hypotheses.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.5. </span>Exercises</p>
+        <p class="prev-next-title"><span class="section-number">9.3. </span>Testing Hypotheses</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

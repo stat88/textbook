@@ -69,10 +69,10 @@ parts:
     - file: content/Chapter_08/05_Exercises
   - file: content/Chapter_09/00_Inference
     sections:
-    - file: content/Chapter_09/01_Testing_Hypotheses
-    - file: content/Chapter_09/02_AB_Testing_Fishers_Exact_Test
-    - file: content/Chapter_09/03_Confidence_Intervals_Method
-    - file: content/Chapter_09/04_Confidence_Intervals_Interpretation
+    - file: content/Chapter_09/01_Confidence_Intervals_Method
+    - file: content/Chapter_09/02_Confidence_Intervals_Interpretation
+    - file: content/Chapter_09/03_Testing_Hypotheses
+    - file: content/Chapter_09/04_AB_Testing_Fishers_Exact_Test
     - file: content/Chapter_09/05_Exercises
   - file: content/Chapter_10/00_Probability_Density
     sections:

@@ -92,7 +92,7 @@ plt.title('Standard Normal Curve');
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1.28)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(1.2, -0.025, '$z$')
 plt.xticks([])
@@ -111,7 +111,7 @@ plt.title('Gold Area: $\Phi(z)$');
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1.28, left_end = -0.5)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(1.2, -0.025, '$z_2$')
 plt.text(-0.7, -0.025, '$z_1$')
@@ -141,7 +141,7 @@ plt.title('Gold Area = $\Phi(z_2) - \Phi(z_1)$');
 stats.norm.cdf(1)
 
 
-# In[15]:
+# In[7]:
 
 
 # NO CODE
@@ -149,7 +149,7 @@ stats.norm.cdf(1)
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(0.9, -0.025, '$1$')
 plt.xticks([])
@@ -160,13 +160,13 @@ plt.title('Gold Area: $\Phi(1) \simeq 84\%$');
 
 # The area of the tail to the right of 1 is therefore about $16\%$, which by symmetry is the same as $\Phi(-1)$:
 
-# In[11]:
+# In[8]:
 
 
 stats.norm.cdf(-1)
 
 
-# In[14]:
+# In[9]:
 
 
 # NO CODE
@@ -174,7 +174,7 @@ stats.norm.cdf(-1)
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=-1)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(-1.3, -0.025, '$-1$')
 plt.xticks([])
@@ -185,13 +185,13 @@ plt.title('Gold Area: $\Phi(-1) \simeq 16\%$');
 
 # So the area under the standard normal curve between $-1$ and $1$ is about 68%:
 
-# In[16]:
+# In[10]:
 
 
 stats.norm.cdf(1) - stats.norm.cdf(-1)
 
 
-# In[17]:
+# In[11]:
 
 
 # NO CODE
@@ -199,7 +199,7 @@ stats.norm.cdf(1) - stats.norm.cdf(-1)
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1, left_end = -1)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(0.9, -0.025, '$1$')
 plt.text(-1.3, -0.025, '$-1$')
@@ -215,13 +215,13 @@ plt.title('Gold Area = $\Phi(1) - \Phi(-1) \simeq 68\%$');
 # \Phi(2) - \Phi(-2) ~ \approx ~ 95\%
 # $$
 
-# In[29]:
+# In[12]:
 
 
 stats.norm.cdf(2) - stats.norm.cdf(-2) 
 
 
-# In[30]:
+# In[13]:
 
 
 # NO CODE
@@ -229,7 +229,7 @@ stats.norm.cdf(2) - stats.norm.cdf(-2)
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=2, left_end = -2)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(1.9, -0.025, '$2$')
 plt.text(-2.3, -0.025, '$-2$')
@@ -249,7 +249,7 @@ plt.title('Gold Area = $\Phi(2) - \Phi(-2) \simeq 95\%$');
 # 
 # The point $z = 1$ is therefore called the *84th percentile* of the curve. If you think of the curve as a probability histogram, then about 84% of the probability lies below $z=1$.
 
-# In[31]:
+# In[14]:
 
 
 # NO CODE
@@ -257,7 +257,7 @@ plt.title('Gold Area = $\Phi(2) - \Phi(-2) \simeq 95\%$');
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(0.9, -0.025, '$1$')
 plt.xticks([])
@@ -268,7 +268,7 @@ plt.title('Gold Area: $\Phi(1) \simeq 84\%$');
 
 # The 90th percentile must be to the right of 1. But how far to the right?
 
-# In[36]:
+# In[15]:
 
 
 # NO CODE
@@ -276,7 +276,7 @@ plt.title('Gold Area: $\Phi(1) \simeq 84\%$');
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1.28)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(1.2, -0.025, '?')
 plt.xticks([])
@@ -297,13 +297,13 @@ plt.title('Gold Area: $\Phi(?) \simeq 90\%$');
 # 
 # In `SciPy`, the function $\Phi^{-1}$ is named `ppf` for "percent point function". The 90th percentile or "90 percent point" of the curve is about 1.28:
 
-# In[32]:
+# In[16]:
 
 
 stats.norm.ppf(0.9)
 
 
-# In[34]:
+# In[17]:
 
 
 # NO CODE
@@ -311,7 +311,7 @@ stats.norm.ppf(0.9)
 Plot_norm(x_limits=(-4, 4), mu=0, sigma=1, right_end=1.28)
 plt.ylim(-0.01, 0.45)
 plt.plot([-4, 4], [0, 0], color='k', lw=1)
-plt.yticks(np.arange(0, 0.401, 0.05), np.array(7*['']))
+plt.yticks(np.arange(0, 0.401, 0.05), np.array(9*['']))
 plt.text(0, -0.025, '$0$')
 plt.text(1, -0.025, '$1.28$')
 plt.xticks([])
