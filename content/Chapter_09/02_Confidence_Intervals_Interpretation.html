@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9.3. Confidence Intervals: Method &#8212; Data 88S Textbook</title>
+    <title>9.2. Confidence Intervals: Interpretation &#8212; Data 88S Textbook</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.4. Confidence Intervals: Interpretation" href="04_Confidence_Intervals_Interpretation.html" />
-    <link rel="prev" title="9.2. A/B Testing: Fisher’s Exact Test" href="02_AB_Testing_Fishers_Exact_Test.html" />
+    <link rel="next" title="9.3. Testing Hypotheses" href="03_Testing_Hypotheses.html" />
+    <link rel="prev" title="9.1. Confidence Intervals: Method" href="01_Confidence_Intervals_Method.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -443,23 +443,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_Testing_Hypotheses.html">
-     9.1. Testing Hypotheses
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_AB_Testing_Fishers_Exact_Test.html">
-     9.2. A/B Testing: Fisher’s Exact Test
+    <a class="reference internal" href="01_Confidence_Intervals_Method.html">
+     9.1. Confidence Intervals: Method
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     9.3. Confidence Intervals: Method
+     9.2. Confidence Intervals: Interpretation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_Confidence_Intervals_Interpretation.html">
-     9.4. Confidence Intervals: Interpretation
+    <a class="reference internal" href="03_Testing_Hypotheses.html">
+     9.3. Testing Hypotheses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_AB_Testing_Fishers_Exact_Test.html">
+     9.4. A/B Testing: Fisher’s Exact Test
     </a>
    </li>
    <li class="toctree-l2">
@@ -653,7 +653,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/Chapter_09/03_Confidence_Intervals_Method.ipynb"
+        <a href="../../_sources/content/Chapter_09/02_Confidence_Intervals_Interpretation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -713,23 +713,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#confidence-interval-for-a-population-mean">
-   9.3.1. Confidence Interval for a Population Mean
+  <a class="reference internal nav-link" href="#chance-and-confidence">
+   9.2.1. Chance and Confidence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mean-commute-distance">
-   9.3.2. Mean Commute Distance
+  <a class="reference internal nav-link" href="#comparison-with-the-bootstrap">
+   9.2.2. Comparison with the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proportion-of-undecided-voters">
-   9.3.3. Proportion of Undecided Voters
+  <a class="reference internal nav-link" href="#what-the-sds-measure">
+   9.2.3. What the SDs Measure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#confidence-level">
-   9.3.4. Confidence Level
+  <a class="reference internal nav-link" href="#what-the-confidence-interval-measures">
+   9.2.4. What the Confidence Interval Measures
   </a>
  </li>
 </ul>
@@ -741,7 +741,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Confidence Intervals: Method</h1>
+                <h1>Confidence Intervals: Interpretation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -752,23 +752,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#confidence-interval-for-a-population-mean">
-   9.3.1. Confidence Interval for a Population Mean
+  <a class="reference internal nav-link" href="#chance-and-confidence">
+   9.2.1. Chance and Confidence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mean-commute-distance">
-   9.3.2. Mean Commute Distance
+  <a class="reference internal nav-link" href="#comparison-with-the-bootstrap">
+   9.2.2. Comparison with the Bootstrap
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proportion-of-undecided-voters">
-   9.3.3. Proportion of Undecided Voters
+  <a class="reference internal nav-link" href="#what-the-sds-measure">
+   9.2.3. What the SDs Measure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#confidence-level">
-   9.3.4. Confidence Level
+  <a class="reference internal nav-link" href="#what-the-confidence-interval-measures">
+   9.2.4. What the Confidence Interval Measures
   </a>
  </li>
 </ul>
@@ -783,128 +783,223 @@ title="Print to PDF"
                 
   <div class="cell tag_remove_input docutils container">
 </div>
-<section id="confidence-intervals-method">
-<h1><span class="section-number">9.3. </span>Confidence Intervals: Method<a class="headerlink" href="#confidence-intervals-method" title="Permalink to this headline">#</a></h1>
-<p>A <em>confidence interval</em> is an interval of estimates of a fixed but unknown parameter, based on data in a random sample. In this section we will construct confidence intervals for an unknown population mean, based on a large i.i.d. sample drawn from the population.</p>
-<p>Proportions are means of zeros and ones. So, as a special case of our method, we will also be able to construct confidence intervals for unknown population proportions.</p>
-<p>First let’s recall from Data 8 why we use intervals to estimate an unknown number, instead of just providing one number as the estimate. Suppose that you are trying to estimate an unknown parameter <span class="math notranslate nohighlight">\(\mu\)</span>, and suppose that based on your random sample you think <span class="math notranslate nohighlight">\(\mu\)</span> is 4. Why not just say that your estimate is 4, and be done with it?</p>
-<p>It is because your estimate 4 is based on observations in a random sample, and you know that <em>the sample could have come out differently</em>. If the sample had come out differently, you might have come up with an estimate that was different from 4. Just saying that the estimate is 4 doesn’t take that into account.</p>
-<p>You have to give yourself some wiggle room to allow for the fact that different random samples would have led to different estimates of the parameter. So you should provide an interval of estimates instead of just one number.</p>
-<section id="confidence-interval-for-a-population-mean">
-<h2><span class="section-number">9.3.1. </span>Confidence Interval for a Population Mean<a class="headerlink" href="#confidence-interval-for-a-population-mean" title="Permalink to this headline">#</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be i.i.d. with mean <span class="math notranslate nohighlight">\(\mu\)</span>. We will call <span class="math notranslate nohighlight">\(\mu\)</span> the “underlying mean” or the “population mean”.</p>
-<p>Data scientists often don’t know the value of <span class="math notranslate nohighlight">\(\mu\)</span> and would like to estimate it. For example, if each <span class="math notranslate nohighlight">\(X_i\)</span> is the annual income of a randomly picked U.S. household then <span class="math notranslate nohighlight">\(\mu\)</span> is the average annual income in all U.S. households, which the data scientists might not know. It could also be that the model is more abstract and <span class="math notranslate nohighlight">\(\mu\)</span> is an abstract quantity whose exact value is unknowable. For example, if each <span class="math notranslate nohighlight">\(X_i\)</span> is a measurement of length and the object being measured has length <span class="math notranslate nohighlight">\(\mu\)</span>, we will never be able to know the value of <span class="math notranslate nohighlight">\(\mu\)</span> with infinite precision. All measuring processes, no matter how sophisticated, have some error.</p>
-<p>We do know, however, that the sample mean <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i\)</span> is an unbiased estimate of <span class="math notranslate nohighlight">\(\mu\)</span>. We also know that <span class="math notranslate nohighlight">\(SD(\bar{X}) = \frac{\sigma}{\sqrt{n}}\)</span> where <span class="math notranslate nohighlight">\(\sigma = SD(X_i)\)</span> for every <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(n\)</span> is large, the Central Limit Theorem tells us that the distribution of <span class="math notranslate nohighlight">\(\bar{X}\)</span> is roughly normal. Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>,</p>
+<section id="confidence-intervals-interpretation">
+<h1><span class="section-number">9.2. </span>Confidence Intervals: Interpretation<a class="headerlink" href="#confidence-intervals-interpretation" title="Permalink to this headline">#</a></h1>
+<p>Because of the Central Limit Theorem, confidence intervals for population means are easy to compute if the sample is large. This section is a summary of how to interpret the intervals, and how not to.</p>
+<section id="chance-and-confidence">
+<h2><span class="section-number">9.2.1. </span>Chance and Confidence<a class="headerlink" href="#chance-and-confidence" title="Permalink to this headline">#</a></h2>
+<p>As before, our sample consists of observations on <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> which are i.i.d. with mean <span class="math notranslate nohighlight">\(\mu\)</span> and SD <span class="math notranslate nohighlight">\(\sigma\)</span>. Let <span class="math notranslate nohighlight">\(\bar{X}\)</span> be the sample mean. Then for the random interval <span class="math notranslate nohighlight">\(\bar{X} \pm 2\frac{\sigma}{\sqrt{n}}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-P\left(\mu - 2\frac{\sigma}{\sqrt{n}} &lt; \bar{X} &lt; \mu + 2\frac{\sigma}{\sqrt{n}}\right) ~ \approx ~ 0.95
+P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 \]</div>
+<p>by the Central Limit Theorem, and the random interval is called a 95% confidence interval for the fixed parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>In Data 8, the probability statement above was expressed in terms of long run frequencies as follows:</p>
+<p>If you repeat the sampling process 100 times, and construct a 95% confidence interval each time, then about 95 of the 100 intervals will contain the parameter.</p>
+<p>Once you have drawn the sample, you get <em>one observed instance</em> of the random interval. In the example in the previous section, when we were estimating the average commute distance in a population, the observed value of the random interval came out to be 17.94 miles to 20.06 miles.</p>
+<p>This numerical interval is a fixed interval. It’s not in one place some of the time and somewhere else the rest of the time. It’s always in the same fixed place on the number line.</p>
+<p>The parameter is also at a fixed place on the number line.</p>
+<p>So the parameter is either always in the interval 17.94 to 20.06, or never in it.</p>
+<p>That is why under the long run frequency theory of probability it doesn’t make sense to talk about the chance that the fixed interval 17.94 to 20.06 contains some fixed number, except to say that the chance is either 100% or 0%.</p>
+<p>The word <em>confidence</em> is used to distinguish the two situations. We say we have about 95% confidence in the observed interval 17.94 to 20.06, because the random process that generated it has the property <span class="math notranslate nohighlight">\(P(\mu \in \text{ random interval }) ~ \approx 0.95\)</span>.</p>
+</section>
+<section id="comparison-with-the-bootstrap">
+<h2><span class="section-number">9.2.2. </span>Comparison with the Bootstrap<a class="headerlink" href="#comparison-with-the-bootstrap" title="Permalink to this headline">#</a></h2>
+<p>The interpretation of the confidence interval is the same as in Data 8, though we are now able to express it in the more succinct and precise language of probability theory.</p>
+<p>It’s worth checking that the numerical values that we get with our method based on the Central Limit Theorem are close to those we got using the bootstrap in Data 8.</p>
 <div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<img alt="../../_images/03_Confidence_Intervals_Method_4_0.png" src="../../_images/03_Confidence_Intervals_Method_4_0.png" />
 </div>
-</div>
-<p>We can rewrite this to get an interval of estimates of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-&amp;P\left(\mu - 2\frac{\sigma}{\sqrt{n}} &lt; \bar{X} &lt; \mu + 2\frac{\sigma}{\sqrt{n}}\right) ~ \approx ~ 0.95 \\
-\iff ~ &amp;P\left(\bar{X} - 2\frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \bar{X} + 2\frac{\sigma}{\sqrt{n}}\right) ~ \approx ~ 0.95 \\
-\iff ~ &amp;P\left(\mu \in (\bar{X} - 2\frac{\sigma}{\sqrt{n}}, ~ \bar{X} + 2\frac{\sigma}{\sqrt{n}})\right) ~ \approx ~ 0.95
-\end{align*}
-\end{split}\]</div>
-<p>The random interval</p>
-<div class="math notranslate nohighlight">
-\[
-\left(\bar{X} - 2\frac{\sigma}{\sqrt{n}}, ~ \bar{X} + 2\frac{\sigma}{\sqrt{n}}\right)
-\]</div>
-<p>is called an <em>approximate 95% confidence interval for <span class="math notranslate nohighlight">\(\mu\)</span></em>. It is a random interval because its endpoints depend on the sample mean <span class="math notranslate nohighlight">\(\bar{X}\)</span> which is a random variable whose value varies across samples.</p>
-<p>Our calculation showed that the chance that this <em>random interval</em> contains the <em>fixed parameter</em> is about 95%.</p>
-<p>In practice, we only get one observed instance of the random interval.</p>
-</section>
-<section id="mean-commute-distance">
-<h2><span class="section-number">9.3.2. </span>Mean Commute Distance<a class="headerlink" href="#mean-commute-distance" title="Permalink to this headline">#</a></h2>
-<p>In a simple random sample of 600 workers taken in a large city, the commute distances of the sampled workers have an average of 19 miles and an SD of 13 miles.</p>
-<p>We can use these data to construct an approximate 95% confidence interval for the average commute distance of all workers in the city.</p>
-<p>First note that while a sample of size 600 is large in absolute terms, it is pretty small in comparison to the total number of workers in the city. So we can think of the sample as essentially drawn with replacement and hence i.i.d.</p>
-<p>Now our method says that our observed approximate 95% confidence interval for the population mean commute distance <span class="math notranslate nohighlight">\(\mu\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-19 ~ \pm ~ 2\frac{\sigma}{\sqrt{600}}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the SD of the commute distances in the population. We don’t know <span class="math notranslate nohighlight">\(\sigma\)</span>, but by an argument that we have seen before,</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\sigma}{\sqrt{600}} ~ \approx ~ \frac{\text{sample SD}}{\sqrt{600}} ~ = ~ \frac{13}{\sqrt{600}} ~ \approx ~ 0.53
-\]</div>
-<p>So an approximate 95% confidence interval for the average commute distance (in miles) of workers in the city is given by</p>
-<div class="math notranslate nohighlight">
-\[
-19 \pm 2 \times 0.53 ~ = ~ (17.94, 20.06)
-\]</div>
-</section>
-<section id="proportion-of-undecided-voters">
-<h2><span class="section-number">9.3.3. </span>Proportion of Undecided Voters<a class="headerlink" href="#proportion-of-undecided-voters" title="Permalink to this headline">#</a></h2>
-<p>In a simple random sample of 400 voters in a state, 23% are undecided about which way they will vote.</p>
-<p>We can use these data to construct an approximate 95% confidence interval for the proportion of undecided voters in the state, following the process we developed above.</p>
-<p>Remember that the population proportion of undecided voters, which we will denote by <span class="math notranslate nohighlight">\(p\)</span>, is the mean of the zeros and ones in the population. Here undecided voters are coded as 1 and all others as 0. So also that sample proportion of undecided voters, 0.23, is the observed sample mean.</p>
-<p>Our observed approximate 95% confidence interval for the proportion of undecided voters in the state is given by</p>
-<div class="math notranslate nohighlight">
-\[
-0.23 \pm 2 \frac{\sigma}{\sqrt{400}}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the SD of the zeros and ones in the population. We know that <span class="math notranslate nohighlight">\(\sigma = \sqrt{pq}\)</span> where <span class="math notranslate nohighlight">\(q = 1-p\)</span>, so</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\sigma}{\sqrt{400}} ~ = ~ \frac{\sqrt{pq}}{\sqrt{400}} ~ \approx ~ \frac{\sqrt{0.23 \times 0.77}}{\sqrt{400}} ~ \approx ~ 0.021
-\]</div>
-<p>So an an approximate 95% confidence interval for the proportion of undecided voters in the population is</p>
-<div class="math notranslate nohighlight">
-\[
-0.23 \pm 2 \times 0.021 ~ = (0.188, 0.272)
-\]</div>
-<p>In other words, our 95% confidence interval for the percent of undecided voters in the population goes from 18.8% to 27.2%.</p>
-</section>
-<section id="confidence-level">
-<h2><span class="section-number">9.3.4. </span>Confidence Level<a class="headerlink" href="#confidence-level" title="Permalink to this headline">#</a></h2>
-<p>The confidence intervals in this section all have the form</p>
-<div class="math notranslate nohighlight">
-\[
-\text{sample mean} ~ \pm ~ zSD(\text{sample mean})
-\]</div>
-<p>We took <span class="math notranslate nohighlight">\(z = 2\)</span> because the <em>confidence level</em> of the each of the intervals was 95% and we know that the area under the standard normal curve between <span class="math notranslate nohighlight">\(-2\)</span> and <span class="math notranslate nohighlight">\(2\)</span> is about 95%.</p>
-<p>If we had wanted a different level of confidence, say 99%, we would only have had to change the value of <span class="math notranslate nohighlight">\(z\)</span>.</p>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<img alt="../../_images/03_Confidence_Intervals_Method_9_0.png" src="../../_images/03_Confidence_Intervals_Method_9_0.png" />
-</div>
-</div>
-<p>The area of each tail in the diagram above is <span class="math notranslate nohighlight">\(0.005\)</span>, so <span class="math notranslate nohighlight">\(\Phi(z) = 0.995\)</span>. The value of <span class="math notranslate nohighlight">\(z\)</span> is therefore</p>
-<div class="math notranslate nohighlight">
-\[
-z ~ = ~ \Phi^{-1}(0.995) ~ \approx ~ 2.576
-\]</div>
-<p>You can get the numerical value by using <code class="docutils literal notranslate"><span class="pre">stats.norm.ppf</span></code>:</p>
+<p>As you saw in <a class="reference external" href="https://www.inferentialthinking.com/chapters/13/3/Confidence_Intervals.html">Data 8</a>, the table <code class="docutils literal notranslate"><span class="pre">births</span></code> contains data on a random sample of mothers and their newborn babies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.995</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">births</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5758293035489004
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Birth Weight</th> <th>Gestational Days</th> <th>Maternal Age</th> <th>Maternal Height</th> <th>Maternal Pregnancy Weight</th> <th>Maternal Smoker</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>120         </td> <td>284             </td> <td>27          </td> <td>62             </td> <td>100                      </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>113         </td> <td>282             </td> <td>33          </td> <td>64             </td> <td>135                      </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>128         </td> <td>279             </td> <td>28          </td> <td>64             </td> <td>115                      </td> <td>True           </td>
+        </tr>
+        <tr>
+            <td>108         </td> <td>282             </td> <td>23          </td> <td>67             </td> <td>125                      </td> <td>True           </td>
+        </tr>
+        <tr>
+            <td>136         </td> <td>286             </td> <td>25          </td> <td>62             </td> <td>93                       </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>138         </td> <td>244             </td> <td>33          </td> <td>62             </td> <td>178                      </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>132         </td> <td>245             </td> <td>23          </td> <td>65             </td> <td>140                      </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>120         </td> <td>289             </td> <td>25          </td> <td>62             </td> <td>125                      </td> <td>False          </td>
+        </tr>
+        <tr>
+            <td>143         </td> <td>299             </td> <td>30          </td> <td>66             </td> <td>136                      </td> <td>True           </td>
+        </tr>
+        <tr>
+            <td>140         </td> <td>351             </td> <td>27          </td> <td>68             </td> <td>120                      </td> <td>False          </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (1164 rows omitted)</p></div></div>
+</div>
+<p>The sample size is 1174.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">num_rows</span>
+<span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1174
 </pre></div>
 </div>
 </div>
 </div>
-<p>Thus an approximate 99% confidence interval for the mean commute distance of all workers in the city in the first example is</p>
+<p>We will focus on the sample of maternal ages which are measured in years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">births</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_11_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_11_0.png" />
+</div>
+</div>
+<p>The sample mean is about 27.23 years and the sample SD is about 5.8 years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_ages</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">)</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sampled_ages</span><span class="p">)</span>
+<span class="n">sample_SD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sampled_ages</span><span class="p">)</span>
+<span class="n">sample_mean</span><span class="p">,</span> <span class="n">sample_SD</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(27.228279386712096, 5.815360404190897)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The SD of the sample mean is approximately <span class="math notranslate nohighlight">\(\frac{5.8}{\sqrt{1174}} \approx 0.17\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approx_SD_of_sample_mean</span> <span class="o">=</span> <span class="n">sample_SD</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">approx_SD_of_sample_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16972373742299796
+</pre></div>
+</div>
+</div>
+</div>
+<p>An approximate 95% confidence interval for the mean maternal age in the population goes from 26.89 years to 27.57 years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">27.23</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.17</span><span class="p">,</span> <span class="mf">27.23</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.17</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.89, 27.57)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Data 8 we obtained the confidence interval by using the bootstrap. We started by defining a function that returns one bootstrap mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_resampled_mean</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">births</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then called this function repeatedly to create an array of 2,000 bootstrap means:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">one_resampled_mean</span><span class="p">())</span>
+    
+<span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Bootstrapped Sample Means&#39;</span><span class="p">,</span> <span class="n">means</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_21_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_21_0.png" />
+</div>
+</div>
+<p>Finally, we found the “middle 95%” of the bootstrapped means. That was our empirical bootstrap 95% confidence interval for the population mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">means</span><span class="p">)</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="n">means</span><span class="p">)</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.8824531516184, 27.57069846678024)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This interval is pretty close to the interval <span class="math notranslate nohighlight">\((26.89, 27.57)\)</span> that we got using the Central Limit Theorem.</p>
+</section>
+<section id="what-the-sds-measure">
+<h2><span class="section-number">9.2.3. </span>What the SDs Measure<a class="headerlink" href="#what-the-sds-measure" title="Permalink to this headline">#</a></h2>
+<p>Here is the histogram of the sampled ages again for reference. The arrow on the horizontal axis is at the sample average 27.23.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_26_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_26_0.png" />
+</div>
+</div>
+<p>The <strong>SD of the sample</strong> is about 5.8 years. That’s the SD of the distribution displayed above. It measures roughly how far the values in the sample are from their mean which is at the arrow.</p>
+<p>Most likely, the sample resembles the population. So the SD of the population, <span class="math notranslate nohighlight">\(\sigma\)</span>, is somewhere around 5.8 years.</p>
+<p>A single random draw from the population has the same distribution as the population. If the draws are <span class="math notranslate nohighlight">\(X_1, X_2,\)</span> and so on, then for example <span class="math notranslate nohighlight">\(SD(X_1) = \sigma\)</span> and hence <span class="math notranslate nohighlight">\(SD(X_1)\)</span> is also somewhere around 5.8 years.</p>
+<p>As we just saw, the <strong>SD of the sample mean</strong> is</p>
 <div class="math notranslate nohighlight">
 \[
-19 \pm 2.576 \times 0.53 ~ = ~ (17.63, 20.36)
+SD(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{n}} ~ \approx ~ \frac{5.8}{\sqrt{1174}} ~ \approx ~ 0.17 \text{ years}
 \]</div>
-<p>The 99% confidence interval is wider than the 95% confidence interval <span class="math notranslate nohighlight">\((17.94, 20.06)\)</span>.</p>
-<p>We asked for 99% confidence instead of 95%. For this increased confidence based on the same sample as before, we had to give the estimate more wiggle room.</p>
+<p>That’s tiny!</p>
+<p>The SD of the sample mean measures roughly how far the sample mean is from its expected value. Since <span class="math notranslate nohighlight">\(E(\bar{X}) = \mu\)</span>, the SD of the sample mean measures roughly how far the sample mean is from the population mean.</p>
+<p>The figure below shows the distribution of the sample again, along with its mean. The lighter blue curve that represents what the distribution of the population might look like, and the lighter blue arrow shows the mean of that imagined population.</p>
+<p>The SD of the sample mean measures the rough size of the distance between the two arrows. It’s tiny because the mean of a large sample is most likely pretty close to the mean of the population.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/02_Confidence_Intervals_Interpretation_28_0.png" src="../../_images/02_Confidence_Intervals_Interpretation_28_0.png" />
+</div>
+</div>
+</section>
+<section id="what-the-confidence-interval-measures">
+<h2><span class="section-number">9.2.4. </span>What the Confidence Interval Measures<a class="headerlink" href="#what-the-confidence-interval-measures" title="Permalink to this headline">#</a></h2>
+<p>The confidence interval is an interval of estimates of the parameter. In our examples, the confidence interval measures the population mean. It does nothing else.</p>
+<p>For example, we have about 95% confidence that the mean maternal age in the population is in the interval 26.89 years to 27.57 years.</p>
+<p>It is an unfortunate reality that once numbers have been computed, there are people who want to use them in ways that they shouldn’t be used. One common error is to conclude that about 95% of the mothers in the population are between 26.89 and 27.57 years old. But that’s just silly.</p>
+<p>Look at the histogram and imagine marking the interval 26.89 to 27.57 on the horizontal axis. It’s just around where the arrows are, and it’s tiny. There is no way that interval contains 95% of the sampled ages or 95% of the ages in the population. It’s just where we think the average age in the population is located.</p>
 </section>
 </section>
 
@@ -935,17 +1030,17 @@ z ~ = ~ \Phi^{-1}(0.995) ~ \approx ~ 2.576
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_AB_Testing_Fishers_Exact_Test.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_Confidence_Intervals_Method.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9.2. </span>A/B Testing: Fisher’s Exact Test</p>
+            <p class="prev-next-title"><span class="section-number">9.1. </span>Confidence Intervals: Method</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_Confidence_Intervals_Interpretation.html" title="next page">
+    <a class='right-next' id="next-link" href="03_Testing_Hypotheses.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.4. </span>Confidence Intervals: Interpretation</p>
+        <p class="prev-next-title"><span class="section-number">9.3. </span>Testing Hypotheses</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
