@@ -183,7 +183,7 @@ plt.plot([-4, 4], [0, 0], color='k', lw=1)
 x_tick_labels = ['', '', '', '$-2858$', '$0$', '$2858$', '', '', '']
 plt.xticks(np.arange(-4, 4.01), x_tick_labels)
 plt.ylim(-0.015, 0.45)
-plt.yticks(np.arange(0, 0.41, 0.1), 4*[''])
+plt.yticks(np.arange(0, 0.41, 0.1), 5*[''])
 plt.ylabel('')
 z = 10000/2858
 plt.scatter(z, 0, color='red', s=50)
@@ -235,7 +235,7 @@ plt.title('Distribution of Test Statistic Under $H_0$');
 # \end{align*}
 # $$
 
-# In[46]:
+# In[5]:
 
 
 ( (0.37 * 0.63 / 400) + (0.28 * 0.72 / 600) ) ** 0.5
@@ -286,7 +286,7 @@ plt.title('Distribution of Test Statistic Under $H_0$');
 # \end{align*}
 # $$
 
-# In[48]:
+# In[6]:
 
 
 ( 0.316*0.684/400 + 0.316*0.684/600 ) ** 0.5
@@ -294,7 +294,7 @@ plt.title('Distribution of Test Statistic Under $H_0$');
 
 # The observed value of the test statistic is $0.37 - 0.28 = 0.09$. This is the red dot in the figure below.
 
-# In[56]:
+# In[7]:
 
 
 # NO CODE
