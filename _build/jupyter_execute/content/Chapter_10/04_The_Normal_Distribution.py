@@ -306,7 +306,7 @@ plt.plot([-4, 4], [0, 0], color='k', lw=1)
 x_tick_labels = ['', '', '', '$-0.03$', '$0$', '$0.03$', '', '', '']
 plt.xticks(np.arange(-4, 4.01), x_tick_labels)
 plt.ylim(-0.015, 0.45)
-plt.yticks(np.arange(0, 0.41, 0.1), 4*[''])
+plt.yticks(np.arange(0, 0.41, 0.1), 5*[''])
 plt.ylabel('')
 z = 0.09/0.03
 plt.scatter(z, 0, color='red', s=50)
