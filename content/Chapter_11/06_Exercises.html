@@ -735,32 +735,28 @@ Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pai
 <p><strong>a)</strong> For constants <span class="math notranslate nohighlight">\(a \ne 0\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, let <span class="math notranslate nohighlight">\(V = aX + b\)</span>. Apply the definition of correlation to find <span class="math notranslate nohighlight">\(r(X, V)\)</span>. [It might be easier to separate the cases <span class="math notranslate nohighlight">\(a &lt; 0\)</span> and <span class="math notranslate nohighlight">\(a &gt; 0\)</span>.]</p>
 <p><strong>b)</strong> For constants <span class="math notranslate nohighlight">\(a \ne 0\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, let <span class="math notranslate nohighlight">\(W = aY + b\)</span>. Find <span class="math notranslate nohighlight">\(r(X, W)\)</span> in terms of <span class="math notranslate nohighlight">\(r(X, Y)\)</span>.</p>
 <p><strong>5.</strong>
-Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the least squares linear predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>. Assume <span class="math notranslate nohighlight">\(r(X, Y) \ne 0\)</span>.</p>
-<p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(r(X, \hat{Y})\)</span>.</p>
-<p><strong>b)</strong> Let <span class="math notranslate nohighlight">\(D = Y - \hat{Y}\)</span> be the residual. Find <span class="math notranslate nohighlight">\(r(D, \hat{Y})\)</span>.</p>
-<p><strong>6.</strong>
 Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(r = r(X,Y)\)</span>. Let <span class="math notranslate nohighlight">\(X^*\)</span> be <span class="math notranslate nohighlight">\(X\)</span> in standard units and let <span class="math notranslate nohighlight">\(Y^*\)</span> be <span class="math notranslate nohighlight">\(Y\)</span> in standard units.</p>
 <p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(r(X^*, Y^*)\)</span>.</p>
 <p><strong>b)</strong> Write the equation for <span class="math notranslate nohighlight">\(\hat{Y^*}\)</span>, the least squares linear predictor of <span class="math notranslate nohighlight">\(Y^*\)</span> based on <span class="math notranslate nohighlight">\(X^*\)</span>.</p>
-<p><strong>7.</strong>
+<p><strong>6.</strong>
 It can be shown that for many football-shaped scatter diagrams it is OK to assume that each of the two variables is normally distributed.</p>
 <p>Suppose that a large number of students take two tests (like the Math and Verbal SAT), and suppose that the scatter diagram of the two scores is football shaped with a correlation of 0.6.</p>
 <p><strong>a)</strong> Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be the scores of a randomly picked student, and suppose <span class="math notranslate nohighlight">\(X\)</span> is on the the 90th percentile. Estimate the percentile rank of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p><strong>b)</strong> Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be the score of a randomly picked student, and suppose <span class="math notranslate nohighlight">\(Y\)</span> is on the 78th percentile. Estimate the percentile rank of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p><strong>8.</strong> Let  <span class="math notranslate nohighlight">\((X,Y)\)</span>  be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p><strong>7.</strong> Let  <span class="math notranslate nohighlight">\((X,Y)\)</span>  be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(Var(\hat{Y})\)</span>.</p>
 <p><strong>b)</strong> Show that the answer to Part <strong>a</strong> justifies the following statement <a class="reference external" href="https://inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html#another-way-to-interpret-r">from Data 8</a>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\text{SD of fitted values}}{\text{SD of } y} = \vert r\vert\]</div>
-<p><strong>9.</strong>
+<p><strong>8.</strong>
 Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>. Let <span class="math notranslate nohighlight">\(D = Y - \hat{Y}\)</span> be the residual.</p>
 <p>Justify the <em>decomposition of variance</em> formula <span class="math notranslate nohighlight">\(Var(Y) = Var(\hat{Y}) + Var(D)\)</span>.</p>
-<p><strong>10.</strong>
+<p><strong>9.</strong>
 Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span> and SD <span class="math notranslate nohighlight">\(\sigma_X\)</span>. Suppose you are going to use a constant <span class="math notranslate nohighlight">\(c\)</span> as your predictor of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p><strong>a)</strong> Let <span class="math notranslate nohighlight">\(MSE(c)\)</span> be the mean squared error of the predictor <span class="math notranslate nohighlight">\(c\)</span>. Write a formula for <span class="math notranslate nohighlight">\(MSE(c)\)</span>.</p>
 <p><strong>b)</strong> Find <span class="math notranslate nohighlight">\(\hat{c}\)</span>, the least squares constant predictor.</p>
 <p><strong>c)</strong> Find <span class="math notranslate nohighlight">\(MSE(\hat{c})\)</span>.</p>
-<p><strong>11.</strong>
+<p><strong>10.</strong>
 Let <span class="math notranslate nohighlight">\(X\)</span> have the uniform distribution on the three points <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, and <span class="math notranslate nohighlight">\(1\)</span>. Let <span class="math notranslate nohighlight">\(Y = X^2\)</span>.</p>
 <p><strong>a)</strong> Show that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p>
 <p><strong>b)</strong> Are <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> independent?</p>
