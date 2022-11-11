@@ -522,8 +522,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_German_Tank_Problem_Revisited.html">
-     11.2. The German Tank Problem, Revisited
+    <a class="reference internal" href="02_Examples.html">
+     11.2. Examples
     </a>
    </li>
    <li class="toctree-l2">
@@ -717,49 +717,46 @@ title="Print to PDF"
   <section id="exercises">
 <h1><span class="section-number">11.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
 <p><strong>1.</strong>
-A newspaper article called <a class="reference external" href="https://www.theguardian.com/world/2006/jul/20/secondworldwar.tvandradio">How a Statistical Formula Won the War</a> reports a formula for estimating the number of German tanks under the model we have assumed n Section 11.2.</p>
-<p>Compare the formula with the “augmented maximum” estimator <span class="math notranslate nohighlight">\(T_3\)</span> of Section 11.2 (which is what was actually used in the war). Are the two the same? If not, what is the bias of the estimator in the report? How does the variance of that estimator compare with the variance of the augmented maximum <span class="math notranslate nohighlight">\(T_3\)</span>?</p>
-<p><strong>2.</strong>
 Let <span class="math notranslate nohighlight">\(\theta_1 &lt; \theta_2\)</span> and suppose <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are i.i.d. uniform on the interval <span class="math notranslate nohighlight">\((\theta_1, \theta_2)\)</span>. Let <span class="math notranslate nohighlight">\(\theta = \theta_2 - \theta_1\)</span> be the length of the interval.</p>
 <p><strong>a)</strong> Let <span class="math notranslate nohighlight">\(M_1 = \min(X_1, X_2, \ldots, X_n)\)</span> be the sample minimum and <span class="math notranslate nohighlight">\(M_2 = \max(X_1, X_2, \ldots, X_n)\)</span> the sample max. The statistic <span class="math notranslate nohighlight">\(T_1 = M_2 - M_1\)</span> is called the <em>range</em> of the sample and is a natural estimator of <span class="math notranslate nohighlight">\(\theta\)</span>. Without calculation, explain why <span class="math notranslate nohighlight">\(T_1\)</span> is biased, and say whether it underestimates or overestimates <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p><strong>b)</strong> Find the bias of <span class="math notranslate nohighlight">\(T_1\)</span> and confirm that its sign is consistent with your answer to Part <strong>a</strong>. For large <span class="math notranslate nohighlight">\(n\)</span>, is the size of the bias large or small?</p>
 <p><strong>c)</strong> Use <span class="math notranslate nohighlight">\(T_1\)</span> to construct an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span>. Call the new estimator <span class="math notranslate nohighlight">\(T_2\)</span>.</p>
 <p><strong>d)</strong> Compare <span class="math notranslate nohighlight">\(SD(T_1)\)</span> and <span class="math notranslate nohighlight">\(SD(T_2)\)</span>. Which one is bigger? For large <span class="math notranslate nohighlight">\(n\)</span>, is it a lot bigger or just a bit bigger?</p>
+<p><strong>2.</strong> Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p><strong>a)</strong> Show that the regression line passes through the point of averages by setting <span class="math notranslate nohighlight">\(X = \mu_X\)</span> and finding the corresponding value of <span class="math notranslate nohighlight">\(\hat{Y}\)</span>.</p>
+<p><strong>b)</strong> Find <span class="math notranslate nohighlight">\(E(\hat{Y})\)</span>, the average of the fitted values.</p>
+<p><strong>c)</strong> Let <span class="math notranslate nohighlight">\(D = Y - \hat{Y}\)</span> be the residual. Find the expectation of the residual and confirm that the answer justifies the following statement <a class="reference external" href="https://inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html#average-of-residuals">from Data 8</a>:</p>
+<p>“No matter what the shape of the scatter diagram, the average of the residuals is 0.”</p>
 <p><strong>3.</strong>
 Sometimes data scientists want to fit a linear model that has no intercept term. For example, this might be the case when the data are from a scientific experiement in which the attribute <span class="math notranslate nohighlight">\(X\)</span> can have values near <span class="math notranslate nohighlight">\(0\)</span> and there is a physical reason why the response <span class="math notranslate nohighlight">\(Y\)</span> must be <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(X=0\)</span>.</p>
 <p>So let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and suppose you want to predict <span class="math notranslate nohighlight">\(Y\)</span> by an estimator of the form <span class="math notranslate nohighlight">\(aX\)</span> for some <span class="math notranslate nohighlight">\(a\)</span>. Find the least squares predictor <span class="math notranslate nohighlight">\(\hat{Y}\)</span> among all predictors of this form.</p>
 <p><strong>4.</strong>
-Find the mean squared error of the least squares predictor in the previous exercise, and hence prove the <em>Cauchy-Schwarz Inequality</em>:</p>
-<div class="math notranslate nohighlight">
-\[
-\vert E(XY) \vert ~ \le ~ \sqrt{E(X^2)E(Y^2)}
-\]</div>
-<p><strong>5.</strong>
 Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair.</p>
 <p><strong>a)</strong> For constants <span class="math notranslate nohighlight">\(a \ne 0\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, let <span class="math notranslate nohighlight">\(V = aX + b\)</span>. Apply the definition of correlation to find <span class="math notranslate nohighlight">\(r(X, V)\)</span>. [It might be easier to separate the cases <span class="math notranslate nohighlight">\(a &lt; 0\)</span> and <span class="math notranslate nohighlight">\(a &gt; 0\)</span>.]</p>
 <p><strong>b)</strong> For constants <span class="math notranslate nohighlight">\(a \ne 0\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, let <span class="math notranslate nohighlight">\(W = aY + b\)</span>. Find <span class="math notranslate nohighlight">\(r(X, W)\)</span> in terms of <span class="math notranslate nohighlight">\(r(X, Y)\)</span>.</p>
-<p><strong>6</strong>.
-Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the least squares linear predictor of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>. Assume <span class="math notranslate nohighlight">\(r(X, Y) \ne 0\)</span>.</p>
-<p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(r(X, \hat{Y})\)</span>.</p>
-<p><strong>b)</strong> Let <span class="math notranslate nohighlight">\(D = Y - \hat{Y}\)</span> be the residual. Find <span class="math notranslate nohighlight">\(r(D, \hat{Y})\)</span>.</p>
-<p><strong>7.</strong>
+<p><strong>5.</strong>
 Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(r = r(X,Y)\)</span>. Let <span class="math notranslate nohighlight">\(X^*\)</span> be <span class="math notranslate nohighlight">\(X\)</span> in standard units and let <span class="math notranslate nohighlight">\(Y^*\)</span> be <span class="math notranslate nohighlight">\(Y\)</span> in standard units.</p>
 <p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(r(X^*, Y^*)\)</span>.</p>
 <p><strong>b)</strong> Write the equation for <span class="math notranslate nohighlight">\(\hat{Y^*}\)</span>, the least squares linear predictor of <span class="math notranslate nohighlight">\(Y^*\)</span> based on <span class="math notranslate nohighlight">\(X^*\)</span>.</p>
-<p><strong>8.</strong>
+<p><strong>6.</strong>
 It can be shown that for many football-shaped scatter diagrams it is OK to assume that each of the two variables is normally distributed.</p>
 <p>Suppose that a large number of students take two tests (like the Math and Verbal SAT), and suppose that the scatter diagram of the two scores is football shaped with a correlation of 0.6.</p>
 <p><strong>a)</strong> Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be the scores of a randomly picked student, and suppose <span class="math notranslate nohighlight">\(X\)</span> is on the the 90th percentile. Estimate the percentile rank of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p><strong>b)</strong> Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be the score of a randomly picked student, and suppose <span class="math notranslate nohighlight">\(Y\)</span> is on the 78th percentile. Estimate the percentile rank of <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p><strong>9.</strong>
+<p><strong>7.</strong> Let  <span class="math notranslate nohighlight">\((X,Y)\)</span>  be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p><strong>a)</strong> Find <span class="math notranslate nohighlight">\(Var(\hat{Y})\)</span>.</p>
+<p><strong>b)</strong> Show that the answer to Part <strong>a</strong> justifies the following statement <a class="reference external" href="https://inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html#another-way-to-interpret-r">from Data 8</a>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\text{SD of fitted values}}{\text{SD of } y} = \vert r\vert\]</div>
+<p><strong>8.</strong>
 Let <span class="math notranslate nohighlight">\((X, Y)\)</span> be a random pair and let <span class="math notranslate nohighlight">\(\hat{Y}\)</span> be the linear regression estimate of <span class="math notranslate nohighlight">\(Y\)</span> based on <span class="math notranslate nohighlight">\(X\)</span>. Let <span class="math notranslate nohighlight">\(D = Y - \hat{Y}\)</span> be the residual.</p>
-<p>Justify the <em>decomposition of varinance</em> formula <span class="math notranslate nohighlight">\(Var(Y) = Var(\hat{Y}) + Var(D)\)</span>.</p>
-<p><strong>10.</strong>
+<p>Justify the <em>decomposition of variance</em> formula <span class="math notranslate nohighlight">\(Var(Y) = Var(\hat{Y}) + Var(D)\)</span>.</p>
+<p><strong>9.</strong>
 Let <span class="math notranslate nohighlight">\(X\)</span> be a random variable with expectation <span class="math notranslate nohighlight">\(\mu_X\)</span> and SD <span class="math notranslate nohighlight">\(\sigma_X\)</span>. Suppose you are going to use a constant <span class="math notranslate nohighlight">\(c\)</span> as your predictor of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p><strong>a)</strong> Let <span class="math notranslate nohighlight">\(MSE(c)\)</span> be the mean squared error of the predictor <span class="math notranslate nohighlight">\(c\)</span>. Write a formula for <span class="math notranslate nohighlight">\(MSE(c)\)</span>.</p>
 <p><strong>b)</strong> Find <span class="math notranslate nohighlight">\(\hat{c}\)</span>, the least squares constant predictor.</p>
 <p><strong>c)</strong> Find <span class="math notranslate nohighlight">\(MSE(\hat{c})\)</span>.</p>
-<p><strong>11.</strong>
+<p><strong>10.</strong>
 Let <span class="math notranslate nohighlight">\(X\)</span> have the uniform distribution on the three points <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, and <span class="math notranslate nohighlight">\(1\)</span>. Let <span class="math notranslate nohighlight">\(Y = X^2\)</span>.</p>
 <p><strong>a)</strong> Show that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p>
 <p><strong>b)</strong> Are <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> independent?</p>

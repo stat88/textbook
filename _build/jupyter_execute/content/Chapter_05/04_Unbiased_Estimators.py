@@ -251,7 +251,7 @@ plt.title('Simulation: Comparing Two Estimators');
 # 
 # In many situations, such as this one, lower bias tends to go with higher variability and vice versa. Data scientists call this the *bias-variance tradeoff.* We will examine it more carefully later in the course.
 # 
-# The Allied statisticians did better than we have done here. They used sampling without replacement as their model, and then used symmetry in simple random sampling to estimate the gap between $M$ and $N$. Thus they got an even better estimate by adding that estimated gap to $M$. Their estimates were remarkably close to the actual production rates obtained from German records after the war.
+# The Allied statisticians did better than we have done here. They used sampling without replacement as their model. Their estimates were remarkably close to the actual production rates obtained from German records after the war.
 
 # In[ ]:
 

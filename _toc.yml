@@ -84,7 +84,7 @@ parts:
   - file: content/Chapter_11/00_Bias_Variance_and_Least_Squares
     sections:
     - file: content/Chapter_11/01_Bias_and_Variance
-    - file: content/Chapter_11/02_German_Tank_Problem_Revisited
+    - file: content/Chapter_11/02_Examples
     - file: content/Chapter_11/03_Least_Squares_Linear_Regression
     - file: content/Chapter_11/04_Bounds_on_Correlation
     - file: content/Chapter_11/05_The_Error_in_Regression

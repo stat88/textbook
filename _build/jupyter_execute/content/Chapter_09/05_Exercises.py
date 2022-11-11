@@ -33,7 +33,7 @@
 # 
 # **c)** the sample size
 # 
-# **d)** and approximate 90% confidence interval for the percent of senior citizens in the population
+# **d)** an approximate 90% confidence interval for the percent of senior citizens in the population
 
 # **4.**
 # A survey organization takes a simple random sample of 400 adults in a city. The annual incomes of the sampled people have an average of 68,000 dollars and an SD of 40,000 dollars.
