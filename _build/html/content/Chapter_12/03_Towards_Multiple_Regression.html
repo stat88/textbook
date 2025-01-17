@@ -1,760 +1,447 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12.3. Towards Multiple Regression &#8212; Data 88S Textbook</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter_12/03_Towards_Multiple_Regression';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="12.4. Exercises" href="04_Exercises.html" />
     <link rel="prev" title="12.2. The Distribution of the Estimated Slope" href="02_The_Distribution_of_the_Estimated_Slope.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/data88s_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data 88S Textbook</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
+    
+    
+    <img src="../../_static/data88s_logo.png" class="logo__image only-light" alt="Data 88S Textbook - Home"/>
+    <script>document.write(`<img src="../../_static/data88s_logo.png" class="logo__image only-dark" alt="Data 88S Textbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="http://stat88.org">
-   Course Home
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="http://stat88.org">Course Home</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Chapters
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_01/00_The_Basics.html">
-   1. The Basics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">
-     1.1. Probabilities as Proportions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">
-     1.2. Exact Calculation, or Bound?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">
-     1.3. Fundamental Rules
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_01/04_Exercises.html">
-     1.4. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">
-   2. Intersections and Conditioning
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">
-     2.1. The Chance of an Intersection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">
-     2.2. Symmetry in Simple Random Sampling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">
-     2.3. Bayes’ Rule
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">
-     2.4. Use and Interpretation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/05_Independence.html">
-     2.5. Independence
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_02/06_Exercises.html">
-     2.6. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_03/00_Random_Counts.html">
-   3. Random Counts
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">
-     3.1. Success and Failure
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/02_Random_Variables.html">
-     3.2. Random Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">
-     3.3. The Binomial Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">
-     3.4. The Hypergeometric Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/05_Examples.html">
-     3.5. Examples
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_03/06_Exercises.html">
-     3.6. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">
-   4. Infinitely Many Values
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">
-     4.1. Cumulative Distribution Function (CDF)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">
-     4.2. Waiting Times
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">
-     4.3. Exponential Approximations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">
-     4.4. The Poisson Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_04/05_Exercises.html">
-     4.5. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_05/00_Expectation.html">
-   5. Expectation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/01_Definition.html">
-     5.1. Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/02_Functions_of_Random_Variables.html">
-     5.2. Functions of Random Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/03_Method_of_Indicators.html">
-     5.3. Method of Indicators
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html">
-     5.4. Unbiased Estimators
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/05_Conditional_Expectation.html">
-     5.5. Conditional Expectation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/06_Expectation_by_Conditioning.html">
-     5.6. Expectation by Conditioning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_05/07_Exercises.html">
-     5.7. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">
-   6. Measuring Variability
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">
-     6.1. Variance and Standard Deviation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">
-     6.2. Simplifying the Calculation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">
-     6.3. Markov’s Inequality
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">
-     6.4. Chebyshev’s Inequality
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_06/05_Exercises.html">
-     6.5. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">
-   7. The Variance of a Sum
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">
-     7.1. Sums of Independent Random Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">
-     7.2. Sampling Without Replacement
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">
-     7.3. The Law of Averages
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_07/04_Exercises.html">
-     7.4. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">
-   8. Central Limit Theorem
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">
-     8.1. The Distribution of a Sample Sum
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">
-     8.2. Standard Normal Curve
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">
-     8.3. Normal Approximation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">
-     8.4. How Large is “Large”?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_08/05_Exercises.html">
-     8.5. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_09/00_Inference.html">
-   9. Inference
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_09/01_Confidence_Intervals_Method.html">
-     9.1. Confidence Intervals: Method
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_09/02_Confidence_Intervals_Interpretation.html">
-     9.2. Confidence Intervals: Interpretation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_09/03_Testing_Hypotheses.html">
-     9.3. Testing Hypotheses
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_09/04_AB_Testing_Fishers_Exact_Test.html">
-     9.4. A/B Testing: Fisher’s Exact Test
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_09/05_Exercises.html">
-     9.5. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_10/00_Probability_Density.html">
-   10. Probability Density
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_10/01_Density.html">
-     10.1. Density
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">
-     10.2. Expectation and Variance
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">
-     10.3. Exponential Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">
-     10.4. The Normal Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_10/05_Exercises.html">
-     10.5. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">
-   11. Bias, Variance, and Least Squares
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">
-     11.1. Bias and Variance
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/02_Examples.html">
-     11.2. Examples
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">
-     11.3. Least Squares Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">
-     11.4. Bounds on Correlation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">
-     11.5. The Error in Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter_11/06_Exercises.html">
-     11.6. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_Inference_in_Regression.html">
-   12. Inference in Regression
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_The_Simple_Linear_Regression_Model.html">
-     12.1. The Simple Linear Regression Model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_The_Distribution_of_the_Estimated_Slope.html">
-     12.2. The Distribution of the Estimated Slope
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     12.3. Towards Multiple Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_Exercises.html">
-     12.4. Exercises
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_01/00_The_Basics.html">1. The Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01/01_Probabilities_as_Proportions.html">1.1. Probabilities as Proportions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01/02_Exact_Calculation_or_Bound.html">1.2. Exact Calculation, or Bound?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01/03_Fundamental_Rules.html">1.3. Fundamental Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_01/04_Exercises.html">1.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_02/00_Intersections_and_Conditioning.html">2. Intersections and Conditioning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/01_The_Chance_of_an_Intersection.html">2.1. The Chance of an Intersection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/02_Symmetry_in_Simple_Random_Sampling.html">2.2. Symmetry in Simple Random Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/03_Bayes_Rule.html">2.3. Bayes’ Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/04_Use_and_Interpretation.html">2.4. Use and Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/05_Independence.html">2.5. Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_02/06_Exercises.html">2.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_03/00_Random_Counts.html">3. Random Counts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/01_Success_and_Failure.html">3.1. Success and Failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/02_Random_Variables.html">3.2. Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/03_The_Binomial_Distribution.html">3.3. The Binomial Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/04_The_Hypergeometric_Distribution.html">3.4. The Hypergeometric Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/05_Examples.html">3.5. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_03/06_Exercises.html">3.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_04/00_Infinitely_Many_Values.html">4. Infinitely Many Values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_04/01_Cumulative_Distribution_Function.html">4.1. Cumulative Distribution Function (CDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_04/02_Waiting_Times.html">4.2. Waiting Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_04/03_Exponential_Approximations.html">4.3. Exponential Approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_04/04_The_Poisson_Distribution.html">4.4. The Poisson Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_04/05_Exercises.html">4.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_05/00_Expectation.html">5. Expectation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/01_Definition.html">5.1. Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/02_Functions_of_Random_Variables.html">5.2. Functions of Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/03_Method_of_Indicators.html">5.3. Method of Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/04_Unbiased_Estimators.html">5.4. Unbiased Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/05_Conditional_Expectation.html">5.5. Conditional Expectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/06_Expectation_by_Conditioning.html">5.6. Expectation by Conditioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_05/07_Exercises.html">5.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_06/00_Measuring_Variability.html">6. Measuring Variability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_06/01_Variance_and_Standard_Deviation.html">6.1. Variance and Standard Deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_06/02_Simplifying_the_Calculation.html">6.2. Simplifying the Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_06/03_Markovs_Inequality.html">6.3. Markov’s Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_06/04_Chebyshevs_Inequality.html">6.4. Chebyshev’s Inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_06/05_Exercises.html">6.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_07/00_The_Variance_of_a_Sum.html">7. The Variance of a Sum</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_07/01_Sums_of_Independent_Random_Variables.html">7.1. Sums of Independent Random Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_07/02_Sampling_Without_Replacement.html">7.2. Sampling Without Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_07/03_The_Law_of_Averages.html">7.3. The Law of Averages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_07/04_Exercises.html">7.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_08/00_Central_Limit_Theorem.html">8. Central Limit Theorem</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_08/01_Distribution_of_a_Sample_Sum.html">8.1. The Distribution of a Sample Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_08/02_Standard_Normal_Curve.html">8.2. Standard Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_08/03_Normal_Approximation.html">8.3. Normal Approximation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_08/04_How_Large_is_Large.html">8.4. How Large is “Large”?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_08/05_Exercises.html">8.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_09/00_Inference.html">9. Inference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_09/01_Confidence_Intervals_Method.html">9.1. Confidence Intervals: Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_09/02_Confidence_Intervals_Interpretation.html">9.2. Confidence Intervals: Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_09/03_Testing_Hypotheses.html">9.3. Testing Hypotheses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_09/04_AB_Testing_Fishers_Exact_Test.html">9.4. A/B Testing: Fisher’s Exact Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_09/05_Exercises.html">9.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_10/00_Probability_Density.html">10. Probability Density</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_10/01_Density.html">10.1. Density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_10/02_Expectation_and_Variance.html">10.2. Expectation and Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_10/03_The_Exponential_Distribution.html">10.3. Exponential Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_10/04_The_Normal_Distribution.html">10.4. The Normal Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_10/05_Exercises.html">10.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_11/00_Bias_Variance_and_Least_Squares.html">11. Bias, Variance, and Least Squares</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/01_Bias_and_Variance.html">11.1. Bias and Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/02_Examples.html">11.2. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/03_Least_Squares_Linear_Regression.html">11.3. Least Squares Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/04_Bounds_on_Correlation.html">11.4. Bounds on Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/05_The_Error_in_Regression.html">11.5. The Error in Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_11/06_Exercises.html">11.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_Inference_in_Regression.html">12. Inference in Regression</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_The_Simple_Linear_Regression_Model.html">12.1. The Simple Linear Regression Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_The_Distribution_of_the_Estimated_Slope.html">12.2. The Distribution of the Estimated Slope</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.3. Towards Multiple Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Exercises.html">12.4. Exercises</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/Chapter_12/03_Towards_Multiple_Regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/content/Chapter_12/03_Towards_Multiple_Regression.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
 
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </button>
-
-      </li>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiple-regression">
-   12.3.1. Multiple Regression
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Towards Multiple Regression</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiple-regression">
-   12.3.1. Multiple Regression
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Towards Multiple Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-regression">12.3.1. Multiple Regression</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <div class="cell tag_remove_input docutils container">
 </div>
 <section id="towards-multiple-regression">
-<h1><span class="section-number">12.3. </span>Towards Multiple Regression<a class="headerlink" href="#towards-multiple-regression" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">12.3. </span>Towards Multiple Regression<a class="headerlink" href="#towards-multiple-regression" title="Link to this heading">#</a></h1>
 <p>This section is an extended example of applications of the methods we have derived for regression. We will start with simple regression, which we understand well, and will then indicate how some of the results can be extended when there is more than one predictor variable.</p>
 <p>The data are from a study on the treatment of Hodgkin’s disease, a type of cancer that can affect young people. The good news is that treatments for this cancer have <a class="reference external" href="https://en.wikipedia.org/wiki/Hodgkin_lymphoma#Prognosis">high success rates</a>. The bad news is that the treatments can be rather strong combinations of chemotherapy and radiation, and thus have serious side effects. A goal of the study was to identify combinations of treatments with reduced side effects.</p>
 <p>The table <code class="docutils literal notranslate"><span class="pre">hodgkins</span></code> contains data on a random sample of patients. Each row corresponds to a patient. The columns contain the patient’s height in centimeters, the amount of radiation, the amount of medication used in chemotherapy, and measurements on the health of the patient’s lungs.</p>
@@ -831,7 +518,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03_Towards_Multiple_Regression_7_0.png" src="../../_images/03_Towards_Multiple_Regression_7_0.png" />
+<img alt="../../_images/db675a0b4de21cef0c278c3d9187731eec7e2aa5d48888e78be2c8806e62ffff.png" src="../../_images/db675a0b4de21cef0c278c3d9187731eec7e2aa5d48888e78be2c8806e62ffff.png" />
 </div>
 </div>
 <p>We will regress the difference on the baseline score, this time using the Python module <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> that allows us to easily perform multiple regression as well. You don’t have to learn the code below (though it’s not hard). Just focus on understanding an interpreting the output.</p>
@@ -839,6 +526,76 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">125</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">.genmod</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">genmod</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">.genmod.api</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">GEE</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span>     <span class="n">GLM</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">families</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">125</span> <span class="kn">from</span> <span class="nn">.graphics</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">graphics</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="kn">from</span> <span class="nn">.graphics.gofplots</span> <span class="kn">import</span> <span class="n">ProbPlot</span><span class="p">,</span> <span class="n">qqline</span><span class="p">,</span> <span class="n">qqplot</span><span class="p">,</span> <span class="n">qqplot_2samples</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="kn">from</span> <span class="nn">.imputation.bayes_mi</span> <span class="kn">import</span> <span class="n">MI</span><span class="p">,</span> <span class="n">BayesGaussMI</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.gofplots</span> <span class="kn">import</span> <span class="n">qqplot</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.plottools</span> <span class="kn">import</span> <span class="n">rainbow</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.regressionplots</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">abline_plot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">influence_plot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">plot_ccpr</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">plot_ccpr_grid</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">plot_fit</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">plot_leverage_resid2</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">plot_partregress</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">plot_partregress_grid</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">plot_regress_exog</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="s2">&quot;abline_plot&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="s2">&quot;beanplot&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="s2">&quot;violinplot&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">regressionplots</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="kn">import</span> <span class="n">GLM</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">GLS</span><span class="p">,</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">WLS</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.predstd</span> <span class="kn">import</span> <span class="n">wls_prediction_std</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">nonparametric</span><span class="o">/</span><span class="n">smoothers_lowess</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Lowess - wrapper for cythonized extension</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> Author : Chris Jordan-Squire</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span> <span class="k">as</span> <span class="n">_lowess</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">def</span> <span class="nf">lowess</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">it</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xvals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>            <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">return_sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;LOWESS (Locally Weighted Scatterplot Smoothing)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd">     A lowess function that outs smoothed estimates of endog</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span><span class="sd">     &#39;&#39;&#39;</span>
+
+<span class="nn">File statsmodels/nonparametric/_smoothers_lowess.pyx:1,</span> in <span class="ni">init statsmodels.nonparametric._smoothers_lowess</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
 </pre></div>
 </div>
 </div>
@@ -880,7 +637,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>164</td>
       <td>679</td>
       <td>180</td>
@@ -889,7 +646,7 @@ title="Print to PDF"
       <td>-72.80</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>168</td>
       <td>311</td>
       <td>180</td>
@@ -898,7 +655,7 @@ title="Print to PDF"
       <td>-30.62</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>173</td>
       <td>388</td>
       <td>239</td>
@@ -907,7 +664,7 @@ title="Print to PDF"
       <td>4.29</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>157</td>
       <td>370</td>
       <td>168</td>
@@ -916,7 +673,7 @@ title="Print to PDF"
       <td>-4.13</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>160</td>
       <td>468</td>
       <td>151</td>
@@ -925,7 +682,7 @@ title="Print to PDF"
       <td>11.32</td>
     </tr>
     <tr>
-      <th>5</th>
+      <td>5</td>
       <td>170</td>
       <td>341</td>
       <td>96</td>
@@ -934,7 +691,7 @@ title="Print to PDF"
       <td>-69.54</td>
     </tr>
     <tr>
-      <th>6</th>
+      <td>6</td>
       <td>163</td>
       <td>453</td>
       <td>134</td>
@@ -943,7 +700,7 @@ title="Print to PDF"
       <td>-60.64</td>
     </tr>
     <tr>
-      <th>7</th>
+      <td>7</td>
       <td>175</td>
       <td>529</td>
       <td>264</td>
@@ -952,7 +709,7 @@ title="Print to PDF"
       <td>-30.97</td>
     </tr>
     <tr>
-      <th>8</th>
+      <td>8</td>
       <td>185</td>
       <td>392</td>
       <td>240</td>
@@ -961,7 +718,7 @@ title="Print to PDF"
       <td>-42.85</td>
     </tr>
     <tr>
-      <th>9</th>
+      <td>9</td>
       <td>178</td>
       <td>479</td>
       <td>216</td>
@@ -970,7 +727,7 @@ title="Print to PDF"
       <td>-18.81</td>
     </tr>
     <tr>
-      <th>10</th>
+      <td>10</td>
       <td>179</td>
       <td>376</td>
       <td>160</td>
@@ -979,7 +736,7 @@ title="Print to PDF"
       <td>-15.82</td>
     </tr>
     <tr>
-      <th>11</th>
+      <td>11</td>
       <td>181</td>
       <td>539</td>
       <td>196</td>
@@ -988,7 +745,7 @@ title="Print to PDF"
       <td>-38.97</td>
     </tr>
     <tr>
-      <th>12</th>
+      <td>12</td>
       <td>173</td>
       <td>217</td>
       <td>204</td>
@@ -997,7 +754,7 @@ title="Print to PDF"
       <td>-21.21</td>
     </tr>
     <tr>
-      <th>13</th>
+      <td>13</td>
       <td>166</td>
       <td>456</td>
       <td>192</td>
@@ -1006,7 +763,7 @@ title="Print to PDF"
       <td>-13.63</td>
     </tr>
     <tr>
-      <th>14</th>
+      <td>14</td>
       <td>170</td>
       <td>252</td>
       <td>150</td>
@@ -1015,7 +772,7 @@ title="Print to PDF"
       <td>-42.78</td>
     </tr>
     <tr>
-      <th>15</th>
+      <td>15</td>
       <td>165</td>
       <td>622</td>
       <td>162</td>
@@ -1024,7 +781,7 @@ title="Print to PDF"
       <td>-28.06</td>
     </tr>
     <tr>
-      <th>16</th>
+      <td>16</td>
       <td>173</td>
       <td>305</td>
       <td>213</td>
@@ -1033,7 +790,7 @@ title="Print to PDF"
       <td>-23.43</td>
     </tr>
     <tr>
-      <th>17</th>
+      <td>17</td>
       <td>174</td>
       <td>566</td>
       <td>198</td>
@@ -1042,7 +799,7 @@ title="Print to PDF"
       <td>-1.89</td>
     </tr>
     <tr>
-      <th>18</th>
+      <td>18</td>
       <td>173</td>
       <td>322</td>
       <td>119</td>
@@ -1051,7 +808,7 @@ title="Print to PDF"
       <td>-43.04</td>
     </tr>
     <tr>
-      <th>19</th>
+      <td>19</td>
       <td>173</td>
       <td>270</td>
       <td>160</td>
@@ -1060,7 +817,7 @@ title="Print to PDF"
       <td>-33.90</td>
     </tr>
     <tr>
-      <th>20</th>
+      <td>20</td>
       <td>183</td>
       <td>259</td>
       <td>241</td>
@@ -1069,7 +826,7 @@ title="Print to PDF"
       <td>-27.84</td>
     </tr>
     <tr>
-      <th>21</th>
+      <td>21</td>
       <td>188</td>
       <td>238</td>
       <td>252</td>
@@ -1118,7 +875,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>height</th>
+      <td>height</td>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -1127,7 +884,7 @@ title="Print to PDF"
       <td>-0.043394</td>
     </tr>
     <tr>
-      <th>rad</th>
+      <td>rad</td>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -1136,7 +893,7 @@ title="Print to PDF"
       <td>-0.073453</td>
     </tr>
     <tr>
-      <th>chemo</th>
+      <td>chemo</td>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -1145,7 +902,7 @@ title="Print to PDF"
       <td>0.346310</td>
     </tr>
     <tr>
-      <th>base</th>
+      <td>base</td>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -1154,7 +911,7 @@ title="Print to PDF"
       <td>-0.630183</td>
     </tr>
     <tr>
-      <th>month15</th>
+      <td>month15</td>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -1163,7 +920,7 @@ title="Print to PDF"
       <td>0.288794</td>
     </tr>
     <tr>
-      <th>difference</th>
+      <td>difference</td>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -1211,10 +968,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.17</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 21 Oct 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
+  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>13:34:28</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
+  <th>Time:</th>                 <td>22:34:07</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.9</td>
@@ -1253,7 +1010,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 3.069</td> <th>  Cond. No.          </th> <td>    530.</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>There are three blocks of output. We will focus only on the the middle block.</p>
 <ul class="simple">
@@ -1326,7 +1083,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="multiple-regression">
-<h2><span class="section-number">12.3.1. </span>Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.3.1. </span>Multiple Regression<a class="headerlink" href="#multiple-regression" title="Link to this heading">#</a></h2>
 <p>What if we wanted to regress <code class="docutils literal notranslate"><span class="pre">difference</span></code> on both <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">chemo</span></code>? The first thing to do would be to check the correlation matrix again:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1363,7 +1120,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>height</th>
+      <td>height</td>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -1372,7 +1129,7 @@ title="Print to PDF"
       <td>-0.043394</td>
     </tr>
     <tr>
-      <th>rad</th>
+      <td>rad</td>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -1381,7 +1138,7 @@ title="Print to PDF"
       <td>-0.073453</td>
     </tr>
     <tr>
-      <th>chemo</th>
+      <td>chemo</td>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -1390,7 +1147,7 @@ title="Print to PDF"
       <td>0.346310</td>
     </tr>
     <tr>
-      <th>base</th>
+      <td>base</td>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -1399,7 +1156,7 @@ title="Print to PDF"
       <td>-0.630183</td>
     </tr>
     <tr>
-      <th>month15</th>
+      <td>month15</td>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -1408,7 +1165,7 @@ title="Print to PDF"
       <td>0.288794</td>
     </tr>
     <tr>
-      <th>difference</th>
+      <td>difference</td>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -1449,10 +1206,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   11.44</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 21 Oct 2022</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
+  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>13:34:28</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
+  <th>Time:</th>                 <td>22:34:31</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   185.6</td>
@@ -1494,7 +1251,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 2.987</td> <th>  Cond. No.          </th> <td>1.36e+03</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>Ignore the scary warning above. There isn’t strong multicollinearity (predictor variables being highly correlated with each other) nor other serious issues.</p>
 <p>Just focus on the middle block of the output. It’s just like the middle block of the simple regression output, with one more line corresponding to <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
@@ -1542,10 +1299,10 @@ title="Print to PDF"
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   5.185</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 21 Oct 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
+  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>13:34:29</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
+  <th>Time:</th>                 <td>22:50:02</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.5</td>
@@ -1593,7 +1350,7 @@ title="Print to PDF"
 <tr>
   <th>Kurtosis:</th>      <td> 2.851</td> <th>  Cond. No.          </th> <td>1.46e+04</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>This is not a good idea. We end up with a far more complicated model for no appreciable gain in <code class="docutils literal notranslate"><span class="pre">R-squared</span></code>. The “adjusted <span class="math notranslate nohighlight">\(R^2\)</span>” penalizes us for using more predictor variables: notice that the value of <code class="docutils literal notranslate"><span class="pre">Adj.</span> <span class="pre">R-squared</span></code> is smaller for the regression with all the predictors than for the regression with just <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
 <p>Curious about how to select predictors, or about what makes a good regression? Then take some more statistics classes! This one is complete.</p>
@@ -1612,58 +1369,111 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./content\Chapter_12"
+            name: "python3",
+            path: "./content/Chapter_12"
         },
         predefinedOutput: true
     }
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_The_Distribution_of_the_Estimated_Slope.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">12.2. </span>The Distribution of the Estimated Slope</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_The_Distribution_of_the_Estimated_Slope.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12.2. </span>The Distribution of the Estimated Slope</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="04_Exercises.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="04_Exercises.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">12.4. </span>Exercises</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-regression">12.3.1. Multiple Regression</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Ani Adhikari<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Ani Adhikari
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

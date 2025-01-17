@@ -1,0 +1,105 @@
+Traceback (most recent call last):
+  File "/opt/miniconda3/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/miniconda3/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# NO CODE
+
+from datascience import *
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
+import numpy as np
+from scipy import stats
+import statsmodels.api as sm
+import warnings
+warnings.filterwarnings("ignore")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[1], line 9[0m
+[1;32m      7[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m [38;5;28;01mimport[39;00m stats
+[0;32m----> 9[0m [38;5;28;01mimport[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapi[39;00m [38;5;28;01mas[39;00m [38;5;21;01msm[39;00m
+[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mwarnings[39;00m
+[1;32m     11[0m warnings[38;5;241m.[39mfilterwarnings([38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m)
+
+File [0;32m/opt/miniconda3/lib/python3.12/site-packages/statsmodels/api.py:125[0m
+[1;32m    114[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mgenmod[39;00m [38;5;28;01mimport[39;00m api [38;5;28;01mas[39;00m genmod
+[1;32m    115[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mgenmod[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapi[39;00m [38;5;28;01mimport[39;00m (
+[1;32m    116[0m     GEE,
+[1;32m    117[0m     GLM,
+[0;32m   (...)[0m
+[1;32m    123[0m     families,
+[1;32m    124[0m )
+[0;32m--> 125[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mgraphics[39;00m [38;5;28;01mimport[39;00m api [38;5;28;01mas[39;00m graphics
+[1;32m    126[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mgraphics[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgofplots[39;00m [38;5;28;01mimport[39;00m ProbPlot, qqline, qqplot, qqplot_2samples
+[1;32m    127[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mimputation[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbayes_mi[39;00m [38;5;28;01mimport[39;00m MI, BayesGaussMI
+
+File [0;32m/opt/miniconda3/lib/python3.12/site-packages/statsmodels/graphics/api.py:9[0m
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mgofplots[39;00m [38;5;28;01mimport[39;00m qqplot
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mplottools[39;00m [38;5;28;01mimport[39;00m rainbow
+[0;32m----> 9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mregressionplots[39;00m [38;5;28;01mimport[39;00m (
+[1;32m     10[0m     abline_plot,
+[1;32m     11[0m     influence_plot,
+[1;32m     12[0m     plot_ccpr,
+[1;32m     13[0m     plot_ccpr_grid,
+[1;32m     14[0m     plot_fit,
+[1;32m     15[0m     plot_leverage_resid2,
+[1;32m     16[0m     plot_partregress,
+[1;32m     17[0m     plot_partregress_grid,
+[1;32m     18[0m     plot_regress_exog,
+[1;32m     19[0m )
+[1;32m     21[0m __all__ [38;5;241m=[39m [
+[1;32m     22[0m     [38;5;124m"[39m[38;5;124mabline_plot[39m[38;5;124m"[39m,
+[1;32m     23[0m     [38;5;124m"[39m[38;5;124mbeanplot[39m[38;5;124m"[39m,
+[0;32m   (...)[0m
+[1;32m     42[0m     [38;5;124m"[39m[38;5;124mviolinplot[39m[38;5;124m"[39m,
+[1;32m     43[0m ]
+
+File [0;32m/opt/miniconda3/lib/python3.12/site-packages/statsmodels/graphics/regressionplots.py:23[0m
+[1;32m     21[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgenmod[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgeneralized_linear_model[39;00m [38;5;28;01mimport[39;00m GLM
+[1;32m     22[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgraphics[39;00m [38;5;28;01mimport[39;00m utils
+[0;32m---> 23[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnonparametric[39;00m[38;5;21;01m.[39;00m[38;5;21;01msmoothers_lowess[39;00m [38;5;28;01mimport[39;00m lowess
+[1;32m     24[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mregression[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinear_model[39;00m [38;5;28;01mimport[39;00m GLS, OLS, WLS
+[1;32m     25[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01msandbox[39;00m[38;5;21;01m.[39;00m[38;5;21;01mregression[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpredstd[39;00m [38;5;28;01mimport[39;00m wls_prediction_std
+
+File [0;32m/opt/miniconda3/lib/python3.12/site-packages/statsmodels/nonparametric/smoothers_lowess.py:11[0m
+[1;32m      2[0m [38;5;124;03m"""Lowess - wrapper for cythonized extension[39;00m
+[1;32m      3[0m 
+[1;32m      4[0m [38;5;124;03mAuthor : Chris Jordan-Squire[39;00m
+[0;32m   (...)[0m
+[1;32m      7[0m 
+[1;32m      8[0m [38;5;124;03m"""[39;00m
+[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_smoothers_lowess[39;00m [38;5;28;01mimport[39;00m lowess [38;5;28;01mas[39;00m _lowess
+[1;32m     13[0m [38;5;28;01mdef[39;00m [38;5;21mlowess[39m(endog, exog, frac[38;5;241m=[39m[38;5;241m2.0[39m[38;5;241m/[39m[38;5;241m3.0[39m, it[38;5;241m=[39m[38;5;241m3[39m, delta[38;5;241m=[39m[38;5;241m0.0[39m, xvals[38;5;241m=[39m[38;5;28;01mNone[39;00m, is_sorted[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m     14[0m            missing[38;5;241m=[39m[38;5;124m'[39m[38;5;124mdrop[39m[38;5;124m'[39m, return_sorted[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m     15[0m [38;5;250m    [39m[38;5;124;03m'''LOWESS (Locally Weighted Scatterplot Smoothing)[39;00m
+[1;32m     16[0m 
+[1;32m     17[0m [38;5;124;03m    A lowess function that outs smoothed estimates of endog[39;00m
+[0;32m   (...)[0m
+[1;32m    135[0m 
+[1;32m    136[0m [38;5;124;03m    '''[39;00m
+
+File [0;32mstatsmodels/nonparametric/_smoothers_lowess.pyx:1[0m, in [0;36minit statsmodels.nonparametric._smoothers_lowess[0;34m()[0m
+
+[0;31mValueError[0m: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
