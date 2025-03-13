@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -492,7 +492,7 @@ E(\hat{\beta_1}) ~ &amp;= ~ \frac{\frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})E(Y_i -
 <p>The distribution of the estimated slope <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> is normal, centered at the true slope <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/7e52c9c9d6f0b820921cbdc8f8c3167166b4eca821a00f7f2973076e03a64a26.png" src="../../_images/7e52c9c9d6f0b820921cbdc8f8c3167166b4eca821a00f7f2973076e03a64a26.png" />
+<img alt="../../_images/077a8896ed8bf51b9bc6982daa405881f6949e2da333fd70c66ecad513d35da6.png" src="../../_images/077a8896ed8bf51b9bc6982daa405881f6949e2da333fd70c66ecad513d35da6.png" />
 </div>
 </div>
 <p>If we can find <span class="math notranslate nohighlight">\(Var(\hat{\beta}_1)\)</span> then we can use this normal curve for inference. For example,</p>
@@ -593,7 +593,7 @@ T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/87c19920a664996d0ec62c30429a8cc0a5bf1c473f95c7def7a43780da68dba4.png" src="../../_images/87c19920a664996d0ec62c30429a8cc0a5bf1c473f95c7def7a43780da68dba4.png" />
+<img alt="../../_images/6bbc6893ffbab354d92db785c7afb1ee23bd5d4da39be83b6ee61521d1bc2be3.png" src="../../_images/6bbc6893ffbab354d92db785c7afb1ee23bd5d4da39be83b6ee61521d1bc2be3.png" />
 </div>
 </div>
 <p>The scatter plot of the active rate versus the resting rate shows a linear relation. The plot is a bit wider in the middle than it is elsewhere, which indicates that the regression model’s assumption of equal error variances for all individuals might not be satisfied. However, we can use the model as a rough approximation of reality.</p>
@@ -614,7 +614,7 @@ T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=1.1428796819048308, intercept=13.182572776013359, rvalue=0.60418708810600918, pvalue=1.7861044071652309e-24, stderr=0.099388844363891435, intercept_stderr=6.8644300361667909)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=1.1428796819048315, intercept=13.182572776013316, rvalue=0.60418708810600918, pvalue=1.7861044071652309e-24, stderr=0.09938884436389149, intercept_stderr=6.8644300361667945)
 </pre></div>
 </div>
 </div>
@@ -628,11 +628,11 @@ T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1428796819048308,
- 13.182572776013359,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1428796819048315,
+ 13.182572776013316,
  0.60418708810600918,
  1.7861044071652309e-24,
- 0.099388844363891435)
+ 0.09938884436389149)
 </pre></div>
 </div>
 </div>
@@ -655,7 +655,7 @@ T ~ = ~ \frac{\hat{\beta}_1 - \beta_1}{SE(\hat{\beta}_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9441019931770479, 1.3416573706326136)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.94410199317704846, 1.3416573706326145)
 </pre></div>
 </div>
 </div>
@@ -712,14 +712,14 @@ T ~ = ~ \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)}
 <p>The <span class="math notranslate nohighlight">\(t\)</span> density looks like the standard normal curve, except that it has fatter tails. In the figure below, the red curve is the standard normal density and the blue curve is the <span class="math notranslate nohighlight">\(t\)</span> density with <span class="math notranslate nohighlight">\(3\)</span> degrees of freedom.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/d8ee30a49c4a35fa80b1586d090bdb47597181c04c2aa9f1e63a84e3fa6a6c5f.png" src="../../_images/d8ee30a49c4a35fa80b1586d090bdb47597181c04c2aa9f1e63a84e3fa6a6c5f.png" />
+<img alt="../../_images/3631c8d7fb5eba0681041927d272f1adcd612e6737d333c46ef38568e367053c.png" src="../../_images/3631c8d7fb5eba0681041927d272f1adcd612e6737d333c46ef38568e367053c.png" />
 </div>
 </div>
 <p>You can see that the <span class="math notranslate nohighlight">\(t\)</span> distribution has a bit more weight in the tails than the standard normal does. It gives us just the right additional amount of wiggle room to account for the fact that we are estimating the unknown error variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> based on the data.</p>
 <p>When the degrees of freedom are larger then the <span class="math notranslate nohighlight">\(t\)</span> distributions are almost indistinguishable from the standard normal as you can see below. So it’s fine to use normal approximations the estimated slope when the sample size is large.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/39d9098814e13aea52870d7f964c91b9f08860204136a92fd6e8e74f73a7f7df.png" src="../../_images/39d9098814e13aea52870d7f964c91b9f08860204136a92fd6e8e74f73a7f7df.png" />
+<img alt="../../_images/8ce9c0f059273c65f94d840957796dd6f6e7ce05c41abe47eca571143214faed.png" src="../../_images/8ce9c0f059273c65f94d840957796dd6f6e7ce05c41abe47eca571143214faed.png" />
 </div>
 </div>
 <p>For reasons we won’t go into, under the regression model the exact distribution of the standardized slope <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(t\)</span> Number <span class="math notranslate nohighlight">\(n-2\)</span> when the sample size is <span class="math notranslate nohighlight">\(n\)</span>. That is, for any sample size <span class="math notranslate nohighlight">\(n\)</span>, the standardized slope</p>

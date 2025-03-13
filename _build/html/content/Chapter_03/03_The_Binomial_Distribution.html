@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -534,7 +534,7 @@ P(\text{1 head in 3 tosses}) ~ = ~ \binom{3}{1} \big{(} \frac{1}{2} \big{)}^1 \b
 <p><code class="docutils literal notranslate"><span class="pre">SciPy</span></code> is a compendium of Python software that is enormously useful in data science. In particular, its <code class="docutils literal notranslate"><span class="pre">stats</span></code> module contains numerous functions and methods used by data scientists. We will import the module in the cell below, but in future sections it will always have been imported before the start of the section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
 </div>
@@ -598,7 +598,7 @@ P(\text{1 head in 3 tosses}) ~ = ~ \binom{3}{1} \big{(} \frac{1}{2} \big{)}^1 \b
 <p>Here is the probability histogram of the number of sixes in 12 rolls of a die, that is, the histogram of the binomial <span class="math notranslate nohighlight">\((12, 1/6)\)</span> distribution.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/3adca86b57923b09b3098c873b795e3ebc0d3aa0b7db9810ab92a953f5405bc5.png" src="../../_images/3adca86b57923b09b3098c873b795e3ebc0d3aa0b7db9810ab92a953f5405bc5.png" />
+<img alt="../../_images/64bd4533ffd382dc025ad4f3c47168284a21be823e30dc28d1574743506551da.png" src="../../_images/64bd4533ffd382dc025ad4f3c47168284a21be823e30dc28d1574743506551da.png" />
 </div>
 </div>
 <p>Notice that 2 is the most likely value. That makes sense. Roughly, you expect about <span class="math notranslate nohighlight">\(1/6\)</span> of the rolls to be sixes. So in 12 trials, you expect roughly 2 sixes.</p>
