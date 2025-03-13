@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -452,13 +452,7 @@ document.write(`
 <p>We are interested in <span class="math notranslate nohighlight">\(P(\vert X - \mu \vert \ge c)\)</span>. The figure below shows such a probability. Notice that it is the total of two tail probabilities.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-/var/folders/g7/vpsqt6yn74z6qv_c_2x7jsg80000gn/T/ipykernel_53680/990843914.py:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  plt.title(&#39;Gold Area = $P(|X - \mu| \geq c)$&#39;);
-</pre></div>
-</div>
-<img alt="../../_images/2048e9d43bd8d86caef7333a70dfe2f4355b6e91d2455925e23cd705452e0835.png" src="../../_images/2048e9d43bd8d86caef7333a70dfe2f4355b6e91d2455925e23cd705452e0835.png" />
+<img alt="../../_images/3198536394d9577f89f099f64f44ea1fcb7e781084e6e4c1e10ab7c3a3c493aa.png" src="../../_images/3198536394d9577f89f099f64f44ea1fcb7e781084e6e4c1e10ab7c3a3c493aa.png" />
 </div>
 </div>
 <p>The absolute deviation <span class="math notranslate nohighlight">\(\vert X - \mu \vert\)</span> is a non-negative random variable, so we could try to use Markov’s inequality to get an upper bound on <span class="math notranslate nohighlight">\(P(\vert X - \mu \vert \ge c)\)</span>. But the bound would involve <span class="math notranslate nohighlight">\(E(\vert X - \mu \vert)\)</span> which we don’t know.</p>
@@ -502,13 +496,7 @@ P(X \in (50, 70)) ~ \ge ~ \frac{3}{4}
 <p>The figure below shows a red arrow at the new origin <span class="math notranslate nohighlight">\(E(X)\)</span> and blue arrows a unit distance away at <span class="math notranslate nohighlight">\(E(X) - SD(X)\)</span> and <span class="math notranslate nohighlight">\(E(X) + SD(X)\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-/var/folders/g7/vpsqt6yn74z6qv_c_2x7jsg80000gn/T/ipykernel_53680/1440054985.py:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  plt.title(&#39;Gold Area = $P(|X - \mu| \geq c)$&#39;);
-</pre></div>
-</div>
-<img alt="../../_images/f9921d341b240b2a2dc771caa640f7a264c170ca6dca2f467893176125db06a9.png" src="../../_images/f9921d341b240b2a2dc771caa640f7a264c170ca6dca2f467893176125db06a9.png" />
+<img alt="../../_images/cc2889e4782327590ae1c9632b91ac56e560d1998a0bc3a2a0cfe801ad119e41.png" src="../../_images/cc2889e4782327590ae1c9632b91ac56e560d1998a0bc3a2a0cfe801ad119e41.png" />
 </div>
 </div>
 <p>Now let’s consider the chance that a random variable is at least <span class="math notranslate nohighlight">\(k\)</span> SDs away from its mean. We can bound this chance by writing an equivalent form of Chebyshev’s inequality:</p>
@@ -532,19 +520,13 @@ P(\vert X - \mu \vert \ge k\sigma) ~ \le ~ \frac{\sigma^2}{k^2\sigma^2} ~ = ~ \f
 <p>Suppose we want an upper bound on just one tail, as in the figure below. The right hand tail probability is <span class="math notranslate nohighlight">\(P(X - \mu \ge c)\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-/var/folders/g7/vpsqt6yn74z6qv_c_2x7jsg80000gn/T/ipykernel_53680/469047701.py:5: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  plt.title(&#39;Gold Area = $P(X - \mu \geq c)$&#39;);
-</pre></div>
-</div>
-<img alt="../../_images/40943e2d97fcb3cc526a4c919b9f56da063f73c91705f2d7b2d50f619414fadf.png" src="../../_images/40943e2d97fcb3cc526a4c919b9f56da063f73c91705f2d7b2d50f619414fadf.png" />
+<img alt="../../_images/10fc8225ed2310772d67a92cbbeab10f2643e50188b2853db36c628421f78e19.png" src="../../_images/10fc8225ed2310772d67a92cbbeab10f2643e50188b2853db36c628421f78e19.png" />
 </div>
 </div>
 <p>Chebyshev’s inequality gives an upper bound on the total of two tails starting at equal distances on either side of the mean: <span class="math notranslate nohighlight">\(P(\vert X - \mu \vert \ge c)\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/7703fce8c6bd7605a8a5dfcd73207b423507506f15e35cdd4d9a8460c4727554.png" src="../../_images/7703fce8c6bd7605a8a5dfcd73207b423507506f15e35cdd4d9a8460c4727554.png" />
+<img alt="../../_images/6986364d9d2165a0b5b5df1c258a54b699e5ad6358020adca4ed93154129850e.png" src="../../_images/6986364d9d2165a0b5b5df1c258a54b699e5ad6358020adca4ed93154129850e.png" />
 </div>
 </div>
 <p>It is tempting to use half of Chebyshev’s bound as the bound for one tail but the figure above shows why that doesn’t work. The two tails don’t have to be equal. Indeed, in the figure above they visibly aren’t equal.</p>

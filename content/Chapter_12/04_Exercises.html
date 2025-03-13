@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -428,80 +428,6 @@ document.write(`
                 <article class="bd-article">
                   
   <div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">125</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">.genmod</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">genmod</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">.genmod.api</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">GEE</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span>     <span class="n">GLM</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">families</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">125</span> <span class="kn">from</span> <span class="nn">.graphics</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">graphics</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="kn">from</span> <span class="nn">.graphics.gofplots</span> <span class="kn">import</span> <span class="n">ProbPlot</span><span class="p">,</span> <span class="n">qqline</span><span class="p">,</span> <span class="n">qqplot</span><span class="p">,</span> <span class="n">qqplot_2samples</span>
-<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="kn">from</span> <span class="nn">.imputation.bayes_mi</span> <span class="kn">import</span> <span class="n">MI</span><span class="p">,</span> <span class="n">BayesGaussMI</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.gofplots</span> <span class="kn">import</span> <span class="n">qqplot</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.plottools</span> <span class="kn">import</span> <span class="n">rainbow</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.regressionplots</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">abline_plot</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">influence_plot</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">plot_ccpr</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">plot_ccpr_grid</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">plot_fit</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">plot_leverage_resid2</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">plot_partregress</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">plot_partregress_grid</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">plot_regress_exog</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="s2">&quot;abline_plot&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="s2">&quot;beanplot&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="s2">&quot;violinplot&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">]</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">regressionplots</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">23</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="kn">import</span> <span class="n">GLM</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span>
-<span class="ne">---&gt; </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">GLS</span><span class="p">,</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">WLS</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.predstd</span> <span class="kn">import</span> <span class="n">wls_prediction_std</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">nonparametric</span><span class="o">/</span><span class="n">smoothers_lowess</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Lowess - wrapper for cythonized extension</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> Author : Chris Jordan-Squire</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span> <span class="k">as</span> <span class="n">_lowess</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">def</span> <span class="nf">lowess</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">it</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xvals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>            <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">return_sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;LOWESS (Locally Weighted Scatterplot Smoothing)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd">     A lowess function that outs smoothed estimates of endog</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span><span class="sd">     &#39;&#39;&#39;</span>
-
-<span class="nn">File statsmodels/nonparametric/_smoothers_lowess.pyx:1,</span> in <span class="ni">init statsmodels.nonparametric._smoothers_lowess</span><span class="nt">()</span>
-
-<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_remove_input docutils container">
 </div>
@@ -529,11 +455,11 @@ Refer to the regression of active pulse rate on resting pulse rate in <a class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.142879681904831,
- 13.182572776013345,
- 0.6041870881060092,
- 1.7861044071652305e-24,
- 0.09938884436389145)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1428796819048315,
+ 13.182572776013316,
+ 0.60418708810600918,
+ 1.7861044071652309e-24,
+ 0.09938884436389149)
 </pre></div>
 </div>
 </div>
@@ -546,7 +472,7 @@ Refer to the regression of active pulse rate on resting pulse rate in <a class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(91.29741379310344, 18.779629284683832)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(91.297413793103445, 18.779629284683832)
 </pre></div>
 </div>
 </div>
@@ -559,7 +485,7 @@ Refer to the regression of active pulse rate on resting pulse rate in <a class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(68.34913793103448, 9.927912546587986)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(68.349137931034477, 9.9279125465879865)
 </pre></div>
 </div>
 </div>
@@ -589,7 +515,7 @@ Restrict the population of students in the previous exercise just to the male sm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/96cb7415deba46d575f396802346dcc86a2a956d2f9813d82d19aee693aad87a.png" src="../../_images/96cb7415deba46d575f396802346dcc86a2a956d2f9813d82d19aee693aad87a.png" />
+<img alt="../../_images/3806234faf39c2380ac3e613daa56cf959420c537d9160f11cc3c3e146a0352d.png" src="../../_images/3806234faf39c2380ac3e613daa56cf959420c537d9160f11cc3c3e146a0352d.png" />
 </div>
 </div>
 <p>Here is a summary of the regression of the active pulse rate on the resting pulse rate for these data. Since the population consists just of male smokers, the parameters in the model might have different values from those in the previous exercise.</p>
@@ -607,10 +533,10 @@ Restrict the population of students in the previous exercise just to the male sm
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   27.29</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 07 Dec 2019</td> <th>  Prob (F-statistic):</th> <td>0.000103</td>
+  <th>Date:</th>             <td>Thu, 13 Mar 2025</td> <th>  Prob (F-statistic):</th> <td>0.000103</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:25:30</td>     <th>  Log-Likelihood:    </th> <td> -61.906</td>
+  <th>Time:</th>                 <td>14:22:27</td>     <th>  Log-Likelihood:    </th> <td> -61.906</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    17</td>      <th>  AIC:               </th> <td>   127.8</td>
@@ -649,7 +575,7 @@ Restrict the population of students in the previous exercise just to the male sm
 <tr>
   <th>Kurtosis:</th>      <td> 1.915</td> <th>  Cond. No.          </th> <td>    505.</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p><strong>a)</strong> Find the correlation between the active and resting pulse rates for these data and compare it with the corresponding value for all students.</p>
 <p><strong>b)</strong> Show the calculation that leads to the displayed confidence interval for the true slope of <code class="docutils literal notranslate"><span class="pre">Rest</span></code>.</p>

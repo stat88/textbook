@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -518,84 +518,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/db675a0b4de21cef0c278c3d9187731eec7e2aa5d48888e78be2c8806e62ffff.png" src="../../_images/db675a0b4de21cef0c278c3d9187731eec7e2aa5d48888e78be2c8806e62ffff.png" />
+<img alt="../../_images/0040f936438909c9a87d3ad84f66ac8f78e98c707821f034ce93e5cabd560527.png" src="../../_images/0040f936438909c9a87d3ad84f66ac8f78e98c707821f034ce93e5cabd560527.png" />
 </div>
 </div>
 <p>We will regress the difference on the baseline score, this time using the Python module <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> that allows us to easily perform multiple regression as well. You don’t have to learn the code below (though it’s not hard). Just focus on understanding an interpreting the output.</p>
 <p>As a first step, we must import the module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">125</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="kn">from</span> <span class="nn">.genmod</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">genmod</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="kn">from</span> <span class="nn">.genmod.api</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="n">GEE</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span>     <span class="n">GLM</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">families</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">125</span> <span class="kn">from</span> <span class="nn">.graphics</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">graphics</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="kn">from</span> <span class="nn">.graphics.gofplots</span> <span class="kn">import</span> <span class="n">ProbPlot</span><span class="p">,</span> <span class="n">qqline</span><span class="p">,</span> <span class="n">qqplot</span><span class="p">,</span> <span class="n">qqplot_2samples</span>
-<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="kn">from</span> <span class="nn">.imputation.bayes_mi</span> <span class="kn">import</span> <span class="n">MI</span><span class="p">,</span> <span class="n">BayesGaussMI</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.gofplots</span> <span class="kn">import</span> <span class="n">qqplot</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.plottools</span> <span class="kn">import</span> <span class="n">rainbow</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.regressionplots</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">abline_plot</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">influence_plot</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">plot_ccpr</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">plot_ccpr_grid</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">plot_fit</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">plot_leverage_resid2</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">plot_partregress</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">plot_partregress_grid</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">plot_regress_exog</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="s2">&quot;abline_plot&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="s2">&quot;beanplot&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="s2">&quot;violinplot&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">]</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">regressionplots</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">23</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">statsmodels.genmod.generalized_linear_model</span> <span class="kn">import</span> <span class="n">GLM</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics</span> <span class="kn">import</span> <span class="n">utils</span>
-<span class="ne">---&gt; </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">GLS</span><span class="p">,</span> <span class="n">OLS</span><span class="p">,</span> <span class="n">WLS</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.predstd</span> <span class="kn">import</span> <span class="n">wls_prediction_std</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">statsmodels</span><span class="o">/</span><span class="n">nonparametric</span><span class="o">/</span><span class="n">smoothers_lowess</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Lowess - wrapper for cythonized extension</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> Author : Chris Jordan-Squire</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> </span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span> <span class="k">as</span> <span class="n">_lowess</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">def</span> <span class="nf">lowess</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">it</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xvals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">is_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>            <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">return_sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;LOWESS (Locally Weighted Scatterplot Smoothing)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd">     A lowess function that outs smoothed estimates of endog</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span><span class="sd">     &#39;&#39;&#39;</span>
-
-<span class="nn">File statsmodels/nonparametric/_smoothers_lowess.pyx:1,</span> in <span class="ni">init statsmodels.nonparametric._smoothers_lowess</span><span class="nt">()</span>
-
-<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
@@ -637,7 +567,7 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>164</td>
       <td>679</td>
       <td>180</td>
@@ -646,7 +576,7 @@ document.write(`
       <td>-72.80</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>168</td>
       <td>311</td>
       <td>180</td>
@@ -655,7 +585,7 @@ document.write(`
       <td>-30.62</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>173</td>
       <td>388</td>
       <td>239</td>
@@ -664,7 +594,7 @@ document.write(`
       <td>4.29</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>157</td>
       <td>370</td>
       <td>168</td>
@@ -673,7 +603,7 @@ document.write(`
       <td>-4.13</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>160</td>
       <td>468</td>
       <td>151</td>
@@ -682,7 +612,7 @@ document.write(`
       <td>11.32</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>170</td>
       <td>341</td>
       <td>96</td>
@@ -691,7 +621,7 @@ document.write(`
       <td>-69.54</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>163</td>
       <td>453</td>
       <td>134</td>
@@ -700,7 +630,7 @@ document.write(`
       <td>-60.64</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>175</td>
       <td>529</td>
       <td>264</td>
@@ -709,7 +639,7 @@ document.write(`
       <td>-30.97</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>185</td>
       <td>392</td>
       <td>240</td>
@@ -718,7 +648,7 @@ document.write(`
       <td>-42.85</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>178</td>
       <td>479</td>
       <td>216</td>
@@ -727,7 +657,7 @@ document.write(`
       <td>-18.81</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>179</td>
       <td>376</td>
       <td>160</td>
@@ -736,7 +666,7 @@ document.write(`
       <td>-15.82</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>181</td>
       <td>539</td>
       <td>196</td>
@@ -745,7 +675,7 @@ document.write(`
       <td>-38.97</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>173</td>
       <td>217</td>
       <td>204</td>
@@ -754,7 +684,7 @@ document.write(`
       <td>-21.21</td>
     </tr>
     <tr>
-      <td>13</td>
+      <th>13</th>
       <td>166</td>
       <td>456</td>
       <td>192</td>
@@ -763,7 +693,7 @@ document.write(`
       <td>-13.63</td>
     </tr>
     <tr>
-      <td>14</td>
+      <th>14</th>
       <td>170</td>
       <td>252</td>
       <td>150</td>
@@ -772,7 +702,7 @@ document.write(`
       <td>-42.78</td>
     </tr>
     <tr>
-      <td>15</td>
+      <th>15</th>
       <td>165</td>
       <td>622</td>
       <td>162</td>
@@ -781,7 +711,7 @@ document.write(`
       <td>-28.06</td>
     </tr>
     <tr>
-      <td>16</td>
+      <th>16</th>
       <td>173</td>
       <td>305</td>
       <td>213</td>
@@ -790,7 +720,7 @@ document.write(`
       <td>-23.43</td>
     </tr>
     <tr>
-      <td>17</td>
+      <th>17</th>
       <td>174</td>
       <td>566</td>
       <td>198</td>
@@ -799,7 +729,7 @@ document.write(`
       <td>-1.89</td>
     </tr>
     <tr>
-      <td>18</td>
+      <th>18</th>
       <td>173</td>
       <td>322</td>
       <td>119</td>
@@ -808,7 +738,7 @@ document.write(`
       <td>-43.04</td>
     </tr>
     <tr>
-      <td>19</td>
+      <th>19</th>
       <td>173</td>
       <td>270</td>
       <td>160</td>
@@ -817,7 +747,7 @@ document.write(`
       <td>-33.90</td>
     </tr>
     <tr>
-      <td>20</td>
+      <th>20</th>
       <td>183</td>
       <td>259</td>
       <td>241</td>
@@ -826,7 +756,7 @@ document.write(`
       <td>-27.84</td>
     </tr>
     <tr>
-      <td>21</td>
+      <th>21</th>
       <td>188</td>
       <td>238</td>
       <td>252</td>
@@ -875,7 +805,7 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <td>height</td>
+      <th>height</th>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -884,7 +814,7 @@ document.write(`
       <td>-0.043394</td>
     </tr>
     <tr>
-      <td>rad</td>
+      <th>rad</th>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -893,7 +823,7 @@ document.write(`
       <td>-0.073453</td>
     </tr>
     <tr>
-      <td>chemo</td>
+      <th>chemo</th>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -902,7 +832,7 @@ document.write(`
       <td>0.346310</td>
     </tr>
     <tr>
-      <td>base</td>
+      <th>base</th>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -911,7 +841,7 @@ document.write(`
       <td>-0.630183</td>
     </tr>
     <tr>
-      <td>month15</td>
+      <th>month15</th>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -920,7 +850,7 @@ document.write(`
       <td>0.288794</td>
     </tr>
     <tr>
-      <td>difference</td>
+      <th>difference</th>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -968,10 +898,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.17</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
+  <th>Date:</th>             <td>Thu, 13 Mar 2025</td> <th>  Prob (F-statistic):</th>  <td>0.00167</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:34:07</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
+  <th>Time:</th>                 <td>14:22:25</td>     <th>  Log-Likelihood:    </th> <td> -92.947</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.9</td>
@@ -1010,7 +940,7 @@ document.write(`
 <tr>
   <th>Kurtosis:</th>      <td> 3.069</td> <th>  Cond. No.          </th> <td>    530.</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>There are three blocks of output. We will focus only on the the middle block.</p>
 <ul class="simple">
@@ -1034,7 +964,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0008339581409629714
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00083395814096297143
 </pre></div>
 </div>
 </div>
@@ -1062,7 +992,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0859634472658364
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0859634472658368
 </pre></div>
 </div>
 </div>
@@ -1077,7 +1007,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.8575945170898753, -0.23180548291012454)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.85759451708987555, -0.23180548291012443)
 </pre></div>
 </div>
 </div>
@@ -1120,7 +1050,7 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <td>height</td>
+      <th>height</th>
       <td>1.000000</td>
       <td>-0.305206</td>
       <td>0.576825</td>
@@ -1129,7 +1059,7 @@ document.write(`
       <td>-0.043394</td>
     </tr>
     <tr>
-      <td>rad</td>
+      <th>rad</th>
       <td>-0.305206</td>
       <td>1.000000</td>
       <td>-0.003739</td>
@@ -1138,7 +1068,7 @@ document.write(`
       <td>-0.073453</td>
     </tr>
     <tr>
-      <td>chemo</td>
+      <th>chemo</th>
       <td>0.576825</td>
       <td>-0.003739</td>
       <td>1.000000</td>
@@ -1147,7 +1077,7 @@ document.write(`
       <td>0.346310</td>
     </tr>
     <tr>
-      <td>base</td>
+      <th>base</th>
       <td>0.354229</td>
       <td>0.096432</td>
       <td>0.062187</td>
@@ -1156,7 +1086,7 @@ document.write(`
       <td>-0.630183</td>
     </tr>
     <tr>
-      <td>month15</td>
+      <th>month15</th>
       <td>0.390527</td>
       <td>0.040616</td>
       <td>0.445788</td>
@@ -1165,7 +1095,7 @@ document.write(`
       <td>0.288794</td>
     </tr>
     <tr>
-      <td>difference</td>
+      <th>difference</th>
       <td>-0.043394</td>
       <td>-0.073453</td>
       <td>0.346310</td>
@@ -1206,10 +1136,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   11.44</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
+  <th>Date:</th>             <td>Thu, 13 Mar 2025</td> <th>  Prob (F-statistic):</th> <td>0.000548</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:34:31</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
+  <th>Time:</th>                 <td>14:22:25</td>     <th>  Log-Likelihood:    </th> <td> -89.820</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   185.6</td>
@@ -1251,7 +1181,7 @@ document.write(`
 <tr>
   <th>Kurtosis:</th>      <td> 2.987</td> <th>  Cond. No.          </th> <td>1.36e+03</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.36e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>Ignore the scary warning above. There isn’t strong multicollinearity (predictor variables being highly correlated with each other) nor other serious issues.</p>
 <p>Just focus on the middle block of the output. It’s just like the middle block of the simple regression output, with one more line corresponding to <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
@@ -1266,7 +1196,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.03073017186497201, 0.348869828135028)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.030730171864972011, 0.34886982813502798)
 </pre></div>
 </div>
 </div>
@@ -1299,10 +1229,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   5.185</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 06 Dec 2019</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
+  <th>Date:</th>             <td>Thu, 13 Mar 2025</td> <th>  Prob (F-statistic):</th>  <td>0.00645</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>22:50:02</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
+  <th>Time:</th>                 <td>14:22:25</td>     <th>  Log-Likelihood:    </th> <td> -89.741</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    22</td>      <th>  AIC:               </th> <td>   189.5</td>
@@ -1350,7 +1280,7 @@ document.write(`
 <tr>
   <th>Kurtosis:</th>      <td> 2.851</td> <th>  Cond. No.          </th> <td>1.46e+04</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 1.46e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
 </div>
 <p>This is not a good idea. We end up with a far more complicated model for no appreciable gain in <code class="docutils literal notranslate"><span class="pre">R-squared</span></code>. The “adjusted <span class="math notranslate nohighlight">\(R^2\)</span>” penalizes us for using more predictor variables: notice that the value of <code class="docutils literal notranslate"><span class="pre">Adj.</span> <span class="pre">R-squared</span></code> is smaller for the regression with all the predictors than for the regression with just <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">chemo</span></code>.</p>
 <p>Curious about how to select predictors, or about what makes a good regression? Then take some more statistics classes! This one is complete.</p>

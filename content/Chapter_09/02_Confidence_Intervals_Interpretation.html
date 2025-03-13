@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -540,7 +540,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/050a13f62fac04fc7f7c23f6085fb909d324376ad120d8497bdab10639510a2d.png" src="../../_images/050a13f62fac04fc7f7c23f6085fb909d324376ad120d8497bdab10639510a2d.png" />
+<img alt="../../_images/da0042896e3d71ed206c12d2b6f238f411e36fcb03ea61071493f7868032e426.png" src="../../_images/da0042896e3d71ed206c12d2b6f238f411e36fcb03ea61071493f7868032e426.png" />
 </div>
 </div>
 <p>The sample mean is about 27.23 years and the sample SD is about 5.8 years.</p>
@@ -589,7 +589,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 <p>In Data 8 we obtained the confidence interval by using the bootstrap. We started by defining a function that returns one bootstrap mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_resampled_mean</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">one_resampled_mean</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">births</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -608,7 +608,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b55db24892993f5ae3c8cd84068cefd2ebf23c19f69d89a4552abeeb9d278fd3.png" src="../../_images/b55db24892993f5ae3c8cd84068cefd2ebf23c19f69d89a4552abeeb9d278fd3.png" />
+<img alt="../../_images/6eef7486c37f6b66c05e256837901796f0e4ff5ee8ac7714c2869489ea771daf.png" src="../../_images/6eef7486c37f6b66c05e256837901796f0e4ff5ee8ac7714c2869489ea771daf.png" />
 </div>
 </div>
 <p>Finally, we found the “middle 95%” of the bootstrapped means. That was our empirical bootstrap 95% confidence interval for the population mean.</p>
@@ -621,7 +621,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.895229982964224, 27.557921635434411)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26.895229982964224, 27.556218057921637)
 </pre></div>
 </div>
 </div>
@@ -633,7 +633,7 @@ P(\mu \in \text{ random interval }) ~ \approx ~ 0.95
 <p>Here is the histogram of the sampled ages again for reference. The arrow on the horizontal axis is at the sample average 27.23.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/04eced8c2291b69fe46bc9e1cb1b3e3c407b7c4a375d08efea07f092ed168159.png" src="../../_images/04eced8c2291b69fe46bc9e1cb1b3e3c407b7c4a375d08efea07f092ed168159.png" />
+<img alt="../../_images/73bf14f63aa04f2a49a04eac5ad1926eef61a694047ea14a87028553f07ecbdb.png" src="../../_images/73bf14f63aa04f2a49a04eac5ad1926eef61a694047ea14a87028553f07ecbdb.png" />
 </div>
 </div>
 <p>The <strong>SD of the sample</strong> is about 5.8 years. That’s the SD of the distribution displayed above. It measures roughly how far the values in the sample are from their mean which is at the arrow.</p>
@@ -650,7 +650,7 @@ SD(\bar{X}) ~ = ~ \frac{\sigma}{\sqrt{n}} ~ \approx ~ \frac{5.8}{\sqrt{1174}} ~ 
 <p>The SD of the sample mean measures the rough size of the distance between the two arrows. It’s tiny because the mean of a large sample is most likely pretty close to the mean of the population.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/fba38253ea5df6842ce7238f3fba94dad41e8ef84d9651791640a3c9ec657019.png" src="../../_images/fba38253ea5df6842ce7238f3fba94dad41e8ef84d9651791640a3c9ec657019.png" />
+<img alt="../../_images/c0daa29f00e0f07b0046327c2aa3c9d44e963d87a99cafacc63c6f7d2f0d5d30.png" src="../../_images/c0daa29f00e0f07b0046327c2aa3c9d44e963d87a99cafacc63c6f7d2f0d5d30.png" />
 </div>
 </div>
 </section>

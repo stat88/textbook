@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -459,7 +459,7 @@ document.write(`
 <p>The figure below shows the probability histograms of <span class="math notranslate nohighlight">\(S_{100}\)</span> and <span class="math notranslate nohighlight">\(S_{400}\)</span>. You can see that the distribution of <span class="math notranslate nohighlight">\(S_{400}\)</span> is wider and to the right of the distribution of <span class="math notranslate nohighlight">\(S_{100}\)</span>.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/a08133ff5c0a1c279031242f7745dd72cb30da77f150b3f169461eed76729be4.png" src="../../_images/a08133ff5c0a1c279031242f7745dd72cb30da77f150b3f169461eed76729be4.png" />
+<img alt="../../_images/eeac155c851de08a0919a594a9066e1c45b87a591d1901e03f9247a60db005c7.png" src="../../_images/eeac155c851de08a0919a594a9066e1c45b87a591d1901e03f9247a60db005c7.png" />
 </div>
 </div>
 <p>Because the distribution of <span class="math notranslate nohighlight">\(S_{400}\)</span> is wider and the areas of both the histograms are 1, the histogram of <span class="math notranslate nohighlight">\(S_{400}\)</span> is lower than that of <span class="math notranslate nohighlight">\(S_{100}\)</span>. As the sample size <span class="math notranslate nohighlight">\(n\)</span> gets larger, the distribution of the sample sum shifts to the right and gets lower and more spread out.</p>
@@ -477,7 +477,7 @@ P(n \text{ heads in } 2n \text{ tosses } ~ = ~
 <p>Here is a table of some of these values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_half_heads</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">p_half_heads</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Assumes m is even and returns </span>
 <span class="sd">    P(m/2 heads in m tosses)&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -592,7 +592,7 @@ SD(A_{400}) ~ = ~ \frac{\sigma}{\sqrt{400}} ~ = ~ \frac{\sigma}{\sqrt{4}\sqrt{10
 <p>The histograms show the distribution of <span class="math notranslate nohighlight">\(A_{100}\)</span> and <span class="math notranslate nohighlight">\(A_{400}\)</span>. Notice that both distributions balance at 0.5, and the distribution of <span class="math notranslate nohighlight">\(A_{400}\)</span> is more concentrated around 0.5.</p>
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/2ee92f49bf0e36da15411fe86f2adc9489670725f435fbb270cc602b88be23ad.png" src="../../_images/2ee92f49bf0e36da15411fe86f2adc9489670725f435fbb270cc602b88be23ad.png" />
+<img alt="../../_images/fa349eac7bad7e83fc421c421a546eb33505b055f7d8cfaabdf9c3d53cc33524.png" src="../../_images/fa349eac7bad7e83fc421c421a546eb33505b055f7d8cfaabdf9c3d53cc33524.png" />
 </div>
 </div>
 <p>In general, the larger the sample size <span class="math notranslate nohighlight">\(n\)</span>, the more likely it is that the sample average <span class="math notranslate nohighlight">\(A_n\)</span> will be close to the population average <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -631,7 +631,7 @@ P(p - c &lt; A_n &lt; p + c) ~ = ~ P(\vert A_n - p \vert &lt; c) ~ \to ~ 1 ~~~ \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/640b1645aa90a50034b873a9f57cda9dee21ac2031f6f86171f6ec5bb6f175d2.png" src="../../_images/640b1645aa90a50034b873a9f57cda9dee21ac2031f6f86171f6ec5bb6f175d2.png" />
+<img alt="../../_images/ac41a52b79e5f47f1720f3f13f4b32e1de54214914a833fc4a3afc5b3f940861.png" src="../../_images/ac41a52b79e5f47f1720f3f13f4b32e1de54214914a833fc4a3afc5b3f940861.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -643,7 +643,7 @@ P(p - c &lt; A_n &lt; p + c) ~ = ~ P(\vert A_n - p \vert &lt; c) ~ \to ~ 1 ~~~ \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d94106374eda35f7dc1edf15a621f81c32bf3c92b6ee470f436a1268bcb45b51.png" src="../../_images/d94106374eda35f7dc1edf15a621f81c32bf3c92b6ee470f436a1268bcb45b51.png" />
+<img alt="../../_images/03a234247a40be9e1f1a91a15a8bbd120bd069e154582f1a71d2cf46038621e2.png" src="../../_images/03a234247a40be9e1f1a91a15a8bbd120bd069e154582f1a71d2cf46038621e2.png" />
 </div>
 </div>
 </section>
